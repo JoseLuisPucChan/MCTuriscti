@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/mpBase.Master" AutoEventWireup="true" CodeBehind="GestionUsuariosGUI.aspx.cs" Inherits="MCTuristic_Centro_Historico.GUI.GestionUsuariosGUI" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphTituloPagina" runat="server">
     Gestion de usuarios
 </asp:Content>
@@ -110,7 +109,7 @@
                                                 <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control border-blue" TextMode="MultiLine"></asp:TextBox>
                                                 <br />
                                                 <div class="pull-right">
-        <script type="text/javascript">
+                                                    <script type="text/javascript">
             function GurdarDireccion() {
                 var actionData = " { 'calle': '" + $("#<%=txtCalle.ClientID%>")[0].value + "', 'numero': '" + $("#<%=txtNumero.ClientID%>")[0].value + "', 'estado': '" + $("#<%=txtEstado.ClientID%>")[0].value + "', 'cruz': '" + $("#<%=txtCruzamiento.ClientID%>")[0].value + "', 'cp': '" + $("#<%=txtCP.ClientID%>")[0].value + "', 'col': '" + $("#<%=txtColonia.ClientID%>")[0].value + "', 'descripcion': '" + $("#<%=txtDescripcion.ClientID%>")[0].value + "'}  ";
                     $.ajax({
@@ -128,7 +127,7 @@
                 function OnSuccess(response) {
                     alert("Respuesta " + response.d);
                 }
-        </script>
+                                                    </script>
                                                     <asp:Button ID="btnAceptar" CssClass="btn btn-primary" runat="server" Text="Aceptar" />
                                                     <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                                                 </div>
@@ -143,7 +142,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group border-blue">
-                            
+
                             <h3><i class="glyph-icon icon-calendar"></i>Fecha de nacimiento</h3>
                             <div class="input-prepend input-group">
                                 <asp:TextBox ID="txtFecha" class="bootstrap-datepicker form-control border-blue" runat="server"></asp:TextBox>
@@ -153,12 +152,12 @@
                             <asp:Image ID="imgFoto" runat="server" Width="450" Height="300" alt="" />
                             <asp:FileUpload ID="fuFoto" runat="server" accept=" image/jpeg, image/png" />
                             <asp:Button ID="btnVer" runat="server" CssClass="btn btn-purple" Text="Ver imagen" OnClick="btnVer_Click" />
-                            
+
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="divider"></div>
-        <%--<script type="text/javascript">
+                        <%--<script type="text/javascript">
             function GurdarUsuario() {
                 alert('Se ha presionado el boton: ' + numero);
                     var actionData = " { 'nombre': '" + $("#<%=txtNombre.ClientID%>")[0].value + "', 'apellido': '" + $("#<%=txtApellidos.ClientID%>")[0].value + "', 'correo': '" + $("#<%=txtCorreo.ClientID%>")[0].value + "', 'direccion': '" + $("#<%=txtDireccion.ClientID%>")[0].value + "', 'contra': '" + $("#<%=txtContrasena.ClientID%>")[0].value + "', 'telefono': '" + $("#<%=txtTelefono.ClientID%>")[0].value + "', 'fecha': '" + $("#<%=txtFecha.ClientID%>")[0].value + "', 'fu': '" + $("#<%=fuFoto.ClientID%>")[0].value + "'}  ";

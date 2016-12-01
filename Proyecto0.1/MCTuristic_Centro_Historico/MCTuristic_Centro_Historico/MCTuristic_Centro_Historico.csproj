@@ -61,6 +61,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GUI\GestionDireccion.aspx" />
+    <Content Include="GUI\GestionEstablecimientos.aspx" />
+    <Content Include="GUI\GestionEventos.aspx" />
+    <Content Include="GUI\GestionServicios.aspx" />
+    <Content Include="GUI\GestionSitios.aspx" />
+    <Content Include="GUI\GestionSuscripciones.aspx" />
+    <Content Include="GUI\GestionUsuariosGUI.aspx" />
     <Content Include="images1\avatar.jpg" />
     <Content Include="images1\bg.jpg" />
     <Content Include="images1\hombre.png" />
@@ -655,6 +662,55 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\GestionDireccion.aspx.cs">
+      <DependentUpon>GestionDireccion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionDireccion.aspx.designer.cs">
+      <DependentUpon>GestionDireccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionEstablecimientos.aspx.cs">
+      <DependentUpon>GestionEstablecimientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionEstablecimientos.aspx.designer.cs">
+      <DependentUpon>GestionEstablecimientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionEventos.aspx.cs">
+      <DependentUpon>GestionEventos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionEventos.aspx.designer.cs">
+      <DependentUpon>GestionEventos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionServicios.aspx.cs">
+      <DependentUpon>GestionServicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionServicios.aspx.designer.cs">
+      <DependentUpon>GestionServicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionSitios.aspx.cs">
+      <DependentUpon>GestionSitios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionSitios.aspx.designer.cs">
+      <DependentUpon>GestionSitios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionSuscripciones.aspx.cs">
+      <DependentUpon>GestionSuscripciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionSuscripciones.aspx.designer.cs">
+      <DependentUpon>GestionSuscripciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionUsuariosGUI.aspx.cs">
+      <DependentUpon>GestionUsuariosGUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionUsuariosGUI.aspx.designer.cs">
+      <DependentUpon>GestionUsuariosGUI.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage\mpBase.Master.cs">
       <DependentUpon>mpBase.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -664,9 +720,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GUI\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
