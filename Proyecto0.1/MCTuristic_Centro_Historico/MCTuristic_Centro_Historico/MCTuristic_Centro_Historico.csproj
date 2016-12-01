@@ -61,6 +61,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GUI\Contactanos.aspx" />
     <Content Include="images1\avatar.jpg" />
     <Content Include="images1\bg.jpg" />
     <Content Include="images1\hombre.png" />
@@ -102,6 +103,8 @@
     <Content Include="Recursos\hts-cache\new.zip" />
     <Content Include="Recursos\hts-cache\winprofile.ini" />
     <Content Include="MasterPage\mpBase.Master" />
+    <Content Include="MasterPage\PaginaPrincipal.Master" />
+    <Content Include="MasterPage\UsuarioVista.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -655,6 +658,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\Contactanos.aspx.cs">
+      <DependentUpon>Contactanos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Contactanos.aspx.designer.cs">
+      <DependentUpon>Contactanos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPage\mpBase.Master.cs">
       <DependentUpon>mpBase.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -662,11 +672,23 @@
     <Compile Include="MasterPage\mpBase.Master.designer.cs">
       <DependentUpon>mpBase.Master</DependentUpon>
     </Compile>
+    <Compile Include="MasterPage\PaginaPrincipal.Master.cs">
+      <DependentUpon>PaginaPrincipal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\PaginaPrincipal.Master.designer.cs">
+      <DependentUpon>PaginaPrincipal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\UsuarioVista.Master.cs">
+      <DependentUpon>UsuarioVista.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\UsuarioVista.Master.designer.cs">
+      <DependentUpon>UsuarioVista.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GUI\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
