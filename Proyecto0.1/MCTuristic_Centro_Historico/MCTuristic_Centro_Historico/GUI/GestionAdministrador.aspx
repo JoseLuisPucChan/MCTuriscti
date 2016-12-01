@@ -239,7 +239,23 @@
                         <%--<input type="button" class="btn btn-blue-alt" onclick="GurdarUsuario()" value="Guardar" />--%>
 
 
-                               
+                                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                    <ContentTemplate>
+                                          <asp:LinkButton ID="lbtnGuardar" runat="server" CssClass="btn btn-blue-alt" OnClick="lbtnGuardar_Click1"  ><i class="glyph-icon icon-save"></i> Guardar</asp:LinkButton>
+                                         <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt" OnClick="lbtnModificar_Click"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
+                                          <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>
+
+                                        <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+                                            <ProgressTemplate>
+                                                 <img alt="In progress..." src="../images1/iOS7Loader.gif" width="400" height="90" />
+                                            </ProgressTemplate>
+                                        </asp:UpdateProgress>
+                                        
+                                        
+                
+
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                         
               <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">
                  <contenttemplate>
