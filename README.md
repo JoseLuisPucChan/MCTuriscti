@@ -1,2 +1,2 @@
 # MCTuriscti
-Proyecto 4 Cuatrimestre Rutas Turicticas
+Proyecto 4 Cuatrimestre Rutas Turisticas
