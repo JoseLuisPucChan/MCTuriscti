@@ -96,7 +96,7 @@
                                                 </li>
 
 
-                                                <%-- <li class="dropdown">
+                                               <%-- <li class="dropdown">
                                                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">Gallery<b class="caret"></b></a>
                                                     <ul role="menu" class="dropdown-menu">
                                                         <li><a tabindex="-1" href="galletry01.html">Double Column </a></li>
@@ -421,6 +421,7 @@
                                 </div>
 
                             </div>--%>
+
                         </div>
 
 
@@ -432,7 +433,7 @@
                             <ul class="pagination">
                                 <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
                                 <li><a href="#">1</a></li>
-
+                                
                                 <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                             </ul>
                         </div>

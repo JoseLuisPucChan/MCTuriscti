@@ -77,6 +77,22 @@
     <Compile Include="BO\TipoSitioBO.cs" />
     <Compile Include="BO\TipoSuscripcionBO.cs" />
     <Compile Include="BO\UsuarioBO.cs" />
+    <Compile Include="DAO\AdministradorDAO.cs" />
+    <Compile Include="DAO\ComentariosDAO.cs" />
+    <Compile Include="DAO\Conexion.cs" />
+    <Compile Include="DAO\ContactanosDAO.cs" />
+    <Compile Include="DAO\DireccionDAO.cs" />
+    <Compile Include="DAO\EstablecimientoDAO.cs" />
+    <Compile Include="DAO\EventoDAO.cs" />
+    <Compile Include="DAO\NotificacionesDAO.cs" />
+    <Compile Include="DAO\ServicioDAO.cs" />
+    <Compile Include="DAO\SitioDAO.cs" />
+    <Compile Include="DAO\SoporteDAO.cs" />
+    <Compile Include="DAO\SuscripcionDAO.cs" />
+    <Compile Include="DAO\TipoServicioDAO.cs" />
+    <Compile Include="DAO\TipoSitioDAO.cs" />
+    <Compile Include="DAO\TipoSuscripcionDAO.cs" />
+    <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -85,6 +101,21 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CtrlAdministrador.cs" />
+    <Compile Include="Services\CtrlComentario.cs" />
+    <Compile Include="Services\CtrlContactanos.cs" />
+    <Compile Include="Services\CtrlDireccion.cs" />
+    <Compile Include="Services\CtrlEstablecimiento.cs" />
+    <Compile Include="Services\CtrlEvento.cs" />
+    <Compile Include="Services\CtrlNotificaciones.cs" />
+    <Compile Include="Services\CtrlServicio.cs" />
+    <Compile Include="Services\CtrlSitio.cs" />
+    <Compile Include="Services\CtrlSoporte.cs" />
+    <Compile Include="Services\CtrlSuscripcion.cs" />
+    <Compile Include="Services\CtrlTipoServicio.cs" />
+    <Compile Include="Services\CtrlTipoSitio.cs" />
+    <Compile Include="Services\CtrlTipoSuscripcion.cs" />
+    <Compile Include="Services\CtrlUsuario.cs" />
     <Compile Include="UI\WsMCTuristic.asmx.cs">
       <DependentUpon>WsMCTuristic.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -92,8 +123,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DAO\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">

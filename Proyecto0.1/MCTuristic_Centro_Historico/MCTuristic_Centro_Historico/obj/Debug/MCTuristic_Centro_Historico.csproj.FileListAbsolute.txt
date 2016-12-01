@@ -1,0 +1,6 @@
+C:\Users\Luis Puc\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.csprojResolveAssemblyReference.cache
+C:\Users\Luis Puc\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\MCTuristic_Centro_Historico.dll.config
+C:\Users\Luis Puc\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\MCTuristic_Centro_Historico.dll
+C:\Users\Luis Puc\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\MCTuristic_Centro_Historico.pdb
+C:\Users\Luis Puc\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.dll
+C:\Users\Luis Puc\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.pdb
