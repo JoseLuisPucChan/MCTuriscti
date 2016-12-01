@@ -47,8 +47,8 @@
     </asp:PlaceHolder>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphBody" runat="server">
-        <asp:TextBox ID="txtIdEstablecimiento" runat="server" Visible="false"></asp:TextBox>  
-        <asp:TextBox ID="txtIdTipoServicio" runat="server" Visible="false"></asp:TextBox>
+    <asp:TextBox ID="txtIdEstablecimiento" runat="server" Visible="false"></asp:TextBox>
+    <asp:TextBox ID="txtIdTipoServicio" runat="server" Visible="false"></asp:TextBox>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel">
@@ -83,7 +83,7 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="pull-right">
-        <script type="text/javascript">
+                                                <script type="text/javascript">
             function GurdarTipoServicio() {
                 var actionData = " { 'nombre': '" + $("#<%=txtNombreTipo.ClientID%>")[0].value + "'}  ";
                 $.ajax({
@@ -101,7 +101,7 @@
             function OnSuccess(response) {
                 alert("Respuesta " + response.d);
             }
-        </script>
+                                                </script>
                                                 <asp:Button ID="btnAceptar" CssClass="btn btn-primary" runat="server" Text="Aceptar" />
                                                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                                             </div>
@@ -122,7 +122,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="divider"></div>
-        <script type="text/javascript">
+                        <script type="text/javascript">
             function GurdarServicio() {
                 var actionData = " { 'establecimiento': '" + $("#<%=txtIdEstablecimiento.ClientID%>")[0].value + "' , 'tipoServicio': '" + $("#<%=txtIdTipoServicio.ClientID%>")[0].value + "' , 'nombre': '" + $("#<%=txtNombreServicio.ClientID%>")[0].value + "' , 'oferta': '" + $("#<%=txtOferta.ClientID%>")[0].value + "' , 'descripcion': '" + $("#<%=txtDescripcion.ClientID%>")[0].value + "' , 'precio': '" + $("#<%=txtPrecio.ClientID%>")[0].value + "'}  ";
                 $.ajax({
@@ -140,7 +140,7 @@
             function OnSuccess(response) {
                 alert("Respuesta " + response.d);
             }
-        </script>
+                        </script>
                         <asp:LinkButton ID="lbtnGuardar" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-save"></i> Guardar</asp:LinkButton>
                         <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
                         <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>
