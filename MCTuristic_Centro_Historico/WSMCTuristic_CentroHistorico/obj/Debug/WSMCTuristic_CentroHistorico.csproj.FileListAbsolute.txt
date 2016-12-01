@@ -1,0 +1,23 @@
+C:\Users\Luis Puc\Desktop\Proyecto4Cuatrimestre\Proyecto integrador\Web\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\bin\WSMCTuristic_CentroHistorico.dll.config
+C:\Users\Luis Puc\Desktop\Proyecto4Cuatrimestre\Proyecto integrador\Web\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\bin\WSMCTuristic_CentroHistorico.dll
+C:\Users\Luis Puc\Desktop\Proyecto4Cuatrimestre\Proyecto integrador\Web\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\bin\WSMCTuristic_CentroHistorico.pdb
+C:\Users\Luis Puc\Desktop\Proyecto4Cuatrimestre\Proyecto integrador\Web\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\obj\Debug\WSMCTuristic_CentroHistorico.csprojResolveAssemblyReference.cache
+C:\Users\Luis Puc\Desktop\Proyecto4Cuatrimestre\Proyecto integrador\Web\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\obj\Debug\WSMCTuristic_CentroHistorico.dll
+C:\Users\Luis Puc\Desktop\Proyecto4Cuatrimestre\Proyecto integrador\Web\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\obj\Debug\WSMCTuristic_CentroHistorico.pdb
+C:\Users\Luis Puc\Desktop\Reparar\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\bin\WSMCTuristic_CentroHistorico.dll.config
+C:\Users\Luis Puc\Desktop\Reparar\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\bin\WSMCTuristic_CentroHistorico.dll
+C:\Users\Luis Puc\Desktop\Reparar\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\bin\WSMCTuristic_CentroHistorico.pdb
+C:\Users\Luis Puc\Desktop\Reparar\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\obj\Debug\WSMCTuristic_CentroHistorico.dll
+C:\Users\Luis Puc\Desktop\Reparar\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\obj\Debug\WSMCTuristic_CentroHistorico.pdb
+C:\Users\Luis Puc\Desktop\Proyecto4Cuatrimestre\Proyecto integrador\Web\Proyecto 1.2 proyeco Reparado\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\bin\WSMCTuristic_CentroHistorico.dll.config
+C:\Users\Luis Puc\Desktop\Proyecto4Cuatrimestre\Proyecto integrador\Web\Proyecto 1.2 proyeco Reparado\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\bin\WSMCTuristic_CentroHistorico.dll
+C:\Users\Luis Puc\Desktop\Proyecto4Cuatrimestre\Proyecto integrador\Web\Proyecto 1.2 proyeco Reparado\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\bin\WSMCTuristic_CentroHistorico.pdb
+C:\Users\Luis Puc\Desktop\Proyecto4Cuatrimestre\Proyecto integrador\Web\Proyecto 1.2 proyeco Reparado\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\obj\Debug\WSMCTuristic_CentroHistorico.csprojResolveAssemblyReference.cache
+C:\Users\Luis Puc\Desktop\Proyecto4Cuatrimestre\Proyecto integrador\Web\Proyecto 1.2 proyeco Reparado\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\obj\Debug\WSMCTuristic_CentroHistorico.dll
+C:\Users\Luis Puc\Desktop\Proyecto4Cuatrimestre\Proyecto integrador\Web\Proyecto 1.2 proyeco Reparado\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\obj\Debug\WSMCTuristic_CentroHistorico.pdb
+C:\Users\Luis Puc\Desktop\Reparar02\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\obj\Debug\WSMCTuristic_CentroHistorico.csprojResolveAssemblyReference.cache
+C:\Users\Luis Puc\Desktop\Reparar02\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\obj\Debug\WSMCTuristic_CentroHistorico.dll
+C:\Users\Luis Puc\Desktop\Reparar02\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\obj\Debug\WSMCTuristic_CentroHistorico.pdb
+C:\Users\Luis Puc\Desktop\Reparar02\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\bin\WSMCTuristic_CentroHistorico.dll.config
+C:\Users\Luis Puc\Desktop\Reparar02\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\bin\WSMCTuristic_CentroHistorico.dll
+C:\Users\Luis Puc\Desktop\Reparar02\MCTuristic_Centro_Historico\WSMCTuristic_CentroHistorico\bin\WSMCTuristic_CentroHistorico.pdb
