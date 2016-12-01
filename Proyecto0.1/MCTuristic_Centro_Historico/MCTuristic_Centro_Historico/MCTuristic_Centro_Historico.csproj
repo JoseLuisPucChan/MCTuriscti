@@ -61,8 +61,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\AjaxControlToolkit.dll" />
     <Content Include="GUI\Contactanos.aspx" />
     <Content Include="GUI\DetalleProducto.aspx" />
+    <Content Include="GUI\GestionDireccion.aspx" />
+    <Content Include="GUI\GestionEstablecimientos.aspx" />
+    <Content Include="GUI\GestionEventos.aspx" />
+    <Content Include="GUI\GestionServicios.aspx" />
+    <Content Include="GUI\GestionSitios.aspx" />
+    <Content Include="GUI\GestionSuscripciones.aspx" />
+    <Content Include="GUI\GestionUsuariosGUI.aspx" />
     <Content Include="GUI\Login.aspx" />
     <Content Include="GUI\PagPrincipal.aspx" />
     <Content Include="GUI\Producto.aspx" />
@@ -680,6 +688,55 @@
     </Compile>
     <Compile Include="GUI\DetalleProducto.aspx.designer.cs">
       <DependentUpon>DetalleProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionDireccion.aspx.cs">
+      <DependentUpon>GestionDireccion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionDireccion.aspx.designer.cs">
+      <DependentUpon>GestionDireccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionEstablecimientos.aspx.cs">
+      <DependentUpon>GestionEstablecimientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionEstablecimientos.aspx.designer.cs">
+      <DependentUpon>GestionEstablecimientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionEventos.aspx.cs">
+      <DependentUpon>GestionEventos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionEventos.aspx.designer.cs">
+      <DependentUpon>GestionEventos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionServicios.aspx.cs">
+      <DependentUpon>GestionServicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionServicios.aspx.designer.cs">
+      <DependentUpon>GestionServicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionSitios.aspx.cs">
+      <DependentUpon>GestionSitios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionSitios.aspx.designer.cs">
+      <DependentUpon>GestionSitios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionSuscripciones.aspx.cs">
+      <DependentUpon>GestionSuscripciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionSuscripciones.aspx.designer.cs">
+      <DependentUpon>GestionSuscripciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionUsuariosGUI.aspx.cs">
+      <DependentUpon>GestionUsuariosGUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionUsuariosGUI.aspx.designer.cs">
+      <DependentUpon>GestionUsuariosGUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
