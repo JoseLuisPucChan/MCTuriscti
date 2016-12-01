@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,6 +62,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BO\AdministradorBO.cs" />
+    <Compile Include="BO\ComentariosBO.cs" />
+    <Compile Include="BO\ContactanosBO.cs" />
+    <Compile Include="BO\DireccionBO.cs" />
+    <Compile Include="BO\EstablecimientoBO.cs" />
+    <Compile Include="BO\EventoBO.cs" />
+    <Compile Include="BO\NotificacionesBO.cs" />
+    <Compile Include="BO\ServicioBO.cs" />
+    <Compile Include="BO\SitioBO.cs" />
+    <Compile Include="BO\SoporteBO.cs" />
+    <Compile Include="BO\SuscripcionBO.cs" />
+    <Compile Include="BO\TipoServicioBO.cs" />
+    <Compile Include="BO\TipoSitioBO.cs" />
+    <Compile Include="BO\TipoSuscripcionBO.cs" />
+    <Compile Include="BO\UsuarioBO.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -76,7 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="BO\" />
     <Folder Include="DAO\" />
     <Folder Include="Services\" />
   </ItemGroup>
