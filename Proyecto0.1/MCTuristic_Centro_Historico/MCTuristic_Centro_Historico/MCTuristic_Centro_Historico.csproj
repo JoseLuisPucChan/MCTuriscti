@@ -62,6 +62,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GUI\Contactanos.aspx" />
+    <Content Include="GUI\DetalleProducto.aspx" />
+    <Content Include="GUI\Login.aspx" />
+    <Content Include="GUI\PagPrincipal.aspx" />
+    <Content Include="GUI\Producto.aspx" />
+    <Content Include="GUI\QuieneSomo.aspx" />
+    <Content Include="GUI\Registro.aspx" />
+    <Content Include="GUI\Suscripciones.aspx" />
+    <Content Include="GUI\VistaEquipo.aspx" />
+    <Content Include="GUI\VistaProducto.aspx" />
     <Content Include="images1\avatar.jpg" />
     <Content Include="images1\bg.jpg" />
     <Content Include="images1\hombre.png" />
@@ -664,6 +673,69 @@
     </Compile>
     <Compile Include="GUI\Contactanos.aspx.designer.cs">
       <DependentUpon>Contactanos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DetalleProducto.aspx.cs">
+      <DependentUpon>DetalleProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\DetalleProducto.aspx.designer.cs">
+      <DependentUpon>DetalleProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\PagPrincipal.aspx.cs">
+      <DependentUpon>PagPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\PagPrincipal.aspx.designer.cs">
+      <DependentUpon>PagPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Producto.aspx.cs">
+      <DependentUpon>Producto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Producto.aspx.designer.cs">
+      <DependentUpon>Producto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\QuieneSomo.aspx.cs">
+      <DependentUpon>QuieneSomo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\QuieneSomo.aspx.designer.cs">
+      <DependentUpon>QuieneSomo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Suscripciones.aspx.cs">
+      <DependentUpon>Suscripciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Suscripciones.aspx.designer.cs">
+      <DependentUpon>Suscripciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\VistaEquipo.aspx.cs">
+      <DependentUpon>VistaEquipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\VistaEquipo.aspx.designer.cs">
+      <DependentUpon>VistaEquipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\VistaProducto.aspx.cs">
+      <DependentUpon>VistaProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\VistaProducto.aspx.designer.cs">
+      <DependentUpon>VistaProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage\mpBase.Master.cs">
       <DependentUpon>mpBase.Master</DependentUpon>
