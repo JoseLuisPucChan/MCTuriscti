@@ -231,16 +231,16 @@
                                     </div>
                                     <br />
                                 </div>
-                            </div>
+                            </div>S
                             <div class="col-lg-12">
                                 <div class="divider"></div>
                               
                        <%--<input type="button" class="btn btn-blue-alt" onclick="GurdarUsuario()" value="Guardar" />--%>
 
                         <%--<input type="button" class="btn btn-blue-alt" onclick="GurdarUsuario()" value="Guardar" />--%>
-                
-                                            
-               
+
+
+                               
                         
               <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">
                  <contenttemplate>

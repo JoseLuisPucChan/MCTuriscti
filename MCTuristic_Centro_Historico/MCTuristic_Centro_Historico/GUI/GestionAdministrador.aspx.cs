@@ -71,6 +71,8 @@ namespace MCTuristic_Centro_Historico.GUI
             localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
             //ASPxGridView1.DataSource = owebService.ver_Admin_admin();
             //ASPxGridView1.DataBind();
+            //ASPxGridView1.DataSource = owebService.ver_Admin_admin();
+            //ASPxGridView1.DataBind();
         }
 
         protected void lbtnModificar_Click(object sender, EventArgs e)
