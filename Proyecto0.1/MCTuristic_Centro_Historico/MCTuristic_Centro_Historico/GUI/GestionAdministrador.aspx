@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/mpBase.Master" AutoEventWireup="true" CodeBehind="GestionAdministrador.aspx.cs" Inherits="MCTuristic_Centro_Historico.GUI.GestionAdministrador" %>
+
+<%@ Register Assembly="DevExpress.Web.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTituloPagina" runat="server">
     Administrador
 </asp:Content>
@@ -251,11 +253,13 @@
                                             </ProgressTemplate>
                                         </asp:UpdateProgress>
                                         
-                                        
+                                        <dx:ASPxGridView ID="ASPxGridView1" runat="server"></dx:ASPxGridView>
                 
 
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
+
+
                         
               <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">
                  <contenttemplate>
