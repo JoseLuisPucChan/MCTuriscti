@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/mpBase.Master" AutoEventWireup="true" CodeBehind="GestionEstablecimientos.aspx.cs" Inherits="MCTuristic_Centro_Historico.GUI.GestionEstablecimientos" %>
+
+<%@ Register Assembly="DevExpress.Web.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTituloPagina" runat="server">
     Gestion de establecimientos
 </asp:Content>
@@ -47,7 +49,10 @@
     </asp:PlaceHolder>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphBody" runat="server">
-    <div class="row">
+ 
+
+   
+            <div class="row">
         <div class="col-lg-12">
             <div class="panel">
                 <div class="panel-body">
@@ -95,46 +100,98 @@
                         <asp:TextBox ID="txtLongitud" runat="server" Visible="false"></asp:TextBox>
 
                         <h3><i class="glyph-icon icon-file-text"></i>Ubicación</h3>
-                        <div class="example-box-wrapper">
-                            <div id="map-basic" style="height: 300px;"></div>
-                        </div>
+                       <div id="map" style="width: 800px; height: 400px;">  
+        <script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 8,
+    center: {
+        lat: 20.833333, lng:
+            -89
+    }
+  });
+  var geocoder = new google.maps.Geocoder();
+
+  document.getElementById('Buscar').addEventListener('click', function () {
+    geocodeAddress(geocoder, map);
+  });
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  var address = document.getElementById('address').value;
+  geocoder.geocode({ 'address': address }, function (results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      resultsMap.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+        </script>
+           <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBh85_Qcuh0YZH_RmXXa1aly6cU7cU_q9M&signed_in=true&callback=initMap" async defer></script>
+
+  </div>  
+    
+                            
+                        
                     </div>
                     <div class="col-lg-12">
                         <h3><i class="glyph-icon icon-file-text"></i>Descripción del servicio</h3>
                         <asp:TextBox ID="txtDescripcionServicio" runat="server" CssClass="form-control border-blue" TextMode="MultiLine"></asp:TextBox>
                     </div>
+     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
                     <div class="col-lg-12 form-group">
                         <div class="divider"></div>
-                        <script type="text/javascript">
-            function GurdarEstablecimiento() {
-                var actionData = " { 'nombre': '" + $("#<%=txtNombre.ClientID%>")[0].value + "', 'telefono': '" + $("#<%=txtTelefono.ClientID%>")[0].value + "', 'facebook': '" + $("#<%=txtFacebook.ClientID%>")[0].value + "', 'abrir': '" + $("#<%=txtAbrir.ClientID%>")[0].value + "', 'cerrar': '" + $("#<%=txtCerrar.ClientID%>")[0].value + "', 'latitud': '" + $("#<%=txtLatitud.ClientID%>")[0].value + "', 'longitud': '" + $("#<%=txtLongitud.ClientID%>")[0].value + "'}  ";
-                $.ajax({
-                    type: "POST",
-                    url: "GestionEstablecimientos.aspx/GuardarEstablecimiento",
-                    data: actionData,
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: OnSuccess,
-                    failure: function (response) {
-                        alert(response.d);
-                    }
-                });
-            }
-            function OnSuccess(response) {
-                alert("Respuesta " + response.d);
-            }
-                        </script>
+                    
                         <asp:LinkButton ID="lbtnGuardar" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-save"></i> Guardar</asp:LinkButton>
                         <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
                         <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>
                         <div class="divider"></div>
                         <h3><i class="glyph-icon icon-table"></i>Tabla de datos</h3>
-                        <asp:GridView ID="gvDatos" runat="server" CssClass="table-bordered form-control"></asp:GridView>
+               
+                        <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+                                            <ProgressTemplate>
+                                                 <img alt="In progress..." src="../images1/iOS7Loader.gif" width="400" height="90" />
+                                            </ProgressTemplate>
+                                        </asp:UpdateProgress>
+
+
+                                        <dx:ASPxGridView ID="ASPxGridView1" runat="server"  Theme="iOS">
+                                            <Columns>
+                             
+                                        <dx:GridViewDataColumn FieldName="Código" Visible="false" VisibleIndex="5" />
+                                                <dx:GridViewDataColumn FieldName="Nombre" VisibleIndex="1" />
+                                                 <dx:GridViewDataColumn FieldName="Teléfono" Visible="true" VisibleIndex="3" />
+                                                 <dx:GridViewDataColumn FieldName="HoraInicio"  VisibleIndex="4" />
+                                                 <dx:GridViewDataColumn FieldName="HoraCierre" Visible="false" VisibleIndex="5" />
+                                                 <dx:GridViewDataColumn FieldName="PagFacebook" VisibleIndex="6" />
+                                                 <dx:GridViewDataColumn FieldName="Propietario" Visible="true" VisibleIndex="7" />
+                                                 <dx:GridViewDataColumn FieldName="Latitud" Visible="false" VisibleIndex="8" />
+                                                 <dx:GridViewDataColumn FieldName="Longitud" Visible="false" VisibleIndex="9" />
+                                                 <dx:GridViewDataColumn FieldName="Foto" Visible="false" VisibleIndex="10" />
+                                                 <dx:GridViewDataColumn FieldName="IdUsuario"  Visible="true" VisibleIndex="11" />
+                   
+                                        <dx:GridViewDataColumn Caption="Edit">
+                                            <DataItemTemplate>
+                                                <asp:LinkButton ID="Lnk" runat="server" CommandArgument="Editar" Text="Editar"></asp:LinkButton>
+                                            </DataItemTemplate>
+                                        </dx:GridViewDataColumn>
+                                    </Columns>
+                                        </dx:ASPxGridView>
                     </div>
+            </ContentTemplate>
+    </asp:UpdatePanel>
                 </div>
             </div>
         </div>
     </div>
+        
+    
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphBarraLat" runat="server">
     <div id="page-sidebar">

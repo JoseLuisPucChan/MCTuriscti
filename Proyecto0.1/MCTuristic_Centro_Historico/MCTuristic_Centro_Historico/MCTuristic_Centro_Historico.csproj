@@ -121,6 +121,7 @@
     <Content Include="Recursos\css\assets\sass\libs\_vars.scss" />
     <Content Include="Recursos\css\assets\sass\main.scss" />
     <Content Include="Recursos\css\assets\sass\noscript.scss" />
+    <Content Include="Recursos\css\materialize.css" />
     <Content Include="Recursos\font-awesome\fonts\fontawesome-webfontba72.eot" />
     <Content Include="Recursos\font-awesome\fonts\fontawesome-webfontba72.ttf" />
     <Content Include="Recursos\font-awesome\fonts\fontawesome-webfontba72.woff" />
@@ -679,8 +680,10 @@
     <Content Include="Recursos\js\jquery.ui.datepicker.js" />
     <Content Include="Recursos\js\jquery.validate.js" />
     <Content Include="Recursos\js\maps.js" />
+    <Content Include="Recursos\js\materialize.js" />
     <Content Include="Recursos\js\modernizr.custom.39665.js" />
     <Content Include="Recursos\js\OfficeLocation.js" />
+    <Content Include="Recursos\js\push.min.js" />
     <Content Include="Recursos\js\sly.min.js" />
     <Content Include="Recursos\js\underscore-min.js" />
     <Content Include="Recursos\slider\comment-reply.min.js" />

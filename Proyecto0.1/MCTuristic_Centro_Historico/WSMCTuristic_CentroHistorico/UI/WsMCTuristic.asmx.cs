@@ -182,6 +182,7 @@ namespace WSMCTuristic_CentroHistorico.UI
         }
         [WebMethod]
         //Nuevo webmethod Diosemir Nah
+        
         public DataSet establecimiento_AdminWS()
         {
             oEstablecimiento = new Services.CtrlEstablecimiento();
