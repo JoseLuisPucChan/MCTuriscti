@@ -76,20 +76,22 @@ namespace WSMCTuristic_CentroHistorico.UI
             oUsuarioCTRL = new Services.CtrlUsuario();
             return oUsuarioCTRL.LoginUsuario(oUsuario);
         }
-
         //Nuevo webmethod Diosemir Nah
+        [WebMethod]
         public DataSet usuario_adminWS()
         {
             oUsuarioCTRL = new Services.CtrlUsuario();
             return oUsuarioCTRL.topUsuarios_admin();
         }
         //Nuevo webmethod Diosemir Nah
+        [WebMethod]
         public DataSet usuario_adminFiltradosWS()
         {
             oUsuarioCTRL = new Services.CtrlUsuario();
             return oUsuarioCTRL.topUsuarios_adminFiltrados();
         }
         //Nuevo webmethod Diosemir Nah
+        [WebMethod]
         public DataSet usuario_userWS()
         {
             oUsuarioCTRL = new Services.CtrlUsuario();

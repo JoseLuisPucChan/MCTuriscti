@@ -108,7 +108,7 @@ namespace MCTuristic_Centro_Historico.GUI
                 txtDescripcionEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Descripcion").ToString();
                 txtEstadoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Estado").ToString();
                 txtCodigoPostalEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "CodPostal").ToString();
-                
+               
             }
 
         }
