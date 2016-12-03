@@ -258,14 +258,14 @@
                             <br />
                             <h3><i class="glyph-icon icon-image"></i>Foto</h3>
                             <asp:Image ID="FotoPre" runat="server" Width="450" Height="300" alt="" />
-                            <asp:FileUpload ID="FileUpload1" runat="server" />
+                          
 
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="divider"></div>
                              <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt" OnClick="lbtnModificar_Click"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
-                        <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right" OnClick="lbtnEliminar_Click"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>
                         <div class="divider"></div>
                                   <asp:TextBox ID="txtIDUsuario" runat="server" Visible="false" CssClass="form-control border-blue"></asp:TextBox>
                         <asp:TextBox ID="txtContraseñaEdit" runat="server" Visible="false" CssClass="form-control border-blue"></asp:TextBox>

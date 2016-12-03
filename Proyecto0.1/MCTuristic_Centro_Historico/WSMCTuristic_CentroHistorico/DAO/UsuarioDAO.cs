@@ -88,7 +88,7 @@ namespace WSMCTuristic_CentroHistorico.DAO
             oUsuario = (BO.UsuarioBO)obj;
 
             cmd.Connection = conn.Establecer();
-            cmd.CommandText = "eliminar_usaurio";
+            cmd.CommandText = "eliminar_usuario";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = oUsuario.IdUsuario;

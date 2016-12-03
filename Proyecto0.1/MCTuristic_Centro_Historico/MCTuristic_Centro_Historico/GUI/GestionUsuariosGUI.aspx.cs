@@ -205,30 +205,7 @@ namespace MCTuristic_Centro_Historico.GUI
         {
             ModificarUser();
         }
-        private bool VerificarArchivoImgPre()
-        {
-            if (FileUpload1.HasFile)
-            {
-                string ext = System.IO.Path.GetExtension(FileUpload1.FileName);
-                if (ext == ".jpeg" || ext == ".jpg" || ext == ".png")
-                {
-                    //string path = Server.MapPath(@"\Recursos\");
-                    //fu.SaveAs(path + fu.FileName);
-                    HttpPostedFile imagen = FileUpload1.PostedFile;
-                    int tamaño = imagen.ContentLength;
-                    Byte[] arreglo = new Byte[tamaño];
-                    imagen.InputStream.Read(arreglo, 0, tamaño);
-                    Session["arreglo"] = arreglo;
-                    Session["Url"] = ConvertirImagenStringWebUrl(arreglo, ext);
-                }
-                return true;
-            }
-            else
-            {
-                Response.Write("<h3>Solo puedes seleccionar archivos tipo .jpeg , .jpg o .png</h3>");
-            }
-            return false;
-        }
+     
         private void ModificarUser()
         {
             localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
@@ -241,14 +218,7 @@ namespace MCTuristic_Centro_Historico.GUI
             oUsuariosBO.FecharNacUsuario = txtFechaNacimientoEdit.Text;
             oUsuariosBO.TelefonoUsuario = txtCelularEdit.Text;
             oUsuariosBO.ContraseñaUsuario = txtContraseñaEdit.Text;
-            if (VerificarArchivoImgPre() == true)
-            {
-                oUsuariosBO.Foto = (Byte[])Session["arreglo"];
-            }
-            else
-            {
-                oUsuariosBO.Foto = (Byte[])Session["arreglo1"];
-            }
+             oUsuariosBO.Foto = (Byte[])Session["arreglo1"];
             int i = owebService.ModificarUsuario(oUsuariosBO);
             if (i > 0)
             {
@@ -277,6 +247,26 @@ namespace MCTuristic_Centro_Historico.GUI
             else
             {
                 
+            }
+        }
+
+        protected void lbtnEliminar_Click(object sender, EventArgs e)
+        {
+            localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
+            localhost.DireccionBO oDireccionBO = new localhost.DireccionBO();
+            localhost.UsuarioBO oUsuariosBO = new UsuarioBO();
+            oDireccionBO.IdDireccion = Convert.ToInt32(txtIdDireccion.Text);
+            oUsuariosBO.IdUsuario = Convert.ToInt32(txtIDUsuario .Text);
+            int i = owebService.EliminarDireccion(oDireccionBO);
+            if (i > 0)
+            {
+                int y = owebService.EliminarUsuario(oUsuariosBO);
+                if (y > 0)
+                {
+                    CargarUsuario();
+                    Editar.Visible = false;
+                    GestioUsuarios.Visible = true;
+                }
             }
         }
     }
