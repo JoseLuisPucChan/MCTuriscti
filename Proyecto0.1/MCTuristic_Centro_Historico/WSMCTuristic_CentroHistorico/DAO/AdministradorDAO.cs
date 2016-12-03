@@ -54,12 +54,11 @@ namespace WSMCTuristic_CentroHistorico.DAO
             cmd.Connection = conn.Establecer();
             cmd.CommandText = "actualizar_administrador";
             cmd.CommandType = CommandType.StoredProcedure;
-
             cmd.Parameters.Add("@IdAdminstrador ", SqlDbType.Int).Value = oAdministrador.IdAdministrador;
             cmd.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = oAdministrador.Nombreadmin;
             cmd.Parameters.Add("@Apellidos", SqlDbType.VarChar).Value = oAdministrador.Apellidosadmin;
             cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = oAdministrador.Email;
-            cmd.Parameters.Add("@Contrasena", SqlDbType.VarChar).Value = oAdministrador.Contraseñaadmin;
+            //cmd.Parameters.Add("@Contrasena", SqlDbType.VarChar).Value = oAdministrador.Contraseñaadmin;
             cmd.Parameters.Add("@TelefonoCelular", SqlDbType.VarChar).Value = oAdministrador.Telefonoadmin;
             cmd.Parameters.Add("@FechaNacimiento", SqlDbType.Date).Value = oAdministrador.Fechanacimiento;
 
@@ -89,7 +88,7 @@ namespace WSMCTuristic_CentroHistorico.DAO
             cmd.CommandText = "eliminar_administrador";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add("@IdAdministradoe ", SqlDbType.Int).Value = oAdministrador.IdAdministrador;
+            cmd.Parameters.Add("@IdAdministrador ", SqlDbType.Int).Value = oAdministrador.IdAdministrador;
 
             conn.Abrir();
             int retorno = cmd.ExecuteNonQuery();
@@ -156,7 +155,7 @@ namespace WSMCTuristic_CentroHistorico.DAO
         {
             conn = new Conexion();
             string sql;
-            sql = "EXEC ver_admin_admin";
+            sql = "EXEC ver_administrador";
             return conn.TablaDS(sql);
         }
 
