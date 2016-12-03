@@ -4,25 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-        function Gurdar() {
-            var actionData = " { 'nombre': '" + $("#<%=txtNombre.ClientID%>")[0].value + "' , 'apellido': '" + $("#<%=txtApellidos.ClientID%>")[0].value + "' , 'email': '" + $("#<%=txtEmail.ClientID%>")[0].value + "' , 'asunto': '" + $("#<%=txtAsunto.ClientID%>")[0].value + "' , 'contenido': '" + $("#<%=txtContenido.ClientID%>")[0].value + "'}  ";
-            $.ajax({
-                type: "POST",
-                url: "Contactanos.aspx/GuardarContactanos",
-                data: actionData,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: OnSuccess,
-                failure: function (response) {
-                    alert(response.d);
-                }
-            });
-        }
-        function OnSuccess(response) {
-            alert("Respuesta " + response.d);
-        }
-    </script>
+    <script src="../Recursos/js/push.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Principal" runat="server">
 </asp:Content>
@@ -97,8 +79,7 @@
                                                 <li class="dropdown">
 
                                                     <asp:HyperLink ID="HyperLink1" data-toggle="dropdown" class="dropdown-toggle" Visible="false" NavigateUrl="~/GUI/Principal.aspx" runat="server">Blog</asp:HyperLink>
-                                                    <%--                                                    <a href="Principal.aspx"  data-toggle="dropdown" class="dropdown-toggle"> Blog<b class="caret"></b></a>--%>
-                                                   -
+                                                    <%--                                                    <a href="Principal.aspx"  data-toggle="dropdown" class="dropdown-toggle"> Blog<b class="caret"></b></a>--%>-
                                                     <ul role="menu" class="dropdown-menu">
                                                         <li><a tabindex="-1" href="Principal.aspx">Página principal </a></li>
                                                         <li>
@@ -112,7 +93,7 @@
                                                     <a href="Productos.aspx" data-toggle="dropdown" class="dropdown-toggle">Productos<b class="caret"></b></a>
                                                     <ul role="menu" class="dropdown-menu">
                                                         <li><a tabindex="-1" href="Productos.aspx">Lista Productos </a></li>
-                                                        <%--      <li><a tabindex="-1" href="DetalleProducto.aspx"> Product Details</a></li>
+                                                            <%--      <li><a tabindex="-1" href="DetalleProducto.aspx"> Product Details</a></li>
                                                         <li><a tabindex="-1" href="cart.html"> Cart </a></li>
                                                         <li><a tabindex="-1" href="checkout.html"> Check Out</a></li>
                                                         <li><a tabindex="-1" href="register.html"> Login</a></li>
@@ -178,7 +159,10 @@
         </section>
 
 
-        <section class="signup">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:Label ID="lblMensaje" runat="server" ForeColor="#58B1C3"></asp:Label>
+                <section class="signup">
             <div class="container">
                 <div class="row">
 
@@ -221,10 +205,11 @@
                             <ul>
                                 <li>
                                     <font>
-<font>
-<input id="btnEnviar" type="button" class="btn btn-info boton1"   onclick="Gurdar();" value="Enviar" />
-</font>
- </font>
+                            <font>
+                            <asp:Button runat="server" id="Buton" Text="Enviar" OnClick="Unnamed1_Click"></asp:Button>
+             
+                            </font>
+                             </font>
                                 </li>
                             </ul>
                         </div>
@@ -247,24 +232,27 @@
                                     <li><strong class="title"><i class="fa fa-mobile"></i><font><font> (00) 1234 4567 89</font></font></strong></li>
                                     <li><strong class="title"><i class="fa fa-envelope"></i><a href="mailto:info@relaxspapalace.com"><font><font>info@relaxspapalace.com</font></font></a></strong></li>
                                 </ul>
+                                <address>
+                                </address>
+                                <hr>
+                                <div class="social">
+                                    <a href="#" title="Facebook"><i class="fa fa-facebook-square"></i></a><a href="#" title="Linkedin"><i class="fa fa-linkedin-square"></i></a><a href="#" title="gplus"><i class="fa fa-google-plus-square"></i></a><a href="#" title="Gorjeo"><i class="fa fa-twitter-square"></i></a><a href="#" title="Pinterest"><i class="fa fa-pinterest-square"></i></a><a href="#" title="Instagram"><i class="fa fa-instagram"></i></a><a href="#" title="Flickr"><i class="fa fa-flickr"></i></a>
+                                </div>
+                                </hr>
+                                <address>
+                                </address>
                             </address>
-                            <hr>
-                            <div class="social">
-                                <a href="#" title="Facebook"><i class="fa fa-facebook-square"></i></a>
-                                <a href="#" title="Linkedin"><i class="fa fa-linkedin-square"></i></a>
-                                <a href="#" title="gplus"><i class="fa fa-google-plus-square"></i></a>
-                                <a href="#" title="Gorjeo"><i class="fa fa-twitter-square"></i></a>
-                                <a href="#" title="Pinterest"><i class="fa fa-pinterest-square"></i></a>
-                                <a href="#" title="Instagram"><i class="fa fa-instagram"></i>
-                                </a><a href="#" title="Flickr"><i class="fa fa-flickr"></i></a>
                             </div>
-                        </div>
                     </div>
 
                 </div>
             </div>
         </section>
-
+                </font></font>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        
+        
         <div class="gap"></div>
     </div>
 </asp:Content>

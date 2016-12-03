@@ -12,8 +12,6 @@
 
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../Recursos/agileui.com/demo/monarch/assets/images/icons/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../Recursos/agileui.com/demo/monarch/assets/images/icons/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../Recursos/agileui.com/demo/monarch/assets/images/icons/apple-touch-icon-72-precomposed.png" />
@@ -65,7 +63,8 @@
     <script src="../Recursos/agileui.com/demo/monarch/assets/angular/datepicker-demo.js"></script>
 
     <link href="../Recursos/agileui.com/demo/monarch/assets/angular/page-animations.css" rel="stylesheet" />
-
+    <script src="../Recursos/js/jquery-1.7.1.min.js"></script>
+    <script src="../Recursos/js/jquery-3.1.1.min.js"></script>
 </head>
 <body ng-controller="indexController">
     <form id="form1" runat="server">
