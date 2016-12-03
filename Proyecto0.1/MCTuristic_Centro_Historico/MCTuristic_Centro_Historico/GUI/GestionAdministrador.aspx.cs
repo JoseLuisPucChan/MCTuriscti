@@ -12,6 +12,10 @@ namespace MCTuristic_Centro_Historico.GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
+                CargarAdmin();
+            }
 
         }
         [WebMethod]
@@ -73,16 +77,117 @@ namespace MCTuristic_Centro_Historico.GUI
         private void CargarAdmin()
         {
             localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
-            //ASPxGridView1.DataSource = owebService.ver_Admin_admin();
-            //ASPxGridView1.DataBind();
-            //ASPxGridView1.DataSource = owebService.ver_Admin_admin();
-            //ASPxGridView1.DataBind();
+            ASPxGridView1.DataSource = owebService.ver_Admin_admin();
+            ASPxGridView1.DataBind();
+
         }
 
         protected void lbtnModificar_Click(object sender, EventArgs e)
         {
             CargarAdmin();
         }
+
+        protected void ASPxGridView1_RowCommand(object sender, DevExpress.Web.ASPxGridViewRowCommandEventArgs e)
+        {
+             if (e.CommandArgs.CommandArgument.ToString() == "Editar")
+             {
+                GestionNuevo.Visible = false;
+                Editar.Visible = true;
+                lblNuevo.Visible = true;
+                txtIDAdmin.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "IdAdministrador").ToString();
+                txtIdDireccion.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "idDireccion").ToString();
+                txtNombreEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Nombre").ToString();
+                txtApellidosEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Apellidos").ToString();
+                txtCorreoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Email").ToString();
+                txtTelefonoEdit.Text  = ASPxGridView1.GetRowValues(e.VisibleIndex, "TelefonoCelular").ToString();
+                txtFechaNEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "FechaNacimiento").ToString();
+                txtCalleEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Calle").ToString();
+                txtCruzamientoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Cruzamiento").ToString();
+                txtNumeroCalleEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Numero").ToString();
+                txtColoniaEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Colonia").ToString();
+                txtDescripcionEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Descripcion").ToString();
+                txtEstadoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Estado").ToString();
+                txtCodigoPostalEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "CodPostal").ToString();
+                
+            }
+
+        }
+
+        protected void lblNuevo_Click(object sender, EventArgs e)
+        {
+            Editar.Visible = false;
+            GestionNuevo.Visible = true;
+            lblNuevo.Visible = false;
+            lblEstado.Text = "";
+        }
+
+        protected void lbtnModificar_Click1(object sender, EventArgs e)
+        {
+            ModificarAdmin();
+            CargarAdmin();
+        }
+        private void ModificarAdmin()
+        {
+            lblEstado.Text = "Procesando...";
+            localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
+            localhost.AdministradorBO oAdministradorBO = new localhost.AdministradorBO();
+            oAdministradorBO.IdAdministrador =Convert.ToInt32( txtIDAdmin.Text);
+            oAdministradorBO.Nombreadmin = txtNombreEdit.Text ;
+            oAdministradorBO.Apellidosadmin = txtApellidosEdit.Text;
+            oAdministradorBO.Email = txtCorreoEdit.Text;
+            oAdministradorBO.Telefonoadmin = txtTelefonoEdit.Text;
+            oAdministradorBO.Fechanacimiento = txtFechaNEdit.Text;
+            int i = owebService.ModificarAdministrador(oAdministradorBO);
+            if (i > 0)
+            {
+                ModificarDireccion();   
+            }
+        }
+        private void ModificarDireccion()
+        {
+            localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
+            localhost.DireccionBO oDireccionBO = new localhost.DireccionBO();
+            oDireccionBO.IdDireccion = Convert.ToInt32(txtIdDireccion.Text);
+            oDireccionBO.Calle = txtCalleEdit.Text;
+            oDireccionBO.Numero = txtNumeroCalleEdit.Text ;
+            oDireccionBO.Estado = txtEstadoEdit.Text;
+            oDireccionBO.Cruzamiento = txtCruzamientoEdit.Text;
+            oDireccionBO.CodPostal = txtCodigoPostalEdit.Text;
+            oDireccionBO.Colonia = txtColoniaEdit.Text;
+            oDireccionBO.DescripcionDireccion = txtDescripcionEdit.Text;
+            oDireccionBO.IdAdministrador = Convert.ToInt32(txtIDAdmin.Text);
+            int i = owebService.ModificarDireccion_admin(oDireccionBO);
+            if (i > 0)
+            {
+                lblEstado.Text = "Cambios Guardados con éxito";
+            }
+            else
+            {
+                lblEstado.Text = "Error, Verificar si los campos estan llenos";
+            }
+        }
+
+        protected void lBntEliminar_Click(object sender, EventArgs e)
+        {
+            localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
+            localhost.DireccionBO oDireccionBO = new localhost.DireccionBO();
+            localhost.AdministradorBO oAdministradorBO = new localhost.AdministradorBO();
+            oDireccionBO.IdDireccion = Convert.ToInt32(txtIdDireccion.Text);
+            oAdministradorBO.IdAdministrador = Convert.ToInt32(txtIDAdmin.Text);
+            int i = owebService.EliminarDireccion(oDireccionBO);
+            if (i > 0)
+            {
+                int y = owebService.EliminarAdministrador(oAdministradorBO);
+                if (y > 0)
+                {
+                    CargarAdmin();
+                    Editar.Visible = false;
+                    GestionNuevo.Visible = true;
+                }
+            }
+
+        }
+
 
 
         //protected void ASPxGridView1_RowCommand(object sender, DevExpress.Web.ASPxGridViewRowCommandEventArgs e)
