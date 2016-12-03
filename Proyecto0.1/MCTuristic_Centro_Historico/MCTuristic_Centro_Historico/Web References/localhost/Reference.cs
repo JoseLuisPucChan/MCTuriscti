@@ -40,6 +40,12 @@ namespace MCTuristic_Centro_Historico.localhost {
         
         private System.Threading.SendOrPostCallback LoginUsuarioOperationCompleted;
         
+        private System.Threading.SendOrPostCallback usuario_adminWSOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback usuario_adminFiltradosWSOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback usuario_userWSOperationCompleted;
+        
         private System.Threading.SendOrPostCallback EliminarDireccionOperationCompleted;
         
         private System.Threading.SendOrPostCallback InsertarDireccionOperationCompleted;
@@ -194,6 +200,15 @@ namespace MCTuristic_Centro_Historico.localhost {
         
         /// <remarks/>
         public event LoginUsuarioCompletedEventHandler LoginUsuarioCompleted;
+        
+        /// <remarks/>
+        public event usuario_adminWSCompletedEventHandler usuario_adminWSCompleted;
+        
+        /// <remarks/>
+        public event usuario_adminFiltradosWSCompletedEventHandler usuario_adminFiltradosWSCompleted;
+        
+        /// <remarks/>
+        public event usuario_userWSCompletedEventHandler usuario_userWSCompleted;
         
         /// <remarks/>
         public event EliminarDireccionCompletedEventHandler EliminarDireccionCompleted;
@@ -488,6 +503,87 @@ namespace MCTuristic_Centro_Historico.localhost {
             if ((this.LoginUsuarioCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.LoginUsuarioCompleted(this, new LoginUsuarioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/usuario_adminWS", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet usuario_adminWS() {
+            object[] results = this.Invoke("usuario_adminWS", new object[0]);
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void usuario_adminWSAsync() {
+            this.usuario_adminWSAsync(null);
+        }
+        
+        /// <remarks/>
+        public void usuario_adminWSAsync(object userState) {
+            if ((this.usuario_adminWSOperationCompleted == null)) {
+                this.usuario_adminWSOperationCompleted = new System.Threading.SendOrPostCallback(this.Onusuario_adminWSOperationCompleted);
+            }
+            this.InvokeAsync("usuario_adminWS", new object[0], this.usuario_adminWSOperationCompleted, userState);
+        }
+        
+        private void Onusuario_adminWSOperationCompleted(object arg) {
+            if ((this.usuario_adminWSCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.usuario_adminWSCompleted(this, new usuario_adminWSCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/usuario_adminFiltradosWS", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet usuario_adminFiltradosWS() {
+            object[] results = this.Invoke("usuario_adminFiltradosWS", new object[0]);
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void usuario_adminFiltradosWSAsync() {
+            this.usuario_adminFiltradosWSAsync(null);
+        }
+        
+        /// <remarks/>
+        public void usuario_adminFiltradosWSAsync(object userState) {
+            if ((this.usuario_adminFiltradosWSOperationCompleted == null)) {
+                this.usuario_adminFiltradosWSOperationCompleted = new System.Threading.SendOrPostCallback(this.Onusuario_adminFiltradosWSOperationCompleted);
+            }
+            this.InvokeAsync("usuario_adminFiltradosWS", new object[0], this.usuario_adminFiltradosWSOperationCompleted, userState);
+        }
+        
+        private void Onusuario_adminFiltradosWSOperationCompleted(object arg) {
+            if ((this.usuario_adminFiltradosWSCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.usuario_adminFiltradosWSCompleted(this, new usuario_adminFiltradosWSCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/usuario_userWS", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet usuario_userWS() {
+            object[] results = this.Invoke("usuario_userWS", new object[0]);
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void usuario_userWSAsync() {
+            this.usuario_userWSAsync(null);
+        }
+        
+        /// <remarks/>
+        public void usuario_userWSAsync(object userState) {
+            if ((this.usuario_userWSOperationCompleted == null)) {
+                this.usuario_userWSOperationCompleted = new System.Threading.SendOrPostCallback(this.Onusuario_userWSOperationCompleted);
+            }
+            this.InvokeAsync("usuario_userWS", new object[0], this.usuario_userWSOperationCompleted, userState);
+        }
+        
+        private void Onusuario_userWSOperationCompleted(object arg) {
+            if ((this.usuario_userWSCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.usuario_userWSCompleted(this, new usuario_userWSCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -3350,6 +3446,84 @@ namespace MCTuristic_Centro_Historico.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((System.Data.DataTable)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void usuario_adminWSCompletedEventHandler(object sender, usuario_adminWSCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class usuario_adminWSCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal usuario_adminWSCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void usuario_adminFiltradosWSCompletedEventHandler(object sender, usuario_adminFiltradosWSCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class usuario_adminFiltradosWSCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal usuario_adminFiltradosWSCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void usuario_userWSCompletedEventHandler(object sender, usuario_userWSCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class usuario_userWSCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal usuario_userWSCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
             }
         }
     }

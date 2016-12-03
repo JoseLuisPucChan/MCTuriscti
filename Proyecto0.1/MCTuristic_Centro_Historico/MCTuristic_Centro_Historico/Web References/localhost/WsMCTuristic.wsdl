@@ -87,6 +87,57 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="usuario_adminWS">
+        <s:complexType />
+      </s:element>
+      <s:element name="usuario_adminWSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario_adminWSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="usuario_adminFiltradosWS">
+        <s:complexType />
+      </s:element>
+      <s:element name="usuario_adminFiltradosWSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario_adminFiltradosWSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="usuario_userWS">
+        <s:complexType />
+      </s:element>
+      <s:element name="usuario_userWSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario_userWSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="EliminarDireccion">
         <s:complexType>
           <s:sequence>
@@ -988,6 +1039,24 @@
   <wsdl:message name="LoginUsuarioSoapOut">
     <wsdl:part name="parameters" element="tns:LoginUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="usuario_adminWSSoapIn">
+    <wsdl:part name="parameters" element="tns:usuario_adminWS" />
+  </wsdl:message>
+  <wsdl:message name="usuario_adminWSSoapOut">
+    <wsdl:part name="parameters" element="tns:usuario_adminWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="usuario_adminFiltradosWSSoapIn">
+    <wsdl:part name="parameters" element="tns:usuario_adminFiltradosWS" />
+  </wsdl:message>
+  <wsdl:message name="usuario_adminFiltradosWSSoapOut">
+    <wsdl:part name="parameters" element="tns:usuario_adminFiltradosWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="usuario_userWSSoapIn">
+    <wsdl:part name="parameters" element="tns:usuario_userWS" />
+  </wsdl:message>
+  <wsdl:message name="usuario_userWSSoapOut">
+    <wsdl:part name="parameters" element="tns:usuario_userWSResponse" />
+  </wsdl:message>
   <wsdl:message name="EliminarDireccionSoapIn">
     <wsdl:part name="parameters" element="tns:EliminarDireccion" />
   </wsdl:message>
@@ -1315,6 +1384,18 @@
       <wsdl:input message="tns:LoginUsuarioSoapIn" />
       <wsdl:output message="tns:LoginUsuarioSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="usuario_adminWS">
+      <wsdl:input message="tns:usuario_adminWSSoapIn" />
+      <wsdl:output message="tns:usuario_adminWSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="usuario_adminFiltradosWS">
+      <wsdl:input message="tns:usuario_adminFiltradosWSSoapIn" />
+      <wsdl:output message="tns:usuario_adminFiltradosWSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="usuario_userWS">
+      <wsdl:input message="tns:usuario_userWSSoapIn" />
+      <wsdl:output message="tns:usuario_userWSSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="EliminarDireccion">
       <wsdl:input message="tns:EliminarDireccionSoapIn" />
       <wsdl:output message="tns:EliminarDireccionSoapOut" />
@@ -1560,6 +1641,33 @@
     </wsdl:operation>
     <wsdl:operation name="LoginUsuario">
       <soap:operation soapAction="http://MCTuristic.org/LoginUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="usuario_adminWS">
+      <soap:operation soapAction="http://MCTuristic.org/usuario_adminWS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="usuario_adminFiltradosWS">
+      <soap:operation soapAction="http://MCTuristic.org/usuario_adminFiltradosWS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="usuario_userWS">
+      <soap:operation soapAction="http://MCTuristic.org/usuario_userWS" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2067,6 +2175,33 @@
     </wsdl:operation>
     <wsdl:operation name="LoginUsuario">
       <soap12:operation soapAction="http://MCTuristic.org/LoginUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="usuario_adminWS">
+      <soap12:operation soapAction="http://MCTuristic.org/usuario_adminWS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="usuario_adminFiltradosWS">
+      <soap12:operation soapAction="http://MCTuristic.org/usuario_adminFiltradosWS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="usuario_userWS">
+      <soap12:operation soapAction="http://MCTuristic.org/usuario_userWS" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
