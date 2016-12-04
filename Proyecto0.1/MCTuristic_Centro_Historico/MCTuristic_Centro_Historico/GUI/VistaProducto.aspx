@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/PaginaPrincipal.Master" AutoEventWireup="true" CodeBehind="VistaProducto.aspx.cs" Inherits="MCTuristic_Centro_Historico.GUI.VistaProducto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/PaginaPrincipal.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="VistaProducto.aspx.cs" Inherits="MCTuristic_Centro_Historico.GUI.VistaProducto" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 </asp:Content>
@@ -144,15 +144,16 @@
                        <div class="row">
                                 <%--Modulo 1--%>
                         
-                           <asp:DataList ID="DtlProductos" runat="server" RepeatColumns="3" RepeatDirection="Horizontal" HorizontalAlign="Center" Width="800px">
-                                 <FooterStyle VerticalAlign="Top" Wrap="True" />
+                        <asp:DataList ID="DtlProductos" runat="server" RepeatColumns="3" RepeatDirection="Horizontal" HorizontalAlign="Center" Width="800px">
+                          <FooterStyle VerticalAlign="Top" Wrap="True" />
                                  <ItemTemplate>
                                    <asp:Label ID="lblidServicio" runat="server" Visible="true" Text='<%# Eval("idServicio") %>' ForeColor="#3399FF"></asp:Label>
-                                    <ul class="pro-box">
+                                  <asp:Panel runat="server" Width="255px">
+                                      <ul class="pro-box">
                                             <li class="pro">
                                                         <div class="block-image">
                                                          <%--   <img src="<%#RecuperarImagen(Eval("Foto")) %>" width="150" height="250"  class="img-responsive"/>--%>
-                                                   <asp:Image class="img-responsive" ID="Image2"  runat="server" 
+                                                   <asp:Image class="img-responsive" width="260" height="180" ID="Image2"  runat="server" 
                                                     ImageUrl='<%#"GetImagen.aspx?id=" + Eval("idServicio") %>' alt=""  />
                                                             <div class="img-overlay-3-up pat-override"></div>
                                                             <div class="img-overlay-3-down pat-override"></div>
@@ -164,8 +165,9 @@
                                                                   <i class="fa fa-plus"></i></a></li>
                                                             </ol>
                                                         </div>
-                                                <span class="addtocart">
-                                                <a href="DetalleProducto.aspx">Ver Detalles</a>
+                                                <span >
+                                                    <asp:ImageButton class="addtocart icon-next " ID="ImageButton1"  OnClick="Button1_Click" Text="Ver Detalles" ForeColor="White" runat="server" />
+
                                                 </span> 
                                             </li>
                                             <li>
@@ -186,6 +188,10 @@
                                                 </span>
                                         </li>
                                     </ul>
+
+                                  </asp:Panel>
+                                     
+                                       
                               
                                        <br />
                                        <br />
@@ -194,7 +200,7 @@
                                </ItemTemplate>
                              
                                  <SelectedItemStyle Width="200px" />
-                             
+                               
                                  <SeparatorStyle BackColor="Yellow" Font-Bold="False" Font-Italic="False" Font-Names="Adobe Devanagari" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" VerticalAlign="Bottom" BorderWidth="30px" Font-Size="XX-Small" />
                              
                            </asp:DataList>
@@ -314,8 +320,7 @@
                             <div class="gap-30">
                               
                             </div>
-                              <asp:GridView ID="GridView1" runat="server">
-                                </asp:GridView>
+                             
                              <%--Sección 2--%>
                             <div class="row">
 

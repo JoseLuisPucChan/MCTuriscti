@@ -21,18 +21,15 @@ namespace WSMCTuristic_CentroHistorico.DAO
             cmd.Connection = conn.Establecer();
             cmd.CommandText = "insertar_servicios";
             cmd.CommandType = CommandType.StoredProcedure;
-
+            cmd.Parameters.Add("@NombreServ", SqlDbType.VarChar).Value = oServicio.NombreServicio;
             cmd.Parameters.Add("@OfertaServicio", SqlDbType.VarChar).Value = oServicio.OfertaServicio;
             cmd.Parameters.Add("@PrecioServicio", SqlDbType.Decimal).Value = oServicio.PrecioServicio;
             cmd.Parameters.Add("@DescripServicio", SqlDbType.VarChar).Value = oServicio.DescripcionServicio;
+            cmd.Parameters.Add("@Foto", SqlDbType.Image).Value = oServicio.Foto;
+            cmd.Parameters.Add("@Popularidad", SqlDbType.Int).Value = oServicio.Popularidad;
             cmd.Parameters.Add("@idEstablecimiento", SqlDbType.Int).Value = oServicio.IdEstablecimiento;
             cmd.Parameters.Add("@idTipoServi", SqlDbType.Int).Value = oServicio.IdTipoServicio;
-            cmd.Parameters.Add("@Foto", SqlDbType.Image).Value = oServicio.Foto;
-            cmd.Parameters.Add("@Popularidad", SqlDbType.Int).Value = oServicio.Foto;
-
-
-
-
+         
             conn.Abrir();
             int retorno = cmd.ExecuteNonQuery();
 
@@ -53,19 +50,19 @@ namespace WSMCTuristic_CentroHistorico.DAO
             cmd = new SqlCommand();
             conn = new Conexion();
             oServicio = (BO.ServicioBO)obj;
-
             cmd.Connection = conn.Establecer();
             cmd.CommandText = "actualizar_servicios";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@idServicio", SqlDbType.Int).Value = oServicio.IdServicio;
+            cmd.Parameters.Add("@NombreServ", SqlDbType.VarChar).Value = oServicio.NombreServicio;
             cmd.Parameters.Add("@OfertaServicio", SqlDbType.VarChar).Value = oServicio.OfertaServicio;
             cmd.Parameters.Add("@PrecioServicio", SqlDbType.Decimal).Value = oServicio.PrecioServicio;
             cmd.Parameters.Add("@DescripServicio", SqlDbType.VarChar).Value = oServicio.DescripcionServicio;
+            cmd.Parameters.Add("@Foto", SqlDbType.Image).Value = oServicio.Foto;
+            cmd.Parameters.Add("@Popularidad", SqlDbType.Int).Value = oServicio.Popularidad;
             cmd.Parameters.Add("@idEstablecimiento", SqlDbType.Int).Value = oServicio.IdEstablecimiento;
             cmd.Parameters.Add("@idTipoServi", SqlDbType.Int).Value = oServicio.IdTipoServicio;
-            cmd.Parameters.Add("@Foto", SqlDbType.Image).Value = oServicio.Foto;
-            cmd.Parameters.Add("@Popularidad", SqlDbType.Int).Value = oServicio.Foto;
 
 
             conn.Abrir();
@@ -111,14 +108,15 @@ namespace WSMCTuristic_CentroHistorico.DAO
         }
 
         //Retorna Un dataset
-        public DataSet Servicio_adminDS()
+        public DataSet Servicio_adminDS(Object obj)
         {
+            oServicio = (BO.ServicioBO)obj;
             conn = new Conexion();
             string sql;
-            sql = "EXEC ver_servicio_admin";
+            sql = "EXEC ver_servicio_admin '"+ oServicio.IdEstablecimiento +"' ";
             return conn.TablaDS(sql);
         }
-        public DataSet Servicio_userDS()
+        public DataSet Servicio_userDS(Object obj)
         {
             conn = new Conexion();
             string sql;
@@ -146,8 +144,23 @@ namespace WSMCTuristic_CentroHistorico.DAO
             return imgData;
         }
 
+        
 
-
+         public DataSet ver_DetalleProducto(Object obj)
+        {
+            oServicio = (BO.ServicioBO)obj;
+            conn = new Conexion();
+            string sql;
+            sql = "EXEC ver_DetallProducto '"+oServicio.IdServicio+"' ";
+            return conn.TablaDS(sql);
+        }
+        public DataSet top12SERVICIOS()
+        {
+            conn = new Conexion();
+            string sql;
+            sql = "EXEC primero12Registros";
+            return conn.TablaDS(sql);
+        }
 
     }
 }

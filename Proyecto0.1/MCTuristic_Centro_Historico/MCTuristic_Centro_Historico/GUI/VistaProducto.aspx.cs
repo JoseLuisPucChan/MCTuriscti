@@ -17,11 +17,9 @@ namespace MCTuristic_Centro_Historico.GUI
         }
         public void BuscarServicios()
         {
-            DataSet DtServicios = oServicios.topServicios();
+            DataSet DtServicios = oServicios.top12Servicios();
             DtlProductos.DataSource = DtServicios;
             DtlProductos.DataBind();
-            GridView1.DataSource = DtServicios;
-            GridView1.DataBind();
         }
         public string RecuperarImagenWebUrl(string Imagen)
         {
@@ -34,6 +32,15 @@ namespace MCTuristic_Centro_Historico.GUI
         public string RecuperarImagen(object img)
         {
             return RecuperarImagenWebUrl(img.ToString());
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            ImageButton ib = (ImageButton)sender;
+            Panel Panel = (Panel)ib.Parent;
+            DataListItem Fila = (DataListItem)Panel.Parent;
+            Label Id = (Label)Fila.Controls[1];
+            
         }
     }
 }

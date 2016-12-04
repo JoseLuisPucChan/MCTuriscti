@@ -15,17 +15,18 @@ namespace MCTuristic_Centro_Historico.GUI
         localhost.EstablecimientoBO oEstablecimientoBO = new localhost.EstablecimientoBO();
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            Editar.Visible = false;
             if (!IsPostBack)
             {
                 bool Edit = Convert.ToBoolean(Session["Editar"]);
                 if (Edit == true)
                 {
+                    Latitud = Convert.ToDouble(Session["Latitud"]);
+                    Longitud = Convert.ToDouble(Session["Longitud"]);
                     LlenarControlesEdit();
                 }
-               
                 Latitud = Convert.ToDouble(Session["Latitud"]);
-                    Longitud = Convert.ToDouble(Session["Longitud"]);
+                Longitud = Convert.ToDouble(Session["Longitud"]);
                     if (Latitud == 0 && Longitud == 0)
                     {
                         lblMapsEstatus.Text = "Por favor seleccione su ubicación.";
@@ -35,12 +36,11 @@ namespace MCTuristic_Centro_Historico.GUI
                         lblMapsEstatus.Text = "Ubicación seleccionada.";
                     }
 
+               
+            }
 
-               }
-               CargarEstablecimientos();
-           
-          
-         
+            CargarEstablecimientos();
+
         }
         private void CargarEstablecimientos()
         {
@@ -184,6 +184,11 @@ namespace MCTuristic_Centro_Historico.GUI
                 ltdlngNull();
                 LlenarControlesEdit();
             }
+            if(e.CommandArgs.CommandArgument.ToString()== "Servicios")
+            {
+                Session["idEstablecimiento"] = ASPxGridView1.GetRowValues(e.VisibleIndex, "Código");
+                Response.Redirect("GestionServicios.aspx");
+            }
         }
         //Método para poner en 0 los parametros del marcador
         private void ltdlngNull()
@@ -196,6 +201,7 @@ namespace MCTuristic_Centro_Historico.GUI
             pnlGestionEstablecimientos.Visible = false;
             Editar.Visible = true;
             oEstablecimientoBO = (localhost.EstablecimientoBO)Session["EstablecimientoEdit"];
+            txtIdEstablecimiento.Text =oEstablecimientoBO.IdEstablecimiento.ToString();
             txtNombreEdit.Text = oEstablecimientoBO.NombreEstable;
             txtTelefonoEdit.Text = oEstablecimientoBO.TelefonoEstable;
             txtHoraAbriEdit.Text = oEstablecimientoBO.HoraInicioEstable;
@@ -215,8 +221,54 @@ namespace MCTuristic_Centro_Historico.GUI
             Session["Editar"] = false;
             lblMapsEstatus.Text = "Por favor seleccione su ubicación.";
             ltdlngNull();
+            Session.Remove("EstablecimientoEdit");
         }
 
+        protected void lbtnModificar_Click(object sender, EventArgs e)
+        {
+            int i = owebService.ModificarEstablecimiento(RecuperarEdit());
+            if(i>0)
+            {
+                lblModificar.Text = "Datos modificados con éxito";
+            }
+            else
+            {
+                lblModificar.Text = "Ocurrio un error";
+            }
+            Editar.Visible = true;
+            pnlGestionEstablecimientos.Visible = false;
+        }
+        private localhost.EstablecimientoBO RecuperarEdit()
+        {
+            oEstablecimientoBO = new localhost.EstablecimientoBO();
+            oEstablecimientoBO.IdEstablecimiento = Convert.ToInt32(txtIdEstablecimiento.Text);
+            oEstablecimientoBO.NombreEstable = txtNombreEdit.Text ;
+            oEstablecimientoBO.TelefonoEstable = txtTelefonoEdit.Text ;
+            oEstablecimientoBO.PagFacebook = txtFacebookEdit.Text ;
+            oEstablecimientoBO.HoraInicioEstable = txtHoraAbriEdit.Text ;
+            oEstablecimientoBO.HoraCierreEstable = txtHoraCierreEdit.Text ;
+            oEstablecimientoBO.Latitud = Convert.ToDecimal(Session["Latitud"]);
+            oEstablecimientoBO.Longitud = Convert.ToDecimal(Session["Longitud"]);
+            oEstablecimientoBO.Foto = (Byte[])Session["arreglo1"];
+            oEstablecimientoBO.IdUsuario = 1;
+            return oEstablecimientoBO;
+        }
 
+        protected void lbtnEliminar_Click(object sender, EventArgs e)
+        {
+            oEstablecimientoBO.IdEstablecimiento = Convert.ToInt32(txtIdEstablecimiento.Text);
+            int i = owebService.EliminarEstablecimiento(oEstablecimientoBO);
+            if(i>0)
+            {
+                pnlGestionEstablecimientos.Visible = true;
+                Editar.Visible = false;
+                CargarEstablecimientos();
+            }
+            else
+            {
+                lblModificar.Text = "Ocurrio un problema";
+            }
+
+        }
     }
 }

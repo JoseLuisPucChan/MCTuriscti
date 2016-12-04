@@ -375,6 +375,11 @@
                              <div class="divider"></div>
                           <asp:TextBox ID="txtIDAdmin" Visible="false" runat="server" CssClass="form-control border-blue"></asp:TextBox>
                         <asp:TextBox ID="txtIdDireccion" Visible="false" runat="server" CssClass="form-control border-blue"></asp:TextBox>
+                                 <asp:UpdateProgress ID="UpdateProgress2" runat="server">
+                                            <ProgressTemplate>
+                                                 <img alt="In progress..." src="../images1/iOS7Loader.gif" width="400" height="90" />
+                                            </ProgressTemplate>
+                         </asp:UpdateProgress>
                              <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt" OnClick="lbtnModificar_Click1"  ><i class="glyph-icon icon-upload"></i> Modificar</asp:LinkButton>
                             <asp:LinkButton ID="lBntEliminar" runat="server" CssClass="btn btn-blue-alt" OnClick="lBntEliminar_Click"  ><i class="glyph-icon icon-ban"></i> Eliminar</asp:LinkButton>
                                 <asp:Label ID="lblEstado" runat="server" Font-Size="12pt" ForeColor="#66BEE8"></asp:Label>
