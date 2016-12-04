@@ -80,6 +80,7 @@
     <Content Include="GUI\GestionUsuariosGUI.aspx" />
     <Content Include="GUI\GetImagen.aspx" />
     <Content Include="GUI\Login.aspx" />
+    <Content Include="GUI\Maps.aspx" />
     <Content Include="GUI\PagPrincipal.aspx" />
     <Content Include="GUI\Principal.aspx" />
     <Content Include="GUI\Producto.aspx" />
@@ -122,6 +123,7 @@
     <Content Include="Recursos\css\assets\sass\main.scss" />
     <Content Include="Recursos\css\assets\sass\noscript.scss" />
     <Content Include="Recursos\css\materialize.css" />
+    <Content Include="Recursos\css\site.css" />
     <Content Include="Recursos\font-awesome\fonts\fontawesome-webfontba72.eot" />
     <Content Include="Recursos\font-awesome\fonts\fontawesome-webfontba72.ttf" />
     <Content Include="Recursos\font-awesome\fonts\fontawesome-webfontba72.woff" />
@@ -665,6 +667,7 @@
     <Content Include="Recursos\js\jquery-1.7.1.min.js" />
     <Content Include="Recursos\js\jquery-3.1.1.min.js" />
     <Content Include="Recursos\js\jquery-scrolltofixed-min.js" />
+    <Content Include="Recursos\js\jquery-ui.min.js" />
     <Content Include="Recursos\js\jquery.bxslider.min.js" />
     <Content Include="Recursos\js\jquery.circliful.min.js" />
     <Content Include="Recursos\js\jquery.content_slider.min.js" />
@@ -780,6 +783,13 @@
     </Compile>
     <Compile Include="GUI\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Maps.aspx.cs">
+      <DependentUpon>Maps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Maps.aspx.designer.cs">
+      <DependentUpon>Maps.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\PagPrincipal.aspx.cs">
       <DependentUpon>PagPrincipal.aspx</DependentUpon>

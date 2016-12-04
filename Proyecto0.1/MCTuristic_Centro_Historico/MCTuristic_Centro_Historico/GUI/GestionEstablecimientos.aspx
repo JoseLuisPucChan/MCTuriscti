@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/mpBase.Master" AutoEventWireup="true" CodeBehind="GestionEstablecimientos.aspx.cs" Inherits="MCTuristic_Centro_Historico.GUI.GestionEstablecimientos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/mpBase.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="GestionEstablecimientos.aspx.cs" Inherits="MCTuristic_Centro_Historico.GUI.GestionEstablecimientos" %>
 
 <%@ Register Assembly="DevExpress.Web.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTituloPagina" runat="server">
@@ -50,18 +50,21 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphBody" runat="server">
  
-
-   
-            <div class="row">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <asp:Panel ID="pnlGestionEstablecimientos" runat="server">
+                <div class="row">
         <div class="col-lg-12">
             <div class="panel">
                 <div class="panel-body">
                     <h3 class="text-center font-bold"><i class="glyph-icon icon-building"></i>Control de establecimientos </h3>
                     <div class="divider"></div>
-                    <asp:LinkButton ID="lbtnNuevo" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-plus-circle"></i> Nuevo</asp:LinkButton>
                     <div class="divider"></div>
                     <div class="col-lg-6">
                         <div class="form-group border-blue">
+                               <asp:Button ID="btnMaps" runat="server" Text="Seleccionar Ubicación" CssClass="btn btn-primary" OnClick="btnMaps_Click" />
+                    <asp:Label ID="lblMapsEstatus" runat="server" Font-Size="Medium" ForeColor="#009DC5"></asp:Label>
+                            <br />
                             <asp:TextBox ID="txtIdEstablecimiento" runat="server" Visible="false"></asp:TextBox>
                             <h3><i class="glyph-icon icon-tag"></i>Nombre</h3>
                             <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control border-blue"></asp:TextBox>
@@ -83,74 +86,28 @@
                         <div class="form-group border-blue">
                             <h3><i class="glyph-icon icon-tag"></i>Foto</h3>
                             <center>
-                                <asp:Image ID="imgEstablecimiento" runat="server" ImageUrl="~/Recursos/images/Establecimiento.png"/>
-                            </center>
+                                <asp:Image ID="imgEstablecimiento"  Width="300" Height="220" alt="" runat="server" ImageUrl="~/Recursos/images/Establecimiento.png"/>
+                           
+                             </center>
                             <br />
                             <asp:FileUpload ID="fuFoto" CssClass="btn-primary" runat="server" Visible="true" />
                             <br />
-                            <asp:Button ID="btnSubir" runat="server" CssClass="btn btn-primary" Text="Subir foto" />
+                            <asp:Button ID="btnSubir" runat="server" CssClass="btn btn-primary" Text="Subir foto" OnClick="btnSubir_Click" PostBackUrl="~/GUI/GestionEstablecimientos.aspx" />
                             <br />
                             <br />
                             <h3><i class="glyph-icon icon-cutlery"></i><b>Servicios</b></h3>
                             <asp:Button ID="btnServicios" runat="server" Text="Ver servicios" CssClass="btn btn-primary" OnClick="btnServicios_Click" />
                         </div>
                     </div>
+                  
                     <div class="col-lg-12 form-group">
-                        <asp:TextBox ID="txtLatitud" runat="server" Visible="false"></asp:TextBox>
-                        <asp:TextBox ID="txtLongitud" runat="server" Visible="false"></asp:TextBox>
-
-                        <h3><i class="glyph-icon icon-file-text"></i>Ubicación</h3>
-                       <div id="map" style="width: 800px; height: 400px;">  
-        <script>
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 8,
-    center: {
-        lat: 20.833333, lng:
-            -89
-    }
-  });
-  var geocoder = new google.maps.Geocoder();
-
-  document.getElementById('Buscar').addEventListener('click', function () {
-    geocodeAddress(geocoder, map);
-  });
-}
-
-function geocodeAddress(geocoder, resultsMap) {
-  var address = document.getElementById('address').value;
-  geocoder.geocode({ 'address': address }, function (results, status) {
-    if (status === google.maps.GeocoderStatus.OK) {
-      resultsMap.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-        map: resultsMap,
-        position: results[0].geometry.location
-      });
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
-}
-        </script>
-           <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBh85_Qcuh0YZH_RmXXa1aly6cU7cU_q9M&signed_in=true&callback=initMap" async defer></script>
-
-  </div>  
-    
-                            
-                        
                     </div>
-                    <div class="col-lg-12">
-                        <h3><i class="glyph-icon icon-file-text"></i>Descripción del servicio</h3>
-                        <asp:TextBox ID="txtDescripcionServicio" runat="server" CssClass="form-control border-blue" TextMode="MultiLine"></asp:TextBox>
-                    </div>
-     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
+     
                     <div class="col-lg-12 form-group">
                         <div class="divider"></div>
-                    
-                        <asp:LinkButton ID="lbtnGuardar" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-save"></i> Guardar</asp:LinkButton>
-                        <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
-                        <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnGuardar" runat="server" CssClass="btn btn-blue-alt" OnClick="lbtnGuardar_Click"><i class="glyph-icon icon-save"></i> Guardar</asp:LinkButton>
+                       <%-- <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>--%>
                         <div class="divider"></div>
                         <h3><i class="glyph-icon icon-table"></i>Tabla de datos</h3>
                
@@ -161,20 +118,20 @@ function geocodeAddress(geocoder, resultsMap) {
                                         </asp:UpdateProgress>
 
 
-                                        <dx:ASPxGridView ID="ASPxGridView1" runat="server"  Theme="iOS">
+                                        <dx:ASPxGridView ID="ASPxGridView1" runat="server"  Theme="iOS" OnRowCommand="ASPxGridView1_RowCommand">
                                             <Columns>
                              
                                         <dx:GridViewDataColumn FieldName="Código" Visible="false" VisibleIndex="5" />
                                                 <dx:GridViewDataColumn FieldName="Nombre" VisibleIndex="1" />
                                                  <dx:GridViewDataColumn FieldName="Teléfono" Visible="true" VisibleIndex="3" />
                                                  <dx:GridViewDataColumn FieldName="HoraInicio"  VisibleIndex="4" />
-                                                 <dx:GridViewDataColumn FieldName="HoraCierre" Visible="false" VisibleIndex="5" />
+                                                 <dx:GridViewDataColumn FieldName="HoraCierre" Visible="true" VisibleIndex="5" />
                                                  <dx:GridViewDataColumn FieldName="PagFacebook" VisibleIndex="6" />
                                                  <dx:GridViewDataColumn FieldName="Propietario" Visible="true" VisibleIndex="7" />
                                                  <dx:GridViewDataColumn FieldName="Latitud" Visible="false" VisibleIndex="8" />
                                                  <dx:GridViewDataColumn FieldName="Longitud" Visible="false" VisibleIndex="9" />
                                                  <dx:GridViewDataColumn FieldName="Foto" Visible="false" VisibleIndex="10" />
-                                                 <dx:GridViewDataColumn FieldName="IdUsuario"  Visible="true" VisibleIndex="11" />
+                                                 <dx:GridViewDataColumn FieldName="IdUsuario"  Visible="false" VisibleIndex="11" />
                    
                                         <dx:GridViewDataColumn Caption="Edit">
                                             <DataItemTemplate>
@@ -184,14 +141,69 @@ function geocodeAddress(geocoder, resultsMap) {
                                     </Columns>
                                         </dx:ASPxGridView>
                     </div>
-            </ContentTemplate>
-    </asp:UpdatePanel>
+          
                 </div>
             </div>
         </div>
     </div>
+            </asp:Panel>
+            <asp:Panel ID="Editar" Visible="false" runat="server">
+                <div class="row">
+        <div class="col-lg-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <h3 class="text-center font-bold"><i class="glyph-icon icon-building"></i>Control de establecimientos </h3>
+                    <div class="divider"></div>
+                    <asp:LinkButton OnClick="LinkButton1_Click" ID="LinkButton1" runat="server" CssClass="btn btn-blue-alt" PostBackUrl="~/GUI/GestionEstablecimientos.aspx"><i class="glyph-icon icon-plus-circle"></i> Nuevo</asp:LinkButton>
+                    <div class="divider"></div>
+                    <div class="col-lg-6">
+                        <div class="form-group border-blue">
+                               <asp:Button ID="Button1" runat="server" Text="Seleccionar Ubicación" CssClass="btn btn-primary" OnClick="btnMaps_Click" />
+                    <asp:Label ID="Label1" runat="server" Font-Size="Medium" ForeColor="#009DC5"></asp:Label>
+                            <br />
+                            <asp:TextBox ID="TextBox1" runat="server" Visible="false"></asp:TextBox>
+                            <h3><i class="glyph-icon icon-tag"></i>Nombre</h3>
+                            <asp:TextBox ID="txtNombreEdit" runat="server" CssClass="form-control border-blue"></asp:TextBox>
+                            <br />
+                            <h3><i class="glyph-icon icon-phone"></i>Teléfono</h3>
+                            <asp:TextBox ID="txtTelefonoEdit" runat="server" CssClass="form-control border-blue"></asp:TextBox>
+                            <br />
+                            <h3><i class="glyph-icon icon-facebook-square"></i>Facebook</h3>
+                            <asp:TextBox ID="txtFacebookEdit" runat="server" CssClass="form-control border-blue"></asp:TextBox>
+                            <br />
+                            <h3><i class="glyph-icon icon-sign-in"></i>Hora de apertura</h3>
+                            <asp:TextBox ID="txtHoraAbriEdit" runat="server" CssClass="form-control border-blue"></asp:TextBox>
+                            <br />
+                            <h3><i class="glyph-icon icon-sign-out"></i>Hora de cierre</h3>
+                            <asp:TextBox ID="txtHoraCierreEdit" runat="server" CssClass="form-control border-blue"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group border-blue">
+                            <h3><i class="glyph-icon icon-tag"></i>Foto</h3>
+                            <center>
+                                  <asp:Image ID="FotoPre" runat="server" Width="450" Height="300" alt="" />
+                             </center>
+                        </div>
+                    </div>
+                  
+                 
+            
+                    <div class="col-lg-12 form-group">
+                        <div class="divider"></div
+                        <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>                 
+                        <asp:TextBox ID="txtIDuserEdit" runat="server" Visible ="false" CssClass="form-control border-blue"></asp:TextBox>
+                         </div>
+          
+                </div>
+            </div>
+        </div>
+    </div>
+            </asp:Panel>
         
-    
+      </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphBarraLat" runat="server">
     <div id="page-sidebar">

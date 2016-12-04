@@ -197,7 +197,7 @@
         </div>
     </div>
             </asp:Panel>
-            <asp:Panel ID="Editar" runat="server">
+<asp:Panel ID="Editar" runat="server">
 
       <div class="row">
             <h3 class="text-center font-bold"><i class="glyph-icon icon-users"></i>Editar Usuario </h3>
