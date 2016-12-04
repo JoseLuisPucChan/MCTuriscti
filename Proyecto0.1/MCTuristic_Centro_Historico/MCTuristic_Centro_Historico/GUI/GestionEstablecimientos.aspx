@@ -154,7 +154,7 @@
                 <div class="panel-body">
                     <h3 class="text-center font-bold"><i class="glyph-icon icon-building"></i>Control de establecimientos </h3>
                     <div class="divider"></div>
-                    <asp:LinkButton OnClick="LinkButton1_Click" ID="LinkButton1" runat="server" CssClass="btn btn-blue-alt" PostBackUrl="~/GUI/GestionEstablecimientos.aspx"><i class="glyph-icon icon-plus-circle"></i> Nuevo</asp:LinkButton>
+                    <asp:LinkButton ID="lblNuevo" runat="server" CssClass="btn btn-blue-alt" OnClick="LinkButton1_Click" ><i class="glyph-icon icon-plus-circle"></i> Nuevo</asp:LinkButton>
                     <div class="divider"></div>
                     <div class="col-lg-6">
                         <div class="form-group border-blue">
@@ -182,18 +182,17 @@
                         <div class="form-group border-blue">
                             <h3><i class="glyph-icon icon-tag"></i>Foto</h3>
                             <center>
-                                  <asp:Image ID="FotoPre" runat="server" Width="450" Height="300" alt="" />
+                               
+                                  <asp:Image ID="FotoPre" runat="server" Width="450" Height="300" alt=""></asp:Image>
                              </center>
                         </div>
                     </div>
-                  
-                 
-            
+                    <asp:TextBox ID="txtIDuserEdit" runat="server"></asp:TextBox>
+
                     <div class="col-lg-12 form-group">
                         <div class="divider"></div
-                        <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
-                        <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>                 
-                        <asp:TextBox ID="txtIDuserEdit" runat="server" Visible ="false" CssClass="form-control border-blue"></asp:TextBox>
+                   
+                       
                          </div>
           
                 </div>
