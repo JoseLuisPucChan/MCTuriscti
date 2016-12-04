@@ -284,19 +284,44 @@ namespace WSMCTuristic_CentroHistorico.UI
             oServicioCTRL = new Services.CtrlServicio();
             return oServicioCTRL.EliminarServicio(oServicioBO);
         }
+
+
         [WebMethod]
         //Nuevo webmethod Diosemir Nah
-        public DataSet topServicios()
+        public DataSet top12Servicios()
         {
             oServicioCTRL = new Services.CtrlServicio();
-            return oServicioCTRL.topServicios_user();
+            return oServicioCTRL.top12Servicios();
+        }
+
+        [WebMethod]
+        //Nuevo webmethod Diosemir Nah
+        public DataSet ver_DetallProducto(BO.ServicioBO obj)
+        {
+            BO.ServicioBO oServicioBO = new BO.ServicioBO();
+            oServicioBO = obj;
+            oServicioCTRL = new Services.CtrlServicio();
+            return oServicioCTRL.ver_DetalleProducto(obj);
+        }
+
+
+        [WebMethod]
+        //Nuevo webmethod Diosemir Nah
+        public DataSet topServicios(BO.ServicioBO obj)
+        {
+            BO.ServicioBO oServicioBO = new BO.ServicioBO();
+            oServicioBO = obj;
+            oServicioCTRL = new Services.CtrlServicio();
+            return oServicioCTRL.topServicios_user(obj);
         }
         [WebMethod]
         //Nuevo webmethod Diosemir Nah
-        public DataSet topServicios_admin()
+        public DataSet topServicios_admin(BO.ServicioBO obj)
         {
+            BO.ServicioBO oServicioBO = new BO.ServicioBO();
+            oServicioBO = obj;
             oServicioCTRL = new Services.CtrlServicio();
-            return oServicioCTRL.topServicios_admin();
+            return oServicioCTRL.topServicios_admin(oServicioBO);
         }
         [WebMethod]
         public byte[] verFotoSer(int Ser)
@@ -383,6 +408,7 @@ namespace WSMCTuristic_CentroHistorico.UI
             return oTipoServicioCTRL.EliminarTipoServicio(oTipoServicio);
         }
         //Nuevo webmethod Diosemir Nah
+        [WebMethod]
         public DataSet tipoServicioWS()
         {
             oTipoServicioCTRL = new Services.CtrlTipoServicio();

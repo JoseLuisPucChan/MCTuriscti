@@ -453,8 +453,50 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="topServicios">
+      <s:element name="top12Servicios">
         <s:complexType />
+      </s:element>
+      <s:element name="top12ServiciosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="top12ServiciosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ver_DetallProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:ServicioBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ver_DetallProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ver_DetallProductoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="topServicios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:ServicioBO" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="topServiciosResponse">
         <s:complexType>
@@ -471,7 +513,11 @@
         </s:complexType>
       </s:element>
       <s:element name="topServicios_admin">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:ServicioBO" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="topServicios_adminResponse">
         <s:complexType>
@@ -652,6 +698,23 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="EliminarTipoServicioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="tipoServicioWS">
+        <s:complexType />
+      </s:element>
+      <s:element name="tipoServicioWSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tipoServicioWSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1165,6 +1228,18 @@
   <wsdl:message name="EliminarServicioSoapOut">
     <wsdl:part name="parameters" element="tns:EliminarServicioResponse" />
   </wsdl:message>
+  <wsdl:message name="top12ServiciosSoapIn">
+    <wsdl:part name="parameters" element="tns:top12Servicios" />
+  </wsdl:message>
+  <wsdl:message name="top12ServiciosSoapOut">
+    <wsdl:part name="parameters" element="tns:top12ServiciosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ver_DetallProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:ver_DetallProducto" />
+  </wsdl:message>
+  <wsdl:message name="ver_DetallProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:ver_DetallProductoResponse" />
+  </wsdl:message>
   <wsdl:message name="topServiciosSoapIn">
     <wsdl:part name="parameters" element="tns:topServicios" />
   </wsdl:message>
@@ -1236,6 +1311,12 @@
   </wsdl:message>
   <wsdl:message name="EliminarTipoServicioSoapOut">
     <wsdl:part name="parameters" element="tns:EliminarTipoServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="tipoServicioWSSoapIn">
+    <wsdl:part name="parameters" element="tns:tipoServicioWS" />
+  </wsdl:message>
+  <wsdl:message name="tipoServicioWSSoapOut">
+    <wsdl:part name="parameters" element="tns:tipoServicioWSResponse" />
   </wsdl:message>
   <wsdl:message name="InsertarTipoSitioSoapIn">
     <wsdl:part name="parameters" element="tns:InsertarTipoSitio" />
@@ -1468,6 +1549,14 @@
       <wsdl:input message="tns:EliminarServicioSoapIn" />
       <wsdl:output message="tns:EliminarServicioSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="top12Servicios">
+      <wsdl:input message="tns:top12ServiciosSoapIn" />
+      <wsdl:output message="tns:top12ServiciosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ver_DetallProducto">
+      <wsdl:input message="tns:ver_DetallProductoSoapIn" />
+      <wsdl:output message="tns:ver_DetallProductoSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="topServicios">
       <wsdl:input message="tns:topServiciosSoapIn" />
       <wsdl:output message="tns:topServiciosSoapOut" />
@@ -1515,6 +1604,10 @@
     <wsdl:operation name="EliminarTipoServicio">
       <wsdl:input message="tns:EliminarTipoServicioSoapIn" />
       <wsdl:output message="tns:EliminarTipoServicioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS">
+      <wsdl:input message="tns:tipoServicioWSSoapIn" />
+      <wsdl:output message="tns:tipoServicioWSSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="InsertarTipoSitio">
       <wsdl:input message="tns:InsertarTipoSitioSoapIn" />
@@ -1837,6 +1930,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="top12Servicios">
+      <soap:operation soapAction="http://MCTuristic.org/top12Servicios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ver_DetallProducto">
+      <soap:operation soapAction="http://MCTuristic.org/ver_DetallProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="topServicios">
       <soap:operation soapAction="http://MCTuristic.org/topServicios" style="document" />
       <wsdl:input>
@@ -1938,6 +2049,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarTipoServicio">
       <soap:operation soapAction="http://MCTuristic.org/EliminarTipoServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS">
+      <soap:operation soapAction="http://MCTuristic.org/tipoServicioWS" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2371,6 +2491,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="top12Servicios">
+      <soap12:operation soapAction="http://MCTuristic.org/top12Servicios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ver_DetallProducto">
+      <soap12:operation soapAction="http://MCTuristic.org/ver_DetallProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="topServicios">
       <soap12:operation soapAction="http://MCTuristic.org/topServicios" style="document" />
       <wsdl:input>
@@ -2472,6 +2610,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarTipoServicio">
       <soap12:operation soapAction="http://MCTuristic.org/EliminarTipoServicio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS">
+      <soap12:operation soapAction="http://MCTuristic.org/tipoServicioWS" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

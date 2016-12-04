@@ -264,6 +264,11 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="divider"></div>
+                         <asp:UpdateProgress ID="UpdateProgress2" runat="server">
+                                            <ProgressTemplate>
+                                                 <img alt="In progress..." src="../images1/iOS7Loader.gif" width="400" height="90" />
+                                            </ProgressTemplate>
+                         </asp:UpdateProgress>
                              <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt" OnClick="lbtnModificar_Click"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
                         <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right" OnClick="lbtnEliminar_Click"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>
                         <div class="divider"></div>

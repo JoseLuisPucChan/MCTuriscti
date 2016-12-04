@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/mpBase.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="GestionEstablecimientos.aspx.cs" Inherits="MCTuristic_Centro_Historico.GUI.GestionEstablecimientos" %>
-
 <%@ Register Assembly="DevExpress.Web.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTituloPagina" runat="server">
     Gestion de establecimientos
@@ -52,6 +51,7 @@
  
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
+          <asp:LinkButton ID="lblNuevo" runat="server" CssClass="btn btn-blue-alt" OnClick="LinkButton1_Click" ><i class="glyph-icon icon-plus-circle"></i> Nuevo</asp:LinkButton>
             <asp:Panel ID="pnlGestionEstablecimientos" runat="server">
                 <div class="row">
         <div class="col-lg-12">
@@ -126,16 +126,17 @@
                                                  <dx:GridViewDataColumn FieldName="Teléfono" Visible="true" VisibleIndex="3" />
                                                  <dx:GridViewDataColumn FieldName="HoraInicio"  VisibleIndex="4" />
                                                  <dx:GridViewDataColumn FieldName="HoraCierre" Visible="true" VisibleIndex="5" />
-                                                 <dx:GridViewDataColumn FieldName="PagFacebook" VisibleIndex="6" />
-                                                 <dx:GridViewDataColumn FieldName="Propietario" Visible="true" VisibleIndex="7" />
+                                                 <dx:GridViewDataColumn FieldName="PagFacebook" VisibleIndex="6" Caption="Facebook" />
+                                                 <dx:GridViewDataColumn FieldName="Propietario" Visible="False" VisibleIndex="7" />
                                                  <dx:GridViewDataColumn FieldName="Latitud" Visible="false" VisibleIndex="8" />
                                                  <dx:GridViewDataColumn FieldName="Longitud" Visible="false" VisibleIndex="9" />
-                                                 <dx:GridViewDataColumn FieldName="Foto" Visible="false" VisibleIndex="10" />
+                                          <%--       <dx:GridViewDataColumn FieldName="Foto" Visible="false" VisibleIndex="10" />--%>
                                                  <dx:GridViewDataColumn FieldName="IdUsuario"  Visible="false" VisibleIndex="11" />
                    
-                                        <dx:GridViewDataColumn Caption="Edit">
+                                        <dx:GridViewDataColumn Caption="Selección">
                                             <DataItemTemplate>
                                                 <asp:LinkButton ID="Lnk" runat="server" CommandArgument="Editar" Text="Editar"></asp:LinkButton>
+                                             <asp:LinkButton ID="lkServicios" runat="server" CommandArgument="Servicios" Text="Servicios"></asp:LinkButton>
                                             </DataItemTemplate>
                                         </dx:GridViewDataColumn>
                                     </Columns>
@@ -147,14 +148,13 @@
         </div>
     </div>
             </asp:Panel>
-            <asp:Panel ID="Editar" Visible="false" runat="server">
+            <asp:Panel ID="Editar" runat="server">
                 <div class="row">
         <div class="col-lg-12">
             <div class="panel">
                 <div class="panel-body">
                     <h3 class="text-center font-bold"><i class="glyph-icon icon-building"></i>Control de establecimientos </h3>
                     <div class="divider"></div>
-                    <asp:LinkButton OnClick="LinkButton1_Click" ID="LinkButton1" runat="server" CssClass="btn btn-blue-alt" PostBackUrl="~/GUI/GestionEstablecimientos.aspx"><i class="glyph-icon icon-plus-circle"></i> Nuevo</asp:LinkButton>
                     <div class="divider"></div>
                     <div class="col-lg-6">
                         <div class="form-group border-blue">
@@ -182,19 +182,23 @@
                         <div class="form-group border-blue">
                             <h3><i class="glyph-icon icon-tag"></i>Foto</h3>
                             <center>
-                                  <asp:Image ID="FotoPre" runat="server" Width="450" Height="300" alt="" />
+                               
+                                  <asp:Image ID="FotoPre" runat="server" Width="450" Height="300" alt=""></asp:Image>
                              </center>
                         </div>
                     </div>
-                  
-                 
-            
+                    <asp:TextBox ID="txtIDuserEdit"  Visible="false" runat="server"></asp:TextBox>
+
+                        
                     <div class="col-lg-12 form-group">
-                        <div class="divider"></div
-                        <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
-                        <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>                 
-                        <asp:TextBox ID="txtIDuserEdit" runat="server" Visible ="false" CssClass="form-control border-blue"></asp:TextBox>
-                         </div>
+                         <asp:UpdateProgress ID="UpdateProgress2" runat="server">
+                                            <ProgressTemplate>
+                                                 <img alt="In progress..." src="../images1/iOS7Loader.gif" width="400" height="90" />
+                                            </ProgressTemplate>
+                         </asp:UpdateProgress>
+                         <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt" OnClick="lbtnModificar_Click"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
+                        <asp:Label ID="lblModificar" runat="server" Font-Size="Medium" ForeColor="#009DC5"></asp:Label>
+                        <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right" OnClick="lbtnEliminar_Click"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>
           
                 </div>
             </div>

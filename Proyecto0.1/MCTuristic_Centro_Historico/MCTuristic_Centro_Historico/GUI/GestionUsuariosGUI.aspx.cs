@@ -204,6 +204,8 @@ namespace MCTuristic_Centro_Historico.GUI
         protected void lbtnModificar_Click(object sender, EventArgs e)
         {
             ModificarUser();
+            GestioUsuarios.Visible = false;
+            Editar.Visible = true;
         }
      
         private void ModificarUser()
