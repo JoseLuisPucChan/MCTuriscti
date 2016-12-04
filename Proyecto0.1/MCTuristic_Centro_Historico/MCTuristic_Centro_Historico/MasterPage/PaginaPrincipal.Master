@@ -15,8 +15,7 @@
     <meta name="description" content="Awesome Description Here"/>
     <meta name="keywords" content="location, based, messaging, social, network, service, nearby, friends, community, neighborhood, local, events"/>
   <!--Referencias-->
-
-    <script src="../Recursos/js/ABC.js"></script>
+<script src="../Recursos/js/ABC.js"></script>
     <link href="../Recursos/css/bootstrap.css" rel="stylesheet" />
     <link href="../Recursos/css/color.css" rel="stylesheet" />
     <link href="../Recursos/css/styles.css" rel="stylesheet" />

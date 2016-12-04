@@ -27,3 +27,7 @@ C:\Users\Luis Puc\Desktop\MCTuriscti\MCTuristic_Centro_Historico\MCTuristic_Cent
 C:\Users\Luis Puc\Desktop\MCTuriscti\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.dll.licenses
 C:\Users\Luis Puc\Desktop\MCTuriscti\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.dll
 C:\Users\Luis Puc\Desktop\MCTuriscti\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.pdb
+C:\Users\Luis Puc\Documents\MCTuriscti\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.csprojResolveAssemblyReference.cache
+C:\Users\Luis Puc\Documents\MCTuriscti\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.dll.licenses
+C:\Users\Luis Puc\Documents\MCTuriscti\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.dll
+C:\Users\Luis Puc\Documents\MCTuriscti\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.pdb

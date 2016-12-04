@@ -18,11 +18,11 @@ namespace MCTuristic_Centro_Historico.GUI
         public void BuscarServicios()
         {
 
-            //localhost.ServicioBO oservicio = new localhost.ServicioBO();
-            //oservicio.IdServicio = Convert.ToInt32(Session["idServicio"]);
-            //DataSet DtServicios = oServicios.ver_DetallProducto(oservicio);
-            //DLDetallProducto.DataSource = DtServicios;
-            //DLDetallProducto.DataBind();
+            localhost.ServicioBO oservicio = new localhost.ServicioBO();
+            oservicio.IdServicio = Convert.ToInt32(Session["idServicio"]);
+            DataSet DtServicios = oServicios.ver_DetallProducto(oservicio);
+            DLDetallProducto.DataSource = DtServicios;
+            DLDetallProducto.DataBind();
         }
     }
 }
