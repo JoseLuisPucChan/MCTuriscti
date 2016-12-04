@@ -41,6 +41,7 @@ namespace MCTuristic_Centro_Historico.GUI
             DataListItem Fila = (DataListItem)Panel.Parent;
             Label Id = (Label)Fila.Controls[1];
             Session["idServicio"] = Id.Text;
+            Response.Redirect("DetalleProducto.aspx"); 
         }
     }
 }

@@ -158,20 +158,19 @@
                                     <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 500px;">
                                         <ul class="pro-slider" style="width: 715%; position: relative; transition-duration: 0s; transform: translate3d(-720px, 0px, 0px);">
                                             <li style="float: left; list-style: none; position: relative; width: 720px;" class="bx-clone">
-                                                <img src="../Recursos/Imagenes/4.jpg" alt="" /></li>
-                                            <asp:Image class="img-responsive" width="260" height="180" ID="Image2"  runat="server" 
+                                              
+                                            <asp:Image class="img-responsive" width="300" height="400" ID="Image2"  runat="server" 
                                             ImageUrl='<%#"GetImagen.aspx?id=" + Eval("idServicio") %>' alt=""  />
                                         </ul>
                                     </div>
-                                    <div class="bx-controls bx-has-controls-direction">
-                                        <div class="bx-controls-direction"><a class="bx-prev" href="">Prev</a><a class="bx-next" href="">Next</a></div>
-                                    </div>
+                                   
                                 </div>
                              
                             </div>
 
                             <div class="col-lg-6">
-                                <div class="prod-top"><strong class="title">Manicure and Pedicure</strong> <strong class="sub-title">Spa Equipments</strong> <strong class="ptag">Price:</strong> <span class="price">$299.00</span> </div>
+                                <div class="prod-top"><strong class="title"> <asp:Label ID="lbl" runat="server" Text='<%# Eval("NombreServ") %>' ForeColor="#3399FF"></asp:Label> </strong> <strong class="sub-title">Spa Equipments</strong> <strong class="ptag">Price:</strong> 
+                                    <span class="price"> $<asp:Label ID="lblPrecio" runat="server" Text='<%# Eval("PreciosServicio") %>'></asp:Label> </span> </div>
                                 <div class="prod-details">
                                     <p>Pellentesque arcu orci, tempus at placerat id, elementum ac turpis. Nullam eu lacus in dui blandit lobortis. Fusce iaculis lacinia metus id varius. Sed tristique in urna nec ullamcorper. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. Pellentesque arcu orci, tempus at placerat id, elementum ac turpis. Nullam eu lacus in dui blandit lobortis. Fusce iaculis lacinia metus id varius. Sed tristique in urna nec ullamcorper. Pellentesque arcu orci, tempus at placerat id, elementum ac turpis. Nullam eu lacus in dui blandit lobortis. Fusce iaculis lacinia metus id varius. Sed tristique in urna nec ullamcorper. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. </p>
                                     <br>
