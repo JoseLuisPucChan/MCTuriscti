@@ -85,7 +85,7 @@
                                             <li class="dropdown">
                                                 <a href="Productos.aspx" data-toggle="dropdown" class="dropdown-toggle">Productos<b class="caret"></b></a>
                                                 <ul role="menu" class="dropdown-menu">
-                                                    <li><a tabindex="-1" href="Productos.aspx">Lista Productos </a></li>
+                                                    <li><a tabindex="-1" href="VistaProducto.aspx">Lista Productos </a></li>
                                                     <%-- <li><a tabindex="-1" href="product-details.html"> Product Details</a></li>
                                                         <li><a tabindex="-1" href="cart.html"> Cart </a></li>
                                                         <li><a tabindex="-1" href="checkout.html"> Check Out</a></li>
@@ -442,7 +442,7 @@ Al igual que la biciruta para conocer los horarios y sitios de reunión
                     </div>
                     <div class="col-lg-3 col-md-3  col-sm-6">
                         <div class="plan green">
-                            <h3>Medium<span><i>$</i><strong>300</strong>/m</span> </h3>
+                            <h3>Medium<span><i>$</i><strong>100</strong>/m</span> </h3>
                             <ul>
                                 <li>Durante 1 meses</li>
                                 <li>Visualizar sitios</li>
@@ -457,7 +457,7 @@ Al igual que la biciruta para conocer los horarios y sitios de reunión
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="plan ">
-                            <h3>Premium<span><i>$</i><strong>1400</strong>/a</span> </h3>
+                            <h3>Premium<span><i>$</i><strong>400</strong>/a</span> </h3>
                             <ul>
                                 <li>Durante 6 meses</li>
                                 <li>Visualizar sitios</li>
@@ -472,7 +472,7 @@ Al igual que la biciruta para conocer los horarios y sitios de reunión
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6">
                         <div class="plan yellow">
-                            <h3>Gold<span><i>$</i><strong>2500</strong>/a</span> </h3>
+                            <h3>Gold<span><i>$</i><strong>1000</strong>/a</span> </h3>
                             <ul>
                                 <li>Durante 1 año</li>
                                 <li>Visualizar sitios</li>

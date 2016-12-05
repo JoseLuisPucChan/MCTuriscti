@@ -95,6 +95,7 @@
     <Content Include="images1\hombre.png" />
     <Content Include="images1\iOS7Loader.gif" />
     <Content Include="images1\Sitio.png" />
+    <Content Include="Recursos\agileui.com\demo\images\logo-admin.png" />
     <Content Include="Recursos\agileui.com\demo\monarch\assets-minified\fontawesome-webfontba72.eot" />
     <Content Include="Recursos\agileui.com\demo\monarch\assets-minified\fontawesome-webfontba72.ttf" />
     <Content Include="Recursos\agileui.com\demo\monarch\assets-minified\fontawesome-webfontba72.woff" />
