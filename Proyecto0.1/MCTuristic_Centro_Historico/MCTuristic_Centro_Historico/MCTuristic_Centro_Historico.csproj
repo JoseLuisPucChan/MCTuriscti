@@ -100,6 +100,7 @@
     <Content Include="Recursos\agileui.com\demo\monarch\assets-minified\linecons8f44.eot" />
     <Content Include="Recursos\agileui.com\demo\monarch\assets-minified\linecons8f44.ttf" />
     <Content Include="Recursos\agileui.com\demo\monarch\assets-minified\linecons8f44.woff" />
+    <Content Include="Recursos\agileui.com\demo\monarch\logo.png" />
     <Content Include="Recursos\css\assets\fonts\fontawesome-webfont.eot" />
     <Content Include="Recursos\css\assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="Recursos\css\assets\fonts\fontawesome-webfont.woff" />
