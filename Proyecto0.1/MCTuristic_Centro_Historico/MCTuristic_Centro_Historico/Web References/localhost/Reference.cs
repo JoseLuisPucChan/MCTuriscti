@@ -98,6 +98,8 @@ namespace MCTuristic_Centro_Historico.localhost {
         
         private System.Threading.SendOrPostCallback EliminarSitioOperationCompleted;
         
+        private System.Threading.SendOrPostCallback sitio_WSOperationCompleted;
+        
         private System.Threading.SendOrPostCallback InsertarSoporteOperationCompleted;
         
         private System.Threading.SendOrPostCallback ModificarSoporteOperationCompleted;
@@ -117,6 +119,8 @@ namespace MCTuristic_Centro_Historico.localhost {
         private System.Threading.SendOrPostCallback ModificarTipoSitioOperationCompleted;
         
         private System.Threading.SendOrPostCallback EliminarTipoSitioOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback tipoSitiosOperationCompleted;
         
         private System.Threading.SendOrPostCallback InsertarTipoSuscripcionOperationCompleted;
         
@@ -295,6 +299,9 @@ namespace MCTuristic_Centro_Historico.localhost {
         public event EliminarSitioCompletedEventHandler EliminarSitioCompleted;
         
         /// <remarks/>
+        public event sitio_WSCompletedEventHandler sitio_WSCompleted;
+        
+        /// <remarks/>
         public event InsertarSoporteCompletedEventHandler InsertarSoporteCompleted;
         
         /// <remarks/>
@@ -323,6 +330,9 @@ namespace MCTuristic_Centro_Historico.localhost {
         
         /// <remarks/>
         public event EliminarTipoSitioCompletedEventHandler EliminarTipoSitioCompleted;
+        
+        /// <remarks/>
+        public event tipoSitiosCompletedEventHandler tipoSitiosCompleted;
         
         /// <remarks/>
         public event InsertarTipoSuscripcionCompletedEventHandler InsertarTipoSuscripcionCompleted;
@@ -1354,6 +1364,33 @@ namespace MCTuristic_Centro_Historico.localhost {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/sitio_WS", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet sitio_WS() {
+            object[] results = this.Invoke("sitio_WS", new object[0]);
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void sitio_WSAsync() {
+            this.sitio_WSAsync(null);
+        }
+        
+        /// <remarks/>
+        public void sitio_WSAsync(object userState) {
+            if ((this.sitio_WSOperationCompleted == null)) {
+                this.sitio_WSOperationCompleted = new System.Threading.SendOrPostCallback(this.Onsitio_WSOperationCompleted);
+            }
+            this.InvokeAsync("sitio_WS", new object[0], this.sitio_WSOperationCompleted, userState);
+        }
+        
+        private void Onsitio_WSOperationCompleted(object arg) {
+            if ((this.sitio_WSCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sitio_WSCompleted(this, new sitio_WSCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/InsertarSoporte", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public int InsertarSoporte(SoporteBO obj) {
             object[] results = this.Invoke("InsertarSoporte", new object[] {
@@ -1638,6 +1675,33 @@ namespace MCTuristic_Centro_Historico.localhost {
             if ((this.EliminarTipoSitioCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.EliminarTipoSitioCompleted(this, new EliminarTipoSitioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/tipoSitios", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet tipoSitios() {
+            object[] results = this.Invoke("tipoSitios", new object[0]);
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void tipoSitiosAsync() {
+            this.tipoSitiosAsync(null);
+        }
+        
+        /// <remarks/>
+        public void tipoSitiosAsync(object userState) {
+            if ((this.tipoSitiosOperationCompleted == null)) {
+                this.tipoSitiosOperationCompleted = new System.Threading.SendOrPostCallback(this.OntipoSitiosOperationCompleted);
+            }
+            this.InvokeAsync("tipoSitios", new object[0], this.tipoSitiosOperationCompleted, userState);
+        }
+        
+        private void OntipoSitiosOperationCompleted(object arg) {
+            if ((this.tipoSitiosCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.tipoSitiosCompleted(this, new tipoSitiosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -4308,6 +4372,32 @@ namespace MCTuristic_Centro_Historico.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void sitio_WSCompletedEventHandler(object sender, sitio_WSCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sitio_WSCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sitio_WSCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void InsertarSoporteCompletedEventHandler(object sender, InsertarSoporteCompletedEventArgs e);
     
     /// <remarks/>
@@ -4562,6 +4652,32 @@ namespace MCTuristic_Centro_Historico.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void tipoSitiosCompletedEventHandler(object sender, tipoSitiosCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class tipoSitiosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal tipoSitiosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
             }
         }
     }

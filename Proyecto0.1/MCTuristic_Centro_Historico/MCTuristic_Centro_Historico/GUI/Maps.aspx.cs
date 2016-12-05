@@ -15,7 +15,6 @@ namespace MCTuristic_Centro_Historico.GUI
         {
             if(!IsPostBack)
             {
-
                 Latitud = Convert.ToDouble(Session["Latitud"]);
                 Longitud = Convert.ToDouble(Session["Longitud"]);
                 if (Latitud != 0 && Longitud != 0)
@@ -41,9 +40,35 @@ namespace MCTuristic_Centro_Historico.GUI
         {
             if (txtLong.Text != string.Empty && TextLat.Text != string.Empty)
             {
+                bool Modificar = Convert.ToBoolean(Session["ModificarMapaEdit"]);
+                if(Modificar== true)
+                {
+                    Latitud = Convert.ToDouble(Session["Latitud"]);
+                    Longitud = Convert.ToDouble(Session["Longitud"]);
+                    if (Longitud != Convert.ToDouble(txtLong.Text) && Latitud != Convert.ToDouble(TextLat.Text))
+                    {
+                        Session["ModificarMap"] = true;
+                        Session["ModificarMapaEdit"] = false;
+                    }
+                    else
+                    {
+                        Session["ModificarMap"] = false;
+                    }
+                }
+               
+                //Manda Lo que tenga El texbox.
                 Session["Latitud"] = TextLat.Text;
                 Session["Longitud"] = txtLong.Text;
-                Response.Redirect("GestionEstablecimientos.aspx");
+                bool Sitios = Convert.ToBoolean(Session["Sitio"]);
+                if(Sitios == true)
+                {
+                    Response.Redirect("GestionSitios.aspx");
+                }
+                else
+                {
+                   Response.Redirect("GestionEstablecimientos.aspx");
+                }
+            
                 txtLong.Text = String.Empty;
                 TextLat.Text = String.Empty;
             }

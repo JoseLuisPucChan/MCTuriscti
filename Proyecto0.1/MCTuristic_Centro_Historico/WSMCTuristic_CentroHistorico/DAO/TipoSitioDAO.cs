@@ -104,5 +104,21 @@ namespace WSMCTuristic_CentroHistorico.DAO
             sql = "EXEC primero12registros";
             return conn.TablaDS(sql);
         }
+
+
+
+        public DataSet TipoSitiosws()
+        {
+            conn = new Conexion();
+            string sql;
+            sql = "EXEC ver_tipoSitios";
+            return conn.TablaDS(sql);
+        }
+
+
+
+
+
+
     }
 }

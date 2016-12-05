@@ -182,7 +182,7 @@ namespace WSMCTuristic_CentroHistorico.UI
         }
         [WebMethod]
         //Nuevo webmethod Diosemir Nah
-        
+
         public DataSet establecimiento_AdminWS()
         {
             oEstablecimiento = new Services.CtrlEstablecimiento();
@@ -357,6 +357,7 @@ namespace WSMCTuristic_CentroHistorico.UI
             oSitioCtrl = new Services.CtrlSitio();
             return oSitioCtrl.EliminarSitio(oSitio);
         }
+        [WebMethod]
         //Nuevo webmethod Diosemir Nah
         public DataSet sitio_WS()
         {
@@ -436,6 +437,13 @@ namespace WSMCTuristic_CentroHistorico.UI
             oTipoSitioCtrl = new Services.CtrlTipoSitio();
             return oTipoSitioCtrl.EliminarTipoSitio(oTipoSitio);
         }
+        [WebMethod]
+        public DataSet tipoSitios()
+        {
+            oTipoSitioCtrl = new Services.CtrlTipoSitio();
+            return oTipoSitioCtrl.tipoSitio();
+        }
+    
         //------------ ABC TipoSuscripcion --------------
         [WebMethod]
         public int InsertarTipoSuscripcion(TipoSuscripcionBO obj)

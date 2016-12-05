@@ -33,5 +33,15 @@ namespace WSMCTuristic_CentroHistorico.Services
             return oTipoSitio.TipoSitioDS();
         }
 
+
+        public DataSet tipoSitio()
+        {
+            oTipoSitio = new DAO.TipoSitioDAO();
+            return oTipoSitio.TipoSitiosws();
+        }
+
+
+
+
     }
 }
