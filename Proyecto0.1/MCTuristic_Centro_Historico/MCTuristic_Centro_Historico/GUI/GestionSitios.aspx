@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/mpBase.Master" AutoEventWireup="true" CodeBehind="GestionSitios.aspx.cs" Inherits="MCTuristic_Centro_Historico.GUI.GestionSitios" %>
+
+<%@ Register Assembly="DevExpress.Web.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphTituloPagina" runat="server">
     Gestion de sitios
 </asp:Content>
@@ -47,85 +49,42 @@
     </asp:PlaceHolder>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphBody" runat="server">
-    <div class="row">
+  
+   <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+       <ContentTemplate>
+        <asp:LinkButton ID="lblNuevo" runat="server" CssClass="btn btn-blue-alt" OnClick="lblNuevo_Click" ><i class="glyph-icon icon-plus-circle"></i> Nuevo</asp:LinkButton> 
+            <asp:Panel ID="pnlGestionSitios" runat="server">
+               <div class="row">
         <div class="col-lg-12">
             <div class="panel">
                 <div class="panel-body">
                     <h3 class="text-center font-bold"><i class="glyph-icon icon-university"></i>Control de sitios </h3>
                     <div class="divider"></div>
-                    <asp:LinkButton ID="lbtnNuevo" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-plus-circle"></i> Nuevo</asp:LinkButton>
+                    <asp:TextBox ID="txtTipoSitio" Visible="false" runat="server"></asp:TextBox>
                     <div class="divider"></div>
                     <div class="col-lg-6">
                         <div class="form-group border-blue">
+                             <asp:Button ID="btnMaps" runat="server" Text="Seleccionar Ubicación" CssClass="btn btn-primary" OnClick="btnMaps_Click" />
+                             <asp:Label ID="lblMapsEstatus" runat="server" Font-Size="Medium" ForeColor="#009DC5"></asp:Label>
                             <h3><i class="glyph-icon icon-tag"></i>Nombre</h3>
                             <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control border-blue"></asp:TextBox>
                             <br />
                             <h3><i class="glyph-icon icon-list"></i>Tipo de sitio</h3>
-                            <asp:DropDownList ID="ddlTipoSitio" runat="server" CssClass="form-control border-blue"></asp:DropDownList>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#Sitio" type="button">Agregar nuevo tipo de sitio</button>
-                            <div class="modal fade bs-example-modal-lg" id="Sitio" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h3 class="modal-title"><b>Nuevo tipo de sitios</b></h3>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="col-lg-6">
-                                                <h3><i class="glyph-icon icon-road"></i>Nombre</h3>
-                                                <asp:TextBox ID="txtNombreTipo" runat="server" CssClass="form-control border-blue"></asp:TextBox>
-                                                <br />
-                                                <h3><i class="glyph-icon icon-tag"></i>Descripción</h3>
-                                                <asp:TextBox ID="txtDescripcionTipo" runat="server" CssClass="form-control border-blue"></asp:TextBox>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="pull-right">
-                                                    <script type="text/javascript">
-            function GurdarTipoSitio() {
-                var actionData = " { 'nombre': '" + $("#<%=txtNombre.ClientID%>")[0].value + "', 'descripcion': '" + $("#<%=txtDescripcion.ClientID%>")[0].value + "'}  ";
-                    $.ajax({
-                        type: "POST",
-                        url: "GestionSitios.aspx/GuardarTipoSitio",
-                        data: actionData,
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "json",
-                        success: OnSuccess,
-                        failure: function (response) {
-                            alert(response.d);
-                        }
-                    });
-                }
-                function OnSuccess(response) {
-                    alert("Respuesta " + response.d);
-                }
-                                                    </script>
-                                                    <asp:Button ID="btnAceptar" CssClass="btn btn-primary" runat="server" Text="Aceptar" />
-                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer no-border">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <asp:DropDownList ID="ddlTipoSitio" runat="server" CssClass="form-control border-blue" OnSelectedIndexChanged="ddlTipoSitio_SelectedIndexChanged"></asp:DropDownList>
+                           
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="form-group border-blue">
-                            <h3><i class="glyph-icon icon-image"></i>Imagen</h3>
-                            <asp:FileUpload ID="fuImagen" runat="server" />
-                        </div>
-                    </div>
-                    <div class="col-lg-12 form-group">
-                        <h3><i class="glyph-icon icon-language"></i>Dirección</h3>
-                        <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
-                        <asp:TextBox ID="txtLat" runat="server" Visible="false"></asp:TextBox>
-                        <asp:TextBox ID="txtlon" runat="server" Visible="false"></asp:TextBox>
-                        <div class="example-box-wrapper">
-                            <div id="map-basic" style="height: 300px;"></div>
-                        </div>
-                    </div>
+                        <h3><i class="glyph-icon icon-tag"></i>Foto</h3>
+                            <center>
+                                <asp:Image ID="imgEstablecimiento"  Width="300" Height="220" alt="" runat="server" ImageUrl="~/Recursos/images/Establecimiento.png"/>
+                           
+                             </center>
+                            <br />
+                            <asp:FileUpload ID="fuFoto" CssClass="btn-primary" runat="server" Visible="true" />
+                            <br />
+                            <asp:Button ID="btnSubir" runat="server" CssClass="btn btn-primary" Text="Subir foto" OnClick="btnSubir_Click" PostBackUrl="~/GUI/GestionSitios.aspx" />
+                    </div>                   
                     <div class="col-lg-12 form-group">
                         <h3><i class="glyph-icon icon-file-text"></i>Descripción</h3>
                         <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control border-blue" TextMode="MultiLine"></asp:TextBox>
@@ -141,36 +100,129 @@
                     <div class="col-lg-12 form-group">
                         <div class="divider"></div>
 
-                        <script type="text/javascript">
-            function GurdarSitio() {
-                var actionData = " { 'nombre': '" + $("#<%=txtNombreTipo.ClientID%>")[0].value + "', 'idTipo': '" + $("#<%=ddlTipoSitio.ClientID%>")[0].value + "', 'direccion': '" + $("#<%=txtDireccion.ClientID%>") + "', 'latitud': '" + $("#<%=txtLat.ClientID%>") + "', 'longitud': '" + $("#<%=txtlon.ClientID%>") + "', 'historia': '" + $("#<%=txtHistoria.ClientID%>") + "', 'suceso': '" + $("#<%=txtSucesos.ClientID%>") + "', 'descripcion': '" + $("#<%=txtDescripcion.ClientID%>") + "'}  ";
-                    $.ajax({
-                        type: "POST",
-                        url: "GestionSitios.aspx/GuardarSitio",
-                        data: actionData,
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "json",
-                        success: OnSuccess,
-                        failure: function (response) {
-                            alert(response.d);
-                        }
-                    });
-                }
-                function OnSuccess(response) {
-                    alert("Respuesta " + response.d);
-                }
-                        </script>
-                        <asp:LinkButton ID="lbtnGuardar" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-save"></i> Guardar</asp:LinkButton>
-                        <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
-                        <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>
+                        <div class="col-lg-12 form-group">
+                        <h3><i class="glyph-icon icon-language"></i>Dirección</h3>
+                        <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtLat" runat="server" Visible="false"></asp:TextBox>
+                        <asp:TextBox ID="txtlon" runat="server" Visible="false"></asp:TextBox>
+                       
+                    </div>
+
+
+                        <asp:LinkButton ID="lbtnGuardar" runat="server" CssClass="btn btn-blue-alt" OnClick="lbtnGuardar_Click"><i class="glyph-icon icon-save"></i> Guardar</asp:LinkButton>
+                     <%--   <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>--%>
                         <div class="divider"></div>
                         <h3><i class="glyph-icon icon-table"></i>Tabla de datos</h3>
-                        <asp:GridView ID="gvDatos" runat="server" CssClass="table-bordered form-control"></asp:GridView>
+                          <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+                                            <ProgressTemplate>
+                                                 <img alt="In progress..." src="../images1/iOS7Loader.gif" width="400" height="90" />
+                                            </ProgressTemplate>
+                                        </asp:UpdateProgress>
+                       <dx:ASPxGridView ID="ASPxGridView1" runat="server"  Theme="iOS" OnRowCommand="ASPxGridView1_RowCommand">
+                                            <Columns>
+                                                <dx:GridViewDataColumn FieldName="Nombre" VisibleIndex="1" />
+                    
+                                                 <dx:GridViewDataColumn FieldName="Descripción"  VisibleIndex="2" />
+                                                 <dx:GridViewDataColumn FieldName="Sucesosimportantes" Visible="true" VisibleIndex="3" />
+                                                 <dx:GridViewDataColumn FieldName="Historia" Visible="True" VisibleIndex="4" />
+                                                 <dx:GridViewDataColumn FieldName="Dirección" Visible="true" VisibleIndex="5" />
+                                                 <dx:GridViewDataColumn FieldName="Longitud" Visible="false" VisibleIndex="6" />
+                                          <%--       <dx:GridViewDataColumn FieldName="Foto" Visible="false" VisibleIndex="7" />--%>
+                                                 <dx:GridViewDataColumn FieldName="Longitud"  Visible="false" VisibleIndex="8" />
+                                             <dx:GridViewDataColumn FieldName="idTipoSitio"  Visible="false" VisibleIndex="9" />
+                                                 <dx:GridViewDataColumn FieldName="Código" Visible="false" VisibleIndex="10" />
+                                        <dx:GridViewDataColumn Caption="Selección">
+                                            <DataItemTemplate>
+                                                <asp:LinkButton ID="Lnk" runat="server" CommandArgument="Editar" Text="Editar"></asp:LinkButton>
+                                             <asp:LinkButton ID="lblEventos" runat="server" CommandArgument="Eventos" Text="Eventos"></asp:LinkButton>
+                                            </DataItemTemplate>
+                                        </dx:GridViewDataColumn>
+                                    </Columns>
+                                        </dx:ASPxGridView>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+           </asp:Panel>
+
+       <asp:Panel ID="Editar" runat="server">
+            <div class="row">
+        <div class="col-lg-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <h3 class="text-center font-bold"><i class="glyph-icon icon-university"></i>Control de sitios </h3>
+                    <div class="divider"></div>
+                      <asp:TextBox ID="txtidSitioEdit" Visible="false" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtTipoSitoEdit" Visible="false" runat="server"></asp:TextBox>
+                    <div class="divider"></div>
+                    <div class="col-lg-6">
+                        <div class="form-group border-blue">
+                             <asp:Button ID="btnMapEdit" runat="server" Text="Seleccionar Ubicación" CssClass="btn btn-primary" OnClick="btnMapEdit_Click" />
+                             <asp:Label ID="Label1" runat="server" Font-Size="Medium" ForeColor="#009DC5"></asp:Label>
+                            <h3><i class="glyph-icon icon-tag"></i>Nombre</h3>
+                            <asp:TextBox ID="txtNombreEdit" runat="server" CssClass="form-control border-blue"></asp:TextBox>
+                            <br />
+                            <h3><i class="glyph-icon icon-list"></i>Tipo de sitio</h3>
+                            <asp:DropDownList ID="DrpTipoSitioEdit" runat="server" CssClass="form-control border-blue"></asp:DropDownList>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3><i class="glyph-icon icon-tag"></i>Foto</h3>
+                            <center>
+                                <asp:Image ID="FotoPre"  Width="300" Height="220" alt="" runat="server" ImageUrl="~/Recursos/images/Establecimiento.png"/>
+                           
+                             </center>
+                            <br />
+                            <asp:FileUpload ID="FuFotoEdit" CssClass="btn-primary" runat="server" Visible="true" />
+                            <br />
+                            <asp:Button ID="btnVerNuevaFotoEdit" runat="server" CssClass="btn btn-primary" Text="Subir foto" OnClick="btnVerNuevaFotoEdit_Click" PostBackUrl="~/GUI/GestionSitios.aspx" />
+                    </div>                   
+                    <div class="col-lg-12 form-group">
+                        <h3><i class="glyph-icon icon-file-text"></i>Descripción</h3>
+                        <asp:TextBox ID="txtDescripcionEdit" runat="server" CssClass="form-control border-blue" TextMode="MultiLine"></asp:TextBox>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <h3><i class="glyph-icon icon-exclamation"></i>Sucesos importantes</h3>
+                        <asp:TextBox ID="txtSucesoImportantesEdit" runat="server" CssClass="form-control border-blue" TextMode="MultiLine"></asp:TextBox>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <h3><i class="glyph-icon icon-file-text-o"></i>Historia</h3>
+                        <asp:TextBox ID="txtHistoriaEdit" runat="server" CssClass="form-control border-blue" TextMode="MultiLine"></asp:TextBox>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <div class="divider"></div>
+
+                        <div class="col-lg-12 form-group">
+                        <h3><i class="glyph-icon icon-language"></i>Dirección</h3>
+                        <asp:TextBox ID="txtDireccionEdit" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBox7" runat="server" Visible="false"></asp:TextBox>
+                        <asp:TextBox ID="TextBox8" runat="server" Visible="false"></asp:TextBox>
+                       
+                    </div>
+                        <asp:UpdateProgress ID="UpdateProgress2" runat="server">
+                                            <ProgressTemplate>
+                                                 <img alt="In progress..." src="../images1/iOS7Loader.gif" width="400" height="90" />
+                                            </ProgressTemplate>
+                                        </asp:UpdateProgress>
+                     <asp:LinkButton ID="lbtnModificar" runat="server" CssClass="btn btn-blue-alt" OnClick="lbtnModificar_Click"><i class="glyph-icon icon-edit"></i> Modificar</asp:LinkButton>
+                        <asp:Label ID="lblModificar" runat="server" Font-Size="Medium" ForeColor="#009DC5"></asp:Label>
+                           <asp:LinkButton ID="lbtnEliminar" runat="server" CssClass="btn btn-blue-alt pull-right"><i class="glyph-icon icon-minus-square"></i> Eliminar</asp:LinkButton>
+                        <div class="divider"></div>
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+           </asp:Panel>
+
+       </ContentTemplate>
+   </asp:UpdatePanel>
+
+    
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphBarraLat" runat="server">
     <div id="page-sidebar">

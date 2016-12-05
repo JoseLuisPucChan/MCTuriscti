@@ -73,7 +73,6 @@ namespace MCTuristic_Centro_Historico.GUI
             Response.Redirect("Maps.aspx");
         }
 
-
         private bool VerificarArchivoImg()
         {
             if (fuFoto.HasFile)

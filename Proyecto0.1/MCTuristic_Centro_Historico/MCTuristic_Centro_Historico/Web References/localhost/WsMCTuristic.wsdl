@@ -603,6 +603,23 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="sitio_WS">
+        <s:complexType />
+      </s:element>
+      <s:element name="sitio_WSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sitio_WSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="InsertarSoporte">
         <s:complexType>
           <s:sequence>
@@ -764,6 +781,23 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="EliminarTipoSitioResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="tipoSitios">
+        <s:complexType />
+      </s:element>
+      <s:element name="tipoSitiosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tipoSitiosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1276,6 +1310,12 @@
   <wsdl:message name="EliminarSitioSoapOut">
     <wsdl:part name="parameters" element="tns:EliminarSitioResponse" />
   </wsdl:message>
+  <wsdl:message name="sitio_WSSoapIn">
+    <wsdl:part name="parameters" element="tns:sitio_WS" />
+  </wsdl:message>
+  <wsdl:message name="sitio_WSSoapOut">
+    <wsdl:part name="parameters" element="tns:sitio_WSResponse" />
+  </wsdl:message>
   <wsdl:message name="InsertarSoporteSoapIn">
     <wsdl:part name="parameters" element="tns:InsertarSoporte" />
   </wsdl:message>
@@ -1335,6 +1375,12 @@
   </wsdl:message>
   <wsdl:message name="EliminarTipoSitioSoapOut">
     <wsdl:part name="parameters" element="tns:EliminarTipoSitioResponse" />
+  </wsdl:message>
+  <wsdl:message name="tipoSitiosSoapIn">
+    <wsdl:part name="parameters" element="tns:tipoSitios" />
+  </wsdl:message>
+  <wsdl:message name="tipoSitiosSoapOut">
+    <wsdl:part name="parameters" element="tns:tipoSitiosResponse" />
   </wsdl:message>
   <wsdl:message name="InsertarTipoSuscripcionSoapIn">
     <wsdl:part name="parameters" element="tns:InsertarTipoSuscripcion" />
@@ -1581,6 +1627,10 @@
       <wsdl:input message="tns:EliminarSitioSoapIn" />
       <wsdl:output message="tns:EliminarSitioSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="sitio_WS">
+      <wsdl:input message="tns:sitio_WSSoapIn" />
+      <wsdl:output message="tns:sitio_WSSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="InsertarSoporte">
       <wsdl:input message="tns:InsertarSoporteSoapIn" />
       <wsdl:output message="tns:InsertarSoporteSoapOut" />
@@ -1620,6 +1670,10 @@
     <wsdl:operation name="EliminarTipoSitio">
       <wsdl:input message="tns:EliminarTipoSitioSoapIn" />
       <wsdl:output message="tns:EliminarTipoSitioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="tipoSitios">
+      <wsdl:input message="tns:tipoSitiosSoapIn" />
+      <wsdl:output message="tns:tipoSitiosSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="InsertarTipoSuscripcion">
       <wsdl:input message="tns:InsertarTipoSuscripcionSoapIn" />
@@ -2002,6 +2056,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="sitio_WS">
+      <soap:operation soapAction="http://MCTuristic.org/sitio_WS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="InsertarSoporte">
       <soap:operation soapAction="http://MCTuristic.org/InsertarSoporte" style="document" />
       <wsdl:input>
@@ -2085,6 +2148,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarTipoSitio">
       <soap:operation soapAction="http://MCTuristic.org/EliminarTipoSitio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tipoSitios">
+      <soap:operation soapAction="http://MCTuristic.org/tipoSitios" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2563,6 +2635,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="sitio_WS">
+      <soap12:operation soapAction="http://MCTuristic.org/sitio_WS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="InsertarSoporte">
       <soap12:operation soapAction="http://MCTuristic.org/InsertarSoporte" style="document" />
       <wsdl:input>
@@ -2646,6 +2727,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarTipoSitio">
       <soap12:operation soapAction="http://MCTuristic.org/EliminarTipoSitio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tipoSitios">
+      <soap12:operation soapAction="http://MCTuristic.org/tipoSitios" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
