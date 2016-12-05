@@ -196,7 +196,7 @@ namespace MCTuristic_Centro_Historico.GUI
         //Limpiar Controles
         private void LimpiarControles()
         {
-            imgEstablecimiento.ImageUrl = "~/Recursos/images/Establecimiento.png";
+            imgEstablecimiento.ImageUrl = "~/images1/Sitio.png";
             txtNombre.Text = string.Empty;
             CargarDropTipoSitios();
             txtDescripcion.Text = string.Empty;
@@ -261,7 +261,7 @@ namespace MCTuristic_Centro_Historico.GUI
                 pnlGestionSitios.Visible = false;
                 Editar.Visible = true;
                 oSitioBO = (localhost.SitioBO)Session["SitioEdit"];
-                imgEstablecimiento.ImageUrl = "~/Recursos/images/Establecimiento.png";
+                imgEstablecimiento.ImageUrl = "~/images1/Sitio.png";
                 txtidSitioEdit.Text = oSitioBO.IdSitio.ToString();
                 txtTipoSitoEdit.Text = oSitioBO.IdTipoSitio.ToString();
                 txtNombreEdit.Text = oSitioBO.NombreSitio;

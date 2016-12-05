@@ -135,7 +135,7 @@ namespace MCTuristic_Centro_Historico.GUI
             txtPrecio.Text = string.Empty;
            txtDescripcion.Text = string.Empty;
            txtIdTipoServicio.Text = string.Empty;
-            imgServicios.ImageUrl = null;
+            imgServicios.ImageUrl = "~/images1/cubiertos.png";
             ListarDropdow();
         }
         private void CargarGriw()

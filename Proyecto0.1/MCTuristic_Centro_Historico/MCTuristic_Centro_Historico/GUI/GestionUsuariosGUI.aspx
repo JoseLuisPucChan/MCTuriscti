@@ -56,12 +56,13 @@
         <ContentTemplate>
               <asp:LinkButton ID="lblNuevo" runat="server" CssClass="btn btn-blue-alt" OnClick="lblNuevo_Click"><i class="glyph-icon icon-plus-circle"></i> Nuevo</asp:LinkButton>
             <asp:Panel ID="GestioUsuarios" runat="server">
-                <h3 class="text-center font-bold"><i class="glyph-icon icon-users"></i>Control de Usuarios </h3>
-                <div class="row">
+              
+          <div class="row">
         <div class="col-lg-12">
+          
             <div class="panel">
                 <div class="panel-body">
-                   
+                       <h3 class="text-center font-bold"><i class="glyph-icon icon-users"></i>Control de Usuarios </h3>
                     <div class="divider"></div>
                   
                     <div class="divider"></div>
