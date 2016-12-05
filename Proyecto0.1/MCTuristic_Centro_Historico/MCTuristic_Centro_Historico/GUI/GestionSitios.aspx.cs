@@ -255,34 +255,42 @@ namespace MCTuristic_Centro_Historico.GUI
         //Llenar Controles si se esta editando
         private void LlenarControlesEdit()
         {
-            //Define Si se cambio las cordenadas al momento de vizualizar el marcador
-            bool CodenadasMoficadas = Convert.ToBoolean(Session["ModificarMap"]);
-            pnlGestionSitios.Visible = false;
-            Editar.Visible = true;
-            oSitioBO = (localhost.SitioBO)Session["SitioEdit"];
-            imgEstablecimiento.ImageUrl = "~/Recursos/images/Establecimiento.png";
-            txtidSitioEdit.Text = oSitioBO.IdSitio.ToString();
-            txtTipoSitoEdit.Text = oSitioBO.IdTipoSitio.ToString();
-            txtNombreEdit.Text = oSitioBO.NombreSitio;
-            txtDescripcionEdit.Text = oSitioBO.DescripcionSitio;
-            txtHistoriaEdit.Text = oSitioBO.Historia;
-            txtSucesoImportantesEdit.Text = oSitioBO.SucesoImportante;
-            //Verifica Si existe algún cambio en el mapa
-            if(CodenadasMoficadas == false)
-            {
-                Session["Latitud"] = oSitioBO.LatitudSitio;
-                Session["Longitud"] = oSitioBO.LongitudSitio;
+            try
+            { //Define Si se cambio las cordenadas al momento de vizualizar el marcador
+                bool CodenadasMoficadas = Convert.ToBoolean(Session["ModificarMap"]);
+                pnlGestionSitios.Visible = false;
+                Editar.Visible = true;
+                oSitioBO = (localhost.SitioBO)Session["SitioEdit"];
+                imgEstablecimiento.ImageUrl = "~/Recursos/images/Establecimiento.png";
+                txtidSitioEdit.Text = oSitioBO.IdSitio.ToString();
+                txtTipoSitoEdit.Text = oSitioBO.IdTipoSitio.ToString();
+                txtNombreEdit.Text = oSitioBO.NombreSitio;
+                txtDescripcionEdit.Text = oSitioBO.DescripcionSitio;
+                txtHistoriaEdit.Text = oSitioBO.Historia;
+                txtSucesoImportantesEdit.Text = oSitioBO.SucesoImportante;
+                //Verifica Si existe algún cambio en el mapa
+                if (CodenadasMoficadas == false)
+                {
+                    Session["Latitud"] = oSitioBO.LatitudSitio;
+                    Session["Longitud"] = oSitioBO.LongitudSitio;
+                }
+                //CargarDropEdit
+                DrpTipoSitioEdit.DataSource = owebService.tipoSitios();
+                DrpTipoSitioEdit.DataValueField = "idTipoSitio";
+                DrpTipoSitioEdit.DataTextField = "NombreSitio";
+                DrpTipoSitioEdit.DataBind();
+                DrpTipoSitioEdit.SelectedValue = oSitioBO.IdTipoSitio.ToString();
+                //--------------------
+                Session["arreglo1"] = oSitioBO.FotoSitio;
+                FotoPre.ImageUrl = ConvertirImagenStringWebUrl((Byte[])Session["arreglo1"], "jpg");
+                txtDireccionEdit.Text = oSitioBO.Direccion;
+
             }
-            //CargarDropEdit
-            DrpTipoSitioEdit.DataSource = owebService.tipoSitios();
-            DrpTipoSitioEdit.DataValueField = "idTipoSitio";
-            DrpTipoSitioEdit.DataTextField = "NombreSitio";
-            DrpTipoSitioEdit.DataBind();
-            DrpTipoSitioEdit.SelectedValue = oSitioBO.IdTipoSitio.ToString();
-            //--------------------
-            Session["arreglo1"] = oSitioBO.FotoSitio;
-            FotoPre.ImageUrl = ConvertirImagenStringWebUrl((Byte[])Session["arreglo1"], "jpg");
-            txtDireccionEdit.Text = oSitioBO.Direccion;
+            catch(Exception ex)
+            {
+
+            }
+           
         }
 
         protected void lblNuevo_Click(object sender, EventArgs e)
