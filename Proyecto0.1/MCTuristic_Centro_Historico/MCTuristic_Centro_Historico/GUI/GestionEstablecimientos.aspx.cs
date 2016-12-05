@@ -197,20 +197,28 @@ namespace MCTuristic_Centro_Historico.GUI
         }
         private void LlenarControlesEdit()
         {
-            pnlGestionEstablecimientos.Visible = false;
-            Editar.Visible = true;
-            oEstablecimientoBO = (localhost.EstablecimientoBO)Session["EstablecimientoEdit"];
-            txtIdEstablecimiento.Text =oEstablecimientoBO.IdEstablecimiento.ToString();
-            txtNombreEdit.Text = oEstablecimientoBO.NombreEstable;
-            txtTelefonoEdit.Text = oEstablecimientoBO.TelefonoEstable;
-            txtHoraAbriEdit.Text = oEstablecimientoBO.HoraInicioEstable;
-            txtHoraCierreEdit.Text = oEstablecimientoBO.HoraCierreEstable;
-            txtFacebookEdit.Text = oEstablecimientoBO.PagFacebook;
-            Session["Latitud"] = oEstablecimientoBO.Latitud;
-            Session["Longitud"] = oEstablecimientoBO.Longitud;
-            Session["arreglo1"] =  oEstablecimientoBO.Foto;
-            FotoPre.ImageUrl = ConvertirImagenStringWebUrl((Byte[])Session["arreglo1"], "jpg");
-            txtIDuserEdit.Text = oEstablecimientoBO.IdUsuario.ToString();
+            try
+            {
+                pnlGestionEstablecimientos.Visible = false;
+                Editar.Visible = true;
+                oEstablecimientoBO = (localhost.EstablecimientoBO)Session["EstablecimientoEdit"];
+                txtIdEstablecimiento.Text = oEstablecimientoBO.IdEstablecimiento.ToString();
+                txtNombreEdit.Text = oEstablecimientoBO.NombreEstable;
+                txtTelefonoEdit.Text = oEstablecimientoBO.TelefonoEstable;
+                txtHoraAbriEdit.Text = oEstablecimientoBO.HoraInicioEstable;
+                txtHoraCierreEdit.Text = oEstablecimientoBO.HoraCierreEstable;
+                txtFacebookEdit.Text = oEstablecimientoBO.PagFacebook;
+                Session["Latitud"] = oEstablecimientoBO.Latitud;
+                Session["Longitud"] = oEstablecimientoBO.Longitud;
+                Session["arreglo1"] = oEstablecimientoBO.Foto;
+                FotoPre.ImageUrl = ConvertirImagenStringWebUrl((Byte[])Session["arreglo1"], "jpg");
+                txtIDuserEdit.Text = oEstablecimientoBO.IdUsuario.ToString();
+            }
+            catch(Exception ex)
+            {
+
+            }
+        
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)

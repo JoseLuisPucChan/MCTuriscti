@@ -55,15 +55,10 @@
         });
 
     </script>
-
-
     <script src="../Recursos/agileui.com/demo/monarch/assets/angular/js.js"></script>
     <script src="../Recursos/agileui.com/demo/monarch/assets/angular/datepicker.js"></script>
     <script src="../Recursos/agileui.com/demo/monarch/assets/angular/datepicker-demo.js"></script>
     <link href="../Recursos/agileui.com/demo/monarch/assets/angular/page-animations.css" rel="stylesheet" />
-     <script src="../Recursos/js/jquery-1.7.1.min.js"></script>
-    <script src="../Recursos/js/jquery-3.1.1.min.js"></script>
- <%--   Maps--%>
 
 </head>
 <body ng-controller="indexController">

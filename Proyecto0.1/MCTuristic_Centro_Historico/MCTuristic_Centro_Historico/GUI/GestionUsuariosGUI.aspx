@@ -84,6 +84,7 @@
                             <br />
                             <h3><i class="glyph-icon icon-language"></i>Dirección</h3>
                             <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control border-blue"></asp:TextBox>
+
                             <button class="btn btn-primary" data-toggle="modal" data-target="#Direccion" type="button">Agregar dirección</button>
                             <div class="modal fade bs-example-modal-lg" id="Direccion" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
