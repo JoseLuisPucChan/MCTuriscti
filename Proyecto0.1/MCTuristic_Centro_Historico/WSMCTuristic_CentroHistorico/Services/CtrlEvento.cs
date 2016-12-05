@@ -26,10 +26,10 @@ namespace WSMCTuristic_CentroHistorico.Services
             oEvento = new DAO.EventoDAO();
             return oEvento.EliminarEvento(obj);
         }
-        public DataSet topEventoDS()
+        public DataSet ver_Eventos(object obj)
         {
             oEvento = new DAO.EventoDAO();
-            return oEvento.EventoDS();
+            return oEvento.ver_Eventos(obj);
         }
 
     }

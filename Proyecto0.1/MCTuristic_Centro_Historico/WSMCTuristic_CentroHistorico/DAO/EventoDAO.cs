@@ -113,11 +113,12 @@ namespace WSMCTuristic_CentroHistorico.DAO
         }
 
         //Agregue el dataset y el metodo de imagen de esta tabla. Diosemir Nah
-        public DataSet EventoDS()
+        public DataSet ver_Eventos(object obj)
         {
+            oEventoBO = (BO.EventoBO)obj;
             conn = new Conexion();
             string sql;
-            sql = "EXEC primero12registros";
+            sql = "EXEC ver_Eventos '"+oEventoBO.IdSitio+"' ";
             return conn.TablaDS(sql);
         }
 
