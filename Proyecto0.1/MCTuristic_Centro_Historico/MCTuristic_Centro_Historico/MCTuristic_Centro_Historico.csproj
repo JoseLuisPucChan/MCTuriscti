@@ -91,8 +91,10 @@
     <Content Include="GUI\VistaProducto.aspx" />
     <Content Include="images1\avatar.jpg" />
     <Content Include="images1\bg.jpg" />
+    <Content Include="images1\cubiertos.png" />
     <Content Include="images1\hombre.png" />
     <Content Include="images1\iOS7Loader.gif" />
+    <Content Include="images1\Sitio.png" />
     <Content Include="Recursos\agileui.com\demo\monarch\assets-minified\fontawesome-webfontba72.eot" />
     <Content Include="Recursos\agileui.com\demo\monarch\assets-minified\fontawesome-webfontba72.ttf" />
     <Content Include="Recursos\agileui.com\demo\monarch\assets-minified\fontawesome-webfontba72.woff" />

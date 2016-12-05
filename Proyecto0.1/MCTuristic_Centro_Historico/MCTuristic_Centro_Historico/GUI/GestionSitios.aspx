@@ -71,24 +71,25 @@
                             <br />
                             <h3><i class="glyph-icon icon-list"></i>Tipo de sitio</h3>
                             <asp:DropDownList ID="ddlTipoSitio" runat="server" CssClass="form-control border-blue" OnSelectedIndexChanged="ddlTipoSitio_SelectedIndexChanged"></asp:DropDownList>
-                           
+                           <br />
+                               <h3><i class="glyph-icon icon-language"></i>Dirección</h3>
+                            <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control border-blue"></asp:TextBox>
+                                <h3><i class="glyph-icon icon-file-text"></i>Descripción</h3>
+                        <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control border-blue" TextMode="MultiLine"></asp:TextBox>    
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <h3><i class="glyph-icon icon-tag"></i>Foto</h3>
                             <center>
-                                <asp:Image ID="imgEstablecimiento"  Width="300" Height="220" alt="" runat="server" ImageUrl="~/Recursos/images/Establecimiento.png"/>
-                           
+                                <asp:Image ID="imgEstablecimiento"  Width="280" Height="250" alt="" runat="server" ImageUrl="~/images1/Sitio.png"/>
+                     
                              </center>
                             <br />
                             <asp:FileUpload ID="fuFoto" CssClass="btn-primary" runat="server" Visible="true" />
                             <br />
                             <asp:Button ID="btnSubir" runat="server" CssClass="btn btn-primary" Text="Subir foto" OnClick="btnSubir_Click" PostBackUrl="~/GUI/GestionSitios.aspx" />
                     </div>                   
-                    <div class="col-lg-12 form-group">
-                        <h3><i class="glyph-icon icon-file-text"></i>Descripción</h3>
-                        <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control border-blue" TextMode="MultiLine"></asp:TextBox>
-                    </div>
+                   
                     <div class="col-lg-12 form-group">
                         <h3><i class="glyph-icon icon-exclamation"></i>Sucesos importantes</h3>
                         <asp:TextBox ID="txtSucesos" runat="server" CssClass="form-control border-blue" TextMode="MultiLine"></asp:TextBox>
@@ -101,8 +102,7 @@
                         <div class="divider"></div>
 
                         <div class="col-lg-12 form-group">
-                        <h3><i class="glyph-icon icon-language"></i>Dirección</h3>
-                        <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
+                     
                         <asp:TextBox ID="txtLat" runat="server" Visible="false"></asp:TextBox>
                         <asp:TextBox ID="txtlon" runat="server" Visible="false"></asp:TextBox>
                        
@@ -166,13 +166,17 @@
                             <br />
                             <h3><i class="glyph-icon icon-list"></i>Tipo de sitio</h3>
                             <asp:DropDownList ID="DrpTipoSitioEdit" runat="server" CssClass="form-control border-blue"></asp:DropDownList>
-                           
+                           <br />
+                            <h3><i class="glyph-icon icon-language"></i>Dirección</h3>
+                             <asp:TextBox ID="txtDireccionEdit" runat="server" CssClass="form-control border-blue"></asp:TextBox>
+                         <h3><i class="glyph-icon icon-file-text"></i>Descripción</h3>
+                        <asp:TextBox ID="txtDescripcionEdit" runat="server" CssClass="form-control border-blue" TextMode="MultiLine"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <h3><i class="glyph-icon icon-tag"></i>Foto</h3>
                             <center>
-                                <asp:Image ID="FotoPre"  Width="300" Height="220" alt="" runat="server" ImageUrl="~/Recursos/images/Establecimiento.png"/>
+                                <asp:Image ID="FotoPre"  Width="300" Height="220" alt="" runat="server" ImageUrl="~/images1/Sitio.png"/>
                            
                              </center>
                             <br />
@@ -180,10 +184,7 @@
                             <br />
                             <asp:Button ID="btnVerNuevaFotoEdit" runat="server" CssClass="btn btn-primary" Text="Subir foto" OnClick="btnVerNuevaFotoEdit_Click" PostBackUrl="~/GUI/GestionSitios.aspx" />
                     </div>                   
-                    <div class="col-lg-12 form-group">
-                        <h3><i class="glyph-icon icon-file-text"></i>Descripción</h3>
-                        <asp:TextBox ID="txtDescripcionEdit" runat="server" CssClass="form-control border-blue" TextMode="MultiLine"></asp:TextBox>
-                    </div>
+                   
                     <div class="col-lg-12 form-group">
                         <h3><i class="glyph-icon icon-exclamation"></i>Sucesos importantes</h3>
                         <asp:TextBox ID="txtSucesoImportantesEdit" runat="server" CssClass="form-control border-blue" TextMode="MultiLine"></asp:TextBox>
@@ -196,11 +197,8 @@
                         <div class="divider"></div>
 
                         <div class="col-lg-12 form-group">
-                        <h3><i class="glyph-icon icon-language"></i>Dirección</h3>
-                        <asp:TextBox ID="txtDireccionEdit" runat="server"></asp:TextBox>
-                        <asp:TextBox ID="TextBox7" runat="server" Visible="false"></asp:TextBox>
-                        <asp:TextBox ID="TextBox8" runat="server" Visible="false"></asp:TextBox>
-                       
+                        
+                    
                     </div>
                         <asp:UpdateProgress ID="UpdateProgress2" runat="server">
                                             <ProgressTemplate>

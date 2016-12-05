@@ -111,8 +111,8 @@
                         </div>--%>
                         <br />
 
-                             <asp:Image ID="imgServicios"  Width="300" Height="280" alt="" runat="server" ImageUrl="~/Recursos/images/Establecimiento.png"/>
-                           
+                             <asp:Image ID="imgServicios"  Width="300" Height="280" alt="" runat="server" ImageUrl="~/images1/cubiertos.png"/>
+          
                              </center>
                             <br />
                             <asp:FileUpload ID="fuFoto" CssClass="btn-primary" runat="server" Visible="true" />
