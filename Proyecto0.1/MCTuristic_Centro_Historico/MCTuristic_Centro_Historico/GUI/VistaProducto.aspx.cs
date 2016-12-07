@@ -43,5 +43,10 @@ namespace MCTuristic_Centro_Historico.GUI
             Session["idServicio"] = Id.Text;
             Response.Redirect("DetalleProducto.aspx"); 
         }
+
+        protected void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Recursos/Restaurantes.pdf");
+        }
     }
 }

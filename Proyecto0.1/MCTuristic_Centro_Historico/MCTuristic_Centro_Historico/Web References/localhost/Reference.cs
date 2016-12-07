@@ -70,6 +70,8 @@ namespace MCTuristic_Centro_Historico.localhost {
         
         private System.Threading.SendOrPostCallback EliminarEventoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback Ver_eventoOperationCompleted;
+        
         private System.Threading.SendOrPostCallback InsertarNotificacionOperationCompleted;
         
         private System.Threading.SendOrPostCallback ModificarNotificacionesOperationCompleted;
@@ -255,6 +257,9 @@ namespace MCTuristic_Centro_Historico.localhost {
         
         /// <remarks/>
         public event EliminarEventoCompletedEventHandler EliminarEventoCompleted;
+        
+        /// <remarks/>
+        public event Ver_eventoCompletedEventHandler Ver_eventoCompleted;
         
         /// <remarks/>
         public event InsertarNotificacionCompletedEventHandler InsertarNotificacionCompleted;
@@ -955,6 +960,35 @@ namespace MCTuristic_Centro_Historico.localhost {
             if ((this.EliminarEventoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.EliminarEventoCompleted(this, new EliminarEventoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/Ver_evento", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet Ver_evento(EventoBO obj) {
+            object[] results = this.Invoke("Ver_evento", new object[] {
+                        obj});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Ver_eventoAsync(EventoBO obj) {
+            this.Ver_eventoAsync(obj, null);
+        }
+        
+        /// <remarks/>
+        public void Ver_eventoAsync(EventoBO obj, object userState) {
+            if ((this.Ver_eventoOperationCompleted == null)) {
+                this.Ver_eventoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnVer_eventoOperationCompleted);
+            }
+            this.InvokeAsync("Ver_evento", new object[] {
+                        obj}, this.Ver_eventoOperationCompleted, userState);
+        }
+        
+        private void OnVer_eventoOperationCompleted(object arg) {
+            if ((this.Ver_eventoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Ver_eventoCompleted(this, new Ver_eventoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -4002,6 +4036,32 @@ namespace MCTuristic_Centro_Historico.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void Ver_eventoCompletedEventHandler(object sender, Ver_eventoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Ver_eventoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Ver_eventoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
             }
         }
     }

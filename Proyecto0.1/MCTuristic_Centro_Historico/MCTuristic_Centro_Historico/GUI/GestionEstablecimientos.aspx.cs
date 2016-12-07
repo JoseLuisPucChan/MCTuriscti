@@ -15,18 +15,21 @@ namespace MCTuristic_Centro_Historico.GUI
         localhost.EstablecimientoBO oEstablecimientoBO = new localhost.EstablecimientoBO();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Editar.Visible = false;
-            if (!IsPostBack)
+
+            try
             {
-                bool Edit = Convert.ToBoolean(Session["Editar"]);
-                if (Edit == true)
+                Editar.Visible = false;
+                if (!IsPostBack)
                 {
+                    bool Edit = Convert.ToBoolean(Session["Editar"]);
+                    if (Edit == true)
+                    {
+                        Latitud = Convert.ToDouble(Session["Latitud"]);
+                        Longitud = Convert.ToDouble(Session["Longitud"]);
+                        LlenarControlesEdit();
+                    }
                     Latitud = Convert.ToDouble(Session["Latitud"]);
                     Longitud = Convert.ToDouble(Session["Longitud"]);
-                    LlenarControlesEdit();
-                }
-                Latitud = Convert.ToDouble(Session["Latitud"]);
-                Longitud = Convert.ToDouble(Session["Longitud"]);
                     if (Latitud == 0 && Longitud == 0)
                     {
                         lblMapsEstatus.Text = "Por favor seleccione su ubicación.";
@@ -36,10 +39,16 @@ namespace MCTuristic_Centro_Historico.GUI
                         lblMapsEstatus.Text = "Ubicación seleccionada.";
                     }
 
-               
-            }
 
-            CargarEstablecimientos();
+                }
+
+                CargarEstablecimientos();
+            }
+            catch (Exception ex)
+            {
+
+            }
+           
 
         }
         private void CargarEstablecimientos()
@@ -130,24 +139,32 @@ namespace MCTuristic_Centro_Historico.GUI
 
         protected void lbtnGuardar_Click(object sender, EventArgs e)
         {
-            Latitud = Convert.ToDouble(Session["Latitud"]);
-            if (txtNombre.Text != string.Empty && Latitud != 0)
+            try
             {
-                try
+                Latitud = Convert.ToDouble(Session["Latitud"]);
+                if (txtNombre.Text != string.Empty && Latitud != 0)
                 {
-                    int i = owebService.InsertarEstablecimiento(RecuperarDatos());
-                    if (i > 0)
+                    try
                     {
-                      LimpiarControles();  
-                    }
+                        int i = owebService.InsertarEstablecimiento(RecuperarDatos());
+                        if (i > 0)
+                        {
+                            LimpiarControles();
+                        }
 
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write(ex.Message);
+                    }
+                    CargarEstablecimientos();
                 }
-                catch (Exception ex)
-                {
-                    Response.Write(ex.Message);
-                }
-                CargarEstablecimientos();
             }
+            catch(Exception ex)
+            {
+
+            }
+            
         }
 
         private void LimpiarControles()

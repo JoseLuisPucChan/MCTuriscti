@@ -350,6 +350,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Ver_evento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:EventoBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ver_eventoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ver_eventoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="InsertarNotificacion">
         <s:complexType>
           <s:sequence>
@@ -1226,6 +1247,12 @@
   <wsdl:message name="EliminarEventoSoapOut">
     <wsdl:part name="parameters" element="tns:EliminarEventoResponse" />
   </wsdl:message>
+  <wsdl:message name="Ver_eventoSoapIn">
+    <wsdl:part name="parameters" element="tns:Ver_evento" />
+  </wsdl:message>
+  <wsdl:message name="Ver_eventoSoapOut">
+    <wsdl:part name="parameters" element="tns:Ver_eventoResponse" />
+  </wsdl:message>
   <wsdl:message name="InsertarNotificacionSoapIn">
     <wsdl:part name="parameters" element="tns:InsertarNotificacion" />
   </wsdl:message>
@@ -1570,6 +1597,10 @@
     <wsdl:operation name="EliminarEvento">
       <wsdl:input message="tns:EliminarEventoSoapIn" />
       <wsdl:output message="tns:EliminarEventoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ver_evento">
+      <wsdl:input message="tns:Ver_eventoSoapIn" />
+      <wsdl:output message="tns:Ver_eventoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="InsertarNotificacion">
       <wsdl:input message="tns:InsertarNotificacionSoapIn" />
@@ -1923,6 +1954,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarEvento">
       <soap:operation soapAction="http://MCTuristic.org/EliminarEvento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ver_evento">
+      <soap:operation soapAction="http://MCTuristic.org/Ver_evento" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2502,6 +2542,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarEvento">
       <soap12:operation soapAction="http://MCTuristic.org/EliminarEvento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ver_evento">
+      <soap12:operation soapAction="http://MCTuristic.org/Ver_evento" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

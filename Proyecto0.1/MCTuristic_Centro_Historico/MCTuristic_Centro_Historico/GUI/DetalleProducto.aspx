@@ -11,9 +11,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-3">
-                        <logo class="logo"><a href="index.html"><img src="../Recursos/images/inner-logo.png" alt="Logo" title="Relax Spa Palace"/></a></logo>
+                        <logo class="logo"><a href="PagPrincipal.aspx" ><img src="../Recursos/images/inner-logo.png" alt="Logo" title="Relax Spa Palace"/></a></logo>
                     </div>
                     <div class="col-lg-9 col-md-9">
+
 
                         <div class="home-menu">
                             <div class="navbar mm">
@@ -42,7 +43,7 @@
                                                                         <li><a href="QuieneSomo.aspx">Valores </a></li>
                                                                         <li><a href="QuieneSomo.aspx">¿Quiénes somos?</a></li>
                                                                     </ul>
-                                                                    <ul class="col-sm-4 list-unstyled">
+                                                                    <%-- <ul class="col-sm-4 list-unstyled">
                                                                         <li>
                                                                             <p><strong>Section Title</strong></p>
                                                                         </li>
@@ -63,39 +64,42 @@
                                                                         <li><a href="#">Special Facial</a></li>
                                                                         <li><a href="#">Manicure</a></li>
                                                                         <li><a href="#">Pedicure</a></li>
-                                                                    </ul>
+                                                                    </ul>--%>
                                                                 </div>
                                                             </div>
                                                         </li>
                                                     </ul>
                                                 </li>
 
+
                                                 <li class="dropdown">
-                                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">BLOG<b class="caret"></b></a>
+
+                                                    <asp:HyperLink ID="HyperLink1" data-toggle="dropdown" class="dropdown-toggle" Visible="false" NavigateUrl="~/GUI/Principal.aspx" runat="server">Blog</asp:HyperLink>
+                                                    <%--                                                    <a href="Principal.aspx"  data-toggle="dropdown" class="dropdown-toggle"> Blog<b class="caret"></b></a>--%>
+                                                   -
                                                     <ul role="menu" class="dropdown-menu">
-                                                        <li><a tabindex="-1" href="blog-full.html">Full Width </a></li>
-                                                        <li><a tabindex="-1" href="blog-masanary.html">Masonry Style </a></li>
-                                                        <li><a tabindex="-1" href="blog.html">Single Column (With Sidebar) </a></li>
-                                                        <li><a tabindex="-1" href="blog-02-column.html">Double Column</a></li>
-                                                        <li><a tabindex="-1" href="blog-03-column.html">Three Column</a></li>
+                                                        <li><a tabindex="-1" href="Principal.aspx">Página principal </a></li>
+                                                        <li>
+                                                            <asp:Button TabIndex="-1" ID="btnCerrarSecion" runat="server" Text=" Cerrar sesión" />
+                                                        </li>
                                                     </ul>
                                                 </li>
 
 
                                                 <li class="dropdown">
-                                                    <a href="Productos.aspx" data-toggle="dropdown" class="dropdown-toggle">Productos<b class="caret"></b></a>
+                                                    <a href="VistaProducto.aspx" data-toggle="dropdown" class="dropdown-toggle">Productos<b class="caret"></b></a>
                                                     <ul role="menu" class="dropdown-menu">
-                                                        <li><a tabindex="-1" href="products.html">Product Listing </a></li>
-                                                        <li><a tabindex="-1" href="product-details.html">Product Details</a></li>
-                                                        <li><a tabindex="-1" href="cart.html">Cart </a></li>
-                                                        <li><a tabindex="-1" href="checkout.html">Check Out</a></li>
-                                                        <li><a tabindex="-1" href="register.html">Login</a></li>
-                                                        <li><a tabindex="-1" href="register.html">Register</a></li>
+                                                        <li><a tabindex="-1" href="VistaProducto.aspx">Lista Productos </a></li>
+                                                        <%--      <li><a tabindex="-1" href="DetalleProducto.aspx"> Product Details</a></li>
+                                                        <li><a tabindex="-1" href="cart.html"> Cart </a></li>
+                                                        <li><a tabindex="-1" href="checkout.html"> Check Out</a></li>
+                                                        <li><a tabindex="-1" href="register.html"> Login</a></li>
+                                                        <li><a tabindex="-1" href="register.html"> Register</a></li>--%>
                                                     </ul>
                                                 </li>
 
 
-                                                <li class="dropdown">
+                                               <%-- <li class="dropdown">
                                                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">Gallery<b class="caret"></b></a>
                                                     <ul role="menu" class="dropdown-menu">
                                                         <li><a tabindex="-1" href="galletry01.html">Double Column </a></li>
@@ -103,11 +107,11 @@
                                                         <li><a tabindex="-1" href="galletry03.html">Four Column</a></li>
                                                         <li><a tabindex="-1" href="galletry04.html">Masonry Style</a></li>
                                                     </ul>
-                                                </li>
+                                                </li>--%>
 
 
                                                 <li>
-                                                    <a href="Contactanos.aspx">Contactanos<b></b></a>
+                                                    <a href="Contactanos1.aspx">Contactanos<b></b></a>
                                                 </li>
 
                                             </ul>
@@ -131,13 +135,12 @@
                     </div>
                     <div class="">
                         <div class="col-lg-9 col-md-9">
-                            <h5>There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form.</h5>
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <ul class="bcrumb pull-right">
-                                <li><a href="PagPrincipal.aspx">Inicio </a></li>
+                                <li><a href="VistaProducto.aspx">Top Tep Servicios</a></li>
                                 &gt;
-                                <li><a href="#">Product Details</a></li>
+                                <li><a href="#">Detalle Producto</a></li>
                             </ul>
                         </div>
                     </div>
@@ -159,7 +162,9 @@
                                         <ul class="pro-slider" style="width: 715%; position: relative; transition-duration: 0s; transform: translate3d(-720px, 0px, 0px);">
                                             <li style="float: left; list-style: none; position: relative; width: 720px;" class="bx-clone">
                                               
-                                            <asp:Image class="img-responsive" width="300" height="400" ID="Image2"  runat="server" 
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              
+                                            <asp:Image class="img-responsive" width="550px" height="418px" ID="Image2"  runat="server" 
                                             ImageUrl='<%#"GetImagen.aspx?id=" + Eval("idServicio") %>' alt=""  />
                                         </ul>
                                     </div>
@@ -169,23 +174,24 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <div class="prod-top"><strong class="title"> <asp:Label ID="lbl" runat="server" Text='<%# Eval("NombreServ") %>' ForeColor="#3399FF"></asp:Label> </strong> <strong class="sub-title">Spa Equipments</strong> <strong class="ptag">Price:</strong> 
+                                <div class="prod-top"><strong class="title"> <asp:Label ID="lbl" runat="server" Text='<%# Eval("NombreServ") %>' ForeColor="#3399FF"></asp:Label> </strong> <strong class="sub-title">   <asp:Label ID="Label1" runat="server" Text='<%# Eval("NomEstable") %>'></asp:Label>  </strong> <strong class="ptag">Precio: </strong> 
                                     <span class="price"> $<asp:Label ID="lblPrecio" runat="server" Text='<%# Eval("PreciosServicio") %>'></asp:Label> </span> </div>
                                 <div class="prod-details">
-                                    <p>Pellentesque arcu orci, tempus at placerat id, elementum ac turpis. Nullam eu lacus in dui blandit lobortis. Fusce iaculis lacinia metus id varius. Sed tristique in urna nec ullamcorper. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. Pellentesque arcu orci, tempus at placerat id, elementum ac turpis. Nullam eu lacus in dui blandit lobortis. Fusce iaculis lacinia metus id varius. Sed tristique in urna nec ullamcorper. Pellentesque arcu orci, tempus at placerat id, elementum ac turpis. Nullam eu lacus in dui blandit lobortis. Fusce iaculis lacinia metus id varius. Sed tristique in urna nec ullamcorper. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. </p>
+                                    <p>Detalles Establecimiento </p>
                                     <br>
                                     <ul class="flist">
-                                        <li>Nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</li>
-                                        <li>Sed malesuada libero id mattis ultrices quisque viverra neque non lobortis commodo. </li>
-                                        <li>Duis pretium pharetra lacus quis interdum sed malesuada libero id mattis ultrices. </li>
+                                         <p>Detalles Servicio </p>
+                                        <li>Teléfono:   <asp:Label ID="Label2" runat="server" Text='<%# Eval("Telefono") %>' ForeColor="#3399FF"></asp:Label></li>
+                                        <li>Página Facebook:   <asp:Label ID="Label3" runat="server" Text='<%# Eval("PagFacebook") %>' ForeColor="#3399FF"></asp:Label> </li>
+                                        <li><asp:Label ID="Label4" runat="server" Text='<%# Eval("DescripServicio") %>' ForeColor="#3399FF"></asp:Label> </li>
                                     </ul>
                                 </div>
                                 <div class="prod-info">
                                     <ul>
-                                        <li><strong>Brand:</strong> Relax Spa Palace</li>
-                                        <li><strong>Product Code:</strong> 01234</li>
-                                        <li><strong>Availability:</strong> In Stock</li>
-                                        <li><strong>Category:</strong> Makeup, Spa, Kits,</li>
+                                        <li><strong>Servicio:</strong> Servicios</li>
+                                        <li><strong>Código producto:  </strong><asp:Label ID="Label5" runat="server" Text='<%# Eval("idServicio") %>' ForeColor="#3399FF"> </asp:Label></li>
+                                        <li><strong>Número:</strong>  20</li>
+                                      
                                     </ul>
                                 </div>
                               
@@ -200,7 +206,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <button class="buyit">Buy IT</button>
+                                            <button class="buyit">Información</button>
                                         </li>
                                     </ul>
                                 </div>
@@ -218,6 +224,4 @@
         </asp:DataList>
         
     </div>
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="Contenido" runat="server">
 </asp:Content>

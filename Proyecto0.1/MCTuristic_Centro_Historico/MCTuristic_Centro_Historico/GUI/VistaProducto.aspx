@@ -89,9 +89,9 @@
 
 
                                                 <li class="dropdown">
-                                                    <a href="Productos.aspx" data-toggle="dropdown" class="dropdown-toggle">Productos<b class="caret"></b></a>
+                                                    <a href="VistaProducto.aspx" data-toggle="dropdown" class="dropdown-toggle">Productos<b class="caret"></b></a>
                                                     <ul role="menu" class="dropdown-menu">
-                                                        <li><a tabindex="-1" href="Productos1.aspx">Lista Productos </a></li>
+                                                        <li><a tabindex="-1" href="VistaProducto.aspx">Lista Productos </a></li>
                                                         <%--      <li><a tabindex="-1" href="DetalleProducto.aspx"> Product Details</a></li>
                                                         <li><a tabindex="-1" href="cart.html"> Cart </a></li>
                                                         <li><a tabindex="-1" href="checkout.html"> Check Out</a></li>
@@ -143,11 +143,11 @@
                         <%--Sección 1--%>
                        <div class="row">
                                 <%--Modulo 1--%>
-                        
+                           <asp:Button ID="btnImprimir" runat="server" Text="Imprimir productos" OnClick="btnImprimir_Click" />
                         <asp:DataList ID="DtlProductos" runat="server" RepeatColumns="3" RepeatDirection="Horizontal" HorizontalAlign="Center" Width="800px">
                           <FooterStyle VerticalAlign="Top" Wrap="True" />
                                  <ItemTemplate>
-                                   <asp:Label ID="lblidServicio" runat="server" Visible="true" Text='<%# Eval("idServicio") %>' ForeColor="#3399FF"></asp:Label>
+                                   <asp:Label ID="lblidServicio" runat="server" Visible="false" Text='<%# Eval("idServicio") %>' ForeColor="#3399FF"></asp:Label>
                                   <asp:Panel runat="server" Width="255px">
                                       <ul class="pro-box">
                                             <li class="pro">
@@ -161,7 +161,7 @@
                                                                 <li class="white-rounded">
                                                                     <a href="DetalleProducto.aspx"><i class="fa fa-link"></i></a></li>
                                                                 <li class="white-rounded">
-                                                                    <a href="images/large/large1.gif" rel="prettyPhoto[gallery1]">
+                                                                    <a href="images/large/large1.gif" rel="prettyPhoto[Image2]">
                                                                   <i class="fa fa-plus"></i></a></li>
                                                             </ol>
                                                         </div>
@@ -322,7 +322,7 @@
                             </div>
                              
                              <%--Sección 2--%>
-                            <div class="row">
+                       <%--     <div class="row">
 
                                 <div class="col-lg-4 col-md-4 col-sm-4 cp_load fadeInUp">
                                     <ul class="pro-box">
@@ -343,10 +343,9 @@
                                         <li>Hamacas El Aguacate</li>
                                         <li class="pro-footer"><span class="price">$599.00</span> <span class="rating"><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star-o"></i></a><a href="#"><i class="fa fa-star-o"></i></a><a href="#"><i class="fa fa-star-o"></i></a></span></li>
                                     </ul>
-                                </div>
+                                </div>--%>
 
-
-                                <div class="col-lg-4 col-md-4 col-sm-4 cp_load fadeInUp">
+<%--                                <div class="col-lg-4 col-md-4 col-sm-4 cp_load fadeInUp">
                                     <ul class="pro-box">
                                         <li class="pro">
                                             <div class="block-image">
@@ -389,7 +388,7 @@
                                     </ul>
                                 </div>
 
-                            </div>
+                            </div>--%>
 
                             <div class="gap-30"></div>
                              <%--Sección 3--%>
@@ -542,14 +541,14 @@
 
 
 
-                        <div class="paging">
+                       <%-- <div class="paging">
                             <ul class="pagination">
                                 <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
                                 <li><a href="#">1</a></li>
                                 
                                 <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                             </ul>
-                        </div>
+                        </div>--%>
                     </div>
 
 
@@ -692,10 +691,10 @@
 
                         <div class="gap-30"></div>
 
-                        <div class="facebook-box">
+                       <%-- <div class="facebook-box">
                             <strong class="stitle">Facebook</strong>
                             <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;width&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=true&amp;appId=133982306765662" scrolling="no" frameborder="0" style="border: none; overflow: hidden; height: 258px;" allowtransparency="true"></iframe>
-                        </div>
+                        </div>--%>
 
                     </div>
 
