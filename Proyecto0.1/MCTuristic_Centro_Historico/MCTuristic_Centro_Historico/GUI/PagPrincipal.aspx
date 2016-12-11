@@ -173,7 +173,8 @@
                             Bienvenido a nuestro sitio web, desde aquí podrás consultar toda la información turística del centro histórico de Mérida  Yucatán, hacer
                                su reservación de Hotel en línea pagando con tarjeta de crédito, enterarse de los eventos más importantes y actividades de ecoturismo, consultar mapas y mucho más. 
                         </p>
-                        <button onclick="window.location.href='aboutus-01.html'">Leer más</button>
+                        <asp:Button ID="Button1" runat="server" Text="Leer más" OnClick="Button1_Click" />
+                      
                     </div>
                 </div>
             </div>

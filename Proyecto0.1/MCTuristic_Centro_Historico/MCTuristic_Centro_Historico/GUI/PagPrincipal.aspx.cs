@@ -31,5 +31,10 @@ namespace MCTuristic_Centro_Historico.GUI
             Session["idUser"] = 0;
             Server.Transfer("PagPrincipal.aspx");
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("QuieneSomo.aspx");
+        }
     }
 }
