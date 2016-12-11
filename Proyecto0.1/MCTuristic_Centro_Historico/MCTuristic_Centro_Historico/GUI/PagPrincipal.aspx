@@ -160,6 +160,8 @@
         </div>
     </section>
 
+ 
+
     <!--Bienvenida-->
     <section>
         <div class="container">
@@ -179,10 +181,8 @@
     </section>
     <!--Carrucel-->
     <div class="mtop1"></div>
-</asp:Content>
-
-<asp:Content ID="Content3" ContentPlaceHolderID="Contenido" runat="server">
-    <!--Slider-->
+    <div class="wrapper inner">
+        <!--Slider-->
     <div id="rev_slider_6_2_wrapper" class="rev_slider_wrapper fullwidthbanner-container" style="margin: 0px auto; background-color: #E9E9E9; padding: 0px; margin-top: 0px; margin-bottom: 0px; max-height: 400px;">
         <div id="rev_slider_6_2" class="rev_slider fullwidthabanner" style="display: none; max-height: 400px; height: 400;">
             <ul>
@@ -490,7 +490,12 @@ Al igual que la biciruta para conocer los horarios y sitios de reunión
 
         </div>
     </section>
+</div>
     <div class="gap"></div>
+
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="Contenido" runat="server">
 
 
 </asp:Content>

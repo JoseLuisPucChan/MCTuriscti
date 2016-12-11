@@ -123,6 +123,256 @@
             </div>
         </header>
         <div class="gap"></div>
+
+
+
+
+
+        <section class="about about2">
+<div class="container">
+ 
+<div class="row">
+<div class="col-lg-6 col-md-6">
+<ul class="about-slider">
+ 
+<li>   <img src="../Recursos/Imagenes/slider01.jpeg" /></li>
+<li>   <img src="../Recursos/Imagenes/slider02.jpg" /></li>
+<li>   <img src="../Recursos/Imagenes/slider03.jpg" /></li>
+</ul></div>
+<div class="col-lg-6 col-md-6 about-2">
+<h2>Our Story</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque arcu orci, tempus at placerat id, elementum ac turpis. Nullam eu lacus in dui blandit lobortis. Fusce iaculis lacinia metus id varius. Sed tristique in urna nec ullamcorper. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. Suspendisse sed enim cursus, aliquam ante ac, vulputate sem. Proin mattis elit consequat leo eleifend, sit amet ornare elit suscipit. Nam porta congue ante a molestie. Morbi ut condimentum dui. Nullam fringilla vel nisl et sollicitudin. Lorem ipsum dolor sit amet.</p>
+<p>
+Consectetur adipiscing elit. Pellentesque arcu orci, tempus at placerat id, elementum ac turpis. Nullam eu lacus in dui blandit lobortis. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. Fusce iaculis lacinia metus id varius. Sed tristique in urna nec ullamcorper. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. Suspendisse sed enim cursus, aliquam ante ac, vulputate sem. Proin mattis elit consequat leo eleifend, sit amet ornare elit suscipit. Nam porta congue ante a molestie. </p></div>
+</div>
+ 
+<div class="gap-30"></div>
+ 
+<div class="row">
+<div class="col-lg-12 col-md-12 full-tabs">
+ 
+<ul class="nav nav-tabs">
+<li><a href="#tab1" data-toggle="tab">History</a></li>
+<li><a href="#tab2" data-toggle="tab">Misión</a></li>
+<li><a href="#tab3" data-toggle="tab">Visión</a></li>
+<li><a href="#tab4" data-toggle="tab"></a></li>
+</ul>
+ 
+<div class="tab-content">
+<div class="tab-pane active" id="tab1">
+<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque arcu orci, tempus at placerat id, elementum ac turpis. Nullam eu lacus in dui blandit lobortis. Fusce iaculis lacinia metus id varius. Sed tristique in urna nec ullamcorper. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. Suspendisse sed enim cursus, aliquam ante ac, vulputate sem. Proin mattis elit consequat leo eleifend.</p>
+<ul class="flist">
+<li> Nostrud exercitation ullamco laboris.</li>
+<li> Sed malesuada libero id mattis ultrices. </li>
+<li> Duis pretium pharetra lacus quis interdum. </li>
+<li> Quisque viverra neque non lobortis commodo. </li>
+</ul>
+</div>
+<div class="tab-pane" id="tab2">
+<h5>                                     Nuestra Misión, es representar y promover las riquezas Naturales y culturales que ofrece el estado de Yucatán, Mérida es el mejor punto de partida, pues está perfectamente conectada con la costa y sus Pueblos Mágicos, así como con sus muchas zonas arqueológicas que cuentan una historia, contribuyendo a la conservación del patrimonio natural y cultural del país e integrando a las comunidades locales al desarrollo de las actividades para los turistas.
+</h5>
+
+</div>
+<div class="tab-pane" id="tab3">
+<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque arcu orci, tempus at placerat id, elementum ac turpis. Nullam eu lacus in dui blandit lobortis. Fusce iaculis lacinia metus id varius. Sed tristique in urna nec ullamcorper. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. Suspendisse sed enim cursus, aliquam ante ac, vulputate sem. Proin mattis elit consequat leo eleifend.</p>
+<ul class="flist">
+<li> Nostrud exercitation ullamco laboris.</li>
+<li> Sed malesuada libero id mattis ultrices. </li>
+<li> Duis pretium pharetra lacus quis interdum. </li>
+<li> Quisque viverra neque non lobortis commodo. </li>
+</ul>
+</div>
+<div class="tab-pane" id="tab4">
+<p> Pellentesque arcu orci, tempus at placerat id, elementum ac turpis. Nullam eu lacus in dui blandit lobortis. Fusce iaculis lacinia metus id varius. Sed tristique in urna nec ullamcorper. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. Pellentesque arcu orci, tempus at placerat id, elementum ac turpis. Nullam eu lacus in dui blandit lobortis. Fusce iaculis lacinia metus id varius. Sed tristique in urna nec ullamcorper. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. </p>
+<ul class="flist">
+<li> Nostrud exercitation ullamco laboris.</li>
+<li> Sed malesuada libero id mattis ultrices. </li>
+<li> Duis pretium pharetra lacus quis interdum. </li>
+<li> Quisque viverra neque non lobortis commodo. </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+ 
+<div class="gap-30"></div>
+<div class="prograss-round">
+<div class="row">
+<div class="col-lg-12 col-md-12">
+<h2 class="main-title">Our Skills</h2>
+<h4 class="sub-title">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</h4>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-6 cp_load fadeInUp">
+<div id="prog1" data-dimension="300" data-text="75%" data-info="Massage" data-width="20" data-fontsize="70" data-percent="75" data-fgcolor="#58b1c3" data-bgcolor="#fff" data-fill="#e1e1e1">
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 cp_load fadeInUp">
+<div id="prog2" data-dimension="300" data-text="84%" data-info="Facial" data-width="20" data-fontsize="70" data-percent="84" data-fgcolor="#58b1c3" data-bgcolor="#fff" data-fill="#e1e1e1"></div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 cp_load fadeInUp">
+<div id="prog3" data-dimension="300" data-text="66%" data-info="Waxing" data-width="20" data-fontsize="70" data-percent="66" data-fgcolor="#58b1c3" data-bgcolor="#fff" data-fill="#e1e1e1"></div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 cp_load fadeInUp">
+<div id="prog4" data-dimension="300" data-text="93%" data-info="Therapy" data-width="20" data-fontsize="70" data-percent="93" data-fgcolor="#58b1c3" data-bgcolor="#fff" data-fill="#e1e1e1"></div>
+</div>
+</div>
+</div>
+ 
+ 
+<div class="gap-30"></div>
+<div class="row">
+<div class="col-lg-12 col-md-12">
+<h2 class="main-title">Meet Our Experts</h2>
+<h4 class="sub-title">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</h4>
+</div>
+</div>
+<div class="row team2 gallery">
+<div class="col-sm-3 cp_load fadeInUp">
+<ul>
+<li>
+<div class="block-image">
+<img class="img-responsive" src="images/team-img4.png" alt="">
+<div class="imgb-overlay pat-override"></div>
+<ol class="static-style">
+<li class="white-rounded"><a href="images/large/large1.gif" rel="prettyPhoto[gallery1]"><i class="fa fa-plus"></i></a></li>
+</ol>
+</div>
+</li>
+<li>
+<h3><a href="#">Mendas</a></h3>
+<span>Massage Expert</span>
+<p>Lorem ipsum dolor sit amet adipiscing elit arcu orci, tempus at placerat id elementum ac turpis.</p>
+</li>
+<li>
+<div class="tsocial">
+<ul>
+<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="col-sm-3 cp_load fadeInUp">
+<ul>
+<div class="block-image">
+<img class="img-responsive" src="images/team-img2.html" alt="">
+<div class="imgb-overlay pat-override"></div>
+<ol class="static-style">
+<li class="white-rounded"><a href="images/large/large1.gif" rel="prettyPhoto[gallery1]"><i class="fa fa-plus"></i></a></li>
+</ol>
+</div>
+</li>
+<li>
+<h3><a href="#">Anderson</a></h3>
+<span>Client Coordinator</span>
+<p>Lorem ipsum dolor sit amet adipiscing elit arcu orci, tempus at placerat id elementum ac turpis.</p>
+</li>
+<li>
+<div class="tsocial cp_load fadeInUp">
+<ul>
+<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="col-sm-3 cp_load fadeInUp">
+<ul>
+<div class="block-image">
+<img class="img-responsive" src="images/team-img3.png" alt="">
+<div class="imgb-overlay pat-override"></div>
+<ol class="static-style">
+<li class="white-rounded"><a href="images/large/large1.gif" rel="prettyPhoto[gallery1]"><i class="fa fa-plus"></i></a></li>
+</ol>
+</div>
+</li>
+<li>
+<h3><a href="#">Lisa Sen</a></h3>
+<span>Senior Consultant</span>
+<p>Lorem ipsum dolor sit amet adipiscing elit arcu orci, tempus at placerat id elementum ac turpis.</p>
+</li>
+<li>
+<div class="tsocial">
+<ul>
+<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="col-sm-3 cp_load fadeInUp">
+<ul>
+<div class="block-image">
+<img class="img-responsive" src="images/team-img1.png" alt="">
+<div class="imgb-overlay pat-override"></div>
+<ol class="static-style">
+<li class="white-rounded"><a href="images/large/large1.gif" rel="prettyPhoto[gallery1]"><i class="fa fa-plus"></i></a></li>
+</ol>
+</div>
+</li>
+<li>
+<h3><a href="#">Josa</a></h3>
+<span>Facial Specialist</span>
+<p>Lorem ipsum dolor sit amet adipiscing elit arcu orci, tempus at placerat id elementum ac turpis.</p>
+</li>
+<li>
+<div class="tsocial">
+<ul>
+<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="gap"></div>
+ 
+<div class="row">
+<div class="col-lg-12 col-md-12">
+<div class="partner-logos">
+<ul class="logo-slider">
+<li><img src="images/pl-01.png"/></li>
+<li><img src="images/pl-02.png"/></li>
+<li><img src="images/pl-03.png"/></li>
+<li><img src="images/pl-04.png"/></li>
+<li><img src="images/pl-05.png"/></li>
+<li><img src="images/pl-06.png"/></li>
+<li><img src="images/pl-01.png"/></li>
+<li><img src="images/pl-02.png"/></li>
+</ul>
+</div>
+</div>
+</div>
+ 
+</div>
+</section>
+
+
+
+
+
+
+
+
+
         <section class="blog bdetails">
             <div class="container">
                 <div class="row">
@@ -134,7 +384,7 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-11 post-title-tags">
-                                    <h2>MCTuristic Misión</h2>
+                                    <h2>MCTuristic </h2>
 
                                 </div>
                             </div>
@@ -147,8 +397,7 @@
                                 </div>
                                 <div class="col-md-11 col-sm-11">
                                     <p>
-                                        Nuestra Misión, es representar y promover las riquezas Naturales y culturales que ofrece el estado de Yucatán, Mérida es el mejor punto de partida, pues está perfectamente conectada con la costa y sus Pueblos Mágicos, así como con sus muchas zonas arqueológicas que cuentan una historia, contribuyendo a la conservación del patrimonio natural y cultural del país e integrando a las comunidades locales al desarrollo de las actividades para los turistas.
-
+   
                                     </p>
                                 </div>
                             </div>
@@ -177,7 +426,7 @@ Nuestra visión general, es posicionar al sector de turismo de historia como un 
                         <div class="row">
                             <div class="col-md-1"></div>
                             <div class="col-md-11 post-title-tags">
-                                <h2>Valores </h2>
+                                <h2> </h2>
 
                             </div>
                         </div>
