@@ -3,11 +3,10 @@
     Inicio
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphSesion" runat="server">
-    <asp:LinkButton ID="lbtnIniciarSesion" CssClass="btn" runat="server" Visible="true" ForeColor="White">Iniciar Sesión <i class="glyph-icon icon-sign-in"></i></asp:LinkButton>
-    <asp:PlaceHolder ID="phSesion" runat="server" Visible="false">
+    <asp:PlaceHolder ID="phSesion" runat="server" Visible="true">
         <a href="#" title="My Account" class="user-profile clearfix" data-toggle="dropdown">
             <asp:Image ID="imgUsuario" runat="server" Width="28" ImageUrl="../Recursos/agileui.com/demo/monarch/assets/image-resources/gravatar.jpg" />
-            <asp:Label ID="lblUsuario" runat="server" role="span" Text="Luis"></asp:Label>
+            <asp:Label ID="lblUsuario" runat="server" role="span" Text="André Salazar"></asp:Label>
             <i class="glyph-icon icon-angle-down"></i>
         </a>
 
@@ -23,8 +22,8 @@
                             <asp:Label ID="lblNombreUsuario" runat="server" Text="André Salazar"></asp:Label>
                         </span>
                         <br />
-                        <asp:LinkButton ID="lbtnEditarPerfil" runat="server">Editar perfil</asp:LinkButton>
-                        <asp:LinkButton ID="lbtnVerNotificaciones" runat="server">Ver notificaciones</asp:LinkButton>
+                        <a href="GestionUsuariosGUI.aspx">
+                            <span>Editar perfil</span></a>
                     </div>
                 </div>
                 <%--<div class="divider"></div>
@@ -38,10 +37,8 @@
                                     </li>
                                 </ul>--%>
                 <div class="pad5A button-pane button-pane-alt text-center">
-                    <asp:LinkButton ID="lbtnSesion" runat="server" CssClass="btn display-block font-normal btn-danger">
-                                        <i class="glyph-icon icon-power-off"></i>
-                                        Cerrar sesión
-                    </asp:LinkButton>
+                    <a href="PagPrincipal.aspx" class="btn display-block font-normal btn-danger">
+                        <i class="glyph-icon icon-power-off"> <span> Cerrar Sesión</span></i></a>
                 </div>
             </div>
         </div>
@@ -52,51 +49,17 @@
         <div class="scroll-sidebar">
             <ul id="sidebar-menu">
                 <li class="header"><span>Módulos</span></li>
-    <asp:PlaceHolder ID="phAdmin" runat="server" Visible="true">
-                        <li>
-                            <a href="../GUI/GestionUsuariosGUI.aspx" title="Usuarios">
-                                <i class="glyph-icon icon-users"></i>
-                                <span>Usuarios</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../GUI/GestionSitios.aspx" title="Sitios">
-                                <i class="glyph-icon icon-university"></i>
-                                <span>Sitios</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../GUI/GestionEstablecimientos.aspx" title="Establecimientos">
-                                <i class="glyph-icon icon-building"></i>
-                                <span>Establecimientos</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../GUI/GestionSuscripciones.aspx" title="Suscripciones">
-                                <i class="glyph-icon icon-credit-card   "></i>
-                                <span>Suscripciones</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../GUI/GestionEventos.aspx" title="Eventos">
-                                <i class="glyph-icon icon-puzzle-piece"></i>
-                                <span>Eventos</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../GUI/GestionDireccion.aspx" title="Direcciones">
-                                <i class="glyph-icon icon-road"></i>
-                                <span>Direcciones</span>
-                            </a>
-                        </li>
-    </asp:PlaceHolder>
-
-    <asp:PlaceHolder ID="phUsuario" runat="server" Visible="false">
-        
+                <asp:PlaceHolder ID="phAdmin" runat="server" Visible="true">
                     <li>
-                        <a href="../GUI/GestionUsuariosGUI.aspx" title="Perfil">
+                        <a href="../GUI/GestionUsuariosGUI.aspx" title="Usuarios">
                             <i class="glyph-icon icon-users"></i>
-                            <span>Perfil</span>
+                            <span>Usuarios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../GUI/GestionSitios.aspx" title="Sitios">
+                            <i class="glyph-icon icon-university"></i>
+                            <span>Sitios</span>
                         </a>
                     </li>
                     <li>
@@ -112,12 +75,40 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../GUI/GestionDireccion.aspx" title="Direcciones">
-                            <i class="glyph-icon icon-road"></i>
-                            <span>Direcciones</span>
+                        <a href="../GUI/GestionAdministrador.aspx" title="Administradores">
+                            <i class="glyph-icon icon-key"></i>
+                            <span>Administradores</span>
                         </a>
                     </li>
-      </asp:PlaceHolder>
+                </asp:PlaceHolder>
+
+                <asp:PlaceHolder ID="phUsuario" runat="server" Visible="false">
+
+                    <li>
+                        <a href="../GUI/GestionUsuariosGUI.aspx" title="Perfil">
+                            <i class="glyph-icon icon-users"></i>
+                            <span>Perfil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../GUI/GestionEstablecimientos.aspx" title="Establecimientos">
+                            <i class="glyph-icon icon-building"></i>
+                            <span>Establecimientos</span>
+                        </a>
+                    </li>
+                    <%--<li>
+                        <a href="../GUI/GestionEventos.aspx" title="Eventos">
+                            <i class="glyph-icon icon-puzzle-piece"></i>
+                            <span>Eventos</span>
+                        </a>
+                    </li>--%>
+                    <%--<li>
+                        <a href="Rutas.aspx" title="Rutas">
+                            <i class="glyph-icon icon-road"></i>
+                            <span>Rutas</span>
+                        </a>
+                    </li>--%>
+                </asp:PlaceHolder>
             </ul>
         </div>
     </div>

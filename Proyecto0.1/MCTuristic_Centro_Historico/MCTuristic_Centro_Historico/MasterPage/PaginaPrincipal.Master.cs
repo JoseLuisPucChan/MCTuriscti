@@ -16,16 +16,19 @@ namespace MCTuristic_Centro_Historico.MasterPage
         {
             if (!IsPostBack)
             {
-                idAdmin = Convert.ToInt32(Session["idAdmin"]);
-                idUser = Convert.ToInt32(Session["idUser"]);
-                if (idAdmin > 0 || idUser > 0)
+                try
                 {
-                    hyInicioSeción.Visible = false;
-                }
-                else
-                {
-                    hyInicioSeción.Visible = true;
-                }
+                    idAdmin = Convert.ToInt32(Session["idAdmin"]);
+                    idUser = Convert.ToInt32(Session["idUser"]);
+                    if (idAdmin > 0 || idUser > 0)
+                    {
+                        hyInicioSeción.Visible = false;
+                    }
+                    else
+                    {
+                        hyInicioSeción.Visible = true;
+                    }
+                }catch { }
             }
 
         }

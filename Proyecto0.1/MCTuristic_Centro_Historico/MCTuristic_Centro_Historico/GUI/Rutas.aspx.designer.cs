@@ -10,24 +10,33 @@
 namespace MCTuristic_Centro_Historico.GUI {
     
     
-    public partial class TerminosYcondiciones {
+    public partial class Rutas {
         
         /// <summary>
-        /// Control HyperLink1.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control btnCerrarSecion.
+        /// Control txtLat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCerrarSecion;
+        protected global::System.Web.UI.WebControls.TextBox txtLat;
+        
+        /// <summary>
+        /// Control txtlon.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtlon;
     }
 }

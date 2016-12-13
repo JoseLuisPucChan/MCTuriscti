@@ -38,10 +38,10 @@ namespace WSMCTuristic_CentroHistorico.Services
             oUsuario = new DAO.UsuarioDAO();
             return oUsuario.Login(obj);
         }
-        public DataSet topUsuarios_User()
+        public DataSet topUsuarios_User(object obj)
         {
             oUsuario = new DAO.UsuarioDAO();
-            return oUsuario.Usuario_userDS();
+            return oUsuario.Usuario_userDS(obj);
         }
         public DataSet topUsuarios_admin()
         {

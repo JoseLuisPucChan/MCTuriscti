@@ -67,33 +67,6 @@ namespace MCTuristic_Centro_Historico.GUI {
         protected global::System.Web.UI.WebControls.Label lblNombreUsuario;
         
         /// <summary>
-        /// Control lbtnEditarPerfil.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnEditarPerfil;
-        
-        /// <summary>
-        /// Control lbtnVerNotificaciones.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnVerNotificaciones;
-        
-        /// <summary>
-        /// Control lbtnSesion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnSesion;
-        
-        /// <summary>
         /// Control UpdatePanel1.
         /// </summary>
         /// <remarks>
@@ -281,6 +254,15 @@ namespace MCTuristic_Centro_Historico.GUI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtnGuardar;
+        
+        /// <summary>
+        /// Control lblTabla.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTabla;
         
         /// <summary>
         /// Control UpdateProgress1.

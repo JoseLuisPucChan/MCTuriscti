@@ -179,11 +179,12 @@ namespace WSMCTuristic_CentroHistorico.DAO
             sql = "EXEC ver_usuario_admin_filtrado";
             return conn.TablaDS(sql);
         }
-        public DataSet Usuario_userDS()
+        public DataSet Usuario_userDS(object obj)
         {
+            BO.UsuarioBO oUsuario = (BO.UsuarioBO)obj;
             conn = new Conexion();
             string sql;
-            sql = "EXEC ver_usuarios_user";
+            sql = "EXEC ver_usuarios_user " + oUsuario.IdUsuario;
             return conn.TablaDS(sql);
         }
     }

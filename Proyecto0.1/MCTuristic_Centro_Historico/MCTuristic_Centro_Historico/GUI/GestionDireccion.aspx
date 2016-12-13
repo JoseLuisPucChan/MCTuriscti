@@ -22,8 +22,8 @@
                             <asp:Label ID="lblNombreUsuario" runat="server" Text="André Salazar"></asp:Label>
                         </span>
                         <br />
-                        <asp:LinkButton ID="lbtnEditarPerfil" runat="server">Editar perfil</asp:LinkButton>
-                        <asp:LinkButton ID="lbtnVerNotificaciones" runat="server">Ver notificaciones</asp:LinkButton>
+                        <a href="GestionUsuariosGUI.aspx">
+                            <span>Editar perfil</span></a>
                     </div>
                 </div>
                 <%--<div class="divider"></div>
@@ -37,10 +37,8 @@
                                     </li>
                                 </ul>--%>
                 <div class="pad5A button-pane button-pane-alt text-center">
-                    <asp:LinkButton ID="lbtnSesion" runat="server" CssClass="btn display-block font-normal btn-danger">
-                                        <i class="glyph-icon icon-power-off"></i>
-                                        Cerrar sesión
-                    </asp:LinkButton>
+                    <a href="PagPrincipal.aspx" class="btn display-block font-normal btn-danger">
+                        <i class="glyph-icon icon-power-off"><span>Cerrar Sesión</span></i></a>
                 </div>
             </div>
         </div>
@@ -71,21 +69,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../GUI/GestionSuscripciones.aspx" title="Suscripciones">
-                            <i class="glyph-icon icon-credit-card   "></i>
-                            <span>Suscripciones</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="../GUI/GestionEventos.aspx" title="Eventos">
                             <i class="glyph-icon icon-puzzle-piece"></i>
                             <span>Eventos</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../GUI/GestionDireccion.aspx" title="Direcciones">
-                            <i class="glyph-icon icon-road"></i>
-                            <span>Direcciones</span>
                         </a>
                     </li>
                     <li>
@@ -110,18 +96,18 @@
                             <span>Establecimientos</span>
                         </a>
                     </li>
-                    <li>
+                    <%--<li>
                         <a href="../GUI/GestionEventos.aspx" title="Eventos">
                             <i class="glyph-icon icon-puzzle-piece"></i>
                             <span>Eventos</span>
                         </a>
-                    </li>
-                    <li>
-                        <a href="../GUI/GestionDireccion.aspx" title="Direcciones">
+                    </li>--%>
+                    <%--<li>
+                        <a href="Rutas.aspx" title="Rutas">
                             <i class="glyph-icon icon-road"></i>
-                            <span>Direcciones</span>
+                            <span>Rutas</span>
                         </a>
-                    </li>
+                    </li>--%>
                 </asp:PlaceHolder>
             </ul>
         </div>

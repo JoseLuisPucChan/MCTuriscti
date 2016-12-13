@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace MCTuristic_Centro_Historico.GUI
 {
@@ -18,6 +19,7 @@ namespace MCTuristic_Centro_Historico.GUI
             Editar.Visible = false;
             if (!IsPostBack)
             {
+                ValidarLogin();
                 CargarDropTipoSitios();
                 bool Edit = Convert.ToBoolean(Session["Editar"]);
                 if (Edit == true)
@@ -41,6 +43,44 @@ namespace MCTuristic_Centro_Historico.GUI
 
             CargarSitios();
         }
+
+        public void ValidarLogin()
+        {
+            if ((string)Session["idAdmin"] != "")
+            {
+                localhost.AdministradorBO datos = new localhost.AdministradorBO();
+                localhost.WsMCTuristic service = new localhost.WsMCTuristic();
+                datos.IdAdministrador = Convert.ToInt32((string)Session["idAdmin"]);
+                DataSet tabla = service.Ver_admin_log(datos);
+                if ((tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString()).Length > 9)
+                {
+                    lblUsuario.Text = (tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString()).Substring(0, 10) + "...";
+                }
+                else
+                {
+                    lblUsuario.Text = (tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString());
+                }
+                lblNombreUsuario.Text = tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString();
+            }
+            else
+            {
+                if ((string)Session["idUser"] != "")
+                {
+                    localhost.UsuarioBO datos = new localhost.UsuarioBO();
+                    localhost.WsMCTuristic service = new localhost.WsMCTuristic();
+                    datos.IdUsuario = Convert.ToInt32((string)Session["idUser"]);
+                    DataSet tabla = service.usuario_userWS(datos);
+                    lblUsuario.Text = (tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString()).Substring(0, 10) + "...";
+                    lblNombreUsuario.Text = tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString();
+                    imgMiniaturaUsuario.ImageUrl = ConvertirImagenStringWebUrl((Byte[])tabla.Tables[0].Rows[0]["Foto"], "jpg");
+                    imgUsuario.ImageUrl = ConvertirImagenStringWebUrl((Byte[])tabla.Tables[0].Rows[0]["Foto"], "jpg");
+                    phUsuario.Visible = true;
+                    phAdmin.Visible = false;
+                }
+            }
+        }
+
+
         private void CargarDropTipoSitios()
         {
             ddlTipoSitio.DataSource = owebService.tipoSitios();
@@ -70,8 +110,8 @@ namespace MCTuristic_Centro_Historico.GUI
                 oSitioBO.NombreSitio = ASPxGridView1.GetRowValues(e.VisibleIndex, "Nombre").ToString();
                 oSitioBO.IdTipoSitio = Convert.ToInt32(ASPxGridView1.GetRowValues(e.VisibleIndex, "idTipoSitio").ToString());
                 oSitioBO.Direccion = ASPxGridView1.GetRowValues(e.VisibleIndex, "Dirección").ToString();
-                oSitioBO.LatitudSitio = Convert.ToDecimal(ASPxGridView1.GetRowValues(e.VisibleIndex, "Latitud").ToString());
-                oSitioBO.LongitudSitio = Convert.ToDecimal(ASPxGridView1.GetRowValues(e.VisibleIndex, "Longitud").ToString());
+                oSitioBO.LatitudSitio = Convert.ToDecimal(ASPxGridView1.GetRowValues(e.VisibleIndex, "Latitud").ToString().Replace('.',','));
+                oSitioBO.LongitudSitio = Convert.ToDecimal(ASPxGridView1.GetRowValues(e.VisibleIndex, "Longitud").ToString().Replace('.', ','));
                 oSitioBO.Historia = ASPxGridView1.GetRowValues(e.VisibleIndex, "Historia").ToString();
                 oSitioBO.SucesoImportante = ASPxGridView1.GetRowValues(e.VisibleIndex, "Sucesosimportantes").ToString();
                 oSitioBO.DescripcionSitio = ASPxGridView1.GetRowValues(e.VisibleIndex, "Descripción").ToString();
@@ -243,8 +283,8 @@ namespace MCTuristic_Centro_Historico.GUI
             oSitioBO.NombreSitio = txtNombre.Text;
             oSitioBO.IdTipoSitio = Convert.ToInt32( txtTipoSitio.Text );
             oSitioBO.Direccion = txtDireccion.Text;
-            oSitioBO.LatitudSitio = Convert.ToDecimal(Session["Latitud"]);
-            oSitioBO.LongitudSitio = Convert.ToDecimal(Session["Longitud"]);
+            oSitioBO.LatitudSitio = Convert.ToDecimal(((string)Session["Latitud"]).Replace('.', ','));
+            oSitioBO.LongitudSitio = Convert.ToDecimal(((string)Session["Longitud"]).Replace('.', ','));
             oSitioBO.Historia = txtHistoria.Text;
             oSitioBO.SucesoImportante = txtSucesos.Text;
             oSitioBO.DescripcionSitio = txtDescripcion.Text;
@@ -311,8 +351,8 @@ namespace MCTuristic_Centro_Historico.GUI
             oSitioBO.NombreSitio = txtNombreEdit.Text ;
             oSitioBO.IdTipoSitio = Convert.ToInt32(txtTipoSitoEdit.Text);
             oSitioBO.Direccion = txtDireccionEdit.Text;
-            oSitioBO.LatitudSitio = Convert.ToDecimal(Session["Latitud"]);
-            oSitioBO.LongitudSitio = Convert.ToDecimal(Session["Longitud"]);
+            oSitioBO.LatitudSitio = Convert.ToDecimal(((string)Session["Latitud"]).Replace('.', ','));
+            oSitioBO.LongitudSitio = Convert.ToDecimal(((string)Session["Longitud"]).Replace('.', ','));
             oSitioBO.Historia = txtHistoriaEdit.Text ;
             oSitioBO.SucesoImportante =  txtSucesoImportantesEdit.Text ;
             oSitioBO.DescripcionSitio = txtDescripcionEdit.Text;

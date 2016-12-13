@@ -109,7 +109,9 @@
                                             <li>
                                                 <a href="Contactanos.aspx">Contactanos<b></b></a>
                                             </li>
-
+                                            <li>
+                                                <a href="TerminosYcondiciones.aspx">Términos y condiciones<b></b></a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </nav>

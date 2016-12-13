@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace MCTuristic_Centro_Historico.GUI
 {
@@ -21,6 +22,7 @@ namespace MCTuristic_Centro_Historico.GUI
                 Editar.Visible = false;
                 if (!IsPostBack)
                 {
+                    ValidarLogin();
                     bool Edit = Convert.ToBoolean(Session["Editar"]);
                     if (Edit == true)
                     {
@@ -42,7 +44,7 @@ namespace MCTuristic_Centro_Historico.GUI
 
                 }
 
-                CargarEstablecimientos();
+                
             }
             catch (Exception ex)
             {
@@ -51,7 +53,50 @@ namespace MCTuristic_Centro_Historico.GUI
            
 
         }
-        private void CargarEstablecimientos()
+
+        public void ValidarLogin()
+        {
+            if ((string)Session["idAdmin"] != "")
+            {
+                localhost.AdministradorBO datos = new localhost.AdministradorBO();
+                localhost.WsMCTuristic service = new localhost.WsMCTuristic();
+                datos.IdAdministrador = Convert.ToInt32((string)Session["idAdmin"]);
+                DataSet tabla = service.Ver_admin_log(datos);
+                if ((tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString()).Length > 9)
+                {
+                    lblUsuario.Text = (tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString()).Substring(0, 10) + "...";
+                }
+                else
+                {
+                    lblUsuario.Text = (tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString());
+                }
+                lblNombreUsuario.Text = tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString();
+                CargarEstablecimientosAdmin();
+            }
+            else
+            {
+                if ((string)Session["idUser"] != "")
+                {
+                    localhost.UsuarioBO datos = new localhost.UsuarioBO();
+                    localhost.WsMCTuristic service = new localhost.WsMCTuristic();
+                    datos.IdUsuario = Convert.ToInt32((string)Session["idUser"]);
+                    DataSet tabla = service.usuario_userWS(datos);
+                    lblUsuario.Text = (tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString()).Substring(0, 10) + "...";
+                    lblNombreUsuario.Text = tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString();
+                    imgMiniaturaUsuario.ImageUrl = ConvertirImagenStringWebUrl((Byte[])tabla.Tables[0].Rows[0]["Foto"], "jpg");
+                    imgUsuario.ImageUrl = ConvertirImagenStringWebUrl((Byte[])tabla.Tables[0].Rows[0]["Foto"], "jpg");
+                    phUsuario.Visible = true;
+                    phAdmin.Visible = false;
+                    localhost.EstablecimientoBO dato = new localhost.EstablecimientoBO();
+                    dato.IdUsuario = datos.IdUsuario;
+                    DataSet tablaEstablecimientos = owebService.establecimiento_UserWS(dato);
+                    ASPxGridView1.DataSource = tablaEstablecimientos;
+                    ASPxGridView1.DataBind();
+                }
+            }
+        }
+
+        private void CargarEstablecimientosAdmin()
         {
             ASPxGridView1.DataSource = owebService.establecimiento_AdminWS();
             ASPxGridView1.DataBind();
@@ -70,10 +115,19 @@ namespace MCTuristic_Centro_Historico.GUI
             oEstablecimientoBO.PagFacebook= txtFacebook.Text;
             oEstablecimientoBO.HoraInicioEstable = txtAbrir.Text;
             oEstablecimientoBO.HoraCierreEstable = txtCerrar.Text;
-            oEstablecimientoBO.Latitud =Convert.ToDecimal(Session["Latitud"]);
-            oEstablecimientoBO.Longitud = Convert.ToDecimal(Session["Longitud"]);
+            string latitud = ((string)Session["Latitud"]).Substring(0,10).Replace('.',',');
+            string longi = ((string)Session["Longitud"]).Substring(0,10).Replace('.', ',');
+            oEstablecimientoBO.Latitud =Convert.ToDecimal(latitud);
+            oEstablecimientoBO.Longitud = Convert.ToDecimal(longi);
             oEstablecimientoBO.Foto = (Byte[])Session["arreglo"];
-            oEstablecimientoBO.IdUsuario = 1;
+            if ((string)Session["idUser"] != "")
+            {
+                oEstablecimientoBO.IdUsuario = Convert.ToInt32((string)Session["idUser"]);
+            }
+            else
+            {
+                oEstablecimientoBO.IdUsuario = 1;
+            }
             return oEstablecimientoBO;
         }
 
@@ -147,24 +201,39 @@ namespace MCTuristic_Centro_Historico.GUI
                     try
                     {
                         int i = owebService.InsertarEstablecimiento(RecuperarDatos());
-                        if (i > 0)
+                        try
                         {
-                            LimpiarControles();
+                            if (i > 0)
+                            {
+                                LimpiarControles();
+                            }
                         }
+                        catch { }
 
                     }
                     catch (Exception ex)
                     {
                         Response.Write(ex.Message);
                     }
-                    CargarEstablecimientos();
+                    if ((string)Session["idUser"] != "")
+                    {
+                        localhost.EstablecimientoBO dato = new localhost.EstablecimientoBO();
+                        dato.IdUsuario = Convert.ToInt32((string)Session["idUser"]);
+                        DataSet tablaEstablecimientos = owebService.establecimiento_UserWS(dato);
+                        ASPxGridView1.DataSource = tablaEstablecimientos;
+                        ASPxGridView1.DataBind();
+                    }
+                    else
+                    {
+                        CargarEstablecimientosAdmin();
+                    }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
-            
+
         }
 
         private void LimpiarControles()
@@ -274,7 +343,14 @@ namespace MCTuristic_Centro_Historico.GUI
             oEstablecimientoBO.Latitud = Convert.ToDecimal(Session["Latitud"]);
             oEstablecimientoBO.Longitud = Convert.ToDecimal(Session["Longitud"]);
             oEstablecimientoBO.Foto = (Byte[])Session["arreglo1"];
-            oEstablecimientoBO.IdUsuario = 1;
+            if ((string)Session["idUser"] != "")
+            {
+                oEstablecimientoBO.IdUsuario = Convert.ToInt32((string)Session["idUser"]);
+            }
+            else
+            {
+                oEstablecimientoBO.IdUsuario = 1;
+            }
             return oEstablecimientoBO;
         }
 
@@ -286,7 +362,7 @@ namespace MCTuristic_Centro_Historico.GUI
             {
                 pnlGestionEstablecimientos.Visible = true;
                 Editar.Visible = false;
-                CargarEstablecimientos();
+                CargarEstablecimientosAdmin();
             }
             else
             {

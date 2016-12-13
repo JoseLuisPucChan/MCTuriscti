@@ -176,7 +176,15 @@ namespace WSMCTuristic_CentroHistorico.DAO
             return id;
         }
 
+        public DataSet Ver_Admin_log(object obj)
+        {
+            oAdministrador = (BO.AdministradorBO)obj;
+            conn = new Conexion();
+            string sql;
+            sql = "EXEC ver_admin_log " + oAdministrador.IdAdministrador;
+            return conn.TablaDS(sql);
 
+        }
 
 
 

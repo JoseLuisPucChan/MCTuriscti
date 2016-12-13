@@ -26,10 +26,10 @@ namespace WSMCTuristic_CentroHistorico.Services
             oEstablecimiento = new DAO.EstablecimientoDAO();
             return oEstablecimiento.ModificarEstablecimiento(obj);
         }
-        public DataSet topEstablecimientos_userDS()
+        public DataSet topEstablecimientos_userDS(object obj)
         {
             oEstablecimiento = new DAO.EstablecimientoDAO();
-            return oEstablecimiento.Establecimiento_UserDS();
+            return oEstablecimiento.Establecimiento_UserDS(obj);
         }
         public DataSet topEstablecimientos_adminDS()
         {

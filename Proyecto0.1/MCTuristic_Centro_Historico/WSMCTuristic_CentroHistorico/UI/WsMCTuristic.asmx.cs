@@ -92,10 +92,12 @@ namespace WSMCTuristic_CentroHistorico.UI
         }
         //Nuevo webmethod Diosemir Nah
         [WebMethod]
-        public DataSet usuario_userWS()
+        public DataSet usuario_userWS(UsuarioBO obj)
         {
+            UsuarioBO oUsuario = new UsuarioBO();
+            oUsuario = obj;
             oUsuarioCTRL = new Services.CtrlUsuario();
-            return oUsuarioCTRL.topUsuarios_User();
+            return oUsuarioCTRL.topUsuarios_User(oUsuario);
         }
 
         //--------------------------ABC Direcciones-----------------------------
@@ -175,10 +177,12 @@ namespace WSMCTuristic_CentroHistorico.UI
         }
 
         //Nuevo webmethod Diosemir Nah
-        public DataSet establecimiento_UserWS()
+        [WebMethod]
+        public DataSet establecimiento_UserWS(EstablecimientoBO obj)
         {
+            EstablecimientoBO datos = obj;
             oEstablecimiento = new Services.CtrlEstablecimiento();
-            return oEstablecimiento.topEstablecimientos_userDS();
+            return oEstablecimiento.topEstablecimientos_userDS(datos);
         }
         [WebMethod]
         //Nuevo webmethod Diosemir Nah
@@ -512,6 +516,15 @@ namespace WSMCTuristic_CentroHistorico.UI
             oAdministradorCTRL = new Services.CtrlAdministrador();
             return oAdministradorCTRL.LoginUsuario(oAdministrador);
         }
+
+        [WebMethod]
+        public DataSet Ver_admin_log(AdministradorBO obj)
+        {
+            AdministradorBO oAdministrador = obj;
+            oAdministradorCTRL = new Services.CtrlAdministrador();
+            return oAdministradorCTRL.Ver_admin_log(oAdministrador);
+        }
+
         [WebMethod]
         public DataSet ver_Admin_admin()
         {
