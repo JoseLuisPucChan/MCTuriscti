@@ -33,7 +33,7 @@
                         <span class="avatar">
                             <img src="../images1/hombre.png" alt="" /></span>
                     </header>
-                    <h3>Iniciar seseión</h3>
+                    <h3>Iniciar sesión</h3>
                     <div class="field">
                         <asp:TextBox type="text" ID="txtEmail" placeholder="Email" runat="server"></asp:TextBox>
                     </div>
@@ -42,7 +42,7 @@
 
                     </div>
                     <div class="field">
-                        <input type="checkbox" id="human" name="human" /><label for="human">Recordarmé</label>
+                        <input type="checkbox" id="human" name="human" /><label for="human">Recordarme</label>
                     </div>
                     <ul class="actions">
 

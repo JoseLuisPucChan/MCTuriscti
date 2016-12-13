@@ -62,6 +62,8 @@ namespace MCTuristic_Centro_Historico.localhost {
         
         private System.Threading.SendOrPostCallback EliminarEstablecimientoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback establecimiento_UserWSOperationCompleted;
+        
         private System.Threading.SendOrPostCallback establecimiento_AdminWSOperationCompleted;
         
         private System.Threading.SendOrPostCallback InsertarEventoOperationCompleted;
@@ -139,6 +141,8 @@ namespace MCTuristic_Centro_Historico.localhost {
         private System.Threading.SendOrPostCallback obtener_adminidOperationCompleted;
         
         private System.Threading.SendOrPostCallback LoginOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Ver_admin_logOperationCompleted;
         
         private System.Threading.SendOrPostCallback ver_Admin_adminOperationCompleted;
         
@@ -245,6 +249,9 @@ namespace MCTuristic_Centro_Historico.localhost {
         
         /// <remarks/>
         public event EliminarEstablecimientoCompletedEventHandler EliminarEstablecimientoCompleted;
+        
+        /// <remarks/>
+        public event establecimiento_UserWSCompletedEventHandler establecimiento_UserWSCompleted;
         
         /// <remarks/>
         public event establecimiento_AdminWSCompletedEventHandler establecimiento_AdminWSCompleted;
@@ -362,6 +369,9 @@ namespace MCTuristic_Centro_Historico.localhost {
         
         /// <remarks/>
         public event LoginCompletedEventHandler LoginCompleted;
+        
+        /// <remarks/>
+        public event Ver_admin_logCompletedEventHandler Ver_admin_logCompleted;
         
         /// <remarks/>
         public event ver_Admin_adminCompletedEventHandler ver_Admin_adminCompleted;
@@ -592,22 +602,24 @@ namespace MCTuristic_Centro_Historico.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/usuario_userWS", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet usuario_userWS() {
-            object[] results = this.Invoke("usuario_userWS", new object[0]);
+        public System.Data.DataSet usuario_userWS(UsuarioBO obj) {
+            object[] results = this.Invoke("usuario_userWS", new object[] {
+                        obj});
             return ((System.Data.DataSet)(results[0]));
         }
         
         /// <remarks/>
-        public void usuario_userWSAsync() {
-            this.usuario_userWSAsync(null);
+        public void usuario_userWSAsync(UsuarioBO obj) {
+            this.usuario_userWSAsync(obj, null);
         }
         
         /// <remarks/>
-        public void usuario_userWSAsync(object userState) {
+        public void usuario_userWSAsync(UsuarioBO obj, object userState) {
             if ((this.usuario_userWSOperationCompleted == null)) {
                 this.usuario_userWSOperationCompleted = new System.Threading.SendOrPostCallback(this.Onusuario_userWSOperationCompleted);
             }
-            this.InvokeAsync("usuario_userWS", new object[0], this.usuario_userWSOperationCompleted, userState);
+            this.InvokeAsync("usuario_userWS", new object[] {
+                        obj}, this.usuario_userWSOperationCompleted, userState);
         }
         
         private void Onusuario_userWSOperationCompleted(object arg) {
@@ -846,6 +858,35 @@ namespace MCTuristic_Centro_Historico.localhost {
             if ((this.EliminarEstablecimientoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.EliminarEstablecimientoCompleted(this, new EliminarEstablecimientoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/establecimiento_UserWS", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet establecimiento_UserWS(EstablecimientoBO obj) {
+            object[] results = this.Invoke("establecimiento_UserWS", new object[] {
+                        obj});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void establecimiento_UserWSAsync(EstablecimientoBO obj) {
+            this.establecimiento_UserWSAsync(obj, null);
+        }
+        
+        /// <remarks/>
+        public void establecimiento_UserWSAsync(EstablecimientoBO obj, object userState) {
+            if ((this.establecimiento_UserWSOperationCompleted == null)) {
+                this.establecimiento_UserWSOperationCompleted = new System.Threading.SendOrPostCallback(this.Onestablecimiento_UserWSOperationCompleted);
+            }
+            this.InvokeAsync("establecimiento_UserWS", new object[] {
+                        obj}, this.establecimiento_UserWSOperationCompleted, userState);
+        }
+        
+        private void Onestablecimiento_UserWSOperationCompleted(object arg) {
+            if ((this.establecimiento_UserWSCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.establecimiento_UserWSCompleted(this, new establecimiento_UserWSCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1966,6 +2007,35 @@ namespace MCTuristic_Centro_Historico.localhost {
             if ((this.LoginCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.LoginCompleted(this, new LoginCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/Ver_admin_log", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet Ver_admin_log(AdministradorBO obj) {
+            object[] results = this.Invoke("Ver_admin_log", new object[] {
+                        obj});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Ver_admin_logAsync(AdministradorBO obj) {
+            this.Ver_admin_logAsync(obj, null);
+        }
+        
+        /// <remarks/>
+        public void Ver_admin_logAsync(AdministradorBO obj, object userState) {
+            if ((this.Ver_admin_logOperationCompleted == null)) {
+                this.Ver_admin_logOperationCompleted = new System.Threading.SendOrPostCallback(this.OnVer_admin_logOperationCompleted);
+            }
+            this.InvokeAsync("Ver_admin_log", new object[] {
+                        obj}, this.Ver_admin_logOperationCompleted, userState);
+        }
+        
+        private void OnVer_admin_logOperationCompleted(object arg) {
+            if ((this.Ver_admin_logCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Ver_admin_logCompleted(this, new Ver_admin_logCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -3938,6 +4008,32 @@ namespace MCTuristic_Centro_Historico.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void establecimiento_UserWSCompletedEventHandler(object sender, establecimiento_UserWSCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class establecimiento_UserWSCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal establecimiento_UserWSCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void establecimiento_AdminWSCompletedEventHandler(object sender, establecimiento_AdminWSCompletedEventArgs e);
     
     /// <remarks/>
@@ -4946,6 +5042,32 @@ namespace MCTuristic_Centro_Historico.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((System.Data.DataTable)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void Ver_admin_logCompletedEventHandler(object sender, Ver_admin_logCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Ver_admin_logCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Ver_admin_logCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
             }
         }
     }

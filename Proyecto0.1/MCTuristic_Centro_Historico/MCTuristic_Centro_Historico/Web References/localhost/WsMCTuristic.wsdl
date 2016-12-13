@@ -122,7 +122,11 @@
         </s:complexType>
       </s:element>
       <s:element name="usuario_userWS">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:UsuarioBO" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="usuario_userWSResponse">
         <s:complexType>
@@ -275,6 +279,27 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="EliminarEstablecimientoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="establecimiento_UserWS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:EstablecimientoBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="establecimiento_UserWSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="establecimiento_UserWSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -966,6 +991,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Ver_admin_log">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:AdministradorBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ver_admin_logResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ver_admin_logResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="ver_Admin_admin">
         <s:complexType />
       </s:element>
@@ -1223,6 +1269,12 @@
   <wsdl:message name="EliminarEstablecimientoSoapOut">
     <wsdl:part name="parameters" element="tns:EliminarEstablecimientoResponse" />
   </wsdl:message>
+  <wsdl:message name="establecimiento_UserWSSoapIn">
+    <wsdl:part name="parameters" element="tns:establecimiento_UserWS" />
+  </wsdl:message>
+  <wsdl:message name="establecimiento_UserWSSoapOut">
+    <wsdl:part name="parameters" element="tns:establecimiento_UserWSResponse" />
+  </wsdl:message>
   <wsdl:message name="establecimiento_AdminWSSoapIn">
     <wsdl:part name="parameters" element="tns:establecimiento_AdminWS" />
   </wsdl:message>
@@ -1457,6 +1509,12 @@
   <wsdl:message name="LoginSoapOut">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="Ver_admin_logSoapIn">
+    <wsdl:part name="parameters" element="tns:Ver_admin_log" />
+  </wsdl:message>
+  <wsdl:message name="Ver_admin_logSoapOut">
+    <wsdl:part name="parameters" element="tns:Ver_admin_logResponse" />
+  </wsdl:message>
   <wsdl:message name="ver_Admin_adminSoapIn">
     <wsdl:part name="parameters" element="tns:ver_Admin_admin" />
   </wsdl:message>
@@ -1581,6 +1639,10 @@
     <wsdl:operation name="EliminarEstablecimiento">
       <wsdl:input message="tns:EliminarEstablecimientoSoapIn" />
       <wsdl:output message="tns:EliminarEstablecimientoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="establecimiento_UserWS">
+      <wsdl:input message="tns:establecimiento_UserWSSoapIn" />
+      <wsdl:output message="tns:establecimiento_UserWSSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="establecimiento_AdminWS">
       <wsdl:input message="tns:establecimiento_AdminWSSoapIn" />
@@ -1737,6 +1799,10 @@
     <wsdl:operation name="Login">
       <wsdl:input message="tns:LoginSoapIn" />
       <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ver_admin_log">
+      <wsdl:input message="tns:Ver_admin_logSoapIn" />
+      <wsdl:output message="tns:Ver_admin_logSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="ver_Admin_admin">
       <wsdl:input message="tns:ver_Admin_adminSoapIn" />
@@ -1918,6 +1984,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarEstablecimiento">
       <soap:operation soapAction="http://MCTuristic.org/EliminarEstablecimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="establecimiento_UserWS">
+      <soap:operation soapAction="http://MCTuristic.org/establecimiento_UserWS" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2276,6 +2351,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Ver_admin_log">
+      <soap:operation soapAction="http://MCTuristic.org/Ver_admin_log" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ver_Admin_admin">
       <soap:operation soapAction="http://MCTuristic.org/ver_Admin_admin" style="document" />
       <wsdl:input>
@@ -2506,6 +2590,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarEstablecimiento">
       <soap12:operation soapAction="http://MCTuristic.org/EliminarEstablecimiento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="establecimiento_UserWS">
+      <soap12:operation soapAction="http://MCTuristic.org/establecimiento_UserWS" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -2857,6 +2950,15 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap12:operation soapAction="http://MCTuristic.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ver_admin_log">
+      <soap12:operation soapAction="http://MCTuristic.org/Ver_admin_log" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

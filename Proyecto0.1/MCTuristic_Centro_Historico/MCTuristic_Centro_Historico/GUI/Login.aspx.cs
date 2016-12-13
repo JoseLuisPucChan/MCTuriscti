@@ -55,9 +55,11 @@ namespace MCTuristic_Centro_Historico.GUI
             oAdmin.Email = txtEmail.Text;
             oAdmin.Contraseñaadmin = txtContraseña.Text;
             Datos = Services.Login(oAdmin);
+            oAdmin.Nombreadmin = "";
             if (Datos.Rows.Count != 0)
             {
                 Session["idAdmin"] = Datos.Rows[0][1].ToString();
+                Session["idUser"] = "";
                 Server.Transfer("Principal.aspx");
             }
             else
@@ -68,6 +70,7 @@ namespace MCTuristic_Centro_Historico.GUI
                 Datos = Services.LoginUsuario(oUser);
                 if (Datos.Rows.Count != 0)
                 {
+                    Session["idAdmin"] = "";
                     Session["idUser"] = Datos.Rows[0][1].ToString();
                     Server.Transfer("Principal.aspx");
                 }
@@ -75,8 +78,8 @@ namespace MCTuristic_Centro_Historico.GUI
                 {
                     Response.Redirect("Registro.aspx");
                 }
-            }
 
+            }
         }
     }
     

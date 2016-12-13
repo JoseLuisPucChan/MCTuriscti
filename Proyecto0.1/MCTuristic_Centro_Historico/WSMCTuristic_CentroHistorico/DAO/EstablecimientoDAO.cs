@@ -28,8 +28,8 @@ namespace WSMCTuristic_CentroHistorico.DAO
             cmd.Parameters.Add("@HoraInicio", SqlDbType.VarChar).Value = oEstablecimiento.HoraInicioEstable;
             cmd.Parameters.Add("@HoraCierre", SqlDbType.VarChar).Value = oEstablecimiento.HoraCierreEstable;
             cmd.Parameters.Add("@PagFacebook", SqlDbType.VarChar).Value = oEstablecimiento.PagFacebook;
-            cmd.Parameters.Add("@Longitud", SqlDbType.Decimal).Value = oEstablecimiento.Longitud;
-            cmd.Parameters.Add("@Latitud", SqlDbType.Decimal).Value = oEstablecimiento.Latitud;
+            cmd.Parameters.Add("@Longitud", SqlDbType.Decimal, 10).Value = oEstablecimiento.Longitud;
+            cmd.Parameters.Add("@Latitud", SqlDbType.Decimal, 10).Value = oEstablecimiento.Latitud;
             cmd.Parameters.Add("@Foto", SqlDbType.Image).Value = oEstablecimiento.Foto;
             cmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = oEstablecimiento.IdUsuario;
 
@@ -111,11 +111,12 @@ namespace WSMCTuristic_CentroHistorico.DAO
             return retorno;
         }
         //Agregue el dataser y el metodo de imagen de esta tabla. Diosemir Nah
-        public DataSet Establecimiento_UserDS()
+        public DataSet Establecimiento_UserDS(object obj)
         {
+            BO.EstablecimientoBO datos = (BO.EstablecimientoBO)obj;
             conn = new Conexion();
             string sql;
-            sql = "EXEC ver_establecimiento_user";
+            sql = "EXEC ver_establecimiento_user " + datos.IdUsuario;
             return conn.TablaDS(sql);
         }
         public DataSet Establecimiento_AdminDS()
