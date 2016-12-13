@@ -115,10 +115,12 @@ namespace MCTuristic_Centro_Historico.GUI
             oEstablecimientoBO.PagFacebook= txtFacebook.Text;
             oEstablecimientoBO.HoraInicioEstable = txtAbrir.Text;
             oEstablecimientoBO.HoraCierreEstable = txtCerrar.Text;
-            string latitud = ((string)Session["Latitud"]).Substring(0,10).Replace('.',',');
-            string longi = ((string)Session["Longitud"]).Substring(0,10).Replace('.', ',');
-            oEstablecimientoBO.Latitud =Convert.ToDecimal(latitud);
+            string latitud = ((string)Session["Latitud"]).Replace('.', ',');
+            string longi = ((string)Session["Longitud"]).Replace('.', ',');
+            oEstablecimientoBO.Latitud = Convert.ToDecimal(latitud);
             oEstablecimientoBO.Longitud = Convert.ToDecimal(longi);
+            //oEstablecimientoBO.Latitud = Convert.ToDecimal(Session["Latitud"]);
+            //oEstablecimientoBO.Longitud = Convert.ToDecimal(Session["Longitud"]);
             oEstablecimientoBO.Foto = (Byte[])Session["arreglo"];
             if ((string)Session["idUser"] != "")
             {

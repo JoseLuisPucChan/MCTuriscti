@@ -128,7 +128,7 @@
                                                  <dx:GridViewDataColumn FieldName="Propietario" Visible="False" VisibleIndex="7" />
                                                  <dx:GridViewDataColumn FieldName="Latitud" Visible="false" VisibleIndex="8" />
                                                  <dx:GridViewDataColumn FieldName="Longitud" Visible="false" VisibleIndex="9" />
-                                          <%--       <dx:GridViewDataColumn FieldName="Foto" Visible="false" VisibleIndex="10" />--%>
+                                                 <dx:GridViewDataColumn FieldName="Foto" Visible="false" VisibleIndex="10" />
                                                  <dx:GridViewDataColumn FieldName="IdUsuario"  Visible="false" VisibleIndex="11" />
                    
                                         <dx:GridViewDataColumn Caption="Selección">
