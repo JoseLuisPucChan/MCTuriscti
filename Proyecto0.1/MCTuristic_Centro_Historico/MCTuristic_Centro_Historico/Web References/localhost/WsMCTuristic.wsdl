@@ -396,6 +396,48 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Ver_evento_user">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:EventoBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ver_evento_userResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ver_evento_userResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ver_evento_admin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:EventoBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ver_evento_adminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ver_evento_adminResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="InsertarNotificacion">
         <s:complexType>
           <s:sequence>
@@ -1305,6 +1347,18 @@
   <wsdl:message name="Ver_eventoSoapOut">
     <wsdl:part name="parameters" element="tns:Ver_eventoResponse" />
   </wsdl:message>
+  <wsdl:message name="Ver_evento_userSoapIn">
+    <wsdl:part name="parameters" element="tns:Ver_evento_user" />
+  </wsdl:message>
+  <wsdl:message name="Ver_evento_userSoapOut">
+    <wsdl:part name="parameters" element="tns:Ver_evento_userResponse" />
+  </wsdl:message>
+  <wsdl:message name="Ver_evento_adminSoapIn">
+    <wsdl:part name="parameters" element="tns:Ver_evento_admin" />
+  </wsdl:message>
+  <wsdl:message name="Ver_evento_adminSoapOut">
+    <wsdl:part name="parameters" element="tns:Ver_evento_adminResponse" />
+  </wsdl:message>
   <wsdl:message name="InsertarNotificacionSoapIn">
     <wsdl:part name="parameters" element="tns:InsertarNotificacion" />
   </wsdl:message>
@@ -1663,6 +1717,14 @@
     <wsdl:operation name="Ver_evento">
       <wsdl:input message="tns:Ver_eventoSoapIn" />
       <wsdl:output message="tns:Ver_eventoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ver_evento_user">
+      <wsdl:input message="tns:Ver_evento_userSoapIn" />
+      <wsdl:output message="tns:Ver_evento_userSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ver_evento_admin">
+      <wsdl:input message="tns:Ver_evento_adminSoapIn" />
+      <wsdl:output message="tns:Ver_evento_adminSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="InsertarNotificacion">
       <wsdl:input message="tns:InsertarNotificacionSoapIn" />
@@ -2038,6 +2100,24 @@
     </wsdl:operation>
     <wsdl:operation name="Ver_evento">
       <soap:operation soapAction="http://MCTuristic.org/Ver_evento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ver_evento_user">
+      <soap:operation soapAction="http://MCTuristic.org/Ver_evento_user" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ver_evento_admin">
+      <soap:operation soapAction="http://MCTuristic.org/Ver_evento_admin" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2644,6 +2724,24 @@
     </wsdl:operation>
     <wsdl:operation name="Ver_evento">
       <soap12:operation soapAction="http://MCTuristic.org/Ver_evento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ver_evento_user">
+      <soap12:operation soapAction="http://MCTuristic.org/Ver_evento_user" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ver_evento_admin">
+      <soap12:operation soapAction="http://MCTuristic.org/Ver_evento_admin" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -32,5 +32,17 @@ namespace WSMCTuristic_CentroHistorico.Services
             return oEvento.ver_Eventos(obj);
         }
 
+        public DataSet ver_Eventos_user(object obj)
+        {
+            oEvento = new DAO.EventoDAO();
+            return oEvento.ver_Eventos_user(obj);
+        }
+
+        public DataSet ver_Eventos_admin(object obj)
+        {
+            oEvento = new DAO.EventoDAO();
+            return oEvento.ver_Eventos_admin(obj);
+        }
+
     }
 }

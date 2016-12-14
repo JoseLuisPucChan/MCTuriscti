@@ -144,6 +144,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Recursos\images\FotoEventoPre.png" />
     <Content Include="Recursos\Restaurantes.pdf" />
     <None Include="Web References\localhost\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

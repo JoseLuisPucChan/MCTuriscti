@@ -232,6 +232,24 @@ namespace WSMCTuristic_CentroHistorico.UI
             return oEventoCTRL.ver_Eventos(oEventoBO);
         }
 
+        [WebMethod]
+        public DataSet Ver_evento_user(BO.EventoBO obj)
+        {
+            BO.EventoBO oEventoBO = new BO.EventoBO();
+            oEventoBO = obj;
+            oEventoCTRL = new Services.CtrlEvento();
+            return oEventoCTRL.ver_Eventos_user(oEventoBO);
+        }
+
+        [WebMethod]
+        public DataSet Ver_evento_admin(BO.EventoBO obj)
+        {
+            BO.EventoBO oEventoBO = new BO.EventoBO();
+            oEventoBO = obj;
+            oEventoCTRL = new Services.CtrlEvento();
+            return oEventoCTRL.ver_Eventos_admin(oEventoBO);
+        }
+
         //--------------------------ABC Notificaciones-----------------------------
 
         [WebMethod]
