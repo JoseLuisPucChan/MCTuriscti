@@ -113,7 +113,7 @@
 
 
                                                 <li>
-                                                    <a href="Contactanos1.aspx">Contactanos<b></b></a>
+                                                    <a href="Contactanos.aspx">Contactanos<b></b></a>
                                                 </li>
                                                 <li>
                                                     <a href="TerminosYcondiciones.aspx">Términos y condiciones<b></b></a>
@@ -175,7 +175,7 @@
                                             <li>
                                                 <h4><a href="DetalleProducto.aspx"><asp:Label ID="lbl" runat="server" Text='<%# Eval("NombreServ") %>' ForeColor="#3399FF"></asp:Label></a></h4>
                                             </li>
-                                    <li>Restaurante flor</li>
+                                    <li><asp:Label ID="Label1" runat="server" Text='<%# Eval("OfertaServicio") %>'></asp:Label></li>
                                         <li class="pro-footer">
                                             <span class="price">$<asp:Label ID="lblPrecio" runat="server" Text='<%# Eval("PreciosServicio") %>'></asp:Label></span>
                                                 <span class="rating">

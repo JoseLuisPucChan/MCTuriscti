@@ -77,6 +77,7 @@
     <Content Include="GUI\GestionEventosUsuarios.aspx" />
     <Content Include="GUI\GestionServicios.aspx" />
     <Content Include="GUI\GestionSitios.aspx" />
+    <Content Include="GUI\GestionSoporte.aspx" />
     <Content Include="GUI\GestionSuscripciones.aspx" />
     <Content Include="GUI\GestionUsuariosGUI.aspx" />
     <Content Include="GUI\GetImagen.aspx" />
@@ -776,6 +777,13 @@
     </Compile>
     <Compile Include="GUI\GestionSitios.aspx.designer.cs">
       <DependentUpon>GestionSitios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionSoporte.aspx.cs">
+      <DependentUpon>GestionSoporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionSoporte.aspx.designer.cs">
+      <DependentUpon>GestionSoporte.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\GestionSuscripciones.aspx.cs">
       <DependentUpon>GestionSuscripciones.aspx</DependentUpon>

@@ -10,6 +10,6 @@
 namespace MCTuristic_Centro_Historico.GUI {
     
     
-    public partial class GestionEventosUsuarios {
+    public partial class GestionSoporte {
     }
 }

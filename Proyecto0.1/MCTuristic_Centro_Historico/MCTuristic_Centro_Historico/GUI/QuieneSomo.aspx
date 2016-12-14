@@ -157,7 +157,7 @@
 <div class="col-lg-12 col-md-12 full-tabs">
  
 <ul class="nav nav-tabs">
-<li><a href="#tab1" data-toggle="tab">History</a></li>
+<li><a href="#tab1" data-toggle="tab">¿MCTuristic?</a></li>
 <li><a href="#tab2" data-toggle="tab">Misión</a></li>
 <li><a href="#tab3" data-toggle="tab">Visión</a></li>
 <li><a href="#tab4" data-toggle="tab">Valores</a></li>
@@ -165,12 +165,15 @@
  
 <div class="tab-content">
 <div class="tab-pane active" id="tab1">
-<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque arcu orci, tempus at placerat id, elementum ac turpis. Nullam eu lacus in dui blandit lobortis. Fusce iaculis lacinia metus id varius. Sed tristique in urna nec ullamcorper. Integer egestas accumsan elit, non pulvinar lorem pulvinar vitae. Suspendisse sed enim cursus, aliquam ante ac, vulputate sem. Proin mattis elit consequat leo eleifend.</p>
+<h4>MCTuristic nace de una problemática simple al darse cuenta que los turistas y gente de la región de Yucatán no conoce la mayoría de los puntos más importantes del Centro histórico, perdiéndose gran parte de la cultura que tenemos en nuestro estado.
+El Equipo de Master Coder se comprometió a buscar una solución y llegamos en la conclusión en una aplicación móvil que tenga los beneficios de poder hacer recorrido en el centro de Mérida y poder conocer parte de la historia de los sitios que se podrán visualizar en la aplicación.
+</h4>
 <ul class="flist">
-<li> Nostrud exercitation ullamco laboris.</li>
-<li> Sed malesuada libero id mattis ultrices. </li>
-<li> Duis pretium pharetra lacus quis interdum. </li>
-<li> Quisque viverra neque non lobortis commodo. </li>
+    <h3>Beneficios.  </h3>
+<li> Rutas específicas de los sitios más visitados.</li>
+<li> Conocer los eventos próximos, fechas y horarios. </li>
+<li> Descuentos en establecimientos registrados.</li>
+<li> Hoteles y servicios a un buen precio, más cerca de ti.</li>
 </ul>
 </div>
 <div class="tab-pane" id="tab2">

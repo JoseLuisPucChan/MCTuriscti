@@ -89,15 +89,15 @@
                                 </p>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-6">
-                                <h3>Recent Posts</h3>
+                                <h3>Mapa de Sitios</h3>
                                 <ul class="recent-posts">
-                                    <li><a href="blog-details.html">Bed ut perspiciatis unde omnis</a></li>
-                                    <li><a href="blog-details.html">Duis aute irure dolor in excepteur</a></li>
-                                    <li><a href="blog-details.html">Sint occaecat cupidatat nemo enim</a></li>
-                                    <li><a href="blog-details.html">Voluptatem quia autem vel eum iure</a></li>
-                                    <li><a href="blog-details.html">Bed ut perspiciatis unde omnis</a></li>
-                                    <li><a href="blog-details.html">Duis aute irure dolor in excepteur</a></li>
-                                    <li><a href="blog-details.html">Sint occaecat cupidatat nemo enim</a></li>
+                                   <li><a href="PagPrincipal.aspx">Inicio</a></li>
+                                    <li><a href="QuieneSomo.aspx">¿Quiénes Somos?</a></li>
+                                    <li><a href="VistaProducto.aspx">Productos</a></li>
+                                    <li><a href="Registro.aspx">Registro</a></li>
+                                    <li><a href="Login.aspx">Inicio de sesión</a></li>
+                                    <li><a href="TerminosYcondiciones.aspx">Términos y condiciones</a></li>
+                                    <li><a href="Contactanos.aspx">Contactanos</a></li>
                                 </ul>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-6">

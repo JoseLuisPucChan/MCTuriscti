@@ -40,7 +40,9 @@ namespace MCTuristic_Centro_Historico.GUI
         {
             if (txtLong.Text != string.Empty && TextLat.Text != string.Empty)
             {
+               
                 bool Modificar = Convert.ToBoolean(Session["ModificarMapaEdit"]);
+                //Verifica si algún formulario mando esta tratando  de editar un registro.
                 if(Modificar== true)
                 {
                     Latitud = Convert.ToDouble(Session["Latitud"]);
@@ -56,7 +58,7 @@ namespace MCTuristic_Centro_Historico.GUI
                     }
                 }
                
-                //Manda Lo que tenga El texbox.
+                //Manda Lo que tenga la caja de texto de esta menera se puede asegurar que los datos jamas sepierdan.
                 Session["Latitud"] = TextLat.Text;
                 Session["Longitud"] = txtLong.Text;
                 bool Sitios = Convert.ToBoolean(Session["Sitio"]);
