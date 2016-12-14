@@ -220,12 +220,12 @@
                         </h3>
                     </div>
                     <div class="tp-caption lfl" data-x="35" data-y="246" data-speed="300" data-start="1500" data-easing="easeOutExpo">
-                        <a href="https://itunes.apple.com/es/app/hogar-reparacion/id625286808?mt=8" target="_blank">
+                        <a href="#" target="_blank">
                             <img src="http://www.hogarreparacion.com/wp-content/uploads/2013/08/hogar-reparacion-app-ios.png" alt="Image 6" />
                         </a>
                     </div>
                     <div class="tp-caption lfl" data-x="219" data-y="244" data-speed="1000" data-start="1700" data-easing="easeOutExpo">
-                        <a href="https://play.google.com/store/apps/details?id=de.Rocky.Android.Hogar" target="_blank">
+                        <a href="#" target="_blank">
                             <img src="http://www.hogarreparacion.com/wp-content/uploads/2013/08/hogar-reparacion-app-android.png" alt="Image 7" />
                         </a>
                     </div>
