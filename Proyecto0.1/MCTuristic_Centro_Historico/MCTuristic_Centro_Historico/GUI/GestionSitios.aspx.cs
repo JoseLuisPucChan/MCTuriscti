@@ -76,6 +76,7 @@ namespace MCTuristic_Centro_Historico.GUI
                     imgUsuario.ImageUrl = ConvertirImagenStringWebUrl((Byte[])tabla.Tables[0].Rows[0]["Foto"], "jpg");
                     phUsuario.Visible = true;
                     phAdmin.Visible = false;
+                    
                 }
             }
         }
@@ -125,8 +126,8 @@ namespace MCTuristic_Centro_Historico.GUI
             }
             if (e.CommandArgs.CommandArgument.ToString() == "Eventos")
             {
-                Session["idEstablecimiento"] = ASPxGridView1.GetRowValues(e.VisibleIndex, "Código");
-                Response.Redirect("GestionServicios.aspx");
+                Session["idSitio"] = Convert.ToInt32(ASPxGridView1.GetRowValues(e.VisibleIndex, "Código"));
+                Response.Redirect("GestionEventos.aspx");
             }
         }
 

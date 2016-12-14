@@ -27,7 +27,7 @@ namespace WSMCTuristic_CentroHistorico.DAO
             cmd.Parameters.Add("@NombreEvent", SqlDbType.VarChar).Value = oEventoBO.NombreEvento;
             cmd.Parameters.Add("@HoraIncio", SqlDbType.VarChar).Value = oEventoBO.HoraInicioEvento;
             cmd.Parameters.Add("@HoraFinalizacion", SqlDbType.VarChar).Value = oEventoBO.HoraFinalizacion;
-            cmd.Parameters.Add("@FechaIncio", SqlDbType.VarChar).Value = oEventoBO.FechaInicio;
+            cmd.Parameters.Add("@FechaIncio", SqlDbType.Date).Value = oEventoBO.FechaInicio;
             cmd.Parameters.Add("@FechaFinalizacion", SqlDbType.Date).Value = oEventoBO.FechaFinalizacion;
             cmd.Parameters.Add("@Foto", SqlDbType.Image).Value = oEventoBO.Foto;
             cmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = oEventoBO.IdUsuario;
@@ -119,6 +119,24 @@ namespace WSMCTuristic_CentroHistorico.DAO
             conn = new Conexion();
             string sql;
             sql = "EXEC ver_Eventos '"+oEventoBO.IdSitio+"' ";
+            return conn.TablaDS(sql);
+        }
+
+        public DataSet ver_Eventos_user(object obj)
+        {
+            oEventoBO = (BO.EventoBO)obj;
+            conn = new Conexion();
+            string sql;
+            sql = "EXEC ver_eventos_user '" + oEventoBO.IdSitio + "', '" + oEventoBO.IdUsuario + "' ";
+            return conn.TablaDS(sql);
+        }
+
+        public DataSet ver_Eventos_admin(object obj)
+        {
+            oEventoBO = (BO.EventoBO)obj;
+            conn = new Conexion();
+            string sql;
+            sql = "EXEC ver_eventos_admin";
             return conn.TablaDS(sql);
         }
 

@@ -74,6 +74,10 @@ namespace MCTuristic_Centro_Historico.localhost {
         
         private System.Threading.SendOrPostCallback Ver_eventoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback Ver_evento_userOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Ver_evento_adminOperationCompleted;
+        
         private System.Threading.SendOrPostCallback InsertarNotificacionOperationCompleted;
         
         private System.Threading.SendOrPostCallback ModificarNotificacionesOperationCompleted;
@@ -267,6 +271,12 @@ namespace MCTuristic_Centro_Historico.localhost {
         
         /// <remarks/>
         public event Ver_eventoCompletedEventHandler Ver_eventoCompleted;
+        
+        /// <remarks/>
+        public event Ver_evento_userCompletedEventHandler Ver_evento_userCompleted;
+        
+        /// <remarks/>
+        public event Ver_evento_adminCompletedEventHandler Ver_evento_adminCompleted;
         
         /// <remarks/>
         public event InsertarNotificacionCompletedEventHandler InsertarNotificacionCompleted;
@@ -1030,6 +1040,64 @@ namespace MCTuristic_Centro_Historico.localhost {
             if ((this.Ver_eventoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.Ver_eventoCompleted(this, new Ver_eventoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/Ver_evento_user", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet Ver_evento_user(EventoBO obj) {
+            object[] results = this.Invoke("Ver_evento_user", new object[] {
+                        obj});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Ver_evento_userAsync(EventoBO obj) {
+            this.Ver_evento_userAsync(obj, null);
+        }
+        
+        /// <remarks/>
+        public void Ver_evento_userAsync(EventoBO obj, object userState) {
+            if ((this.Ver_evento_userOperationCompleted == null)) {
+                this.Ver_evento_userOperationCompleted = new System.Threading.SendOrPostCallback(this.OnVer_evento_userOperationCompleted);
+            }
+            this.InvokeAsync("Ver_evento_user", new object[] {
+                        obj}, this.Ver_evento_userOperationCompleted, userState);
+        }
+        
+        private void OnVer_evento_userOperationCompleted(object arg) {
+            if ((this.Ver_evento_userCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Ver_evento_userCompleted(this, new Ver_evento_userCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/Ver_evento_admin", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet Ver_evento_admin(EventoBO obj) {
+            object[] results = this.Invoke("Ver_evento_admin", new object[] {
+                        obj});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Ver_evento_adminAsync(EventoBO obj) {
+            this.Ver_evento_adminAsync(obj, null);
+        }
+        
+        /// <remarks/>
+        public void Ver_evento_adminAsync(EventoBO obj, object userState) {
+            if ((this.Ver_evento_adminOperationCompleted == null)) {
+                this.Ver_evento_adminOperationCompleted = new System.Threading.SendOrPostCallback(this.OnVer_evento_adminOperationCompleted);
+            }
+            this.InvokeAsync("Ver_evento_admin", new object[] {
+                        obj}, this.Ver_evento_adminOperationCompleted, userState);
+        }
+        
+        private void OnVer_evento_adminOperationCompleted(object arg) {
+            if ((this.Ver_evento_adminCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Ver_evento_adminCompleted(this, new Ver_evento_adminCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -4149,6 +4217,58 @@ namespace MCTuristic_Centro_Historico.localhost {
         private object[] results;
         
         internal Ver_eventoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void Ver_evento_userCompletedEventHandler(object sender, Ver_evento_userCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Ver_evento_userCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Ver_evento_userCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void Ver_evento_adminCompletedEventHandler(object sender, Ver_evento_adminCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Ver_evento_adminCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Ver_evento_adminCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

@@ -72,12 +72,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../GUI/GestionEventos.aspx" title="Eventos">
-                            <i class="glyph-icon icon-puzzle-piece"></i>
-                            <span>Eventos</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="../GUI/GestionAdministrador.aspx" title="Administradores">
                             <i class="glyph-icon icon-key"></i>
                             <span>Administradores</span>
@@ -99,12 +93,12 @@
                             <span>Establecimientos</span>
                         </a>
                     </li>
-                   <%-- <li>
-                        <a href="../GUI/GestionEventos.aspx" title="Eventos">
-                            <i class="glyph-icon icon-puzzle-piece"></i>
-                            <span>Eventos</span>
+                    <li>
+                        <a href="../GUI/GestionSitios.aspx" title="Sitios">
+                            <i class="glyph-icon icon-university"></i>
+                            <span>Sitios</span>
                         </a>
-                    </li>--%>
+                    </li>
                     <%--<li>
                         <a href="Rutas.aspx" title="Rutas">
                             <i class="glyph-icon icon-road"></i>
