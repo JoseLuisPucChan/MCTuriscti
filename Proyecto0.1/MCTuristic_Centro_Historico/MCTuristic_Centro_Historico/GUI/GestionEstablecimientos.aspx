@@ -156,7 +156,7 @@
                     <div class="divider"></div>
                     <div class="col-lg-6">
                         <div class="form-group border-blue">
-                               <asp:Button ID="Button1" runat="server" Text="Seleccionar Ubicación" CssClass="btn btn-primary" OnClick="btnMaps_Click" />
+                               <asp:Button ID="mapaEdit" runat="server" Text="Seleccionar Ubicación" CssClass="btn btn-primary" OnClick="mapaEdit_Click" />
                     <asp:Label ID="Label1" runat="server" Font-Size="Medium" ForeColor="#009DC5"></asp:Label>
                             <br />
                             <asp:TextBox ID="TextBox1" runat="server" Visible="false"></asp:TextBox>

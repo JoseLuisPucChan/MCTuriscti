@@ -74,6 +74,7 @@
     <Content Include="GUI\GestionDireccion.aspx" />
     <Content Include="GUI\GestionEstablecimientos.aspx" />
     <Content Include="GUI\GestionEventos.aspx" />
+    <Content Include="GUI\GestionEventosUsuarios.aspx" />
     <Content Include="GUI\GestionServicios.aspx" />
     <Content Include="GUI\GestionSitios.aspx" />
     <Content Include="GUI\GestionSuscripciones.aspx" />
@@ -754,6 +755,13 @@
     </Compile>
     <Compile Include="GUI\GestionEventos.aspx.designer.cs">
       <DependentUpon>GestionEventos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GestionEventosUsuarios.aspx.cs">
+      <DependentUpon>GestionEventosUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\GestionEventosUsuarios.aspx.designer.cs">
+      <DependentUpon>GestionEventosUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\GestionServicios.aspx.cs">
       <DependentUpon>GestionServicios.aspx</DependentUpon>

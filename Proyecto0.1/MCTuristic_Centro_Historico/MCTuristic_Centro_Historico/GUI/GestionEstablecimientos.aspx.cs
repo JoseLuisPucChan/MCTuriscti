@@ -87,13 +87,19 @@ namespace MCTuristic_Centro_Historico.GUI
                     imgUsuario.ImageUrl = ConvertirImagenStringWebUrl((Byte[])tabla.Tables[0].Rows[0]["Foto"], "jpg");
                     phUsuario.Visible = true;
                     phAdmin.Visible = false;
-                    localhost.EstablecimientoBO dato = new localhost.EstablecimientoBO();
-                    dato.IdUsuario = datos.IdUsuario;
-                    DataSet tablaEstablecimientos = owebService.establecimiento_UserWS(dato);
-                    ASPxGridView1.DataSource = tablaEstablecimientos;
-                    ASPxGridView1.DataBind();
+                    CargarEstablecimientoUsuario(datos);
                 }
             }
+        }
+
+        private void CargarEstablecimientoUsuario(localhost.UsuarioBO datos)
+        {
+            //Carga La tabla del Usuario
+            localhost.EstablecimientoBO dato = new localhost.EstablecimientoBO();
+            dato.IdUsuario = datos.IdUsuario;
+            DataSet tablaEstablecimientos = owebService.establecimiento_UserWS(dato);
+            ASPxGridView1.DataSource = tablaEstablecimientos;
+            ASPxGridView1.DataBind();
         }
 
         private void CargarEstablecimientosAdmin()
@@ -115,12 +121,13 @@ namespace MCTuristic_Centro_Historico.GUI
             oEstablecimientoBO.PagFacebook= txtFacebook.Text;
             oEstablecimientoBO.HoraInicioEstable = txtAbrir.Text;
             oEstablecimientoBO.HoraCierreEstable = txtCerrar.Text;
-            string latitud = ((string)Session["Latitud"]).Replace('.', ',');
-            string longi = ((string)Session["Longitud"]).Replace('.', ',');
-            oEstablecimientoBO.Latitud = Convert.ToDecimal(latitud);
-            oEstablecimientoBO.Longitud = Convert.ToDecimal(longi);
-            //oEstablecimientoBO.Latitud = Convert.ToDecimal(Session["Latitud"]);
-            //oEstablecimientoBO.Longitud = Convert.ToDecimal(Session["Longitud"]);
+            oEstablecimientoBO.Latitud = Convert.ToDecimal(Session["Latitud"]);
+            oEstablecimientoBO.Longitud = Convert.ToDecimal(Session["Longitud"]);
+            ////string latitud = ((string)Session["Latitud"]).Replace('.', ',');
+            ////string longi = ((string)Session["Longitud"]).Replace('.', ',');
+            //oEstablecimientoBO.Latitud = Convert.ToDecimal(latitud);
+            //oEstablecimientoBO.Longitud = Convert.ToDecimal(longi);
+           
             oEstablecimientoBO.Foto = (Byte[])Session["arreglo"];
             if ((string)Session["idUser"] != "")
             {
@@ -136,6 +143,8 @@ namespace MCTuristic_Centro_Historico.GUI
         protected void btnMaps_Click(object sender, EventArgs e)
         {
             Response.Redirect("Maps.aspx");
+            //Logra que distiga entre sitios o Establecimientos
+            Session["Sitio"] = false;
         }
 
         private bool VerificarArchivoImg()
@@ -287,6 +296,8 @@ namespace MCTuristic_Centro_Historico.GUI
         {
             try
             {
+                bool CodenadasMoficadas = Convert.ToBoolean(Session["ModificarMap"]);
+
                 pnlGestionEstablecimientos.Visible = false;
                 Editar.Visible = true;
                 oEstablecimientoBO = (localhost.EstablecimientoBO)Session["EstablecimientoEdit"];
@@ -296,8 +307,11 @@ namespace MCTuristic_Centro_Historico.GUI
                 txtHoraAbriEdit.Text = oEstablecimientoBO.HoraInicioEstable;
                 txtHoraCierreEdit.Text = oEstablecimientoBO.HoraCierreEstable;
                 txtFacebookEdit.Text = oEstablecimientoBO.PagFacebook;
-                Session["Latitud"] = oEstablecimientoBO.Latitud;
-                Session["Longitud"] = oEstablecimientoBO.Longitud;
+                if (CodenadasMoficadas == false)
+                {
+                    Session["Latitud"] = oEstablecimientoBO.Latitud;
+                    Session["Longitud"] = oEstablecimientoBO.Longitud;
+                }
                 Session["arreglo1"] = oEstablecimientoBO.Foto;
                 FotoPre.ImageUrl = ConvertirImagenStringWebUrl((Byte[])Session["arreglo1"], "jpg");
                 txtIDuserEdit.Text = oEstablecimientoBO.IdUsuario.ToString();
@@ -317,6 +331,11 @@ namespace MCTuristic_Centro_Historico.GUI
             lblMapsEstatus.Text = "Por favor seleccione su ubicación.";
             ltdlngNull();
             Session.Remove("EstablecimientoEdit");
+            Session["ModificarMap"] = false;
+            if((string)Session["idUser"] == "")
+            {
+                CargarEstablecimientosAdmin();
+            }
         }
 
         protected void lbtnModificar_Click(object sender, EventArgs e)
@@ -371,6 +390,14 @@ namespace MCTuristic_Centro_Historico.GUI
                 lblModificar.Text = "Ocurrio un problema";
             }
 
+        }
+
+        protected void mapaEdit_Click(object sender, EventArgs e)
+        {
+           
+            Session["Sitio"] = false;
+            Session["ModificarMapaEdit"] = true;
+            Response.Redirect("Maps.aspx");
         }
     }
 }

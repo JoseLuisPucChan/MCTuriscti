@@ -111,8 +111,8 @@ namespace MCTuristic_Centro_Historico.GUI
                 oSitioBO.NombreSitio = ASPxGridView1.GetRowValues(e.VisibleIndex, "Nombre").ToString();
                 oSitioBO.IdTipoSitio = Convert.ToInt32(ASPxGridView1.GetRowValues(e.VisibleIndex, "idTipoSitio").ToString());
                 oSitioBO.Direccion = ASPxGridView1.GetRowValues(e.VisibleIndex, "Dirección").ToString();
-                oSitioBO.LatitudSitio = Convert.ToDecimal(ASPxGridView1.GetRowValues(e.VisibleIndex, "Latitud").ToString().Replace('.',','));
-                oSitioBO.LongitudSitio = Convert.ToDecimal(ASPxGridView1.GetRowValues(e.VisibleIndex, "Longitud").ToString().Replace('.', ','));
+                oSitioBO.LatitudSitio = Convert.ToDecimal(ASPxGridView1.GetRowValues(e.VisibleIndex, "Latitud").ToString());
+                oSitioBO.LongitudSitio = Convert.ToDecimal(ASPxGridView1.GetRowValues(e.VisibleIndex, "Longitud").ToString());
                 oSitioBO.Historia = ASPxGridView1.GetRowValues(e.VisibleIndex, "Historia").ToString();
                 oSitioBO.SucesoImportante = ASPxGridView1.GetRowValues(e.VisibleIndex, "Sucesosimportantes").ToString();
                 oSitioBO.DescripcionSitio = ASPxGridView1.GetRowValues(e.VisibleIndex, "Descripción").ToString();
@@ -344,7 +344,7 @@ namespace MCTuristic_Centro_Historico.GUI
             Session.Remove("SitioEdit");
             Session["ModificarMap"] = false;
         }
-
+        //Cambios de Variables.
         private localhost.SitioBO RecuperarSitioEdit()
         {
             oSitioBO = new localhost.SitioBO();
@@ -352,8 +352,8 @@ namespace MCTuristic_Centro_Historico.GUI
             oSitioBO.NombreSitio = txtNombreEdit.Text ;
             oSitioBO.IdTipoSitio = Convert.ToInt32(txtTipoSitoEdit.Text);
             oSitioBO.Direccion = txtDireccionEdit.Text;
-            oSitioBO.LatitudSitio = Convert.ToDecimal(((string)Session["Latitud"]).Replace('.', ','));
-            oSitioBO.LongitudSitio = Convert.ToDecimal(((string)Session["Longitud"]).Replace('.', ','));
+            oSitioBO.LatitudSitio = Convert.ToDecimal(((string)Session["Latitud"]));
+            oSitioBO.LongitudSitio = Convert.ToDecimal(((string)Session["Longitud"]));
             oSitioBO.Historia = txtHistoriaEdit.Text ;
             oSitioBO.SucesoImportante =  txtSucesoImportantesEdit.Text ;
             oSitioBO.DescripcionSitio = txtDescripcionEdit.Text;

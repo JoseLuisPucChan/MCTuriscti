@@ -62,6 +62,8 @@ namespace MCTuristic_Centro_Historico.GUI
                 bool Sitios = Convert.ToBoolean(Session["Sitio"]);
                 if(Sitios == true)
                 {
+                    //Se encarga de eliminar para poder genera otro entrada segura.
+                    Session.Remove("Sitio");
                     Response.Redirect("GestionSitios.aspx");
                 }
                 else

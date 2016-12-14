@@ -181,7 +181,7 @@
                                                  <dx:GridViewDataColumn FieldName="CodPostal" Visible="false" VisibleIndex="12" />
                                                   <dx:GridViewDataColumn FieldName="Contraseña" Visible="false" VisibleIndex="13" />
                                                  <dx:GridViewDataColumn FieldName="FechaNacimiento" Visible="false" VisibleIndex="14" />
-
+                                      <dx:GridViewDataColumn FieldName="Foto" Visible="false" VisibleIndex="15" />
                                         <dx:GridViewDataColumn Caption="Edit">
                                             <DataItemTemplate>
                                                 <asp:LinkButton ID="Lnk" runat="server" CommandArgument="Editar" Text="Editar"></asp:LinkButton>
