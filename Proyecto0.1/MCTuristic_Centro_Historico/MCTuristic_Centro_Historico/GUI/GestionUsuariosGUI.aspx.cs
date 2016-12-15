@@ -326,17 +326,21 @@ namespace MCTuristic_Centro_Historico.GUI
             localhost.UsuarioBO oUsuariosBO = new UsuarioBO();
             oDireccionBO.IdDireccion = Convert.ToInt32(txtIdDireccion.Text);
             oUsuariosBO.IdUsuario = Convert.ToInt32(txtIDUsuario .Text);
-            int i = owebService.EliminarDireccion(oDireccionBO);
-            if (i > 0)
+            try
             {
-                int y = owebService.EliminarUsuario(oUsuariosBO);
-                if (y > 0)
+                int i = owebService.EliminarDireccion(oDireccionBO);
+                if (i > 0)
                 {
-                    CargarUsuario();
-                    Editar.Visible = false;
-                    GestioUsuarios.Visible = true;
+                    int y = owebService.EliminarUsuario(oUsuariosBO);
+                    if (y > 0)
+                    {
+                        CargarUsuario();
+                        Editar.Visible = false;
+                        GestioUsuarios.Visible = true;
+                    }
                 }
             }
+            catch { }
         }
     }
 }
