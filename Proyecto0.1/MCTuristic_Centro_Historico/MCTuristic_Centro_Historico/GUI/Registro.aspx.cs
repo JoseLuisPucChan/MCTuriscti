@@ -24,36 +24,6 @@ namespace MCTuristic_Centro_Historico.GUI
         {
             return n1 + n2;
         }
-
-        //--------------------Recolección de Información-----------------------------------
-        private localhost.UsuarioBO RecuperarInformacion()
-        {
-            localhost.UsuarioBO oUsuariosBO = new UsuarioBO();
-            oUsuariosBO.NombreUsuario = txtNombre.Text.Trim();
-            oUsuariosBO.ApellidosUsuario = txtApellidos.Text.Trim();
-            oUsuariosBO.EmailUsuario = txtDireccionCorreo.Text.Trim();
-            oUsuariosBO.FecharNacUsuario = Calender.Text;
-            oUsuariosBO.Foto = (Byte[])Session["arreglo"];
-            if (txtContraseña.Text == txtConfirmarContraseña.Text)
-            {
-                oUsuariosBO.ContraseñaUsuario = txtConfirmarContraseña.Text.Trim();
-            }
-            oUsuariosBO.TelefonoUsuario = txtTelefono.Text.Trim();
-            return oUsuariosBO;
-        }
-        private localhost.DireccionBO RecuperarDireccion()
-        {
-            oDireccionUser = new DireccionBO();
-            oDireccionUser.Calle = txtCalle.Text.Trim();
-            oDireccionUser.Cruzamiento = txtCruzamiento.Text.Trim();
-            oDireccionUser.Numero = txtNumeroCalle.Text.Trim();
-            oDireccionUser.DescripcionDireccion = txtDescripción.Text.Trim();
-            oDireccionUser.Colonia = txtColonia.Text.Trim();
-            oDireccionUser.Estado = txtEstado.Text.Trim();
-            oDireccionUser.CodPostal = txtCodigoPostal.Text.Trim();
-            oDireccionUser.IdUsuario = Convert.ToInt32(Session["idUsuario"]);
-            return oDireccionUser;
-        }
         //-----------------Botones-----------Con javaScrip
 
         [System.Web.Services.WebMethod]
@@ -102,6 +72,7 @@ namespace MCTuristic_Centro_Historico.GUI
 
         }
 
+        //Métodos Para el registro completo de Usuarios.
         private bool VerificarArchivoImg()
         {
             if (fuFoto1.HasFile)
@@ -131,21 +102,48 @@ namespace MCTuristic_Centro_Historico.GUI
             string imagen = Convert.ToBase64String(arreglo, 0, arreglo.Length);
             return imagen;
         }
-        public string ConvertirImagenStringWebUrl(Byte[] arreglo,
- string extension)
+        public string ConvertirImagenStringWebUrl(Byte[] arreglo,string extension)
         {
             string url = Convert.ToBase64String(arreglo, 0, arreglo.Length);
             url = "data:image/" + extension + "jpeg;base64," + url;
             return url;
         }
-
-
         protected void btnVer_Click(object sender, EventArgs e)
         {
             if (VerificarArchivoImg() == true)
             {
                 imgFoto1.ImageUrl = (string)Session["Url"];
             }
+        }
+
+        //--------------------Recolección de Información-----------------------------------
+        private localhost.UsuarioBO RecuperarInformacion()
+        {
+            localhost.UsuarioBO oUsuariosBO = new UsuarioBO();
+            oUsuariosBO.NombreUsuario = txtNombre.Text.Trim();
+            oUsuariosBO.ApellidosUsuario = txtApellidos.Text.Trim();
+            oUsuariosBO.EmailUsuario = txtDireccionCorreo.Text.Trim();
+            oUsuariosBO.FecharNacUsuario = Calender.Text;
+            oUsuariosBO.Foto = (Byte[])Session["arreglo"];
+            if (txtContraseña.Text == txtConfirmarContraseña.Text)
+            {
+                oUsuariosBO.ContraseñaUsuario = txtConfirmarContraseña.Text.Trim();
+            }
+            oUsuariosBO.TelefonoUsuario = txtTelefono.Text.Trim();
+            return oUsuariosBO;
+        }
+        private localhost.DireccionBO RecuperarDireccion()
+        {
+            oDireccionUser = new DireccionBO();
+            oDireccionUser.Calle = txtCalle.Text.Trim();
+            oDireccionUser.Cruzamiento = txtCruzamiento.Text.Trim();
+            oDireccionUser.Numero = txtNumeroCalle.Text.Trim();
+            oDireccionUser.DescripcionDireccion = txtDescripción.Text.Trim();
+            oDireccionUser.Colonia = txtColonia.Text.Trim();
+            oDireccionUser.Estado = txtEstado.Text.Trim();
+            oDireccionUser.CodPostal = txtCodigoPostal.Text.Trim();
+            oDireccionUser.IdUsuario = Convert.ToInt32(Session["idUsuario"]);
+            return oDireccionUser;
         }
         //    //public Image RecuperarImagen(string Imagen)
         //    //{

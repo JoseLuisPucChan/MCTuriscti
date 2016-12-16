@@ -73,7 +73,7 @@
 
                                                     <asp:HyperLink ID="HyperLink1" data-toggle="dropdown" class="dropdown-toggle" Visible="false" NavigateUrl="~/GUI/Principal.aspx" runat="server">Blog</asp:HyperLink>
                                                     <%--                                                    <a href="Principal.aspx"  data-toggle="dropdown" class="dropdown-toggle"> Blog<b class="caret"></b></a>--%>
-                                                   -
+                                                   
                                                     <ul role="menu" class="dropdown-menu">
                                                         <li><a tabindex="-1" href="Principal.aspx">Página principal </a></li>
                                                         <li>
@@ -195,6 +195,60 @@ El Equipo de Master Coder se comprometió a buscar una solución y llegamos en l
 <div class="prograss-round">
 <div class="row">
 <div class="col-lg-12 col-md-12">
+<h2 class="main-title">Panel Opiñones</h2>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+        <section class="quote-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="quote-slider">
+                            <li><i class="fa fa-quote-left"></i>
+                                <p>La ciudad de Mérida Yucatán, México es una hermosa ciudad colonial, rebosante de cultura, segura y llena de gente amable y servicial. Te invitamos a conocer más sobre nuestra ciudad, ya sea que vengas de un lugar lejano o seas un habitante de la misma, siempre podrás descubrir increíbles historias, lugares y gente que no te imaginabas.</p>
+                                <img src="../images1/Luis.jpg" alt="" />
+                                <h4>José Luis Puc Chan</h4>
+                            </li>
+                            <li><i class="fa fa-quote-left"></i>
+                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                                <img src="images/buser1.jpg" alt="">
+                                <h4>José Salazar Fuigueroa</h4>
+                            </li>
+                            <li><i class="fa fa-quote-left"></i>
+                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                                <img src="images/buser1.jpg" alt="">
+                                <h4>Diosemir Nah May</h4>
+                            </li>
+                            <li><i class="fa fa-quote-left"></i>
+                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                                <img src="images/buser1.jpg" alt="">
+                                <h4>Yair Roberto Gamboa</h4>
+                            </li>
+                            <li><i class="fa fa-quote-left"></i>
+                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                                <img src="images/buser1.jpg" alt="">
+                                <h4>Aaron Peñna Martin</h4>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="gap"></div>
+
+
+ 
+<div class="gap-30"></div>
+<div class="prograss-round">
+<div class="row">
+<div class="col-lg-12 col-md-12">
 <h2 class="main-title">Página Oficial Facebook</h2>
 </div>
 </div>
@@ -212,18 +266,7 @@ El Equipo de Master Coder se comprometió a buscar una solución y llegamos en l
 
 </div>
 </div>
- 
- 
 </div>
-</section>
-
-
-
-
-
-
-
-
 
         <section class="blog bdetails">
             <div class="container">

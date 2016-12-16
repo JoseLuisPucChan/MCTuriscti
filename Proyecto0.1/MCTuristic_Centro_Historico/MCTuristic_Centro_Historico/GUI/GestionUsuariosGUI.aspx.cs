@@ -11,20 +11,18 @@ namespace MCTuristic_Centro_Historico.GUI
 {
     public partial class GestionUsuariosGUI : System.Web.UI.Page
     {
-        localhost.WsMCTuristic oServicios = new localhost.WsMCTuristic();
-        localhost.UsuarioBO oUsario = new localhost.UsuarioBO();
-        localhost.DireccionBO oDireccionUser = new DireccionBO();
+        localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
+        localhost.UsuarioBO oUsuariosBO = new localhost.UsuarioBO();
+        localhost.DireccionBO oDireccionBO = new DireccionBO();
         byte[] foto;
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblNuevo.Visible = false;
             Editar.Visible = false;
             if (!IsPostBack)
             {
                 ValidarLogin();
             }
-            
-
-
         }
 
         public void ValidarLogin()
@@ -86,26 +84,16 @@ namespace MCTuristic_Centro_Historico.GUI
                 }
             }
         }
-        
-
-
-        private void CargarUsuario()
-        {
-            ASPxGridView1.DataSource = oServicios.usuario_adminWS();
-            ASPxGridView1.DataBind();
-        }
-
-      
-
+        //-------------------------------Eventos--------------------------------
         protected void lbtnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                int i = oServicios.InsertarUsuario(RecuperarInformacion());
+                int i = owebService.InsertarUsuario(RecuperarInformacion());
                 if (i > 0)
                 {
-                    Session["idUsuario"] = oServicios.obtener_usuarioid();
-                    int y = oServicios.InsertarDireccion(RecuperarDireccion());
+                    Session["idUsuario"] = owebService.obtener_usuarioid();
+                    int y = owebService.InsertarDireccion(RecuperarDireccion());
                     if (i > 0)
                     {
                         LimpiarControles();
@@ -119,14 +107,85 @@ namespace MCTuristic_Centro_Historico.GUI
             }
             CargarUsuario();
         }
+      
+        protected void lblNuevo_Click(object sender, EventArgs e)
+        {
+            Editar.Visible = false;
+            GestioUsuarios.Visible = true;
+        }
+        protected void lbtnModificar_Click(object sender, EventArgs e)
+        {
+            ModificarUser();
+            GestioUsuarios.Visible = false;
+            Editar.Visible = true;
+        }
+     
+        protected void lbtnEliminar_Click(object sender, EventArgs e)
+        {
+            owebService = new localhost.WsMCTuristic();
+            oDireccionBO = new localhost.DireccionBO();
+            oUsuariosBO = new UsuarioBO();
+            oDireccionBO.IdDireccion = Convert.ToInt32(txtIdDireccion.Text);
+            oUsuariosBO.IdUsuario = Convert.ToInt32(txtIDUsuario .Text);
+            try
+            {
+                int i = owebService.EliminarDireccion(oDireccionBO);
+                if (i > 0)
+                {
+                    int y = owebService.EliminarUsuario(oUsuariosBO);
+                    if (y > 0)
+                    {
+                        CargarUsuario();
+                        //Panel
+                        Editar.Visible = false;
+                        GestioUsuarios.Visible = true;
+                    }
+                }
+            }
+            catch { }
+        }
+
+        protected void ASPxGridView1_RowCommand(object sender, DevExpress.Web.ASPxGridViewRowCommandEventArgs e)
+        {
+            if (e.CommandArgs.CommandArgument.ToString() == "Editar")
+            {
+                GestioUsuarios.Visible = false;
+                Editar.Visible = true;
+                lblNuevo.Visible = true;
+                txtIDUsuario.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Código").ToString();
+                txtIdDireccion.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "idDireccion").ToString();
+                txtNombreEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Nombre").ToString();
+                txtApellidosEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Apellidos").ToString();
+                txtEmailEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Email").ToString();
+                txtCelularEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Teléfono").ToString();
+                txtFechaNacimientoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "FechaNacimiento").ToString();
+                txtCalleEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Calle").ToString();
+                txtCruzamientoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Cruzamiento").ToString();
+                txtNumeroCalleEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Numero").ToString();
+                txtColoniaEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Colonia").ToString();
+                txtDescripcionEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Descripcion").ToString();
+                txtEstadoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Estado").ToString();
+                txtCodigoPostaEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "CodPostal").ToString();
+                Session["arreglo1"] = (byte[])ASPxGridView1.GetRowValues(e.VisibleIndex, "Foto");
+                FotoPre.ImageUrl = ConvertirImagenStringWebUrl((Byte[])Session["arreglo1"], "jpg");
+                txtContraseñaEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Contraseña").ToString();
+
+                //Control de formulario web
+                txtNombreEdit.Focus();
+                lblNuevo.Visible = true;
+            }
+        }
+
+        //-----------------Métodos Para la gestion de Usuarios---------------------------------
+        //Limpiar los controles de Formulario web
         private void LimpiarControles()
         {
             txtNombre.Text = string.Empty;
-            txtApellidos.Text= string.Empty;
-            txtCorreo.Text= string.Empty;
+            txtApellidos.Text = string.Empty;
+            txtCorreo.Text = string.Empty;
             txtFecha.Text = string.Empty;
             txtContrasena.Text = string.Empty;
-            txtTelefono.Text  = string.Empty;
+            txtTelefono.Text = string.Empty;
             txtCalle.Text = string.Empty;
             txtCruzamiento.Text = string.Empty;
             txtNumero.Text = string.Empty;
@@ -136,7 +195,13 @@ namespace MCTuristic_Centro_Historico.GUI
             txtCP.Text = string.Empty;
             imgFoto.ImageUrl = null;
         }
-        //--------------------Recolección de Información-----------------------------------
+        //Encarga de hacer un llamado a la webservices y traer los datos del Usuario *Permitido Para el Administrador
+        private void CargarUsuario()
+        {
+            ASPxGridView1.DataSource = owebService.usuario_adminWS();
+            ASPxGridView1.DataBind();
+        }
+        //Recolección de Datos Registrados en el Formulario WEB.
         private localhost.UsuarioBO RecuperarInformacion()
         {
             localhost.UsuarioBO oUsuariosBO = new UsuarioBO();
@@ -151,18 +216,62 @@ namespace MCTuristic_Centro_Historico.GUI
         }
         private localhost.DireccionBO RecuperarDireccion()
         {
-            oDireccionUser = new DireccionBO();
-            oDireccionUser.Calle = txtCalle.Text.Trim();
-            oDireccionUser.Cruzamiento = txtCruzamiento.Text.Trim();
-            oDireccionUser.Numero = txtNumero.Text;
-            oDireccionUser.DescripcionDireccion = txtDescripcion.Text;
-            oDireccionUser.Colonia = txtColonia.Text.Trim();
-            oDireccionUser.Estado = txtEstado.Text.Trim();
-            oDireccionUser.CodPostal = txtCP.Text;
-            oDireccionUser.IdUsuario = Convert.ToInt32(Session["idUsuario"]);
-            return oDireccionUser;
+            oDireccionBO = new DireccionBO();
+            oDireccionBO.Calle = txtCalle.Text.Trim();
+            oDireccionBO.Cruzamiento = txtCruzamiento.Text.Trim();
+            oDireccionBO.Numero = txtNumero.Text;
+            oDireccionBO.DescripcionDireccion = txtDescripcion.Text;
+            oDireccionBO.Colonia = txtColonia.Text.Trim();
+            oDireccionBO.Estado = txtEstado.Text.Trim();
+            oDireccionBO.CodPostal = txtCP.Text;
+            oDireccionBO.IdUsuario = Convert.ToInt32(Session["idUsuario"]);
+            return oDireccionBO;
         }
 
+        //Modificar *Recupera todo los datos en el formulario*.
+        private void ModificarUser()
+        {
+            oUsuariosBO = new UsuarioBO();
+            oUsuariosBO.IdUsuario = Convert.ToInt32(txtIDUsuario.Text);
+            oUsuariosBO.NombreUsuario = txtNombreEdit.Text;
+            oUsuariosBO.ApellidosUsuario = txtApellidosEdit.Text;
+            oUsuariosBO.EmailUsuario = txtEmailEdit.Text;
+            oUsuariosBO.FecharNacUsuario = txtFechaNacimientoEdit.Text;
+            oUsuariosBO.TelefonoUsuario = txtCelularEdit.Text;
+            oUsuariosBO.ContraseñaUsuario = txtContraseñaEdit.Text;
+            oUsuariosBO.Foto = (Byte[])Session["arreglo1"];
+            int i = owebService.ModificarUsuario(oUsuariosBO);
+            if (i > 0)
+            {
+                ModificarDireccion();
+            }
+            CargarUsuario();
+        }
+        private void ModificarDireccion()
+        {
+
+            oDireccionBO = new localhost.DireccionBO();
+            oDireccionBO.IdDireccion = Convert.ToInt32(txtIdDireccion.Text);
+            oDireccionBO.Calle = txtCalleEdit.Text;
+            oDireccionBO.Numero = txtNumeroCalleEdit.Text;
+            oDireccionBO.Estado = txtEstadoEdit.Text;
+            oDireccionBO.Cruzamiento = txtCruzamientoEdit.Text;
+            oDireccionBO.CodPostal = txtCodigoPostaEdit.Text;
+            oDireccionBO.Colonia = txtColoniaEdit.Text;
+            oDireccionBO.DescripcionDireccion = txtDescripcionEdit.Text;
+            oDireccionBO.IdUsuario = Convert.ToInt32(txtIDUsuario.Text);
+            int i = owebService.ModificarDireccion(oDireccionBO);
+            if (i > 0)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        //Recuperación y generación de Imagenes
 
         private bool VerificarArchivoImg()
         {
@@ -225,122 +334,12 @@ namespace MCTuristic_Centro_Historico.GUI
             return image;
         }
 
-        public string ConvertirImagenStringWebUrl(Byte[] arreglo,
-    string extension)
+        public string ConvertirImagenStringWebUrl(Byte[] arreglo, string extension)
         {
             string url = Convert.ToBase64String(arreglo, 0, arreglo.Length);
             url = "data:image/" + extension + "jpeg;base64," + url;
             return url;
         }
 
-        protected void ASPxGridView1_RowCommand(object sender, DevExpress.Web.ASPxGridViewRowCommandEventArgs e)
-        {
-            if (e.CommandArgs.CommandArgument.ToString() == "Editar")
-            {
-                GestioUsuarios.Visible = false;
-                Editar.Visible = true;
-                lblNuevo.Visible = true;
-                txtIDUsuario .Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Código").ToString();
-                txtIdDireccion.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "idDireccion").ToString();
-                txtNombreEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Nombre").ToString();
-                txtApellidosEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Apellidos").ToString();
-                txtEmailEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Email").ToString();
-                txtCelularEdit .Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Teléfono").ToString();
-                txtFechaNacimientoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "FechaNacimiento").ToString();
-                txtCalleEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Calle").ToString();
-                txtCruzamientoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Cruzamiento").ToString();
-                txtNumeroCalleEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Numero").ToString();
-                txtColoniaEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Colonia").ToString();
-                txtDescripcionEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Descripcion").ToString();
-                txtEstadoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Estado").ToString();
-                txtCodigoPostaEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "CodPostal").ToString();
-                Session["arreglo1"] = (byte[])ASPxGridView1.GetRowValues(e.VisibleIndex, "Foto");
-                FotoPre.ImageUrl = ConvertirImagenStringWebUrl((Byte[])Session["arreglo1"], "jpg");
-                txtContraseñaEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Contraseña").ToString();
-            }
-        }
-
-        protected void lblNuevo_Click(object sender, EventArgs e)
-        {
-            Editar.Visible = false;
-            GestioUsuarios.Visible = true;
-        }
-
-
-
-        protected void lbtnModificar_Click(object sender, EventArgs e)
-        {
-            ModificarUser();
-            GestioUsuarios.Visible = false;
-            Editar.Visible = true;
-        }
-     
-        private void ModificarUser()
-        {
-            localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
-
-            localhost.UsuarioBO oUsuariosBO = new UsuarioBO();
-            oUsuariosBO.IdUsuario = Convert.ToInt32( txtIDUsuario.Text);
-            oUsuariosBO.NombreUsuario = txtNombreEdit.Text;
-            oUsuariosBO.ApellidosUsuario = txtApellidosEdit.Text;
-            oUsuariosBO.EmailUsuario = txtEmailEdit.Text;
-            oUsuariosBO.FecharNacUsuario = txtFechaNacimientoEdit.Text;
-            oUsuariosBO.TelefonoUsuario = txtCelularEdit.Text;
-            oUsuariosBO.ContraseñaUsuario = txtContraseñaEdit.Text;
-             oUsuariosBO.Foto = (Byte[])Session["arreglo1"];
-            int i = owebService.ModificarUsuario(oUsuariosBO);
-            if (i > 0)
-            {
-                ModificarDireccion();
-            }
-            CargarUsuario();
-        }
-        private void ModificarDireccion()
-        {
-            localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
-            localhost.DireccionBO oDireccionBO = new localhost.DireccionBO();
-            oDireccionBO.IdDireccion = Convert.ToInt32(txtIdDireccion.Text);
-            oDireccionBO.Calle = txtCalleEdit.Text;
-            oDireccionBO.Numero = txtNumeroCalleEdit.Text;
-            oDireccionBO.Estado = txtEstadoEdit.Text;
-            oDireccionBO.Cruzamiento = txtCruzamientoEdit.Text;
-            oDireccionBO.CodPostal = txtCodigoPostaEdit .Text;
-            oDireccionBO.Colonia = txtColoniaEdit.Text;
-            oDireccionBO.DescripcionDireccion = txtDescripcionEdit.Text;
-            oDireccionBO.IdUsuario = Convert.ToInt32(txtIDUsuario.Text);
-            int i = owebService.ModificarDireccion(oDireccionBO);
-            if (i > 0)
-            {
-              
-            }
-            else
-            {
-                
-            }
-        }
-
-        protected void lbtnEliminar_Click(object sender, EventArgs e)
-        {
-            localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
-            localhost.DireccionBO oDireccionBO = new localhost.DireccionBO();
-            localhost.UsuarioBO oUsuariosBO = new UsuarioBO();
-            oDireccionBO.IdDireccion = Convert.ToInt32(txtIdDireccion.Text);
-            oUsuariosBO.IdUsuario = Convert.ToInt32(txtIDUsuario .Text);
-            try
-            {
-                int i = owebService.EliminarDireccion(oDireccionBO);
-                if (i > 0)
-                {
-                    int y = owebService.EliminarUsuario(oUsuariosBO);
-                    if (y > 0)
-                    {
-                        CargarUsuario();
-                        Editar.Visible = false;
-                        GestioUsuarios.Visible = true;
-                    }
-                }
-            }
-            catch { }
-        }
     }
 }

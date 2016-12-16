@@ -38,7 +38,7 @@
                         <asp:TextBox type="text" ID="txtEmail" placeholder="Email" runat="server"></asp:TextBox>
                     </div>
                     <div class="field">
-                        <asp:TextBox ID="txtContraseña" type="password" runat="server" placeholder="Contraseña"></asp:TextBox>
+                        <asp:TextBox ID="txtContraseña"  type="password" runat="server" placeholder="Contraseña"></asp:TextBox>
 
                     </div>
                     <div class="field">

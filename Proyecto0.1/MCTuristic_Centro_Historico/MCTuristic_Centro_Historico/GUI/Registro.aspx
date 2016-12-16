@@ -95,7 +95,7 @@
 
                                                     <asp:HyperLink ID="HyperLink1" data-toggle="dropdown" class="dropdown-toggle" Visible="false" NavigateUrl="~/GUI/Principal.aspx" runat="server">Blog</asp:HyperLink>
                                                     <%--                                                    <a href="Principal.aspx"  data-toggle="dropdown" class="dropdown-toggle"> Blog<b class="caret"></b></a>--%>
-                                                   -
+                                                   
                                                     <ul role="menu" class="dropdown-menu">
                                                         <li><a tabindex="-1" href="Principal.aspx">Página principal </a></li>
                                                         <li>
@@ -181,12 +181,12 @@
                                     </li>
                                     <li class="col-lg-3">
                                         <label><font><font>Contraseña *</font></font></label>
-                                        <asp:TextBox ID="txtContraseña" type="text" placeholder="******" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtContraseña" type="text" placeholder="******" runat="server" BorderStyle="Double" CssClass="text" Height="46px" TextMode="Password" Width="199px"></asp:TextBox>
 
                                     </li>
                                     <li class="col-lg-3">
                                         <label><font><font>Confirmar contraseña*</font></font></label>
-                                        <asp:TextBox ID="txtConfirmarContraseña" type="text" placeholder="******" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtConfirmarContraseña"  type="text" placeholder="******" runat="server"  BorderStyle="Double" CssClass="text" Height="46px" TextMode="Password" Width="199px"></asp:TextBox>
                                     </li>
                                 </ul>
                                 <ul>
@@ -228,7 +228,7 @@
                                     <li>
                                         <font>
 <font>
- <asp:Button ID="btnAgregar" class="btn btn-info boton1" runat="server" Text="Regístrace" OnClick="btnAgregar_Click"></asp:Button>
+ <asp:Button ID="btnAgregar" class="btn btn-info boton1" runat="server" Text="Registrarse" OnClick="btnAgregar_Click"></asp:Button>
 <%--<input id="Button1" type="button" class="btn btn-info boton1" onclick="Gurdar();" value="CREAR CUENTA" />--%>
 </font>
 </font>

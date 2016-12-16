@@ -47,17 +47,12 @@
     </asp:PlaceHolder>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphBody" runat="server">
-
-
-     
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-              <asp:LinkButton ID="lblNuevo" runat="server" CssClass="btn btn-blue-alt" OnClick="lblNuevo_Click"><i class="glyph-icon icon-plus-circle"></i> Nuevo</asp:LinkButton>
+              <asp:LinkButton ID="lblNuevo" runat="server" CssClass="btn btn-blue-alt" OnClick="lblNuevo_Click"><i class="glyph-icon icon-plus-circle"></i> Terminar Edición</asp:LinkButton>
             <asp:Panel ID="GestioUsuarios" runat="server">
-              
           <div class="row">
         <div class="col-lg-12">
-          
             <div class="panel">
                 <div class="panel-body">
                        <h3 class="text-center font-bold"><i class="glyph-icon icon-users"></i>Control de Usuarios </h3>
@@ -198,12 +193,11 @@
     </div>
             </asp:Panel>
 <asp:Panel ID="Editar" runat="server">
-
       <div class="row">
-            <h3 class="text-center font-bold"><i class="glyph-icon icon-users"></i>Editar Usuario </h3>
         <div class="col-lg-12">
             <div class="panel">
                 <div class="panel-body">
+                       <h3 class="text-center font-bold"><i class="glyph-icon icon-users"></i>Editar Usuario </h3>
                     <div class="divider"></div>
                     <div class="col-lg-6">
                         <div class="form-group border-blue">

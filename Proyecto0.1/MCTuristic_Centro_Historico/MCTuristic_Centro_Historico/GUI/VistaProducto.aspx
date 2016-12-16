@@ -78,7 +78,7 @@
 
                                                     <asp:HyperLink ID="HyperLink1" data-toggle="dropdown" class="dropdown-toggle" Visible="false" NavigateUrl="~/GUI/Principal.aspx" runat="server">Blog</asp:HyperLink>
                                                     <%--                                                    <a href="Principal.aspx"  data-toggle="dropdown" class="dropdown-toggle"> Blog<b class="caret"></b></a>--%>
-                                                   -
+                                                   
                                                     <ul role="menu" class="dropdown-menu">
                                                         <li><a tabindex="-1" href="Principal.aspx">Página principal </a></li>
                                                         <li>
