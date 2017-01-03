@@ -66,6 +66,7 @@ namespace MCTuristic_Centro_Historico.GUI
         }
 
 
+        //Gesstion Admin
 
         [WebMethod]
         public static string GuardarAdmin(string nombre, string apellido, string correo, string contra, string telefono, string fecha)
