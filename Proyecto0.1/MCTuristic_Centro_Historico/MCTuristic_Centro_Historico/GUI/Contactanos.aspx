@@ -15,7 +15,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-3">
-                        <logo class="logo"><a href="PagPrincipal.aspx" ><img src="../Recursos/images/inner-logo.png" alt="Logo" title="Relax Spa Palace"/></a></logo>
+                        <logo class="logo"><a href="PagPrincipal.aspx" >
+                            <img <%--src="../Recursos/images/inner-logo.png"--%> src="../Recursos/images/inner-logo.png" alt="Logo" title="Relax Spa Palace"/></a></logo>
                     </div>
                     <div class="col-lg-9 col-md-9">
 
