@@ -36,10 +36,19 @@
                                         </a>
                                     </li>
                                 </ul>--%>
+
                 <div class="pad5A button-pane button-pane-alt text-center">
+                     <asp:Button ID="btnCerrarLog" Width="100%" class="btn display-block font-normal embed-responsive-16by9 btn-danger glyph-icon icon-power-off" runat="server" Text="Cerra Sesión" OnClick="btnCerrarLog_Click" />
+                </div>
+                
+                  
+
+                  <%--<div class="pad5A button-pane button-pane-alt text-center">
                     <a href="PagPrincipal.aspx" class="btn display-block font-normal btn-danger">
                         <i class="glyph-icon icon-power-off"> <span> Cerrar Sesión</span></i></a>
-                </div>
+                </div>--%>
+
+
             </div>
         </div>
     </asp:PlaceHolder>
@@ -49,6 +58,7 @@
         <div class="scroll-sidebar">
             <ul id="sidebar-menu">
                 <li class="header"><span>Módulos</span></li>
+               
                 <asp:PlaceHolder ID="phAdmin" runat="server" Visible="true">
                     <li>
                         <a href="../GUI/GestionUsuariosGUI.aspx" title="Usuarios">

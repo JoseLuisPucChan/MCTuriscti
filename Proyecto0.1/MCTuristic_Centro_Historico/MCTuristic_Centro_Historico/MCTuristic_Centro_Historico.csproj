@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="GUI\404.aspx" />
     <Content Include="GUI\Contactanos.aspx" />
     <Content Include="GUI\DetalleProducto.aspx" />
     <Content Include="GUI\GestionAdministrador.aspx" />
@@ -131,6 +132,7 @@
     <Content Include="Recursos\css\assets\sass\libs\_vars.scss" />
     <Content Include="Recursos\css\assets\sass\main.scss" />
     <Content Include="Recursos\css\assets\sass\noscript.scss" />
+    <Content Include="Recursos\css\color.css" />
     <Content Include="Recursos\css\materialize.css" />
     <Content Include="Recursos\css\site.css" />
     <Content Include="Recursos\font-awesome\fonts\fontawesome-webfontba72.eot" />
@@ -442,7 +444,6 @@
     <Content Include="Recursos\css\blue.monday\jplayer.blue.monday.video.play.png" />
     <Content Include="Recursos\css\blue.monday\jplayer.blue.png" />
     <Content Include="Recursos\css\bootstrap.css" />
-    <Content Include="Recursos\css\color.css" />
     <Content Include="Recursos\css\content_slider_style.css" />
     <Content Include="Recursos\css\horizontal.css" />
     <Content Include="Recursos\css\jquery.bxslider.css" />
@@ -717,6 +718,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Contactanos.aspx.cs">
       <DependentUpon>Contactanos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

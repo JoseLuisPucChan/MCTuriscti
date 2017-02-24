@@ -74,11 +74,6 @@ namespace MCTuristic_Centro_Historico.GUI
                     Session["idUser"] = Datos.Rows[0][1].ToString();
                     Server.Transfer("Principal.aspx");
                 }
-                else
-                {
-                    Response.Redirect("Registro.aspx");
-                }
-
             }
         }
     }

@@ -88,7 +88,6 @@
                 <div id="header-nav-left">
                     <div class="user-account-btn dropdown">
                         <asp:ContentPlaceHolder ID="cphSesion" runat="server"></asp:ContentPlaceHolder>
-
                     </div>
                 </div>
                 <!-- #header-nav-left -->

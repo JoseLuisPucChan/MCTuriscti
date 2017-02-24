@@ -5,14 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace MCTuristic_Centro_Historico.MasterPage
+namespace MCTuristic_Centro_Historico.GUI
 {
-    public partial class UsuarioVista : System.Web.UI.MasterPage
+    public partial class _404 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["idAdmin"] = "";
-            Session["idUser"] = "";
+
         }
     }
 }
