@@ -16,7 +16,10 @@ namespace WSMCTuristic_CentroHistorico.DAO
         {
             //sql = "Data source = ANDRE-PC\\SQLSERVER; Initial Catalog=MCTuristic; Integrated Security=True";
             //sql = "Data source =25.65.245.232; Initial Catalog=MCTuristic;User id=user;password=1234";
-            sql = "Data source =DESKTOP-71TOP8C; Initial Catalog=MCTuristic; Integrated Security=True";
+            //sql = "Data source =DESKTOP-71TOP8C; Initial Catalog=MCTuristic; Integrated Security=True";
+
+            sql = "workstation id=DBMCTuristic.mssql.somee.com;packet size=4096;user id=LuisPuc_SQLLogin_1;pwd=b888jh3jlc;data source=DBMCTuristic.mssql.somee.com;persist security info=False;initial catalog=DBMCTuristic";
+
             conn = new SqlConnection(sql);
             return conn;
         }
