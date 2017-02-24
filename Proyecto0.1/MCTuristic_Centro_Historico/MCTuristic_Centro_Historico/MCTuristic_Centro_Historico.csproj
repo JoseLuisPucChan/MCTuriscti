@@ -143,15 +143,17 @@
     <Content Include="MasterPage\mpBase.Master" />
     <Content Include="MasterPage\PaginaPrincipal.Master" />
     <Content Include="MasterPage\UsuarioVista.Master" />
+    <None Include="Properties\PublishProfiles\Luis.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Recursos\images\FotoEventoPre.png" />
     <Content Include="Recursos\Restaurantes.pdf" />
-    <None Include="Web References\localhost\Reference.map">
+    <Content Include="Web References\localhost\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
-    </None>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <None Include="Web References\localhost\WsMCTuristic.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -917,6 +919,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Web References\localhost\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -925,10 +932,13 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:8296/UI/WsMCTuristic.asmx">
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://www.mcturistic.somee.com/UI/WsMCTuristic.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\localhost\</RelPath>
-      <UpdateFromURL>http://localhost:8296/UI/WsMCTuristic.asmx</UpdateFromURL>
+      <UpdateFromURL>http://www.mcturistic.somee.com/UI/WsMCTuristic.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -936,9 +946,6 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>MCTuristic_Centro_Historico_localhost_WsMCTuristic</CachedSettingsPropName>
     </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

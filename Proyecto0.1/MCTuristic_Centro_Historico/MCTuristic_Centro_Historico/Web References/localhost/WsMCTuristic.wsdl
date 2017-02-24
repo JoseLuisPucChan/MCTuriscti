@@ -3157,10 +3157,10 @@
   </wsdl:binding>
   <wsdl:service name="WsMCTuristic">
     <wsdl:port name="WsMCTuristicSoap" binding="tns:WsMCTuristicSoap">
-      <soap:address location="http://localhost:8296/UI/WsMCTuristic.asmx" />
+      <soap:address location="http://www.mcturistic.somee.com/UI/WsMCTuristic.asmx" />
     </wsdl:port>
     <wsdl:port name="WsMCTuristicSoap12" binding="tns:WsMCTuristicSoap12">
-      <soap12:address location="http://localhost:8296/UI/WsMCTuristic.asmx" />
+      <soap12:address location="http://www.mcturistic.somee.com/UI/WsMCTuristic.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
