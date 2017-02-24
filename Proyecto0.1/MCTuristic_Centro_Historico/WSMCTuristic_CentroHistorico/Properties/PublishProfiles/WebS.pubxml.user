@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo es utilizado por el proceso de paquete/publicación de nuestro proyecto Web. Puede personalizar el comportamiento de este proceso
+editando este archivo MSBuild. Para conocer más acerca de esto, visite http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAOIEk0ji7E63h+wC3RSU+AAAAAACAAAAAAAQZgAAAAEAACAAAACAjqN17CGtJTyMkRIKYGFTCKThP1A7i2robBclmg51UwAAAAAOgAAAAAIAACAAAACcJs3slyYNGu0bf1xzmtonZFayzuyhsxZBWQkkktTMYiAAAAA7fMtVcfwWOGBe/CfwkXsQvr59ayOd25012zSR/qwQEEAAAABTD/jqaCtjCq+v2/V6fGtP5E/isrmt4Kj7nJ/qSaZXXmQ0/sg7t8kLUV/WIYDiTe00LGgkbCJOTxDTOlnqsn5r</EncryptedPassword>
+    <_PublishTargetUrl>ftp://MCTuristic.somee.com/www.MCTuristic.somee.com</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/WSMCTuristic_CentroHistorico.dll">
+      <publishTime>02/23/2017 22:11:08</publishTime>
+    </File>
+    <File Include="UI/WsMCTuristic.asmx">
+      <publishTime>01/04/2017 16:10:26</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/23/2017 22:11:09</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
