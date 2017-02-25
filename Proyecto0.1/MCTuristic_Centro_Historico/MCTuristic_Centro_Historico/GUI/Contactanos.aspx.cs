@@ -9,21 +9,21 @@ namespace MCTuristic_Centro_Historico.GUI
 {
     public partial class Contactanos : System.Web.UI.Page
     {
-        localhost.WsMCTuristic oservicio = new localhost.WsMCTuristic();
-        localhost.ContactanosBO ocontactanos = new localhost.ContactanosBO();
+        localhost.WsMCTuristic oServicio = new localhost.WsMCTuristic();
+        localhost.ContactanosBO oContactanos = new localhost.ContactanosBO();
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
-            ocontactanos.NombreContacto = txtNombre.Text;
-            ocontactanos.EmailContacto = txtEmail.Text;
-            ocontactanos.ApellidoContacto = txtApellidos.Text;
-            ocontactanos.Asunto = txtAsunto.Text;
-            ocontactanos.Contenido = txtContenido.Text;
-           int i= oservicio.InsertarContactanos(ocontactanos);
+            oContactanos.NombreContacto = txtNombre.Text;
+            oContactanos.EmailContacto = txtEmail.Text;
+            oContactanos.ApellidoContacto = txtApellidos.Text;
+            oContactanos.Asunto = txtAsunto.Text;
+            oContactanos.Contenido = txtContenido.Text;
+            //Solicitud para saber si el comentario fue realizado.
+           int i= oServicio.InsertarContactanos(oContactanos);
             if(i>0)
             {
                 txtNombre.Text = String.Empty;

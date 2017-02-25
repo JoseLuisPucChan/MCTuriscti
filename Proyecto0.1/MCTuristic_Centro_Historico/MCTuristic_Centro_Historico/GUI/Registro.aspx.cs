@@ -11,12 +11,12 @@ namespace MCTuristic_Centro_Historico.GUI
 {
     public partial class Registro : System.Web.UI.Page
     {
-        localhost.WsMCTuristic owebService = new WsMCTuristic();
+        localhost.WsMCTuristic oWebService = new WsMCTuristic();
         localhost.DireccionBO oDireccionUser = new DireccionBO();
         string idUser = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            localhost.DireccionBO odireccio = new DireccionBO();
+            localhost.DireccionBO oDireccio = new DireccionBO();
             localhost.UsuarioBO oUsuario = new UsuarioBO();
         }
         [WebMethod]
@@ -46,18 +46,16 @@ namespace MCTuristic_Centro_Historico.GUI
             return "Fallo la operación";
 
         }
-
-
         //Agregar Usuario *
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
-                int i = owebService.InsertarUsuario(RecuperarInformacion());
+                int i = oWebService.InsertarUsuario(RecuperarInformacion());
                 if (i > 0)
                 {
-                    Session["idUsuario"] = owebService.obtener_usuarioid();
-                    int y = owebService.InsertarDireccion(RecuperarDireccion());
+                    Session["idUsuario"] = oWebService.obtener_usuarioid();
+                    int y = oWebService.InsertarDireccion(RecuperarDireccion());
                     if (i > 0)
                     {
                         Response.Redirect("Suscripciones.aspx");
@@ -69,7 +67,6 @@ namespace MCTuristic_Centro_Historico.GUI
             {
                 Response.Write(ex.Message);
             }
-
         }
 
         //Métodos Para el registro completo de Usuarios.

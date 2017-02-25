@@ -1,9 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="MCTuristic_Centro_Historico.GUI.Login" %>
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Inicio de sesión</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,12 +14,10 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <noscript><link href="../Recursos/css/assets/css/noscript.css" rel="stylesheet" /></noscript>
     <script src="../Recursos/js/jquery-3.1.1.min.js"></script>
-
     <link href="../demo.geekslabs.com/materialize/v2.1/layout03/css/materialize.css" rel="stylesheet" type="text/css" media="screen,projection" />
     <link href="../demo.geekslabs.com/materialize/v2.1/layout03/css/style.css" rel="stylesheet" type="text/css" media="screen,projection" />
     <link href="../demo.geekslabs.com/materialize/v2.1/layout03/css/custom-style.css" rel="stylesheet" type="text/css" media="screen,projection" />
     <link href="../demo.geekslabs.com/materialize/v2.1/layout03/css/style-horizontal.css" rel="stylesheet" type="text/css" media="screen,projection" />
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -38,35 +35,33 @@
                         <asp:TextBox type="text" ID="txtEmail" placeholder="Email" runat="server"></asp:TextBox>
                     </div>
                     <div class="field">
-                        <asp:TextBox ID="txtContraseña"  type="password" runat="server" placeholder="Contraseña"></asp:TextBox>
-
+                        <asp:TextBox ID="txtContraseña" type="password" runat="server" placeholder="Contraseña"></asp:TextBox>
                     </div>
                     <div class="field">
                         <input type="checkbox" id="human" name="human" /><label for="human">Recordarme</label>
                     </div>
                     <ul class="actions">
-
                         <li>
                             <asp:Button ID="Button2" runat="server" class="button" Text="Ingresar" OnClick="Button2_Click" />
 
                             <script type="text/javascript">
                                 function VerficarUser() {
                                     var actionData = " { 'email': '" + $("#<%=txtEmail.ClientID%>")[0].value + "'  , 'contraseña': '" + $("#<%=txtContraseña.ClientID%>")[0].value + "' }  ";
-                                           $.ajax({
-                                               type: "POST",
-                                               url: "Login.aspx/BuscarUsuario",
-                                               data: actionData,
-                                               contentType: "application/json; charset=utf-8",
-                                               dataType: "json",
-                                               success: OnSuccess,
-                                               failure: function (response) {
-                                                   alert(response.d);
-                                               }
-                                           });
-                                       }
-                                       function OnSuccess(response) {
-                                           alert("Respuesta " + response.d);
-                                       }
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "Login.aspx/BuscarUsuario",
+                                        data: actionData,
+                                        contentType: "application/json; charset=utf-8",
+                                        dataType: "json",
+                                        success: OnSuccess,
+                                        failure: function (response) {
+                                            alert(response.d);
+                                        }
+                                    });
+                                }
+                                function OnSuccess(response) {
+                                    alert("Respuesta " + response.d);
+                                }
                             </script>
                         </li>
                     </ul>

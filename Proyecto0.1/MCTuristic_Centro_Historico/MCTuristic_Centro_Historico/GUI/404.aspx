@@ -158,8 +158,8 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <h1>404</h1>
-                        <h2>OOPS!Al parecer página no se puede encontrar</h2>
-                        <span class="buttons">Por favor vaya a <strong><a href="PagPrincipal.aspx">Página de Inicio</a></strong> o <strong><a href="Contactanos.aspx">Contactanos</a></strong></span>
+                        <h2>¡OOPS! Al parecer página que está buscando no se encuetra disponible</h2>
+                        <span class="buttons">Por favor diríjase a <strong><a href="PagPrincipal.aspx">Página de Inicio</a></strong> o <strong><a href="Contactanos.aspx">Contactanos</a></strong></span>
                     </div>
                 </div>
             </div>

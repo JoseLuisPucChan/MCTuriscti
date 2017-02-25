@@ -82,6 +82,7 @@
     <Content Include="GUI\GestionSuscripciones.aspx" />
     <Content Include="GUI\GestionUsuariosGUI.aspx" />
     <Content Include="GUI\GetImagen.aspx" />
+    <Content Include="GUI\InicioSesion.aspx" />
     <Content Include="GUI\Login.aspx" />
     <Content Include="GUI\Maps.aspx" />
     <Content Include="GUI\PagPrincipal.aspx" />
@@ -816,6 +817,13 @@
     <Compile Include="GUI\GetImagen.aspx.designer.cs">
       <DependentUpon>GetImagen.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GUI\InicioSesion.aspx.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\InicioSesion.aspx.designer.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -954,6 +962,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>MCTuristic_Centro_Historico_localhost_WsMCTuristic</CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Recursos\Login\css\" />
+    <Folder Include="Recursos\Login\js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

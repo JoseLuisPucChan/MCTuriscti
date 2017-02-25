@@ -31,15 +31,14 @@ namespace MCTuristic_Centro_Historico.MasterPage
                     }
                 }
                 catch { }
-            }
-
-            if ((string)Session["idAdmin"] != "" && (string)Session["idUser"] != "")
-            {
+                if ((string)Session["idAdmin"] == "" && (string)Session["idUser"] ==  "")
+                {
+                    Response.Redirect("404.aspx");
+                }
                
             }
-            else
-            { Response.Redirect("404.aspx");
-            }
+
+            
 
         }
     }
