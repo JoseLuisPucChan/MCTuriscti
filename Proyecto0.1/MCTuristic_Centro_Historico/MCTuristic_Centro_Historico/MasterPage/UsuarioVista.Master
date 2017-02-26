@@ -62,7 +62,7 @@
                                 <ul>
                                     <li><a href="Registro.aspx"><i class="fa fa-users "></i> <asp:Label ID="Label1" runat="server" Text="Regístrate"></asp:Label></a></li>
                                     <li>
-                                        <asp:HyperLink ID="hyInicioSeción" NavigateUrl="~/GUI/Login.aspx" Visible="true" runat="server"><i class="fa fa-user"></i> Iniciar sesión</asp:HyperLink>
+                                        <asp:HyperLink ID="hyInicioSeción" NavigateUrl="~/GUI/InicioSesion.aspx" Visible="true" runat="server"><i class="fa fa-user"></i> Iniciar sesión</asp:HyperLink>
                                         <asp:LinkButton ID="lnkCerrarSecion" Visible="false" runat="server" OnClick="lnkCerrarSecion_Click">Cerrar Sesión</asp:LinkButton>
 
                                     </li>

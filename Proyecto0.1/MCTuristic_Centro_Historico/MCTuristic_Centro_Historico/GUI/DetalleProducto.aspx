@@ -166,7 +166,7 @@
                                               
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                               
-                                            <asp:Image class="img-responsive" width="550px" height="418px" ID="Image2"  runat="server" 
+                                            <asp:Image class="img-responsive image-gallery" width="550px" height="418px" ID="Image2"  runat="server" 
                                             ImageUrl='<%#"GetImagen.aspx?id=" + Eval("idServicio") %>' alt=""  />
                                         </ul>
                                     </div>

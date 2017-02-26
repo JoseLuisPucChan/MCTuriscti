@@ -13,7 +13,15 @@ namespace MCTuristic_Centro_Historico.GUI
         localhost.WsMCTuristic oServicios = new localhost.WsMCTuristic();
         protected void Page_Load(object sender, EventArgs e)
         {
-            BuscarServicios();
+            try
+            {
+                BuscarServicios();
+            }
+            catch
+            {
+                Response.Redirect("404.aspx");
+            }
+         
         }
         public void BuscarServicios()
         {

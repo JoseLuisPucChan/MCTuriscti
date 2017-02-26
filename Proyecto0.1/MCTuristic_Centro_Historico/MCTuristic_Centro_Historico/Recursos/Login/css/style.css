@@ -29,7 +29,7 @@ button {
 .fixed-action-btn {
   position: fixed;
   right: 23px;
-  bottom: 23px;
+  bottom: 40px;
   padding-top: 15px;
   margin-bottom: 0;
   z-index: 998; }
@@ -174,4 +174,25 @@ input:valid + .label {
     opacity: 1;
     top: 50%;
   }
+}
+
+.btn2 {
+  border: 0;
+  font-size: 0.75rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  padding: 0 1.5rem;
+  color: white;
+  background: rgb(98, 215, 243); /*Color botón*/
+  text-transform: uppercase;
+  border-radius: .25rem;
+  letter-spacing: .2em;
+  transition: background .2s;
+}
+.btn2:focus {
+  outline: 0;
+}
+.btn2:hover,
+.btn2:focus {
+  background: #32CFFA;
 }

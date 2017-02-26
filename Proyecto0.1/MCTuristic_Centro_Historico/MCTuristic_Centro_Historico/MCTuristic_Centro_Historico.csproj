@@ -83,11 +83,9 @@
     <Content Include="GUI\GestionUsuariosGUI.aspx" />
     <Content Include="GUI\GetImagen.aspx" />
     <Content Include="GUI\InicioSesion.aspx" />
-    <Content Include="GUI\Login.aspx" />
     <Content Include="GUI\Maps.aspx" />
     <Content Include="GUI\PagPrincipal.aspx" />
     <Content Include="GUI\Principal.aspx" />
-    <Content Include="GUI\Producto.aspx" />
     <Content Include="GUI\QuieneSomo.aspx" />
     <Content Include="GUI\Registro.aspx" />
     <Content Include="GUI\Rutas.aspx" />
@@ -152,6 +150,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Recursos\images\FotoEventoPre.png" />
+    <Content Include="Recursos\Login\css\style.css" />
     <Content Include="Recursos\Restaurantes.pdf" />
     <Content Include="Web References\localhost\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -824,13 +823,6 @@
     <Compile Include="GUI\InicioSesion.aspx.designer.cs">
       <DependentUpon>InicioSesion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GUI\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Maps.aspx.cs">
       <DependentUpon>Maps.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -851,13 +843,6 @@
     </Compile>
     <Compile Include="GUI\Principal.aspx.designer.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Producto.aspx.cs">
-      <DependentUpon>Producto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GUI\Producto.aspx.designer.cs">
-      <DependentUpon>Producto.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\QuieneSomo.aspx.cs">
       <DependentUpon>QuieneSomo.aspx</DependentUpon>
@@ -964,7 +949,6 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Recursos\Login\css\" />
     <Folder Include="Recursos\Login\js\" />
   </ItemGroup>
   <PropertyGroup>

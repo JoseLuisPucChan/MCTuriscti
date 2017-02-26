@@ -15,7 +15,7 @@ namespace MCTuristic_Centro_Historico.GUI
         }
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            cargarUsuario();
+                cargarUsuario();
         }
         private void cargarUsuario()
         {
@@ -44,7 +44,12 @@ namespace MCTuristic_Centro_Historico.GUI
                     Session["idUser"] = Datos.Rows[0][1].ToString();
                     Server.Transfer("Principal.aspx");
                 }
+                else
+                {
+                    Response.Redirect("InicioSesion.aspx");
+                }
             }
         }
     }
 }
+

@@ -88,17 +88,9 @@
                                                 </li>
 
 
-                                                <li class="dropdown">
-                                                    <a href="VistaProducto.aspx" data-toggle="dropdown" class="dropdown-toggle">Productos<b class="caret"></b></a>
-                                                    <ul role="menu" class="dropdown-menu">
-                                                        <li><a tabindex="-1" href="VistaProducto.aspx">Lista Productos </a></li>
-                                                        <%--      <li><a tabindex="-1" href="DetalleProducto.aspx"> Product Details</a></li>
-                                                        <li><a tabindex="-1" href="cart.html"> Cart </a></li>
-                                                        <li><a tabindex="-1" href="checkout.html"> Check Out</a></li>
-                                                        <li><a tabindex="-1" href="register.html"> Login</a></li>
-                                                        <li><a tabindex="-1" href="register.html"> Register</a></li>--%>
-                                                    </ul>
-                                                </li>
+                                           <li>
+                                                <a href="VistaProducto.aspx">Productos<b></b></a>
+                                            </li>
 
 
                                                <%-- <li class="dropdown">
@@ -146,7 +138,7 @@
                        <div class="row">
                                 <%--Modulo 1--%>
                            <asp:Button ID="btnImprimir" runat="server" Text="Imprimir productos" OnClick="btnImprimir_Click" />
-                        <asp:DataList ID="DtlProductos" runat="server" RepeatColumns="3" RepeatDirection="Horizontal" HorizontalAlign="Center" Width="800px">
+                        <asp:DataList ID="DtlProductos" CssClass="table-responsive" runat="server" RepeatColumns="3" RepeatDirection="Horizontal" HorizontalAlign="Center" Width="800px">
                           <FooterStyle VerticalAlign="Top" Wrap="True" />
                                  <ItemTemplate>
                                    <asp:Label ID="lblidServicio" runat="server" Visible="false" Text='<%# Eval("idServicio") %>' ForeColor="#3399FF"></asp:Label>
@@ -161,19 +153,18 @@
                                                             <div class="img-overlay-3-down pat-override"></div>
                                                             <ol class="static-style">
                                                                 <li class="white-rounded">
-                                                                    <a href="DetalleProducto.aspx"><i class="fa fa-link"></i></a></li>
+                                                                    <asp:ImageButton class="addtocart icon-next " ID="ImageButton2"  OnClick="Button1_Click" Text="Ver Detalles" ForeColor="White" runat="server" /></li>
                                                                 <li class="white-rounded">
-                                                                    <a href="images/large/large1.gif" rel="prettyPhoto[Image2]">
-                                                                  <i class="fa fa-plus"></i></a></li>
+                                                                    <a href='<%#"GetImagen.aspx?id=" + Eval("idServicio") %>' rel="prettyPhoto[Image2]">
+                                                                  <i class="fa fa-camera-retro"></i></a></li>
                                                             </ol>
                                                         </div>
                                                 <span >
                                                     <asp:ImageButton class="addtocart icon-next " ID="ImageButton1"  OnClick="Button1_Click" Text="Ver Detalles" ForeColor="White" runat="server" />
-
                                                 </span> 
                                             </li>
                                             <li>
-                                                <h4><a href="DetalleProducto.aspx"><asp:Label ID="lbl" runat="server" Text='<%# Eval("NombreServ") %>' ForeColor="#3399FF"></asp:Label></a></h4>
+                                                <h4><a href="#"><asp:Label ID="lbl" runat="server" Text='<%# Eval("NombreServ") %>' ForeColor="#3399FF"></asp:Label></a></h4>
                                             </li>
                                     <li><asp:Label ID="Label1" runat="server" Text='<%# Eval("OfertaServicio") %>'></asp:Label></li>
                                         <li class="pro-footer">
@@ -192,9 +183,6 @@
                                     </ul>
 
                                   </asp:Panel>
-                                     
-                                       
-                              
                                        <br />
                                        <br />
                                        <br />
@@ -202,7 +190,6 @@
                                </ItemTemplate>
                              
                                  <SelectedItemStyle Width="200px" />
-                               
                                  <SeparatorStyle BackColor="Yellow" Font-Bold="False" Font-Italic="False" Font-Names="Adobe Devanagari" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" VerticalAlign="Bottom" BorderWidth="30px" Font-Size="XX-Small" />
                              
                            </asp:DataList>

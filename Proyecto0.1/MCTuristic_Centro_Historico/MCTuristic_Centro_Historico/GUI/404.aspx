@@ -4,9 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Principal" runat="server">
-
     <div class="wrapper inner">
-
     <header id="header">
             <div class="container">
                 <div class="row">

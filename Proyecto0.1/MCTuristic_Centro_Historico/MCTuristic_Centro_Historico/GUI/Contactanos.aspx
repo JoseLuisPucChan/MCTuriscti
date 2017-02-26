@@ -80,17 +80,9 @@
                                                         </li>
                                                     </ul>
                                                 </li>
-                                                <li class="dropdown">
-                                                    <a href="Productos.aspx" data-toggle="dropdown" class="dropdown-toggle">Productos<b class="caret"></b></a>
-                                                    <ul role="menu" class="dropdown-menu">
-                                                        <li><a tabindex="-1" href="VistaProducto.aspx">Lista Productos </a></li>
-                                                        <%--      <li><a tabindex="-1" href="DetalleProducto.aspx"> Product Details</a></li>
-                                                        <li><a tabindex="-1" href="cart.html"> Cart </a></li>
-                                                        <li><a tabindex="-1" href="checkout.html"> Check Out</a></li>
-                                                        <li><a tabindex="-1" href="register.html"> Login</a></li>
-                                                        <li><a tabindex="-1" href="register.html"> Register</a></li>--%>
-                                                    </ul>
-                                                </li>
+                                             <li>
+                                                <a href="VistaProducto.aspx">Productos<b></b></a>
+                                            </li>
                                                 <%-- <li class="dropdown">
                                                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">Gallery<b class="caret"></b></a>
                                                     <ul role="menu" class="dropdown-menu">

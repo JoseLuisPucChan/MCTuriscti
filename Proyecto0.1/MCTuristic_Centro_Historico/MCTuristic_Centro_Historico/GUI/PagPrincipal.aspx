@@ -78,7 +78,7 @@
                                                 </ul>
                                             </li>
                                              <li>
-                                                <a href="Producto.aspx">Productos<b></b></a>
+                                                <a href="VistaProducto.aspx">Productos<b></b></a>
                                             </li>
 
 <%--                                            <li class="dropdown">
