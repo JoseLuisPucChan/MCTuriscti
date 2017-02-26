@@ -51,14 +51,11 @@
     <form id="form1" runat="server">
   
         <div>
-
-
             <!--Narvar-->
-
        <div class="topbar">
                 <div class="container">
                     <div class="row">
-                       <div class="col-lg-6 col-md-6 col-sm-12 topnav"> <a href="branches.html"></a> <a href="reservation.html">MasterCoder</a> | <span>9991565264</span></div>
+                       <div class="col-lg-6 col-md-6 col-sm-12 topnav"> <a href="https://www.facebook.com/Master-Coder-580293505350746/?ref=aymt_homepage_panel"></a> <a href="https://www.facebook.com/Master-Coder-580293505350746/?ref=aymt_homepage_panel">MasterCoder</a> | <span>9991565264</span></div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
                            <div class="social pull-left"> <a href="#" title="Facebook"><i class="fa fa-facebook-square"></i></a> <a href="#" title="Linkedin"><i class="fa fa-linkedin-square"></i></a> <a href="#" title="Gplus"><i class="fa fa-google-plus-square"></i></a> <a href="#" title="Twitter"><i class="fa fa-twitter-square"></i></a> <a href="#" title="Pinterest"><i class="fa fa-pinterest-square"></i></a> <a href="#" title="Instagram"><i class="fa fa-instagram"></i></a> <a href="#" title="Flickr"><i class="fa fa-flickr"></i></a> </div>
                              <div class="hlinks pull-right">
@@ -66,6 +63,8 @@
                                     <li><a href="Registro.aspx"><i class="fa fa-users "></i> <asp:Label ID="Label1" runat="server" Text="Regístrate"></asp:Label></a></li>
                                     <li>
                                         <asp:HyperLink ID="hyInicioSeción" NavigateUrl="~/GUI/Login.aspx" Visible="true" runat="server"><i class="fa fa-user"></i> Iniciar sesión</asp:HyperLink>
+                                        <asp:LinkButton ID="lnkCerrarSecion" Visible="false" runat="server" OnClick="lnkCerrarSecion_Click">Cerrar Sesión</asp:LinkButton>
+
                                     </li>
                                     <li>
                                         <input type="search" id="search" />
@@ -167,11 +166,6 @@
                 </div>
             </section>
             <!--Final-->
-
-
-
-
-
 
         </div>
         <script src="../Recursos/js/jquery-1.10.2.js"></script>

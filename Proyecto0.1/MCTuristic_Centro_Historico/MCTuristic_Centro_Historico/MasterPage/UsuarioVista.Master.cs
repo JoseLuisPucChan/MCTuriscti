@@ -9,10 +9,48 @@ namespace MCTuristic_Centro_Historico.MasterPage
 {
     public partial class UsuarioVista : System.Web.UI.MasterPage
     {
-        protected void Page_Load(object sender, EventArgs e)
+        string Admin,Usuario;
+
+        protected void lnkCerrarSecion_Click(object sender, EventArgs e)
         {
             Session["idAdmin"] = "";
             Session["idUser"] = "";
+            Server.Transfer("PagPrincipal.aspx");
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Admin = (string)Session["idAdmin"];
+            Usuario = (string)Session["idUser"];
+
+            if (Admin == "" || Admin ==null && Usuario == "" || Usuario == null)
+            {
+                Session["idAdmin"] = "";
+                Session["idUser"] = "";
+            }
+            else
+            {
+
+                if (!IsPostBack)
+                {
+                    try
+                    {
+
+                        if (Admin != "" || Usuario != "")
+                        {
+                            hyInicioSeción.Visible = false;
+                            lnkCerrarSecion.Visible = true;
+                        }
+                        else
+                        {
+                            hyInicioSeción.Visible = true;
+                            lnkCerrarSecion.Visible = false;
+                        }
+                    }
+                    catch { }
+                }
+            }
+
         }
     }
 }

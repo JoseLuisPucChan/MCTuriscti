@@ -6,7 +6,12 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Login</title>
+ 
     <link href="../Recursos/Login/css/style.css" rel="stylesheet" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <noscript><link href="../Recursos/css/assets/css/noscript.css" rel="stylesheet" /></noscript>
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -30,13 +35,20 @@
         </div>
         <div class="profile__footer">
             <asp:Button class="btn" ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
+            <a class="btn"  href="PagPrincipal.aspx">Inicio</a>  
         </div>
+          
       </div>
      </div>
   </div>
 </div>
-  
+         <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">  
+             <a class="btn" href="PagPrincipal.aspx">Inicio</a>  
+          </div>
+    
      <script src="../Recursos/Login/js/index.js"></script>
+         <script src="../Recursos/css/assets/js/materialize.js"></script>
+            <script src="../Recursos/css/assets/js/materialize.min.js"></script>
     </div>
     </form>
 </body>

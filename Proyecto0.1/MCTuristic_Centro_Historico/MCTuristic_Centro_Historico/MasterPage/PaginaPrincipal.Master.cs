@@ -10,27 +10,45 @@ namespace MCTuristic_Centro_Historico.MasterPage
     
     public partial class PaginaPrincipal : System.Web.UI.MasterPage
     {
-        int idAdmin;
-        int idUser;
+        string Admin, Usuario;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                try
-                {
-                    idAdmin = Convert.ToInt32(Session["idAdmin"]);
-                    idUser = Convert.ToInt32(Session["idUser"]);
-                    if (idAdmin > 0 || idUser > 0)
-                    {
-                        hyInicioSeción.Visible = false;
-                    }
-                    else
-                    {
-                        hyInicioSeción.Visible = true;
-                    }
-                }catch { }
-            }
+            Admin = (string)Session["idAdmin"];
+            Usuario = (string)Session["idUser"];
 
+            if (Admin == "" || Admin == null && Usuario == "" || Usuario == null)
+            {
+                Session["idAdmin"] = "";
+                Session["idUser"] = "";
+            }
+            else
+            {
+
+                if (!IsPostBack)
+                {
+                    try
+                    {
+                        
+                        if (Admin != "" || Usuario != "")
+                        {
+                            hyInicioSeción.Visible = false;
+                            lnkCerrarSecion.Visible = true;
+                        }
+                        else
+                        {
+                            hyInicioSeción.Visible = true;
+                            lnkCerrarSecion.Visible = false;
+                        }
+                    }
+                    catch { }
+                }
+            }
+         }
+        protected void lnkCerrarSecion_Click(object sender, EventArgs e)
+        {
+            Session["idAdmin"] = "";
+            Session["idUser"] = "";
+            Server.Transfer("PagPrincipal.aspx");
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/UsuarioVista.Master" AutoEventWireup="true" CodeBehind="PagPrincipal.aspx.cs" Inherits="MCTuristic_Centro_Historico.GUI.PagPrincipal" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Principal" runat="server">
@@ -7,9 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-3">
-                    <logo><a href="PagPrincipal.aspx">
-                            <strong class="logo-home"> MCTuristic</strong></a>
-                        </logo>
+                    <logo><a href="PagPrincipal.aspx"><strong class="logo-home"> MCTuristic</strong></a> </logo>
                 </div>
                 <div class="col-lg-9 col-md-9">
                     <div class="home-menu">
@@ -80,19 +77,21 @@
                                                     </li>
                                                 </ul>
                                             </li>
+                                             <li>
+                                                <a href="Producto.aspx">Productos<b></b></a>
+                                            </li>
 
-
-                                            <li class="dropdown">
+<%--                                            <li class="dropdown">
                                                 <a href="Productos.aspx" data-toggle="dropdown" class="dropdown-toggle">Productos<b class="caret"></b></a>
                                                 <ul role="menu" class="dropdown-menu">
-                                                    <li><a tabindex="-1" href="VistaProducto.aspx">Lista Productos </a></li>
-                                                    <%-- <li><a tabindex="-1" href="product-details.html"> Product Details</a></li>
+                                                    <li><a tabindex="-1" href="VistaProducto.aspx">Lista Producto </a></li>
+                                                     <li><a tabindex="-1" href="product-details.html"> Product Details</a></li>
                                                         <li><a tabindex="-1" href="cart.html"> Cart </a></li>
                                                         <li><a tabindex="-1" href="checkout.html"> Check Out</a></li>
                                                         <li><a tabindex="-1" href="register.html"> Login</a></li>
-                                                        <li><a tabindex="-1" href="register.html"> Register</a></li>--%>
+                                                        <li><a tabindex="-1" href="register.html"> Register</a></li>
                                                 </ul>
-                                            </li>
+                                            </li>--%>
 
 
                                             <%-- <li class="dropdown">
@@ -501,6 +500,4 @@ Al igual que la biciruta para conocer los horarios y sitios de reunión
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Contenido" runat="server">
-
-
 </asp:Content>
