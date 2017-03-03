@@ -57,6 +57,7 @@
                                                                         <li><a href="QuieneSomo.aspx">Visión</a></li>
                                                                         <li><a href="QuieneSomo.aspx">Valores </a></li>
                                                                         <li><a href="QuieneSomo.aspx">¿Quiénes somos?</a></li>
+                                                                      <li><a href="Suscripciones.aspx" >Suscripciones</a></li>
                                                                     </ul>
                                                                     <%-- <ul class="col-sm-4 list-unstyled">
                                                                         <li>

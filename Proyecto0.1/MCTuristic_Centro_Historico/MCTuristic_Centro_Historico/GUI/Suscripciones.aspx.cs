@@ -55,41 +55,44 @@ namespace MCTuristic_Centro_Historico.GUI
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            if (idUser == 0)
-            {
-                Response.Redirect("Registro.aspx");
-            }
-            else
-            {
-                int mes = 2;
-                GenerarNuevaSuscripcion(mes);
-            }
+            Response.Redirect("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YAHTQP78APJES");
+            //if (idUser == 0)
+            //{
+            //    Response.Redirect("Registro.aspx");
+            //}
+            //else
+            //{
+            //    int mes = 2;
+            //    GenerarNuevaSuscripcion(mes);
+            //}
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            if (idUser == 0)
-            {
-                Response.Redirect("Registro.aspx");
-            }
-            else
-            {
-                int seism = 3;
-                GenerarNuevaSuscripcion(seism);
-            }
+            Response.Redirect("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PMWY57KLG7YP8");
+            //if (idUser == 0)
+            //{
+            //    Response.Redirect("Registro.aspx");
+            //}
+            //else
+            //{
+            //    int seism = 3;
+            //    GenerarNuevaSuscripcion(seism);
+            //}
         }
 
         protected void Button4_Click(object sender, EventArgs e)
         {
-            if (idUser == 0)
-            {
-                Response.Redirect("Registro.aspx");
-            }
-            else
-            {
-                int Año = 4;
-                GenerarNuevaSuscripcion(Año);
-            }
+            Response.Redirect("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4W8ELA9JRG9W");
+            //if (idUser == 0)
+            //{
+            //    Response.Redirect("Registro.aspx");
+            //}
+            //else
+            //{
+            //    int Año = 4;
+            //    GenerarNuevaSuscripcion(Año);
+            //}
         }
     }
 }

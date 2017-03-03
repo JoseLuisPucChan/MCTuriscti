@@ -35,7 +35,7 @@
                                                                     <li><a href="QuieneSomo.aspx">Visión</a></li>
                                                                     <li><a href="QuieneSomo.aspx">Valores </a></li>
                                                                     <li><a href="QuieneSomo.aspx">¿Quiénes somos?</a></li>
-
+                                                                     <li><a href="Suscripciones.aspx" >Suscripciones</a></li>
                                                                 </ul>
                                                                 <%--<ul class="col-sm-4 list-unstyled">
                                                                         <li>
@@ -440,7 +440,6 @@ Al igual que la biciruta para conocer los horarios y sitios de reunión
                                 <li>-</li>
                                 <li>-</li>
                             </ul>
-
                             <button>Adquirir Ahora</button>
                         </div>
                     </div>
@@ -456,7 +455,7 @@ Al igual que la biciruta para conocer los horarios y sitios de reunión
                                 <li>-</li>
                                 <li>-</li>
                             </ul>
-                            <button>Adquirir Ahora</button>
+                             <button>Adquirir Ahora</button>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6">
@@ -471,7 +470,7 @@ Al igual que la biciruta para conocer los horarios y sitios de reunión
                                 <li>Soporte técnico</li>
                                 <li>Opciones de edición</li>
                             </ul>
-                            <button>Adquirir Ahora</button>
+                             <button>Adquirir Ahora</button> 
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6">
@@ -486,7 +485,7 @@ Al igual que la biciruta para conocer los horarios y sitios de reunión
                                 <li>Soporte técnico</li>
                                 <li>Opciones de edición</li>
                             </ul>
-                            <button>Adquirir Ahora</button>
+                             <button>Adquirir Ahora</button>
                         </div>
                     </div>
                 </div>
