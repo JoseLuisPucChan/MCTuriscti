@@ -140,5 +140,15 @@ namespace WSMCTuristic_CentroHistorico.DAO
             return conn.TablaDS(sql);
         }
 
+
+
+        public DataSet ver_Eventos_movil()
+        {
+            conn = new Conexion();
+            string sql;
+            sql = "EXEC ver_eventos_admin";
+            return conn.TablaDS(sql);
+        }
+
     }
 }

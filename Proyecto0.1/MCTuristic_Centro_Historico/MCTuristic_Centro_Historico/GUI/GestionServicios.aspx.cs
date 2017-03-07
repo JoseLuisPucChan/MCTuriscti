@@ -27,6 +27,7 @@ namespace MCTuristic_Centro_Historico.GUI
             CargarGriw();
        
         }
+       
 
         public void ValidarLogin()
         {

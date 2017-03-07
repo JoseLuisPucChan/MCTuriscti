@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Services;
 using System.Web.Services;
 using WSMCTuristic_CentroHistorico.BO;
+using Newtonsoft.Json;
 
 namespace WSMCTuristic_CentroHistorico.UI
 {
@@ -33,7 +35,11 @@ namespace WSMCTuristic_CentroHistorico.UI
         Services.CtrlAdministrador oAdministradorCTRL;
         Services.CtrlComentario oComentariosCTRL;
         Services.CtrlSuscripcion oSuscripcionCTRL;
+
+
+
         //--------------------------ABC Usuarios-----------------------------
+        #region "Gestión de Usuarios"  
         [WebMethod]
         public int InsertarUsuario(UsuarioBO obj)
         {
@@ -44,7 +50,6 @@ namespace WSMCTuristic_CentroHistorico.UI
             return oUsuarioCTRL.InsertarUsuario(oUsuario);
         }
         [WebMethod]
-
         public int ModificarUsuario(UsuarioBO obj)
         {
             UsuarioBO oUsuario = new UsuarioBO();
@@ -100,8 +105,12 @@ namespace WSMCTuristic_CentroHistorico.UI
             return oUsuarioCTRL.topUsuarios_User(oUsuario);
         }
 
+        #endregion
+
         //--------------------------ABC Direcciones-----------------------------
+        #region "Gestión de Direccciones"
         [WebMethod]
+
         public int EliminarDireccion(DireccionBO obj)
         {
             DireccionBO oDireccion = new DireccionBO();
@@ -146,9 +155,10 @@ namespace WSMCTuristic_CentroHistorico.UI
             oDireccionCTRL = new Services.CtrlDireccion();
             return oDireccionCTRL.ModificarDireccion_admin(oDireccion);
         }
-
+        #endregion
 
         //---------------------ABC Establecimiento-----------------------
+        #region "Gestión de Establecimientos"
         [WebMethod]
         public int InsertarEstablecimiento(BO.EstablecimientoBO obj)
         {
@@ -192,9 +202,10 @@ namespace WSMCTuristic_CentroHistorico.UI
             oEstablecimiento = new Services.CtrlEstablecimiento();
             return oEstablecimiento.topEstablecimientos_adminDS();
         }
+        #endregion
 
         //--------------------------ABC Evento-----------------------------
-
+        #region "Gestión de Evento"
 
         [WebMethod]
         public int InsertarEvento(BO.EventoBO obj)
@@ -241,6 +252,9 @@ namespace WSMCTuristic_CentroHistorico.UI
             return oEventoCTRL.ver_Eventos_user(oEventoBO);
         }
 
+
+
+
         [WebMethod]
         public DataSet Ver_evento_admin(BO.EventoBO obj)
         {
@@ -249,9 +263,10 @@ namespace WSMCTuristic_CentroHistorico.UI
             oEventoCTRL = new Services.CtrlEvento();
             return oEventoCTRL.ver_Eventos_admin(oEventoBO);
         }
-
+        #endregion
         //--------------------------ABC Notificaciones-----------------------------
 
+        #region "Gestión de Notificaciones" 
         [WebMethod]
         public int InsertarNotificacion(BO.NotificacionesBO obj)
         {
@@ -281,9 +296,9 @@ namespace WSMCTuristic_CentroHistorico.UI
             oNotificacionesCTRL = new Services.CtrlNotificaciones();
             return oNotificacionesCTRL.EliminarNotificacion(oNotificacionesBO);
         }
-
+        #endregion
         //--------------------------ABC Servicio-----------------------------
-
+        #region "Gestión de Servicios Productos"
         [WebMethod]
         public int InsertarServicio(BO.ServicioBO obj)
         {
@@ -359,7 +374,9 @@ namespace WSMCTuristic_CentroHistorico.UI
             oServicioCTRL = new Services.CtrlServicio();
             return oServicioCTRL.verfoto(Ser);
         }
+        #endregion
         //--------------------- ABC Sitio---------------
+        #region "Gestión de Sitios"
         [WebMethod]
         public int InsertarSitio(SitioBO obj)
         {
@@ -394,7 +411,9 @@ namespace WSMCTuristic_CentroHistorico.UI
             oSitioCtrl = new Services.CtrlSitio();
             return oSitioCtrl.topSitioDS();
         }
+        #endregion
         //------------ABC Soporte-------------------
+        #region "Gestión de Soporte técnico"
         [WebMethod]
         public int InsertarSoporte(SoporteBO obj)
         {
@@ -416,7 +435,9 @@ namespace WSMCTuristic_CentroHistorico.UI
             oSoporteCTRL = new Services.CtrlSoporte();
             return oSoporteCTRL.EliminarSoporte(oSoporte);
         }
+        #endregion
         //----------------ABC TipoServicio -----------
+        #region "Gestión de Tipo de Servicio"
         [WebMethod]
         public int InsertarTipoServicio(TipoServicioBO obj)
         {
@@ -445,7 +466,9 @@ namespace WSMCTuristic_CentroHistorico.UI
             oTipoServicioCTRL = new Services.CtrlTipoServicio();
             return oTipoServicioCTRL.topTipoServicios();
         }
-        //------------- ABC TipoSitio -----------------
+        #endregion
+        //------------- ABC TipoSitio ----------------
+        #region "Gestión de Tipo de Sitio"
         [WebMethod]
         public int InsertarTipoSitio(TipoSitioBO obj)
         {
@@ -473,8 +496,10 @@ namespace WSMCTuristic_CentroHistorico.UI
             oTipoSitioCtrl = new Services.CtrlTipoSitio();
             return oTipoSitioCtrl.tipoSitio();
         }
-    
+        #endregion
+
         //------------ ABC TipoSuscripcion --------------
+        #region
         [WebMethod]
         public int InsertarTipoSuscripcion(TipoSuscripcionBO obj)
         {
@@ -496,6 +521,7 @@ namespace WSMCTuristic_CentroHistorico.UI
             oTipoSuscripcionCTRL = new Services.CtrlTipoSuscripcion();
             return oTipoSuscripcionCTRL.EliminarTipoSuscripcion(oTipoSuscripcion);
         }
+        #endregion
         //---------------------ABC Contactanos --------------
 
         [WebMethod]
@@ -618,5 +644,33 @@ namespace WSMCTuristic_CentroHistorico.UI
             oSuscripcionCTRL = new Services.CtrlSuscripcion();
             return oSuscripcionCTRL.EliminarSuscripcion(oSuscripcion);
         }
+        //-----------------Pruebas de web_móvil
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void ver_servicios_movil()
+        {
+             
+            oServicioCTRL = new Services.CtrlServicio();
+            //Creamos un dataset para poder resivirlo de las clases
+            DataSet DSmvil = new DataSet();
+            //Asignamos la consulta directa de la base de datos.
+  
+            DSmvil = oServicioCTRL.top12Servicios();
+            //Creamos un DataTable para poder transportarlo a Json.
+            DataTable Tabla = DSmvil.Tables[0];
+
+            //Creamos un string para poder asignarle la salida en formato Json.
+            string SalidaJson = string.Empty;
+            SalidaJson = JsonConvert.SerializeObject(Tabla);
+
+            HttpContext Contexto = HttpContext.Current;
+            Context.Response.ContentType = "application/json";
+            Context.Response.Write(SalidaJson);
+            Context.Response.End();
+        }
+       
+
+
     }
 }
