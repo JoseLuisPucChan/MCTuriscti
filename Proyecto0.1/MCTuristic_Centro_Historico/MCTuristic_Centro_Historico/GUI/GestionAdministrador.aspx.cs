@@ -66,8 +66,8 @@ namespace MCTuristic_Centro_Historico.GUI
         }
 
 
-        //Gesstion Admin
-
+        //Gestión Admin
+        #region Controles AJAX
         [WebMethod]
         public static string GuardarAdmin(string nombre, string apellido, string correo, string contra, string telefono, string fecha)
         {
@@ -124,13 +124,11 @@ namespace MCTuristic_Centro_Historico.GUI
             catch
             { }
         }
-        private void CargarAdmin()
-        {
-            localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
-            ASPxGridView1.DataSource = owebService.ver_Admin_admin();
-            ASPxGridView1.DataBind();
+        #endregion
 
-        }
+        //----------------Eventos-------------------------------
+
+
 
         protected void lbtnModificar_Click(object sender, EventArgs e)
         {
@@ -176,6 +174,36 @@ namespace MCTuristic_Centro_Historico.GUI
             ModificarAdmin();
             CargarAdmin();
         }
+
+        protected void lBntEliminar_Click(object sender, EventArgs e)
+        {
+            localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
+            localhost.DireccionBO oDireccionBO = new localhost.DireccionBO();
+            localhost.AdministradorBO oAdministradorBO = new localhost.AdministradorBO();
+            oDireccionBO.IdDireccion = Convert.ToInt32(txtIdDireccion.Text);
+            oAdministradorBO.IdAdministrador = Convert.ToInt32(txtIDAdmin.Text);
+            int i = owebService.EliminarDireccion(oDireccionBO);
+            if (i > 0)
+            {
+                int y = owebService.EliminarAdministrador(oAdministradorBO);
+                if (y > 0)
+                {
+                    CargarAdmin();
+                    Editar.Visible = false;
+                    GestionNuevo.Visible = true;
+                }
+            }
+
+        }
+
+        //--------------Métodos----------------------------------------
+        private void CargarAdmin()
+        {
+            localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
+            ASPxGridView1.DataSource = owebService.ver_Admin_admin();
+            ASPxGridView1.DataBind();
+
+        }
         private void ModificarAdmin()
         {
             lblEstado.Text = "Procesando...";
@@ -216,28 +244,6 @@ namespace MCTuristic_Centro_Historico.GUI
                 lblEstado.Text = "Error, Verificar si los campos estan llenos";
             }
         }
-
-        protected void lBntEliminar_Click(object sender, EventArgs e)
-        {
-            localhost.WsMCTuristic owebService = new localhost.WsMCTuristic();
-            localhost.DireccionBO oDireccionBO = new localhost.DireccionBO();
-            localhost.AdministradorBO oAdministradorBO = new localhost.AdministradorBO();
-            oDireccionBO.IdDireccion = Convert.ToInt32(txtIdDireccion.Text);
-            oAdministradorBO.IdAdministrador = Convert.ToInt32(txtIDAdmin.Text);
-            int i = owebService.EliminarDireccion(oDireccionBO);
-            if (i > 0)
-            {
-                int y = owebService.EliminarAdministrador(oAdministradorBO);
-                if (y > 0)
-                {
-                    CargarAdmin();
-                    Editar.Visible = false;
-                    GestionNuevo.Visible = true;
-                }
-            }
-
-        }
-
 
 
         //protected void ASPxGridView1_RowCommand(object sender, DevExpress.Web.ASPxGridViewRowCommandEventArgs e)

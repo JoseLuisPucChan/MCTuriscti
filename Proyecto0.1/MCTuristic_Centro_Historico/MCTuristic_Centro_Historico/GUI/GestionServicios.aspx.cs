@@ -28,7 +28,6 @@ namespace MCTuristic_Centro_Historico.GUI
        
         }
        
-
         public void ValidarLogin()
         {
             if ((string)Session["idAdmin"] != "")

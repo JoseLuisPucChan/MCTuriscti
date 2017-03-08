@@ -45,7 +45,6 @@ namespace WSMCTuristic_CentroHistorico.UI
         {
             UsuarioBO oUsuario = new UsuarioBO();
             oUsuario = obj;
-
             oUsuarioCTRL = new Services.CtrlUsuario();
             return oUsuarioCTRL.InsertarUsuario(oUsuario);
         }
@@ -54,7 +53,6 @@ namespace WSMCTuristic_CentroHistorico.UI
         {
             UsuarioBO oUsuario = new UsuarioBO();
             oUsuario = obj;
-
             oUsuarioCTRL = new Services.CtrlUsuario();
             return oUsuarioCTRL.ModificarUsuario(oUsuario);
         }
@@ -63,7 +61,6 @@ namespace WSMCTuristic_CentroHistorico.UI
         {
             UsuarioBO oUsuario = new UsuarioBO();
             oUsuario = obj;
-
             oUsuarioCTRL = new Services.CtrlUsuario();
             return oUsuarioCTRL.EliminarUsuario(oUsuario);
         }
@@ -73,7 +70,6 @@ namespace WSMCTuristic_CentroHistorico.UI
             oUsuarioCTRL = new Services.CtrlUsuario();
             return oUsuarioCTRL.id_usuario();
         }
-
         [WebMethod]
         public DataTable LoginUsuario(UsuarioBO obj)
         {
@@ -104,7 +100,6 @@ namespace WSMCTuristic_CentroHistorico.UI
             oUsuarioCTRL = new Services.CtrlUsuario();
             return oUsuarioCTRL.topUsuarios_User(oUsuario);
         }
-
         #endregion
 
         //--------------------------ABC Direcciones-----------------------------
@@ -499,7 +494,7 @@ namespace WSMCTuristic_CentroHistorico.UI
         #endregion
 
         //------------ ABC TipoSuscripcion --------------
-        #region
+        #region "Tipo de Suscripción"
         [WebMethod]
         public int InsertarTipoSuscripcion(TipoSuscripcionBO obj)
         {
@@ -523,7 +518,7 @@ namespace WSMCTuristic_CentroHistorico.UI
         }
         #endregion
         //---------------------ABC Contactanos --------------
-
+        #region "Gestión de contactanos"
         [WebMethod]
         public int InsertarContactanos(ContactanosBO obj)
         {
@@ -545,8 +540,9 @@ namespace WSMCTuristic_CentroHistorico.UI
             oContactanosCTRL = new Services.CtrlContactanos();
             return oContactanosCTRL.EliminarContactanos(oContactanos);
         }
-
+        #endregion
         //---------------------ABC Administrador-----------------
+        #region "Gestión de Administrador"
         [WebMethod]
         public string obtener_adminid()
         {
@@ -597,8 +593,10 @@ namespace WSMCTuristic_CentroHistorico.UI
             oAdministradorCTRL = new Services.CtrlAdministrador();
             return oAdministradorCTRL.EliminarAdministrador(oAdministrador);
         }
+        #endregion
 
         //------------- ABC Comentarios -----------------------
+        #region "Gestión de Comentarios"
         [WebMethod]
         public int InsertarComentarios(ComentariosBO obj)
         {
@@ -620,9 +618,9 @@ namespace WSMCTuristic_CentroHistorico.UI
             oComentariosCTRL = new Services.CtrlComentario();
             return oComentariosCTRL.EliminarComentarios(oComentarios);
         }
-
+        #endregion
         //------------- ABC Suscripción -----------------------
-
+        #region "Gestión de suscripción"
         [WebMethod]
         public int InsertarSuscripcion(SuscripcionBO obj)
         {
@@ -644,6 +642,7 @@ namespace WSMCTuristic_CentroHistorico.UI
             oSuscripcionCTRL = new Services.CtrlSuscripcion();
             return oSuscripcionCTRL.EliminarSuscripcion(oSuscripcion);
         }
+        #endregion
         //-----------------Pruebas de web_móvil
 
         [WebMethod]
@@ -669,7 +668,29 @@ namespace WSMCTuristic_CentroHistorico.UI
             Context.Response.Write(SalidaJson);
             Context.Response.End();
         }
-       
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void ver_servicios_movil2(string Nombre)
+        {
+
+            oServicioCTRL = new Services.CtrlServicio();
+            //Creamos un dataset para poder resivirlo de las clases
+            DataSet DSmvil = new DataSet();
+            //Asignamos la consulta directa de la base de datos.
+
+            DSmvil = oServicioCTRL.top12Servicios();
+            //Creamos un DataTable para poder transportarlo a Json.
+            DataTable Tabla = DSmvil.Tables[0];
+
+            //Creamos un string para poder asignarle la salida en formato Json.
+            string SalidaJson = string.Empty;
+            SalidaJson = JsonConvert.SerializeObject(Tabla);
+
+            HttpContext Contexto = HttpContext.Current;
+            Context.Response.ContentType = "application/json";
+            Context.Response.Write(SalidaJson);
+            Context.Response.End();
+        }
 
 
     }

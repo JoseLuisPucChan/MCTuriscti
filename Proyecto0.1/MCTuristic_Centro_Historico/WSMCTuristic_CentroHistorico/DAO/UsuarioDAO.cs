@@ -18,11 +18,9 @@ namespace WSMCTuristic_CentroHistorico.DAO
             cmd = new SqlCommand();
             conn = new Conexion();
             oUsuario = (BO.UsuarioBO)obj;
-
             cmd.Connection = conn.Establecer();
             cmd.CommandText = "insertar_usuario";
             cmd.CommandType = CommandType.StoredProcedure;
-
             cmd.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = oUsuario.NombreUsuario;
             cmd.Parameters.Add("@Apellidos", SqlDbType.VarChar).Value = oUsuario.ApellidosUsuario;
             cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = oUsuario.EmailUsuario;
@@ -51,11 +49,9 @@ namespace WSMCTuristic_CentroHistorico.DAO
             cmd = new SqlCommand();
             conn = new Conexion();
             oUsuario = (BO.UsuarioBO)obj;
-
             cmd.Connection = conn.Establecer();
             cmd.CommandText = "actualizar_usuario";
             cmd.CommandType = CommandType.StoredProcedure;
-
             cmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = oUsuario.IdUsuario;
             cmd.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = oUsuario.NombreUsuario;
             cmd.Parameters.Add("@Apellidos", SqlDbType.VarChar).Value = oUsuario.ApellidosUsuario;
@@ -64,8 +60,6 @@ namespace WSMCTuristic_CentroHistorico.DAO
             cmd.Parameters.Add("@TelefonoCelular", SqlDbType.VarChar).Value = oUsuario.TelefonoUsuario;
             cmd.Parameters.Add("@FechaNacimiento", SqlDbType.Date).Value = oUsuario.FecharNacUsuario;
             cmd.Parameters.Add("@Foto", SqlDbType.Image).Value = oUsuario.Foto;
-
-
             conn.Abrir();
             int retorno = cmd.ExecuteNonQuery();
 
@@ -86,11 +80,9 @@ namespace WSMCTuristic_CentroHistorico.DAO
             cmd = new SqlCommand();
             conn = new Conexion();
             oUsuario = (BO.UsuarioBO)obj;
-
             cmd.Connection = conn.Establecer();
             cmd.CommandText = "eliminar_usuario";
             cmd.CommandType = CommandType.StoredProcedure;
-
             cmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = oUsuario.IdUsuario;
 
             conn.Abrir();

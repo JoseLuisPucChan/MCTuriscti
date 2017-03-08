@@ -15,6 +15,7 @@ namespace MCTuristic_Centro_Historico.GUI
         localhost.UsuarioBO oUsuariosBO = new localhost.UsuarioBO();
         localhost.DireccionBO oDireccionBO = new DireccionBO();
         byte[] foto;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             lblNuevo.Visible = false;
@@ -25,14 +26,19 @@ namespace MCTuristic_Centro_Historico.GUI
             }
         }
 
+        //Se encarga validar si existe algún usuario activo.
         public void ValidarLogin()
         {
+            //Entra en dado caso que el Exista un administrador.
             if ((string)Session["idAdmin"] != "")
             {
                 localhost.AdministradorBO datos = new localhost.AdministradorBO();
                 localhost.WsMCTuristic service = new localhost.WsMCTuristic();
+                //Obtiene el id de la sesión que esta activa del administrador
                 datos.IdAdministrador = Convert.ToInt32((string)Session["idAdmin"]);
+                //Realiza una consulta para poder traer los datos del Administrador.
                 DataSet tabla = service.Ver_admin_log(datos);
+                //Al tener datos en el Dataset Se asignan a los controles que esta prestablecidos.
                 if ((tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString()).Length > 9)
                 {
                     lblUsuario.Text = (tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString()).Substring(0, 10) + "...";
@@ -43,16 +49,22 @@ namespace MCTuristic_Centro_Historico.GUI
                 }
                 lblNombreUsuario.Text = tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString();
                 
+                //Por tener permisos de usuario este se encarga de llenar el gridView con todos los usuarios dados de alta.
                 CargarUsuario();
             }
             else
             {
+                //Entra en dado caso que el usaurio este activo.
                 if ((string)Session["idUser"] != "")
                 {
                     localhost.UsuarioBO datos = new localhost.UsuarioBO();
                     localhost.WsMCTuristic service = new localhost.WsMCTuristic();
+                    //Obtiene el id de la sesión que esta activa del usuario
                     datos.IdUsuario = Convert.ToInt32((string)Session["idUser"]);
+                    //Se realiza una consulta al WebServices para poder traer todos los datos necesarios.
                     DataSet tabla = service.usuario_userWS(datos);
+
+                    //Al obtener los datos completos comienza a llenar los controles por si el usuario quiere 
                     lblUsuario.Text = (tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString()).Substring(0, 10) + "...";
                     lblNombreUsuario.Text = tabla.Tables[0].Rows[0]["Nombre"].ToString() + " " + tabla.Tables[0].Rows[0]["Apellidos"].ToString();
                     imgMiniaturaUsuario.ImageUrl = ConvertirImagenStringWebUrl((Byte[])tabla.Tables[0].Rows[0]["Foto"], "jpg");
@@ -107,7 +119,6 @@ namespace MCTuristic_Centro_Historico.GUI
             }
             CargarUsuario();
         }
-      
         protected void lblNuevo_Click(object sender, EventArgs e)
         {
             Editar.Visible = false;
@@ -119,7 +130,6 @@ namespace MCTuristic_Centro_Historico.GUI
             GestioUsuarios.Visible = false;
             Editar.Visible = true;
         }
-     
         protected void lbtnEliminar_Click(object sender, EventArgs e)
         {
             owebService = new localhost.WsMCTuristic();
@@ -144,39 +154,55 @@ namespace MCTuristic_Centro_Historico.GUI
             }
             catch { }
         }
-
+      
+         
+        //Método para poder saber si el usuario selecciono el boton de "Editar".
         protected void ASPxGridView1_RowCommand(object sender, DevExpress.Web.ASPxGridViewRowCommandEventArgs e)
         {
             if (e.CommandArgs.CommandArgument.ToString() == "Editar")
             {
-                GestioUsuarios.Visible = false;
-                Editar.Visible = true;
-                lblNuevo.Visible = true;
-                txtIDUsuario.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Código").ToString();
-                txtIdDireccion.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "idDireccion").ToString();
-                txtNombreEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Nombre").ToString();
-                txtApellidosEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Apellidos").ToString();
-                txtEmailEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Email").ToString();
-                txtCelularEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Teléfono").ToString();
-                txtFechaNacimientoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "FechaNacimiento").ToString();
-                txtCalleEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Calle").ToString();
-                txtCruzamientoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Cruzamiento").ToString();
-                txtNumeroCalleEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Numero").ToString();
-                txtColoniaEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Colonia").ToString();
-                txtDescripcionEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Descripcion").ToString();
-                txtEstadoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Estado").ToString();
-                txtCodigoPostaEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "CodPostal").ToString();
-                Session["arreglo1"] = (byte[])ASPxGridView1.GetRowValues(e.VisibleIndex, "Foto");
-                FotoPre.ImageUrl = ConvertirImagenStringWebUrl((Byte[])Session["arreglo1"], "jpg");
-                txtContraseñaEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Contraseña").ToString();
-
-                //Control de formulario web
-                txtNombreEdit.Focus();
-                lblNuevo.Visible = true;
+                //Pasa las sobrecargas para realizar la selección de la fila.
+                SeleccionEditar(sender,e);
             }
+        }
+        //Si el usuario selecciona un campo de GridView se ejecuta.
+        private void SeleccionEditar(object sender, DevExpress.Web.ASPxGridViewRowCommandEventArgs e)
+        {
+            //Cambia el estado del panel principal para la gestión de nuevos usuarios.
+            //Se encarga de poner invisible el primer panel.
+            GestioUsuarios.Visible = false;
+
+            //Pone el visible el panel para poder editar los valores del usuario seleccionado
+            Editar.Visible = true;
+            lblNuevo.Visible = true;
+            
+            //Recolecta los datos y los pasa al panel de edición.
+            txtIDUsuario.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Código").ToString();
+            txtIdDireccion.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "idDireccion").ToString();
+            txtNombreEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Nombre").ToString();
+            txtApellidosEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Apellidos").ToString();
+            txtEmailEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Email").ToString();
+            txtCelularEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Teléfono").ToString();
+            txtFechaNacimientoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "FechaNacimiento").ToString();
+            txtCalleEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Calle").ToString();
+            txtCruzamientoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Cruzamiento").ToString();
+            txtNumeroCalleEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Numero").ToString();
+            txtColoniaEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Colonia").ToString();
+            txtDescripcionEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Descripcion").ToString();
+            txtEstadoEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Estado").ToString();
+            txtCodigoPostaEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "CodPostal").ToString();
+            Session["arreglo1"] = (byte[])ASPxGridView1.GetRowValues(e.VisibleIndex, "Foto");
+            FotoPre.ImageUrl = ConvertirImagenStringWebUrl((Byte[])Session["arreglo1"], "jpg");
+            txtContraseñaEdit.Text = ASPxGridView1.GetRowValues(e.VisibleIndex, "Contraseña").ToString();
+
+            //Control de formulario web
+            txtNombreEdit.Focus();
+            lblNuevo.Visible = true;
         }
 
         //-----------------Métodos Para la gestion de Usuarios---------------------------------
+        #region Métodos Gestión de Usuarios
+
         //Limpiar los controles de Formulario web
         private void LimpiarControles()
         {
@@ -227,7 +253,6 @@ namespace MCTuristic_Centro_Historico.GUI
             oDireccionBO.IdUsuario = Convert.ToInt32(Session["idUsuario"]);
             return oDireccionBO;
         }
-
         //Modificar *Recupera todo los datos en el formulario*.
         private void ModificarUser()
         {
@@ -270,9 +295,10 @@ namespace MCTuristic_Centro_Historico.GUI
 
             }
         }
+        #endregion
 
-        //Recuperación y generación de Imagenes
-
+        //----------Recuperación y generación de Imagenes-------------
+        #region Control de imagenes
         private bool VerificarArchivoImg()
         {
             if (fuFoto.HasFile)
@@ -297,7 +323,6 @@ namespace MCTuristic_Centro_Historico.GUI
             }
             return false;
         }
-
         protected void btnVer_Click(object sender, EventArgs e)
         {
             if (VerificarArchivoImg() == true)
@@ -305,7 +330,6 @@ namespace MCTuristic_Centro_Historico.GUI
                 imgFoto.ImageUrl = (string)Session["Url"];
             }
         }
-
         //public Image RecuperarImagen(string Imagen)
         //{
         //    // Convert Base64 String to byte[]
@@ -318,13 +342,11 @@ namespace MCTuristic_Centro_Historico.GUI
         //    Image image = Image.FromStream(ms, true);
         //    return image;
         //}
-
         public string ConvertirImagenStringWeb(Byte[] arreglo)
         {
             string imagen = Convert.ToBase64String(arreglo, 0, arreglo.Length);
             return imagen;
         }
-
         public string RecuperarImagenWebUrl(string Imagen)
         {
             // Convert Base64 String to byte[]
@@ -333,13 +355,12 @@ namespace MCTuristic_Centro_Historico.GUI
             image = "data:image/.jpeg" + "jpeg;base64," + image;
             return image;
         }
-
         public string ConvertirImagenStringWebUrl(Byte[] arreglo, string extension)
         {
             string url = Convert.ToBase64String(arreglo, 0, arreglo.Length);
             url = "data:image/" + extension + "jpeg;base64," + url;
             return url;
         }
-
+        #endregion
     }
 }
