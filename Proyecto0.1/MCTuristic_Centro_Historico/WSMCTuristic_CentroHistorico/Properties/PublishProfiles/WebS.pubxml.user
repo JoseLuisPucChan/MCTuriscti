@@ -14,13 +14,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>08/14/2010 14:55:22</publishTime>
     </File>
     <File Include="bin/WSMCTuristic_CentroHistorico.dll">
-      <publishTime>03/07/2017 23:38:13</publishTime>
+      <publishTime>03/08/2017 13:46:44</publishTime>
     </File>
     <File Include="UI/WsMCTuristic.asmx">
       <publishTime>01/04/2017 16:10:26</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/23/2017 22:11:09</publishTime>
+      <publishTime>03/08/2017 13:47:19</publishTime>
     </File>
   </ItemGroup>
 </Project>

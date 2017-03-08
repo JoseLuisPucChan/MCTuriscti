@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
+using System.Web.Script.Serialization;  
 using WSMCTuristic_CentroHistorico.BO;
 using Newtonsoft.Json;
 
