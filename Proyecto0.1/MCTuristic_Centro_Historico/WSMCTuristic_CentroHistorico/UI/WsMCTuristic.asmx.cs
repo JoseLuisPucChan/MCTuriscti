@@ -461,6 +461,12 @@ namespace WSMCTuristic_CentroHistorico.UI
         {
             oTipoServicioCTRL = new Services.CtrlTipoServicio();
             return oTipoServicioCTRL.topTipoServicios();
+
+
+
+
+
+
         }
         #endregion
         //------------- ABC TipoSitio ----------------
@@ -693,6 +699,32 @@ namespace WSMCTuristic_CentroHistorico.UI
             Context.Response.End();
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+
+        public void tipoServicioWS_movil()
+        {
+            oTipoServicioCTRL = new Services.CtrlTipoServicio();
+            
+            DataSet DSmvil = new DataSet();
+            //Asignamos la consulta directa de la base de datos.
+
+            DSmvil = oTipoServicioCTRL.topTipoServicios();
+            //Creamos un DataTable para poder transportarlo a Json.
+            DataTable Tabla = DSmvil.Tables[0];
+
+            //Creamos un string para poder asignarle la salida en formato Json.
+            string SalidaJson = string.Empty;
+            SalidaJson = JsonConvert.SerializeObject(Tabla);
+
+            HttpContext Contexto = HttpContext.Current;
+            Context.Response.ContentType = "application/json";
+            Context.Response.Write(SalidaJson);
+            Context.Response.End();
+
+
+
+        }
 
     }
 }
