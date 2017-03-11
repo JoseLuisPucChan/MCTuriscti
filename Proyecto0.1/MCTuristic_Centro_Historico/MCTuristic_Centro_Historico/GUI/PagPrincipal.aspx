@@ -287,31 +287,31 @@
             <div class="row service-grid">
                 <div class="col-sm-3">
                     <ul>
-                        <li><span><i class="fa fa-male"></i><i class="fa fa-female"></i></span></li>
+                        <li><span><i class="fa fa-bar-chart-o"></i></span></li>
                         <li>
                             <h3>Registra tu negocio</h3>
                             <p>Podras administrar tu propio negocio para obtener más clientes y mejor prestigio</p>
                         </li>
                         <li>
-                            <button onclick="window.location.href='services-details.html'">Leer más</button>
+                            <button onclick="window.location.href='../GUI/Principal.aspx'">Leer más</button>
                         </li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
                     <ul>
-                        <li><span><i class="fa fa-user-md"></i></span></li>
+                        <li><span><i class="fa fa-user"></i><i class="fa fa-2x"></i></span></li>
                         <li>
                             <h3>Soporte ténico</h3>
                             <p>Podra obtener soporte para su cuenta y aclaraciones en sus rutas o lugares favoritos. </p>
                         </li>
                         <li>
-                            <button onclick="window.location.href='services-details.html'">Leer más</button>
+                            <button onclick="window.location.href='GUI/services-details.html'">Leer más</button>
                         </li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
                     <ul>
-                        <li><span><i class="fa fa-gift"></i></span></li>
+                        <li><span><i class="fa fa-ticket"></i></span></li>
                         <li>
                             <h3>Servicios en oferta</h3>
                             <p>Conoce los servicios que esten en oferta para poder ahorar en el centro historico. </p>
@@ -323,7 +323,7 @@
                 </div>
                 <div class="col-sm-3">
                     <ul>
-                        <li><span><i class="fa fa-lightbulb-o"></i></span></li>
+                        <li><span><i class="fa fa-map-marker"></i></span></li>
                         <li>
                             <h3>Conoce los puntos de mérida</h3>
                             <p>Conoce los espacios mas visitados y reconocidos en el centro histórico. </p>

@@ -1213,6 +1213,38 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ver_servicios_movil">
+        <s:complexType />
+      </s:element>
+      <s:element name="ver_servicios_movilResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ver_servicios_movil2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ver_servicios_movil2Response">
+        <s:complexType />
+      </s:element>
+      <s:element name="tipoServicioWS_movil">
+        <s:complexType />
+      </s:element>
+      <s:element name="tipoServicioWS_movilResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="base64Binary" nillable="true" type="s:base64Binary" />
     </s:schema>
   </wsdl:types>
   <wsdl:message name="InsertarUsuarioSoapIn">
@@ -1629,6 +1661,132 @@
   <wsdl:message name="EliminarSuscripcionSoapOut">
     <wsdl:part name="parameters" element="tns:EliminarSuscripcionResponse" />
   </wsdl:message>
+  <wsdl:message name="ver_servicios_movilSoapIn">
+    <wsdl:part name="parameters" element="tns:ver_servicios_movil" />
+  </wsdl:message>
+  <wsdl:message name="ver_servicios_movilSoapOut">
+    <wsdl:part name="parameters" element="tns:ver_servicios_movilResponse" />
+  </wsdl:message>
+  <wsdl:message name="ver_servicios_movil2SoapIn">
+    <wsdl:part name="parameters" element="tns:ver_servicios_movil2" />
+  </wsdl:message>
+  <wsdl:message name="ver_servicios_movil2SoapOut">
+    <wsdl:part name="parameters" element="tns:ver_servicios_movil2Response" />
+  </wsdl:message>
+  <wsdl:message name="tipoServicioWS_movilSoapIn">
+    <wsdl:part name="parameters" element="tns:tipoServicioWS_movil" />
+  </wsdl:message>
+  <wsdl:message name="tipoServicioWS_movilSoapOut">
+    <wsdl:part name="parameters" element="tns:tipoServicioWS_movilResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtener_usuarioidHttpGetIn" />
+  <wsdl:message name="obtener_usuarioidHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="usuario_adminWSHttpGetIn" />
+  <wsdl:message name="usuario_adminWSHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="usuario_adminFiltradosWSHttpGetIn" />
+  <wsdl:message name="usuario_adminFiltradosWSHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="establecimiento_AdminWSHttpGetIn" />
+  <wsdl:message name="establecimiento_AdminWSHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="top12ServiciosHttpGetIn" />
+  <wsdl:message name="top12ServiciosHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="verFotoSerHttpGetIn">
+    <wsdl:part name="Ser" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="verFotoSerHttpGetOut">
+    <wsdl:part name="Body" element="tns:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="sitio_WSHttpGetIn" />
+  <wsdl:message name="sitio_WSHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="tipoServicioWSHttpGetIn" />
+  <wsdl:message name="tipoServicioWSHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="tipoSitiosHttpGetIn" />
+  <wsdl:message name="tipoSitiosHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="obtener_adminidHttpGetIn" />
+  <wsdl:message name="obtener_adminidHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ver_Admin_adminHttpGetIn" />
+  <wsdl:message name="ver_Admin_adminHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ver_servicios_movilHttpGetIn" />
+  <wsdl:message name="ver_servicios_movilHttpGetOut" />
+  <wsdl:message name="ver_servicios_movil2HttpGetIn">
+    <wsdl:part name="Nombre" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ver_servicios_movil2HttpGetOut" />
+  <wsdl:message name="tipoServicioWS_movilHttpGetIn" />
+  <wsdl:message name="tipoServicioWS_movilHttpGetOut" />
+  <wsdl:message name="obtener_usuarioidHttpPostIn" />
+  <wsdl:message name="obtener_usuarioidHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="usuario_adminWSHttpPostIn" />
+  <wsdl:message name="usuario_adminWSHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="usuario_adminFiltradosWSHttpPostIn" />
+  <wsdl:message name="usuario_adminFiltradosWSHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="establecimiento_AdminWSHttpPostIn" />
+  <wsdl:message name="establecimiento_AdminWSHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="top12ServiciosHttpPostIn" />
+  <wsdl:message name="top12ServiciosHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="verFotoSerHttpPostIn">
+    <wsdl:part name="Ser" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="verFotoSerHttpPostOut">
+    <wsdl:part name="Body" element="tns:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="sitio_WSHttpPostIn" />
+  <wsdl:message name="sitio_WSHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="tipoServicioWSHttpPostIn" />
+  <wsdl:message name="tipoServicioWSHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="tipoSitiosHttpPostIn" />
+  <wsdl:message name="tipoSitiosHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="obtener_adminidHttpPostIn" />
+  <wsdl:message name="obtener_adminidHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ver_Admin_adminHttpPostIn" />
+  <wsdl:message name="ver_Admin_adminHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ver_servicios_movilHttpPostIn" />
+  <wsdl:message name="ver_servicios_movilHttpPostOut" />
+  <wsdl:message name="ver_servicios_movil2HttpPostIn">
+    <wsdl:part name="Nombre" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ver_servicios_movil2HttpPostOut" />
+  <wsdl:message name="tipoServicioWS_movilHttpPostIn" />
+  <wsdl:message name="tipoServicioWS_movilHttpPostOut" />
   <wsdl:portType name="WsMCTuristicSoap">
     <wsdl:operation name="InsertarUsuario">
       <wsdl:input message="tns:InsertarUsuarioSoapIn" />
@@ -1905,6 +2063,134 @@
     <wsdl:operation name="EliminarSuscripcion">
       <wsdl:input message="tns:EliminarSuscripcionSoapIn" />
       <wsdl:output message="tns:EliminarSuscripcionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil">
+      <wsdl:input message="tns:ver_servicios_movilSoapIn" />
+      <wsdl:output message="tns:ver_servicios_movilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil2">
+      <wsdl:input message="tns:ver_servicios_movil2SoapIn" />
+      <wsdl:output message="tns:ver_servicios_movil2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS_movil">
+      <wsdl:input message="tns:tipoServicioWS_movilSoapIn" />
+      <wsdl:output message="tns:tipoServicioWS_movilSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WsMCTuristicHttpGet">
+    <wsdl:operation name="obtener_usuarioid">
+      <wsdl:input message="tns:obtener_usuarioidHttpGetIn" />
+      <wsdl:output message="tns:obtener_usuarioidHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="usuario_adminWS">
+      <wsdl:input message="tns:usuario_adminWSHttpGetIn" />
+      <wsdl:output message="tns:usuario_adminWSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="usuario_adminFiltradosWS">
+      <wsdl:input message="tns:usuario_adminFiltradosWSHttpGetIn" />
+      <wsdl:output message="tns:usuario_adminFiltradosWSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="establecimiento_AdminWS">
+      <wsdl:input message="tns:establecimiento_AdminWSHttpGetIn" />
+      <wsdl:output message="tns:establecimiento_AdminWSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="top12Servicios">
+      <wsdl:input message="tns:top12ServiciosHttpGetIn" />
+      <wsdl:output message="tns:top12ServiciosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verFotoSer">
+      <wsdl:input message="tns:verFotoSerHttpGetIn" />
+      <wsdl:output message="tns:verFotoSerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sitio_WS">
+      <wsdl:input message="tns:sitio_WSHttpGetIn" />
+      <wsdl:output message="tns:sitio_WSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS">
+      <wsdl:input message="tns:tipoServicioWSHttpGetIn" />
+      <wsdl:output message="tns:tipoServicioWSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="tipoSitios">
+      <wsdl:input message="tns:tipoSitiosHttpGetIn" />
+      <wsdl:output message="tns:tipoSitiosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtener_adminid">
+      <wsdl:input message="tns:obtener_adminidHttpGetIn" />
+      <wsdl:output message="tns:obtener_adminidHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ver_Admin_admin">
+      <wsdl:input message="tns:ver_Admin_adminHttpGetIn" />
+      <wsdl:output message="tns:ver_Admin_adminHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil">
+      <wsdl:input message="tns:ver_servicios_movilHttpGetIn" />
+      <wsdl:output message="tns:ver_servicios_movilHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil2">
+      <wsdl:input message="tns:ver_servicios_movil2HttpGetIn" />
+      <wsdl:output message="tns:ver_servicios_movil2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS_movil">
+      <wsdl:input message="tns:tipoServicioWS_movilHttpGetIn" />
+      <wsdl:output message="tns:tipoServicioWS_movilHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WsMCTuristicHttpPost">
+    <wsdl:operation name="obtener_usuarioid">
+      <wsdl:input message="tns:obtener_usuarioidHttpPostIn" />
+      <wsdl:output message="tns:obtener_usuarioidHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="usuario_adminWS">
+      <wsdl:input message="tns:usuario_adminWSHttpPostIn" />
+      <wsdl:output message="tns:usuario_adminWSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="usuario_adminFiltradosWS">
+      <wsdl:input message="tns:usuario_adminFiltradosWSHttpPostIn" />
+      <wsdl:output message="tns:usuario_adminFiltradosWSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="establecimiento_AdminWS">
+      <wsdl:input message="tns:establecimiento_AdminWSHttpPostIn" />
+      <wsdl:output message="tns:establecimiento_AdminWSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="top12Servicios">
+      <wsdl:input message="tns:top12ServiciosHttpPostIn" />
+      <wsdl:output message="tns:top12ServiciosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verFotoSer">
+      <wsdl:input message="tns:verFotoSerHttpPostIn" />
+      <wsdl:output message="tns:verFotoSerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sitio_WS">
+      <wsdl:input message="tns:sitio_WSHttpPostIn" />
+      <wsdl:output message="tns:sitio_WSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS">
+      <wsdl:input message="tns:tipoServicioWSHttpPostIn" />
+      <wsdl:output message="tns:tipoServicioWSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="tipoSitios">
+      <wsdl:input message="tns:tipoSitiosHttpPostIn" />
+      <wsdl:output message="tns:tipoSitiosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtener_adminid">
+      <wsdl:input message="tns:obtener_adminidHttpPostIn" />
+      <wsdl:output message="tns:obtener_adminidHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ver_Admin_admin">
+      <wsdl:input message="tns:ver_Admin_adminHttpPostIn" />
+      <wsdl:output message="tns:ver_Admin_adminHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil">
+      <wsdl:input message="tns:ver_servicios_movilHttpPostIn" />
+      <wsdl:output message="tns:ver_servicios_movilHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil2">
+      <wsdl:input message="tns:ver_servicios_movil2HttpPostIn" />
+      <wsdl:output message="tns:ver_servicios_movil2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS_movil">
+      <wsdl:input message="tns:tipoServicioWS_movilHttpPostIn" />
+      <wsdl:output message="tns:tipoServicioWS_movilHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WsMCTuristicSoap" type="tns:WsMCTuristicSoap">
@@ -2523,6 +2809,33 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarSuscripcion">
       <soap:operation soapAction="http://MCTuristic.org/EliminarSuscripcion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil">
+      <soap:operation soapAction="http://MCTuristic.org/ver_servicios_movil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil2">
+      <soap:operation soapAction="http://MCTuristic.org/ver_servicios_movil2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS_movil">
+      <soap:operation soapAction="http://MCTuristic.org/tipoServicioWS_movil" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -3154,13 +3467,292 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil">
+      <soap12:operation soapAction="http://MCTuristic.org/ver_servicios_movil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil2">
+      <soap12:operation soapAction="http://MCTuristic.org/ver_servicios_movil2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS_movil">
+      <soap12:operation soapAction="http://MCTuristic.org/tipoServicioWS_movil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsMCTuristicHttpGet" type="tns:WsMCTuristicHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="obtener_usuarioid">
+      <http:operation location="/obtener_usuarioid" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="usuario_adminWS">
+      <http:operation location="/usuario_adminWS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="usuario_adminFiltradosWS">
+      <http:operation location="/usuario_adminFiltradosWS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="establecimiento_AdminWS">
+      <http:operation location="/establecimiento_AdminWS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="top12Servicios">
+      <http:operation location="/top12Servicios" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verFotoSer">
+      <http:operation location="/verFotoSer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sitio_WS">
+      <http:operation location="/sitio_WS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS">
+      <http:operation location="/tipoServicioWS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tipoSitios">
+      <http:operation location="/tipoSitios" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtener_adminid">
+      <http:operation location="/obtener_adminid" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ver_Admin_admin">
+      <http:operation location="/ver_Admin_admin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil">
+      <http:operation location="/ver_servicios_movil" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil2">
+      <http:operation location="/ver_servicios_movil2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS_movil">
+      <http:operation location="/tipoServicioWS_movil" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WsMCTuristicHttpPost" type="tns:WsMCTuristicHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="obtener_usuarioid">
+      <http:operation location="/obtener_usuarioid" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="usuario_adminWS">
+      <http:operation location="/usuario_adminWS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="usuario_adminFiltradosWS">
+      <http:operation location="/usuario_adminFiltradosWS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="establecimiento_AdminWS">
+      <http:operation location="/establecimiento_AdminWS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="top12Servicios">
+      <http:operation location="/top12Servicios" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verFotoSer">
+      <http:operation location="/verFotoSer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sitio_WS">
+      <http:operation location="/sitio_WS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS">
+      <http:operation location="/tipoServicioWS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tipoSitios">
+      <http:operation location="/tipoSitios" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtener_adminid">
+      <http:operation location="/obtener_adminid" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ver_Admin_admin">
+      <http:operation location="/ver_Admin_admin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil">
+      <http:operation location="/ver_servicios_movil" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ver_servicios_movil2">
+      <http:operation location="/ver_servicios_movil2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="tipoServicioWS_movil">
+      <http:operation location="/tipoServicioWS_movil" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="WsMCTuristic">
     <wsdl:port name="WsMCTuristicSoap" binding="tns:WsMCTuristicSoap">
-      <soap:address location="http://www.mcturistic.somee.com/UI/WsMCTuristic.asmx" />
+      <soap:address location="http://localhost:8296/UI/WsMCTuristic.asmx" />
     </wsdl:port>
     <wsdl:port name="WsMCTuristicSoap12" binding="tns:WsMCTuristicSoap12">
-      <soap12:address location="http://www.mcturistic.somee.com/UI/WsMCTuristic.asmx" />
+      <soap12:address location="http://localhost:8296/UI/WsMCTuristic.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsMCTuristicHttpGet" binding="tns:WsMCTuristicHttpGet">
+      <http:address location="http://localhost:8296/UI/WsMCTuristic.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WsMCTuristicHttpPost" binding="tns:WsMCTuristicHttpPost">
+      <http:address location="http://localhost:8296/UI/WsMCTuristic.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -100,6 +100,12 @@
                             <span>Establecimientos</span>
                         </a>
                     </li>
+                     <li>
+                        <a href="../GUI/GestionEventosUsuarios.aspx" title="Establecimientos">
+                            <i class="glyph-icon icon-building"></i>
+                            <span>Eventos</span>
+                        </a>
+                    </li>
 <%--                    <li>
                         <a href="../GUI/GestionSitios.aspx" title="Sitios">
                             <i class="glyph-icon icon-university"></i>

@@ -14,7 +14,7 @@ namespace MCTuristic_Centro_Historico.GUI
         localhost.WsMCTuristic servicio = new localhost.WsMCTuristic();
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtIdSitio.Text = Session["idSitio"].ToString();
+            
             if (!IsPostBack)
             {
                 ValidarLogin();
@@ -26,6 +26,7 @@ namespace MCTuristic_Centro_Historico.GUI
         {
             if ((string)Session["idAdmin"] != "")
             {
+                txtIdSitio.Text = Session["idSitio"].ToString();
                 localhost.AdministradorBO datos = new localhost.AdministradorBO();
                 localhost.WsMCTuristic service = new localhost.WsMCTuristic();
                 datos.IdAdministrador = Convert.ToInt32((string)Session["idAdmin"]);

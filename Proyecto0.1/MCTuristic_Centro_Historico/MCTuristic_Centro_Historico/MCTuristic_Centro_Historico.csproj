@@ -936,10 +936,13 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://www.mcturistic.somee.com/UI/WsMCTuristic.asmx">
+    <Folder Include="Recursos\Login\js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:8296/UI/WsMCTuristic.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\localhost\</RelPath>
-      <UpdateFromURL>http://www.mcturistic.somee.com/UI/WsMCTuristic.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:8296/UI/WsMCTuristic.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -947,9 +950,6 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>MCTuristic_Centro_Historico_localhost_WsMCTuristic</CachedSettingsPropName>
     </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Recursos\Login\js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -38,7 +38,6 @@ namespace WSMCTuristic_CentroHistorico.UI
         Services.CtrlSuscripcion oSuscripcionCTRL;
 
 
-
         //--------------------------ABC Usuarios-----------------------------
         #region "Gestión de Usuarios"  
         [WebMethod]
@@ -650,8 +649,9 @@ namespace WSMCTuristic_CentroHistorico.UI
             return oSuscripcionCTRL.EliminarSuscripcion(oSuscripcion);
         }
         #endregion
-        //-----------------Pruebas de web_móvil
 
+
+        //-----------------Pruebas de web_móvil
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void ver_servicios_movil()
@@ -725,6 +725,15 @@ namespace WSMCTuristic_CentroHistorico.UI
 
 
         }
+
+
+
+
+
+
+
+
+
 
     }
 }
