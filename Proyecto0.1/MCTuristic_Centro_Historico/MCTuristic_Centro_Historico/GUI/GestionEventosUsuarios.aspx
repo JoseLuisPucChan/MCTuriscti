@@ -52,7 +52,7 @@
 
         
     
-    <asp:LinkButton ID="lbtnNuevo" runat="server" CssClass="btn btn-blue-alt"><i class="glyph-icon icon-plus-circle"></i> Nuevo</asp:LinkButton>
+    <asp:LinkButton ID="lbtnNuevo" runat="server" CssClass="btn btn-blue-alt" OnClick="lbtnNuevo_Click"><i class="glyph-icon icon-plus-circle"></i> Nuevo</asp:LinkButton>
 
     <asp:Panel ID="pnlPrincipal" runat="server">
        
@@ -90,7 +90,7 @@
                             <asp:TextBox ID="txtCerrar" runat="server" CssClass="form-control border-blue"></asp:TextBox>
                             <br />
                             <h3><i class="glyph-icon icon-file-text"></i>Sitio</h3>
-                            <asp:TextBox ID="txtNombreSitio" runat="server" ReadOnly="true" CssClass="form-control border-blue"></asp:TextBox>
+                            <asp:DropDownList ID="ddlTipoSitio" runat="server" CssClass="form-control border-blue" OnSelectedIndexChanged="ddlTipoSitio_SelectedIndexChanged"></asp:DropDownList>
                             
                         </div>
                     </div>
@@ -107,7 +107,6 @@
                             <asp:Button ID="btnSubir" runat="server" CssClass="btn btn-primary" Text="Subir foto" OnClick="btnSubir_Click" PostBackUrl="~/GUI/GestionEventosUsuarios.aspx" />
                         </div>
                     </div>
-
                     <div class="col-lg-12 form-group">
                         <div class="divider"></div>
                         <asp:LinkButton ID="lbtnGuardar" runat="server" CssClass="btn btn-blue-alt" OnClick="lbtnGuardar_Click"><i class="glyph-icon icon-save"></i> Guardar</asp:LinkButton>
@@ -139,7 +138,6 @@
                                         </dx:GridViewDataColumn>
                                     </Columns>
                                         </dx:ASPxGridView>
-
                     </div>
                     
                 </div>
@@ -195,7 +193,7 @@
                                         <br />
                                         <asp:FileUpload ID="fuFoto2" CssClass="btn-primary" runat="server" Visible="true" />
                                         <br />
-                                        <asp:Button ID="btn_subir2" runat="server" CssClass="btn btn-primary" Text="Subir foto" OnClick="btnSubir_Click" PostBackUrl="~/GUI/GestionEventos.aspx" />
+                                        <asp:Button ID="btn_subir2" runat="server" CssClass="btn btn-primary" Text="Subir foto" OnClick="btnSubir_Click" PostBackUrl="~/GUI/GestionEventosUsuarios.aspx" />
                                     </div>
                                 </div>
 

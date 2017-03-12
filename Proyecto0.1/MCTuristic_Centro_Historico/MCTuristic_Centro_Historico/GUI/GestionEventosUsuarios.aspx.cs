@@ -14,10 +14,12 @@ namespace MCTuristic_Centro_Historico.GUI
         localhost.WsMCTuristic servicio = new localhost.WsMCTuristic();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+         
             if (!IsPostBack)
             {
+                CargarDropTipoSitios();
                 ValidarLogin();
+
             }
 
         }
@@ -57,7 +59,7 @@ namespace MCTuristic_Centro_Historico.GUI
                     phUsuario.Visible = true;
                     phAdmin.Visible = false;
                     txtIdUsuario.Text = datos.IdUsuario.ToString();
-                   
+                    CargarGriwUser();
                 }
             }
         }
@@ -78,14 +80,26 @@ namespace MCTuristic_Centro_Historico.GUI
 
 
         // Grid del usuario con sus eventos de sitios específicos
+        //private void CargarGriwUser()
+        //{
+        //    oEvento = new localhost.EventoBO();
+        //    oEvento.IdSitio = Convert.ToInt32(txtIdSitio.Text);
+        //    oEvento.IdUsuario = Convert.ToInt32(txtIdUsuario.Text);
+        //    ASPxGridView1.DataSource = servicio.Ver_evento_user(oEvento);
+        //    ASPxGridView1.DataBind();
+        //}
         private void CargarGriwUser()
         {
             oEvento = new localhost.EventoBO();
-            oEvento.IdSitio = Convert.ToInt32(txtIdSitio.Text);
             oEvento.IdUsuario = Convert.ToInt32(txtIdUsuario.Text);
             ASPxGridView1.DataSource = servicio.Ver_evento_user(oEvento);
             ASPxGridView1.DataBind();
         }
+
+
+
+
+
 
 
 
@@ -260,6 +274,20 @@ namespace MCTuristic_Centro_Historico.GUI
             imgEvento.ImageUrl = "~/Recursos/images/FotoEventoPre.png";
         }
 
+        private void CargarDropTipoSitios()
+        {
+            ddlTipoSitio.DataSource = servicio.sitio_WS();
+            ddlTipoSitio.DataValueField = "Código";
+            ddlTipoSitio.DataTextField = "Nombre";
+            ddlTipoSitio.DataBind();
+        }
+
+
+
+        protected void ddlTipoSitio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtIdSitio.Text = ddlTipoSitio.SelectedItem.Value.ToString();
+        }
 
 
 
@@ -274,6 +302,8 @@ namespace MCTuristic_Centro_Historico.GUI
             txtIdSitioEdit.Text = oEvento.IdSitio.ToString();
             txtIdUsuarioEdit.Text = oEvento.IdUsuario.ToString();
             Session["arreglo"] = oEvento.Foto;
+            Session["idSitio"] = oEvento.IdSitio;
+            imgEventoEdit.ImageUrl = ConvertirImagenStringWebUrl((Byte[])Session["arreglo"], "jpg");
         }
 
 
@@ -342,6 +372,11 @@ namespace MCTuristic_Centro_Historico.GUI
                 }
                 ValidarLogin();
             }
+        }
+
+        protected void lbtnNuevo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("GestionEventosUsuarios.aspx");
         }
     }
 }

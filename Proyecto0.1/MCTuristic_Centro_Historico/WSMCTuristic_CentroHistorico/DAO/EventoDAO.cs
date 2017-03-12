@@ -127,7 +127,7 @@ namespace WSMCTuristic_CentroHistorico.DAO
             oEventoBO = (BO.EventoBO)obj;
             conn = new Conexion();
             string sql;
-            sql = "EXEC ver_eventos_user '" + oEventoBO.IdSitio + "', '" + oEventoBO.IdUsuario + "' ";
+            sql = "EXEC ver_eventos_user '" + oEventoBO.IdUsuario + "' ";
             return conn.TablaDS(sql);
         }
 
