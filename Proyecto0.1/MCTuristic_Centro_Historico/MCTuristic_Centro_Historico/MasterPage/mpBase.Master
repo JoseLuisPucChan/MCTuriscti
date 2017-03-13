@@ -21,6 +21,20 @@
     <link href="../Recursos/agileui.com/demo/monarch/assets-minified/admin-all-demo.css" rel="stylesheet" />
 
     <!-- JS Core -->
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+    <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBOYkGt6HTjE8gFCGgltjsZd-g1QhjN-HI",
+    authDomain: "mcturistic-638c9.firebaseapp.com",
+    databaseURL: "https://mcturistic-638c9.firebaseio.com",
+    storageBucket: "mcturistic-638c9.appspot.com",
+    messagingSenderId: "248589474861"
+  };
+  firebase.initializeApp(config);
+
+    </script>
+
     <script src="../Recursos/agileui.com/demo/monarch/assets-minified/js-core.js"></script>
 
     <script src="../Recursos/code.angularjs.org/1.2.13/angular.js"></script>

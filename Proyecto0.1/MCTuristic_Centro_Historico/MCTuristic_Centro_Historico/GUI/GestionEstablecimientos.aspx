@@ -252,12 +252,12 @@
                             <span>Establecimientos</span>
                         </a>
                     </li>
-                    <%--<li>
-                        <a href="../GUI/GestionSitios.aspx" title="Sitios">
-                            <i class="glyph-icon icon-university"></i>
-                            <span>Sitios</span>
+                    <li>
+                        <a href="../GUI/GestionEventosUsuarios.aspx" title="Eventos">
+                            <i class="glyph-icon icon-flag"></i>
+                            <span>Eventos</span>
                         </a>
-                    </li>--%>
+                    </li>
                     <%--<li>
                         <a href="Rutas.aspx" title="Rutas">
                             <i class="glyph-icon icon-road"></i>

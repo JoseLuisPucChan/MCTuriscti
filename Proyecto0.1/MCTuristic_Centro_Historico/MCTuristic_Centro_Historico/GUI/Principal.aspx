@@ -58,7 +58,6 @@
         <div class="scroll-sidebar">
             <ul id="sidebar-menu">
                 <li class="header"><span>Módulos</span></li>
-               
                 <asp:PlaceHolder ID="phAdmin" runat="server" Visible="true">
                     <li>
                         <a href="../GUI/GestionUsuariosGUI.aspx" title="Usuarios">
@@ -100,18 +99,12 @@
                             <span>Establecimientos</span>
                         </a>
                     </li>
-                     <li>
-                        <a href="../GUI/GestionEventosUsuarios.aspx" title="Establecimientos">
-                            <i class="glyph-icon icon-building"></i>
+                    <li>
+                        <a href="../GUI/GestionEventosUsuarios.aspx" title="Eventos">
+                            <i class="glyph-icon icon-flag"></i>
                             <span>Eventos</span>
                         </a>
                     </li>
-<%--                    <li>
-                        <a href="../GUI/GestionSitios.aspx" title="Sitios">
-                            <i class="glyph-icon icon-university"></i>
-                            <span>Sitios</span>
-                        </a>
-                    </li>--%>
                     <%--<li>
                         <a href="Rutas.aspx" title="Rutas">
                             <i class="glyph-icon icon-road"></i>
