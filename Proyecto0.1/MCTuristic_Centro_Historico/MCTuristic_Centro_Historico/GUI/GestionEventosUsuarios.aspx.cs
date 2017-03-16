@@ -8,6 +8,9 @@ using System.Web.UI.WebControls;
 using System.Net;
 using System.IO;
 using System.Text;
+using net.tipstrade.FCMNet.Requests;
+using net.tipstrade.FCMNet.Responses;
+using net.tipstrade.FCMNet.Converters;
 using Newtonsoft.Json;
 using System.Web.Script.Serialization;
 using System.Security.Cryptography.X509Certificates;
@@ -368,8 +371,8 @@ namespace MCTuristic_Centro_Historico.GUI
                     int i = servicio.InsertarEvento(RecuperarDatos());
                     if (i > 0)
                     {
-                        LimpiarControles();
                         generarNotificacion();
+                        LimpiarControles();
                     }
 
                 }
@@ -386,108 +389,124 @@ namespace MCTuristic_Centro_Historico.GUI
             Response.Redirect("GestionEventosUsuarios.aspx");
         }
 
-        //private AndroidFCMPushNotificationStatus generarNotificacion()
-        //{
-        //    AndroidFCMPushNotificationStatus result = new AndroidFCMPushNotificationStatus();
-
-        //    try
-        //    {
-        //        result.Successful = false;
-        //        result.Error = null;
-        //        var serverApiKey = "AAAAOeEWXC0:APA91bFTH3uQ8mNWoFb065DW2zcIqaTVAXo-yNPTZDfh4xIhqLSrA97S14c17ZGxUK1nTGPOx0SFgAxUyLdM3ZBhxdzaJ4A5-2j5GSNzdEaIhRYJ-sHf4DQxP5Io7TYeFoUR4KT1Zvf9";
-        //        var senderId = "248589474861";
-        //        var deviceId = "APA91bHZ2y5MDR8KOISW314tQhVMk84jBJzEzv5I-1vHIZ3fuXLajxBM_WWtUznQ4rdvEBK7-eJVK2V3LKGbVPhz0K9Q1TGyuNai5dR_2Msv29bTvQRsT0KZSHQkgQ5DTrnVUK52223d";
-        //        var value = txtNombre.Text;
-        //        WebRequest tRequest = WebRequest.Create("https://android.googleapis.com/gcm/send ");
-        //        tRequest.Method = "post";
-        //        tRequest.ContentType = "application/json";
-        //        var data = new
-        //        {
-        //            to = deviceId,
-        //            notification = new
-        //            {
-        //                body = "This is the message",
-        //                title = "This is the title",
-        //                icon = "myicon"
-        //            }
-        //        };
-
-        //        var serializer = new JavaScriptSerializer();
-        //        var json = serializer.Serialize(data);
-
-        //        Byte[] byteArray = Encoding.UTF8.GetBytes(json);
-        //        tRequest.Headers.Add(string.Format("Authorization: key={0}", serverApiKey));
-        //        tRequest.Headers.Add(string.Format("Sender: id={0}", senderId));
-                
-        //        tRequest.ContentLength = byteArray.Length;
-
-        //        using (Stream dataStream = tRequest.GetRequestStream())
-        //        {
-        //            dataStream.Write(byteArray, 0, byteArray.Length);
-
-        //            using (WebResponse tResponse = tRequest.GetResponse())
-        //            {
-        //                using (Stream dataStreamResponse = tResponse.GetResponseStream())
-        //                {
-        //                    using (StreamReader tReader = new StreamReader(dataStreamResponse))
-        //                    {
-        //                        String sResponseFromServer = tReader.ReadToEnd();
-        //                        result.Response = sResponseFromServer;
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        result.Successful = false;
-        //        result.Response = null;
-        //        result.Error = ex;
-        //    }
-
-        //    return result;
-        //}
-
-        private void generarNotificacion()
+        private AndroidFCMPushNotificationStatus generarNotificacion()
         {
-            System.Net.ServicePointManager.ServerCertificateValidationCallback += (s, ce, ca, p) => true;
-            String ApiKey = "AAAAOeEWXC0:APA91bFTH3uQ8mNWoFb065DW2zcIqaTVAXo-yNPTZDfh4xIhqLSrA97S14c17ZGxUK1nTGPOx0SFgAxUyLdM3ZBhxdzaJ4A5-2j5GSNzdEaIhRYJ-sHf4DQxP5Io7TYeFoUR4KT1Zvf9";
-            WebRequest webRequest = WebRequest.Create("http://android.googleapis.com/gcm/send");
-            webRequest.Method = "post";
-            webRequest.ContentType = "application/json";
-            webRequest.Headers.Add(String.Format("Authorization:key={0}", ApiKey));
+            AndroidFCMPushNotificationStatus result = new AndroidFCMPushNotificationStatus();
 
-            string[] dispositivos = { "APA91bHZ2y5MDR8KOISW314tQhVMk84jBJzEzv5I-1vHIZ3fuXLajxBM_WWtUznQ4rdvEBK7-eJVK2V3LKGbVPhz0K9Q1TGyuNai5dR_2Msv29bTvQRsT0KZSHQkgQ5DTrnVUK52223d" };
-
-            if (dispositivos.Length > 0)
+            try
             {
-                string PostData = String.Empty;
-                PostData += "{";
-                PostData += " \"delay_while_idle\": false, ";
-                PostData += " \"collapse_key\":\"newNotification\",";
-                PostData += " \"registration_ids : [\"" + String.Join("\",\"", dispositivos) + "\"], ";
-                PostData += " \"data\" : { ";
-                PostData += " \"message\" :\"" + txtNombre.Text + "\"";
-                PostData += "}";
-                PostData += "}";
+                result.Successful = false;
+                result.Error = null;
+                var serverApiKey = "AAAAOeEWXC0:APA91bFTH3uQ8mNWoFb065DW2zcIqaTVAXo-yNPTZDfh4xIhqLSrA97S14c17ZGxUK1nTGPOx0SFgAxUyLdM3ZBhxdzaJ4A5-2j5GSNzdEaIhRYJ-sHf4DQxP5Io7TYeFoUR4KT1Zvf9";
+                var senderId = "248589474861";
+                var deviceId = "dyKviR-V2M0:APA91bHGvttuGsjVOmL9J4ltFwhGCQ7Ri0SjVZ8hEk-dnaVidnjn8Ls7Ya9TTm7dW1rayWFxNRPvUaj7GEvDq0xhuEoCbyR2CWtvqIVRArQhS33CM2_-gIvh6bofXWhjjOt2G0S7HihO";
+                var value = txtNombre.Text;
+                WebRequest tRequest = WebRequest.Create("https://android.googleapis.com/gcm/send ");
+                tRequest.Method = "post";
+                tRequest.ContentType = "application/json";
+                var data = new
+                {
+                    to = deviceId,
+                    notification = new
+                    {
+                        body = txtNombre.Text,
+                        title = "Evento nuevo",
+                        icon = "myicon"
+                    }
+                };
 
-                byte[] arrayByte = Encoding.UTF8.GetBytes(PostData);
-                webRequest.ContentLength = arrayByte.Length;
-                Stream dataStream = webRequest.GetRequestStream();
-                dataStream.Write(arrayByte, 0, arrayByte.Length);
-                dataStream.Close();
+                var serializer = new JavaScriptSerializer();
+                var json = serializer.Serialize(data);
 
-                WebResponse tResponse = webRequest.GetResponse();
-                dataStream = tResponse.GetResponseStream();
-                StreamReader tReader = new StreamReader(dataStream);
-                String sResponseServer = tReader.ReadToEnd();
+                Byte[] byteArray = Encoding.UTF8.GetBytes(json);
+                tRequest.Headers.Add(string.Format("Authorization: key={0}", serverApiKey));
+                tRequest.Headers.Add(string.Format("Sender: id={0}", senderId));
 
-                tReader.Close();
-                dataStream.Close();
-                tResponse.Close();
+                tRequest.ContentLength = byteArray.Length;
+
+                using (Stream dataStream = tRequest.GetRequestStream())
+                {
+                    dataStream.Write(byteArray, 0, byteArray.Length);
+
+                    using (WebResponse tResponse = tRequest.GetResponse())
+                    {
+                        using (Stream dataStreamResponse = tResponse.GetResponseStream())
+                        {
+                            using (StreamReader tReader = new StreamReader(dataStreamResponse))
+                            {
+                                String sResponseFromServer = tReader.ReadToEnd();
+                                result.Response = sResponseFromServer;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Successful = false;
+                result.Response = null;
+                result.Error = ex;
             }
 
+            return result;
         }
+
+        //private void generarNotificacion()
+        //{
+            //Notification notification = new Notification();
+            //Message<Notification> message = new Message<Notification>();
+            //AndroidNotification androidNotification = new AndroidNotification();
+            //Response response = new Response();
+
+            //notification.Title = "Entérate de los eventos";
+            //notification.Body = txtNombre.Text;
+            //message.RegistrationIDs = new string[1];
+            //message.RegistrationIDs[0] = "";
+            //message.Notification = notification;
+            //message.Priority = Priority.High;
+            //message.CollapseKey = "AAAAOeEWXC0:APA91bFTH3uQ8mNWoFb065DW2zcIqaTVAXo-yNPTZDfh4xIhqLSrA97S14c17ZGxUK1nTGPOx0SFgAxUyLdM3ZBhxdzaJ4A5-2j5GSNzdEaIhRYJ-sHf4DQxP5Io7TYeFoUR4KT1Zvf9";
+            //message.RestrictedPackagename = "com.mastercoder.rutas_mcturistic";
+            //response.Results = message.Send("AIzaSyBOYkGt6HTjE8gFCGgltjsZd-g1QhjN-HI").Results;
+            //response.Results = response.Results;
+
+            //System.Net.ServicePointManager.ServerCertificateValidationCallback += (s, ce, ca, p) => true;
+            //String ApiKey = "AAAAOeEWXC0:APA91bFTH3uQ8mNWoFb065DW2zcIqaTVAXo-yNPTZDfh4xIhqLSrA97S14c17ZGxUK1nTGPOx0SFgAxUyLdM3ZBhxdzaJ4A5-2j5GSNzdEaIhRYJ-sHf4DQxP5Io7TYeFoUR4KT1Zvf9";
+            //WebRequest webRequest = WebRequest.Create("http://android.googleapis.com/gcm/send");
+            //webRequest.Method = "post";
+            //webRequest.ContentType = "application/json";
+            //webRequest.Headers.Add(String.Format("Authorization:key={0}", ApiKey));
+
+            //string[] dispositivos = { "APA91bHZ2y5MDR8KOISW314tQhVMk84jBJzEzv5I-1vHIZ3fuXLajxBM_WWtUznQ4rdvEBK7-eJVK2V3LKGbVPhz0K9Q1TGyuNai5dR_2Msv29bTvQRsT0KZSHQkgQ5DTrnVUK52223d" };
+
+            //if (dispositivos.Length > 0)
+            //{
+            //    string PostData = String.Empty;
+            //    PostData += "{";
+            //    PostData += " \"delay_while_idle\": false, ";
+            //    PostData += " \"collapse_key\":\"newNotification\",";
+            //    PostData += " \"registration_ids : [\"" + String.Join("\",\"", dispositivos) + "\"], ";
+            //    PostData += " \"data\" : { ";
+            //    PostData += " \"message\" :\"" + txtNombre.Text + "\"";
+            //    PostData += "}";
+            //    PostData += "}";
+
+            //    byte[] arrayByte = Encoding.UTF8.GetBytes(PostData);
+            //    webRequest.ContentLength = arrayByte.Length;
+            //    Stream dataStream = webRequest.GetRequestStream();
+            //    dataStream.Write(arrayByte, 0, arrayByte.Length);
+            //    dataStream.Close();
+
+            //    WebResponse tResponse = webRequest.GetResponse();
+            //    dataStream = tResponse.GetResponseStream();
+            //    StreamReader tReader = new StreamReader(dataStream);
+            //    String sResponseServer = tReader.ReadToEnd();
+
+            //    tReader.Close();
+            //    dataStream.Close();
+            //    tResponse.Close();
+            //}
+
+        //}
 
         public class AndroidFCMPushNotificationStatus
         {
