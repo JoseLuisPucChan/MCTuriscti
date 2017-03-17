@@ -54,5 +54,17 @@ namespace WSMCTuristic_CentroHistorico.Services
             return oUsuario.Usuario_adminfiltradoDS();
         }
 
+        public int insertar_dispositivo(string token)
+        {
+            oUsuario = new DAO.UsuarioDAO();
+            return oUsuario.insertar_dispositivo(token);
+        }
+
+        public DataSet ver_dispositivos()
+        {
+            oUsuario = new DAO.UsuarioDAO();
+            return oUsuario.ver_dispositivos();
+        }
+
     }
 }

@@ -142,6 +142,8 @@ C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuri
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\DevExpress.Web.ASPxThemes.v16.1.dll
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\DevExpress.Web.Resources.v16.1.dll
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\DevExpress.Web.v16.1.dll
+C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\Firebase-Cloud-Messaging-Net.dll
+C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\Newtonsoft.Json.dll
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\DevExpress.Pdf.v16.1.Core.dll
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\DevExpress.Office.v16.1.Core.dll
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\DevExpress.Pdf.v16.1.Drawing.dll
@@ -149,6 +151,7 @@ C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuri
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\DevExpress.Printing.v16.1.Core.xml
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\DevExpress.RichEdit.v16.1.Core.xml
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\DevExpress.Web.v16.1.xml
+C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\Newtonsoft.Json.xml
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\DevExpress.Pdf.v16.1.Core.xml
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\DevExpress.Office.v16.1.Core.xml
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\DevExpress.Pdf.v16.1.Drawing.xml
@@ -176,10 +179,6 @@ C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuri
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\es\DevExpress.Office.v16.1.Core.resources.dll
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\ja\DevExpress.Office.v16.1.Core.resources.dll
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\ru\DevExpress.Office.v16.1.Core.resources.dll
-C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.csprojResolveAssemblyReference.cache
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.dll.licenses
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.dll
 C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\obj\Debug\MCTuristic_Centro_Historico.pdb
-C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\Newtonsoft.Json.dll
-C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\Firebase-Cloud-Messaging-Net.dll
-C:\Users\Andre\Desktop\MCTuriscti\Proyecto0.1\MCTuristic_Centro_Historico\MCTuristic_Centro_Historico\bin\Newtonsoft.Json.xml

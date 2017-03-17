@@ -948,10 +948,10 @@
     <Folder Include="Recursos\Login\js\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:8296/UI/WsMCTuristic.asmx">
+    <WebReferenceUrl Include="http://mcturisticmerida.somee.com/UI/WsMCTuristic.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\localhost\</RelPath>
-      <UpdateFromURL>http://localhost:8296/UI/WsMCTuristic.asmx</UpdateFromURL>
+      <UpdateFromURL>http://mcturisticmerida.somee.com/UI/WsMCTuristic.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

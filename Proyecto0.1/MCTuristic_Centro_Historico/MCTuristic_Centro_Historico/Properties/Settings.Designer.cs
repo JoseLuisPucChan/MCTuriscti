@@ -26,7 +26,7 @@ namespace MCTuristic_Centro_Historico.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:8296/UI/WsMCTuristic.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://mcturisticmerida.somee.com/UI/WsMCTuristic.asmx")]
         public string MCTuristic_Centro_Historico_localhost_WsMCTuristic {
             get {
                 return ((string)(this["MCTuristic_Centro_Historico_localhost_WsMCTuristic"]));

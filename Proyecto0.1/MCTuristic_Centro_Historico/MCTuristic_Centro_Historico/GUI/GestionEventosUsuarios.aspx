@@ -122,11 +122,11 @@
                                             <Columns>
                              
                                         <dx:GridViewDataColumn FieldName="idEvento" Visible="false" VisibleIndex="5" />
-                                                <dx:GridViewDataColumn FieldName="NombreEvent" VisibleIndex="1" />
-                                                 <dx:GridViewDataColumn FieldName="HoroInicio" Visible="true" VisibleIndex="3" />
-                                                 <dx:GridViewDataColumn FieldName="HoraFinalizacion" VisibleIndex="4" />
-                                                 <dx:GridViewDataColumn FieldName="FechaIncio" Visible="true" VisibleIndex="5" />
-                                                 <dx:GridViewDataColumn FieldName="FechaFinalizacion" VisibleIndex="6" Caption="Facebook" />
+                                                <dx:GridViewDataColumn FieldName="NombreEvent" VisibleIndex="1" Caption="Nombre Evento" />
+                                                 <dx:GridViewDataColumn FieldName="HoroInicio" Visible="true" VisibleIndex="3" Caption="Hora Inicio" />
+                                                 <dx:GridViewDataColumn FieldName="HoraFinalizacion" VisibleIndex="4" Caption="Hora Fin" />
+                                                 <dx:GridViewDataColumn FieldName="FechaIncio" Visible="true" VisibleIndex="5" Caption="Fecha Inicio" />
+                                                 <dx:GridViewDataColumn FieldName="FechaFinalizacion" VisibleIndex="6" Caption="Fecha Fin" />
                                                  <dx:GridViewDataColumn FieldName="Foto" Visible="False" VisibleIndex="7" />
                                                  <dx:GridViewDataColumn FieldName="IdUsuario" Visible="false" VisibleIndex="8" />
                                                  <dx:GridViewDataColumn FieldName="IdSitio" Visible="false" VisibleIndex="9" />

@@ -6,21 +6,21 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAOIEk0ji7E63h+wC3RSU+AAAAAACAAAAAAAQZgAAAAEAACAAAACAjqN17CGtJTyMkRIKYGFTCKThP1A7i2robBclmg51UwAAAAAOgAAAAAIAACAAAACcJs3slyYNGu0bf1xzmtonZFayzuyhsxZBWQkkktTMYiAAAAA7fMtVcfwWOGBe/CfwkXsQvr59ayOd25012zSR/qwQEEAAAABTD/jqaCtjCq+v2/V6fGtP5E/isrmt4Kj7nJ/qSaZXXmQ0/sg7t8kLUV/WIYDiTe00LGgkbCJOTxDTOlnqsn5r</EncryptedPassword>
-    <_PublishTargetUrl>ftp://MCTuristic.somee.com/www.MCTuristic.somee.com</_PublishTargetUrl>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAwHosTdwlmE+Z3qSYX1GODwAAAAACAAAAAAAQZgAAAAEAACAAAABCTsiXMmixqH7nkTUD+FEEtcYyyZmxoULSLzJaH+Up2AAAAAAOgAAAAAIAACAAAAAyMg3RO+bQyH8Cfdt2MnpvPjSc4wNMXiTnT2p8kRCuGiAAAADNKMjUHL7oxcwEOKRhY77FWBzpsZLsHASDTFyH7eeguEAAAADHDKvWZFhuFb4bCLfcuwSw6obiDpvAfVsMRQ6sPbULvcKbfpfqHEETVnBJPLbU/sGybgZu5MOtmR9tfsXmACUU</EncryptedPassword>
+    <_PublishTargetUrl>ftp://mcturisticmerida.somee.com/www.mcturisticmerida.somee.com</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>08/14/2010 14:55:22</publishTime>
+      <publishTime>03/12/2017 15:30:14</publishTime>
     </File>
     <File Include="bin/WSMCTuristic_CentroHistorico.dll">
-      <publishTime>03/09/2017 22:34:14</publishTime>
+      <publishTime>03/16/2017 22:56:28</publishTime>
     </File>
     <File Include="UI/WsMCTuristic.asmx">
-      <publishTime>01/04/2017 16:10:26</publishTime>
+      <publishTime>03/12/2017 15:30:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/08/2017 13:47:19</publishTime>
+      <publishTime>03/16/2017 21:15:37</publishTime>
     </File>
   </ItemGroup>
 </Project>

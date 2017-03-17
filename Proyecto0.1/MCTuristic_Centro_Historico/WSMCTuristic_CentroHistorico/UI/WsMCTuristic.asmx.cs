@@ -650,7 +650,25 @@ namespace WSMCTuristic_CentroHistorico.UI
             return oSuscripcionCTRL.EliminarSuscripcion(oSuscripcion);
         }
         #endregion
+        //------------- Móvil ---------------------------------
+        #region "Acciones móvil"
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void Winsertar_dispositivo(string Token)
+        {
+            oUsuarioCTRL = new Services.CtrlUsuario();
+            oUsuarioCTRL.insertar_dispositivo(Token);
+        }
+        #endregion
 
+        [WebMethod]
+        public DataSet Wver_dispositivos()
+        {
+            oUsuarioCTRL = new Services.CtrlUsuario();
+            return oUsuarioCTRL.ver_dispositivos();
+        }
+
+        
 
         //-----------------Pruebas de web_móvil letra de asignación
         [WebMethod]

@@ -65,7 +65,7 @@
         $(function () {
             "use strict";
             $('.bootstrap-datepicker').bsdatepicker({
-                format: 'dd-mm-yyyy'
+                format: 'mm/dd/yyyy'
             });
         });
 

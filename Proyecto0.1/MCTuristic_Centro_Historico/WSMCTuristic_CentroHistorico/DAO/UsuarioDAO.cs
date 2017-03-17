@@ -179,5 +179,37 @@ namespace WSMCTuristic_CentroHistorico.DAO
             sql = "EXEC ver_usuarios_user " + oUsuario.IdUsuario;
             return conn.TablaDS(sql);
         }
+
+        public int insertar_dispositivo(string token)
+        {
+            cmd = new SqlCommand();
+            conn = new Conexion();
+            cmd.Connection = conn.Establecer();
+            cmd.CommandText = "insertar_dispositivo";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@token", SqlDbType.VarChar).Value = token;
+
+            conn.Abrir();
+            int retorno = cmd.ExecuteNonQuery();
+
+            if (retorno <= 0)
+            {
+                retorno = 0;
+            }
+            else
+            {
+                retorno = 1;
+            }
+
+            return retorno;
+        }
+
+        public DataSet ver_dispositivos()
+        {
+            conn = new Conexion();
+            string sql;
+            sql = "EXEC ver_dispositivos";
+            return conn.TablaDS(sql);
+        }
     }
 }

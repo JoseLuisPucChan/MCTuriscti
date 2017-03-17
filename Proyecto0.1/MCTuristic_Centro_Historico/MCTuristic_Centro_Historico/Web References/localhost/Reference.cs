@@ -168,11 +168,17 @@ namespace MCTuristic_Centro_Historico.localhost {
         
         private System.Threading.SendOrPostCallback EliminarSuscripcionOperationCompleted;
         
-        private System.Threading.SendOrPostCallback ver_servicios_movilOperationCompleted;
+        private System.Threading.SendOrPostCallback Winsertar_dispositivoOperationCompleted;
         
-        private System.Threading.SendOrPostCallback ver_servicios_movil2OperationCompleted;
+        private System.Threading.SendOrPostCallback Wver_dispositivosOperationCompleted;
         
-        private System.Threading.SendOrPostCallback tipoServicioWS_movilOperationCompleted;
+        private System.Threading.SendOrPostCallback Wver_servicios_movilOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Wver_servicios_movil2OperationCompleted;
+        
+        private System.Threading.SendOrPostCallback WtipoServicioWS_movilOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback WverFotoSer_movilOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -420,13 +426,22 @@ namespace MCTuristic_Centro_Historico.localhost {
         public event EliminarSuscripcionCompletedEventHandler EliminarSuscripcionCompleted;
         
         /// <remarks/>
-        public event ver_servicios_movilCompletedEventHandler ver_servicios_movilCompleted;
+        public event Winsertar_dispositivoCompletedEventHandler Winsertar_dispositivoCompleted;
         
         /// <remarks/>
-        public event ver_servicios_movil2CompletedEventHandler ver_servicios_movil2Completed;
+        public event Wver_dispositivosCompletedEventHandler Wver_dispositivosCompleted;
         
         /// <remarks/>
-        public event tipoServicioWS_movilCompletedEventHandler tipoServicioWS_movilCompleted;
+        public event Wver_servicios_movilCompletedEventHandler Wver_servicios_movilCompleted;
+        
+        /// <remarks/>
+        public event Wver_servicios_movil2CompletedEventHandler Wver_servicios_movil2Completed;
+        
+        /// <remarks/>
+        public event WtipoServicioWS_movilCompletedEventHandler WtipoServicioWS_movilCompleted;
+        
+        /// <remarks/>
+        public event WverFotoSer_movilCompletedEventHandler WverFotoSer_movilCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/InsertarUsuario", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -2411,82 +2426,168 @@ namespace MCTuristic_Centro_Historico.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/ver_servicios_movil", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void ver_servicios_movil() {
-            this.Invoke("ver_servicios_movil", new object[0]);
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/Winsertar_dispositivo", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int Winsertar_dispositivo(string Token) {
+            object[] results = this.Invoke("Winsertar_dispositivo", new object[] {
+                        Token});
+            return ((int)(results[0]));
         }
         
         /// <remarks/>
-        public void ver_servicios_movilAsync() {
-            this.ver_servicios_movilAsync(null);
+        public void Winsertar_dispositivoAsync(string Token) {
+            this.Winsertar_dispositivoAsync(Token, null);
         }
         
         /// <remarks/>
-        public void ver_servicios_movilAsync(object userState) {
-            if ((this.ver_servicios_movilOperationCompleted == null)) {
-                this.ver_servicios_movilOperationCompleted = new System.Threading.SendOrPostCallback(this.Onver_servicios_movilOperationCompleted);
+        public void Winsertar_dispositivoAsync(string Token, object userState) {
+            if ((this.Winsertar_dispositivoOperationCompleted == null)) {
+                this.Winsertar_dispositivoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnWinsertar_dispositivoOperationCompleted);
             }
-            this.InvokeAsync("ver_servicios_movil", new object[0], this.ver_servicios_movilOperationCompleted, userState);
+            this.InvokeAsync("Winsertar_dispositivo", new object[] {
+                        Token}, this.Winsertar_dispositivoOperationCompleted, userState);
         }
         
-        private void Onver_servicios_movilOperationCompleted(object arg) {
-            if ((this.ver_servicios_movilCompleted != null)) {
+        private void OnWinsertar_dispositivoOperationCompleted(object arg) {
+            if ((this.Winsertar_dispositivoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.ver_servicios_movilCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.Winsertar_dispositivoCompleted(this, new Winsertar_dispositivoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/ver_servicios_movil2", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void ver_servicios_movil2(string Nombre) {
-            this.Invoke("ver_servicios_movil2", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/Wver_dispositivos", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet Wver_dispositivos() {
+            object[] results = this.Invoke("Wver_dispositivos", new object[0]);
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Wver_dispositivosAsync() {
+            this.Wver_dispositivosAsync(null);
+        }
+        
+        /// <remarks/>
+        public void Wver_dispositivosAsync(object userState) {
+            if ((this.Wver_dispositivosOperationCompleted == null)) {
+                this.Wver_dispositivosOperationCompleted = new System.Threading.SendOrPostCallback(this.OnWver_dispositivosOperationCompleted);
+            }
+            this.InvokeAsync("Wver_dispositivos", new object[0], this.Wver_dispositivosOperationCompleted, userState);
+        }
+        
+        private void OnWver_dispositivosOperationCompleted(object arg) {
+            if ((this.Wver_dispositivosCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Wver_dispositivosCompleted(this, new Wver_dispositivosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/Wver_servicios_movil", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void Wver_servicios_movil() {
+            this.Invoke("Wver_servicios_movil", new object[0]);
+        }
+        
+        /// <remarks/>
+        public void Wver_servicios_movilAsync() {
+            this.Wver_servicios_movilAsync(null);
+        }
+        
+        /// <remarks/>
+        public void Wver_servicios_movilAsync(object userState) {
+            if ((this.Wver_servicios_movilOperationCompleted == null)) {
+                this.Wver_servicios_movilOperationCompleted = new System.Threading.SendOrPostCallback(this.OnWver_servicios_movilOperationCompleted);
+            }
+            this.InvokeAsync("Wver_servicios_movil", new object[0], this.Wver_servicios_movilOperationCompleted, userState);
+        }
+        
+        private void OnWver_servicios_movilOperationCompleted(object arg) {
+            if ((this.Wver_servicios_movilCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Wver_servicios_movilCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/Wver_servicios_movil2", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void Wver_servicios_movil2(string Nombre) {
+            this.Invoke("Wver_servicios_movil2", new object[] {
                         Nombre});
         }
         
         /// <remarks/>
-        public void ver_servicios_movil2Async(string Nombre) {
-            this.ver_servicios_movil2Async(Nombre, null);
+        public void Wver_servicios_movil2Async(string Nombre) {
+            this.Wver_servicios_movil2Async(Nombre, null);
         }
         
         /// <remarks/>
-        public void ver_servicios_movil2Async(string Nombre, object userState) {
-            if ((this.ver_servicios_movil2OperationCompleted == null)) {
-                this.ver_servicios_movil2OperationCompleted = new System.Threading.SendOrPostCallback(this.Onver_servicios_movil2OperationCompleted);
+        public void Wver_servicios_movil2Async(string Nombre, object userState) {
+            if ((this.Wver_servicios_movil2OperationCompleted == null)) {
+                this.Wver_servicios_movil2OperationCompleted = new System.Threading.SendOrPostCallback(this.OnWver_servicios_movil2OperationCompleted);
             }
-            this.InvokeAsync("ver_servicios_movil2", new object[] {
-                        Nombre}, this.ver_servicios_movil2OperationCompleted, userState);
+            this.InvokeAsync("Wver_servicios_movil2", new object[] {
+                        Nombre}, this.Wver_servicios_movil2OperationCompleted, userState);
         }
         
-        private void Onver_servicios_movil2OperationCompleted(object arg) {
-            if ((this.ver_servicios_movil2Completed != null)) {
+        private void OnWver_servicios_movil2OperationCompleted(object arg) {
+            if ((this.Wver_servicios_movil2Completed != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.ver_servicios_movil2Completed(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.Wver_servicios_movil2Completed(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/tipoServicioWS_movil", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void tipoServicioWS_movil() {
-            this.Invoke("tipoServicioWS_movil", new object[0]);
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/WtipoServicioWS_movil", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void WtipoServicioWS_movil() {
+            this.Invoke("WtipoServicioWS_movil", new object[0]);
         }
         
         /// <remarks/>
-        public void tipoServicioWS_movilAsync() {
-            this.tipoServicioWS_movilAsync(null);
+        public void WtipoServicioWS_movilAsync() {
+            this.WtipoServicioWS_movilAsync(null);
         }
         
         /// <remarks/>
-        public void tipoServicioWS_movilAsync(object userState) {
-            if ((this.tipoServicioWS_movilOperationCompleted == null)) {
-                this.tipoServicioWS_movilOperationCompleted = new System.Threading.SendOrPostCallback(this.OntipoServicioWS_movilOperationCompleted);
+        public void WtipoServicioWS_movilAsync(object userState) {
+            if ((this.WtipoServicioWS_movilOperationCompleted == null)) {
+                this.WtipoServicioWS_movilOperationCompleted = new System.Threading.SendOrPostCallback(this.OnWtipoServicioWS_movilOperationCompleted);
             }
-            this.InvokeAsync("tipoServicioWS_movil", new object[0], this.tipoServicioWS_movilOperationCompleted, userState);
+            this.InvokeAsync("WtipoServicioWS_movil", new object[0], this.WtipoServicioWS_movilOperationCompleted, userState);
         }
         
-        private void OntipoServicioWS_movilOperationCompleted(object arg) {
-            if ((this.tipoServicioWS_movilCompleted != null)) {
+        private void OnWtipoServicioWS_movilOperationCompleted(object arg) {
+            if ((this.WtipoServicioWS_movilCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.tipoServicioWS_movilCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.WtipoServicioWS_movilCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://MCTuristic.org/WverFotoSer_movil", RequestNamespace="http://MCTuristic.org/", ResponseNamespace="http://MCTuristic.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
+        public byte[] WverFotoSer_movil(int Ser) {
+            object[] results = this.Invoke("WverFotoSer_movil", new object[] {
+                        Ser});
+            return ((byte[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void WverFotoSer_movilAsync(int Ser) {
+            this.WverFotoSer_movilAsync(Ser, null);
+        }
+        
+        /// <remarks/>
+        public void WverFotoSer_movilAsync(int Ser, object userState) {
+            if ((this.WverFotoSer_movilOperationCompleted == null)) {
+                this.WverFotoSer_movilOperationCompleted = new System.Threading.SendOrPostCallback(this.OnWverFotoSer_movilOperationCompleted);
+            }
+            this.InvokeAsync("WverFotoSer_movil", new object[] {
+                        Ser}, this.WverFotoSer_movilOperationCompleted, userState);
+        }
+        
+        private void OnWverFotoSer_movilOperationCompleted(object arg) {
+            if ((this.WverFotoSer_movilCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.WverFotoSer_movilCompleted(this, new WverFotoSer_movilCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -5549,15 +5650,93 @@ namespace MCTuristic_Centro_Historico.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void ver_servicios_movilCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void Winsertar_dispositivoCompletedEventHandler(object sender, Winsertar_dispositivoCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void ver_servicios_movil2CompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Winsertar_dispositivoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Winsertar_dispositivoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void tipoServicioWS_movilCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void Wver_dispositivosCompletedEventHandler(object sender, Wver_dispositivosCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Wver_dispositivosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Wver_dispositivosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void Wver_servicios_movilCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void Wver_servicios_movil2CompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void WtipoServicioWS_movilCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void WverFotoSer_movilCompletedEventHandler(object sender, WverFotoSer_movilCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class WverFotoSer_movilCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal WverFotoSer_movilCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public byte[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((byte[])(this.results[0]));
+            }
+        }
+    }
 }
 
 #pragma warning restore 1591
