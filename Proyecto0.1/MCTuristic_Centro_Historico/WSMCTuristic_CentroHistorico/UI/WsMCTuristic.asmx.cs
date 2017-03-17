@@ -5,9 +5,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
-using System.Web.Script.Serialization;  
+using System.Web.Script.Serialization;
 using WSMCTuristic_CentroHistorico.BO;
 using Newtonsoft.Json;
+using System.Drawing;
 
 namespace WSMCTuristic_CentroHistorico.UI
 {
@@ -651,10 +652,10 @@ namespace WSMCTuristic_CentroHistorico.UI
         #endregion
 
 
-        //-----------------Pruebas de web_móvil
+        //-----------------Pruebas de web_móvil letra de asignación
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public void ver_servicios_movil()
+        public void Wver_servicios_movil()
         {
              
             oServicioCTRL = new Services.CtrlServicio();
@@ -677,7 +678,7 @@ namespace WSMCTuristic_CentroHistorico.UI
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public void ver_servicios_movil2(string Nombre)
+        public void Wver_servicios_movil2(string Nombre)
         {
 
             oServicioCTRL = new Services.CtrlServicio();
@@ -702,7 +703,7 @@ namespace WSMCTuristic_CentroHistorico.UI
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 
-        public void tipoServicioWS_movil()
+        public void WtipoServicioWS_movil()
         {
             oTipoServicioCTRL = new Services.CtrlTipoServicio();
             
@@ -727,11 +728,32 @@ namespace WSMCTuristic_CentroHistorico.UI
         }
 
 
+       
 
+        //Recuperara imagenes Servicios.
+        [WebMethod]
+        public byte[] WverFotoSer_movil(int Ser)
+        {
+            oServicioCTRL = new Services.CtrlServicio();
+            //return oServicioCTRL.verfoto(Ser);
+            byte[] foto = oServicioCTRL.verfoto(Ser);
+            ImageConverter ic = new  ImageConverter();
+            Image img = (Image)ic.ConvertFrom(foto);
+                //creamos un bitmap con el nuevo tamaño
+            Bitmap vBitmap = new Bitmap(150, 150);
+            //creamos un graphics tomando como base el nuevo Bitmap
+            using (Graphics vGraphics = Graphics.FromImage((Image)vBitmap))
+            {
+                //especificamos el tipo de transformación, se escoge esta para no perder calidad.
+                //Se dibuja la nueva imagen
+                vGraphics.DrawImage(img, 0, 0, 150, 150);
 
-
-
-
+            } //retornamos la nueva imagen
+            Image ImagenRS  =(Image)vBitmap;
+            ImageConverter _imageConverter = new ImageConverter();
+            byte[] xByte = (byte[])_imageConverter.ConvertTo(ImagenRS, typeof(byte[]));
+            return xByte;
+         }
 
 
 
